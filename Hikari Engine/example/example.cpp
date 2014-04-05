@@ -1,0 +1,46 @@
+#include <Windows.h>
+#include <iostream>
+#include "ExampleApplication.h"
+#include "Exception.h"
+
+/**
+	\fn int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+	\brief					G³ówna funkcja WINAPI, jej zadaniem jest uruchomienie przyk³adowej aplikacji. Makro WINAPI powoduje odwrócenie kolejnoœci parametrów (z prawo-lewo na lewo-prawo)
+	\param	hInstance		uchwyt do instancji aplikacji (wype³niane przez system przy uruchomieniu pliku wykonywalnego)
+	\param	hPrevInstance	niby uchwyt do poprzedniej instancji, w praktyce NULL
+	\param	lpCmdLine		wskaŸnik na ci¹g znaków zawieraj¹cy argumenty
+	\param	nCmdShow		okreœla co powinno staæ siê z oknem: <ul><li>SW_SHOWNORMAL - aktywuje i wyœwietla je (przekazywane na starcie)</li><li>SW_SHOW - aktywuje i wyœwietla je w aktualnym miejscu</li><li>SW_HIDE - ukrywa je i aktywuje inne okno</li><li>SW_MAXIMIZE - maksymalizuje wybrane okno</li><li>SW_MINIMIZE - minimalizuje okno i aktywuje okno które by³o pod nim</li><li>SW_RESTORE - jeœli okno by³o zminimalizowane/zmaksymalizowane, zostanie przywrócone do poprzedniego rozmiaru i po³o¿enia</li><li>SW_SHOWMAXIMIZED - aktywuje i wyœwietla zmaksymalizowane</li><li>SW_SHOWMINIMIZED - aktywuje i wyœwietla zminimalizowane</li><li>SW_SHOWMINNOACTIVE - jak SW_SHOWMINIMIZED ale nie aktywuje okna</li><li>SW_SHOWNA - jak SW_SHOW, ale nie aktywuje</li><li>SW_SHOWNOACTIVE - jak SW_SHOWNORMAL, ale nie aktywuje</li></ul>
+*/
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+{
+	Application *application = new ExampleApplication();
+
+	ExampleApplication *eApp = dynamic_cast<ExampleApplication*>(application);
+	if(eApp == NULL)
+	{
+		std::cerr << "Nie udalo sie dokonac dynamic_cast na ExampleApplication* (niezgodnosc typow)" << std::endl;
+		system("PAUSE");
+		return -1;
+	}
+	
+	try
+	{
+		#ifdef _DEBUG
+			std::cout << "setup() przykladowej aplikacji" << std::endl;
+		#endif
+		eApp->setup(hInstance, lpCmdLine, nCmdShow);
+	}
+	catch(Exception& e)
+	{
+		std::cerr << "Przechwycono wyjatek " << e.type() << ": " << e.message() << std::endl;
+		system("PAUSE");
+		return -1;
+	}
+
+	#ifdef _DEBUG
+		std::cout << "Uruchamianie przykladowej aplikacji" << std::endl;
+	#endif
+	application->run();
+
+	return 0;
+}

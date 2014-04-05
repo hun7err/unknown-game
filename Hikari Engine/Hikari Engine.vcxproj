@@ -10,6 +10,17 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="example\example.cpp" />
+    <ClCompile Include="example\ExampleApplication.cpp" />
+    <ClCompile Include="example\Exception.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="example\Application.h" />
+    <ClInclude Include="example\ExampleApplication.h" />
+    <ClInclude Include="example\Exception.h" />
+    <ClInclude Include="example\WrongArgumentException.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B176FA67-7620-4117-9966-B8B55373B9C5}</ProjectGuid>
     <RootNamespace>HikariEngine</RootNamespace>
@@ -65,8 +76,6 @@
       <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

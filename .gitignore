@@ -1,2 +1,13 @@
 *.sdf
 *.opensdf
+Hikari Engine/Debug/CL.read.1.tlog
+*.tlog
+*.exe
+*.obj
+*.log
+*.lastbuildstate
+*.user
+*.pdb
+*.idb
+*.ilk
+Hikari Engine/Hikari Engine.vcxproj.filters
