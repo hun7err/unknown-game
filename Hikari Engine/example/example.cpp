@@ -13,9 +13,9 @@
 */
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	Application *application = new ExampleApplication();
+	Application *application = new ExampleApplication();	///< przyk³adowa aplikacja (z dostêpn¹ tylko i wy³¹cznie metod¹ run() )
 
-	ExampleApplication *eApp = dynamic_cast<ExampleApplication*>(application);
+	ExampleApplication *eApp = dynamic_cast<ExampleApplication*>(application);	///< przyk³adowa aplikacja ze wszystkimi dostêpnymi metodami lub NULL (jeœli nie uda³o siê zrzutowaæ na ExampleApplication*)
 	if(eApp == NULL)
 	{
 		std::cerr << "Nie udalo sie dokonac dynamic_cast na ExampleApplication* (niezgodnosc typow)" << std::endl;
@@ -28,9 +28,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		#ifdef _DEBUG
 			std::cout << "setup() przykladowej aplikacji" << std::endl;
 		#endif
-		eApp->setup(hInstance, lpCmdLine, nCmdShow);
+		eApp->setup(hInstance, lpCmdLine, nCmdShow);	///< konfiguracja aplikacji; moglibyœmy teoretycznie zrobiæ to w konstruktorze, ale nie mo¿na by³oby wtedy obs³u¿yæ ewentualnych b³êdów
 	}
-	catch(Exception& e)
+	catch(Exception& e /**< wyj¹tek podczas konfiguracji aplikacji */)
 	{
 		std::cerr << "Przechwycono wyjatek " << e.type() << ": " << e.message() << std::endl;
 		system("PAUSE");
@@ -40,7 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	#ifdef _DEBUG
 		std::cout << "Uruchamianie przykladowej aplikacji" << std::endl;
 	#endif
-	application->run();
+	application->run();	///< uruchamiamy aplikacjê
 
 	return 0;
 }
