@@ -11,3 +11,6 @@ Hikari Engine/Debug/CL.read.1.tlog
 *.idb
 *.ilk
 Hikari Engine/Hikari Engine.vcxproj.filters
+UnitTests/UnitTests.vcxproj.filters
+Hikari Engine/Hikari Engine.v11.suo
+*.suo
