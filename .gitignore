@@ -1,5 +1,6 @@
 *.sdf
 *.opensdf
+*.filters
 Hikari Engine/Debug/CL.read.1.tlog
 *.tlog
 *.exe
