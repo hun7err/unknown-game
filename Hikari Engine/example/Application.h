@@ -8,7 +8,7 @@
 
 class Application {
 	public:
-		virtual void run(void) = 0; ///< uruchamia aplikacje (ciê¿ko by³o siê domyœliæ, nie?)
+		virtual void run(void) = 0; ///< uruchamia aplikacje (ciê¿ko by³o siê domyœliæ, nie? :P)
 };
 
 #endif // __APPLICATION_H__

@@ -1,5 +1,5 @@
 #include "ExampleApplication.h"
-#include "WrongArgumentException.h"
+#include "../WrongArgumentException.h"
 
 ExampleApplication::ExampleApplication() {}
 
