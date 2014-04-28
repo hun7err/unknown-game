@@ -49,3 +49,4 @@ bool Hikari::WinAPIInput::isKeyDown(unsigned int key)
 	}
 	return m_Keys[key];
 }
+
