@@ -1,5 +1,6 @@
 #include "ExampleApplication.h"
-#include "WrongArgumentException.h"
+#include "../WrongArgumentException.h"
+#include "../Engine.h"
 
 ExampleApplication::ExampleApplication() {}
 
@@ -24,6 +25,27 @@ void ExampleApplication::setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdSho
 
 void ExampleApplication::run(void)
 {
+	Hikari::Engine* engine;
+	bool result;
+
+	engine = new Hikari::Engine();
+	if(!engine)
+	{
+		throw new Exception("Could not create Hikari::Engine instance", "EngineInitException");
+	}
+
+	engine->Setup().setWindowTitle("Example application");
+
+	engine->Run();
+
+	// to-do:
+	// - przepisaæ wszystko z engine, aby bardziej by³o silnikiem ni¿ frameworkiem
+	// - wielkie litery zmienic na male na poczatku linii
+
+	engine->Shutdown();
+	delete engine;
+	engine = NULL;
+
 	// g³ówna czêœæ aplikacji
 }
 
