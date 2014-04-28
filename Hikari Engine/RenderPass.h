@@ -21,7 +21,7 @@ namespace Hikari {
 			/** \brief	Dodaje pojedynczy cel */
 			RenderPass& addRenderTarget(ID3D11RenderTargetView* pRenderTarget /** \brief element do dodania */);
 			/** \brief	Usuwa pojedynczy element z listy celów */
-			RenderPass& removeRenderTarget(unsigned int index);
+			RenderPass& removeRenderTarget(unsigned int index /** \brief Indeks elementu, który ma zostaæ usuniêty */);
 
 
 			RenderPass();

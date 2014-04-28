@@ -2,6 +2,8 @@
 #define ENGINE_H
 
 #include <Windows.h>
+#include "WinAPIWindow.h"
+#include "Renderer.h"
 
 /*
 	to-do:
@@ -20,9 +22,12 @@ namespace Hikari
 			Engine(const Engine&);
 			~Engine();
 
-			void Setup();
+			Engine& Setup();
 			void Shutdown();
 			void Run();
+
+			Engine& setWindowTitle(const char* title);
+			Engine& setWindowSize(unsigned int width, unsigned int height);
 
 			LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
 
@@ -36,7 +41,8 @@ namespace Hikari
 			HWND m_hwnd;
 
 			WinAPIInput* m_Input;
-			GraphicsClass* m_Graphics;
+			Renderer* m_Renderer;
+			WinAPIWindow* m_Window;
 	};
 
 	static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

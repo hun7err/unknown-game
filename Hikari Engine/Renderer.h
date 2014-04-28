@@ -11,7 +11,8 @@ namespace Hikari {
 	*/
 	class Renderer {
 		public:
-			virtual void render() = 0;
+			/** \brief	Metoda wirtualna odpowiadaj¹ca za odpalenie kolejnych passów renderera */
+			virtual bool render() = 0;
 
 		protected:
 			std::vector<RenderPass*> m_RenderPasses;

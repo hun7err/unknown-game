@@ -3,7 +3,7 @@
 
 Hikari::Engine::Engine()
 {
-	m_Input = m_Graphics = NULL;
+	m_Input = m_Window = m_Renderer = NULL;
 }
 
 Hikari::Engine::Engine(const Engine& engine)
@@ -14,7 +14,7 @@ Hikari::Engine::~Engine()
 {
 }
 
-void Hikari::Engine::Setup()
+Hikari::Engine& Hikari::Engine::Setup()
 {
 	int screenWidth, screenHeight;
 
@@ -22,22 +22,33 @@ void Hikari::Engine::Setup()
 
 	InitializeWindows(screenWidth, screenHeight);
 
-	m_Input = new WinAPIInput;
+	m_Input = new WinAPIInput();
 	if(!m_Input)
 	{
 		throw new Exception("Could not initialize WinAPI input", "EngineInitializationException");
 	}
 
-	m_Graphics->Initialize(screenWidth, screenHeight, m_hwnd);
+	m_Input->Setup();
+
+	m_Window = new WinAPIWindow("tutaj przekazac title z Engine, dodac setter do tytulu");
+
+	if(!m_Window)
+	{
+		throw new Exception("Could not create WinAPI window", "WindowCreationException");
+	}
+
+	m_Window->Setup(m_hwnd);
+
+	return *this;
 }
 
 void Hikari::Engine::Shutdown()
 {
-	if(m_Graphics)
+	if(m_Window)
 	{
-		m_Graphics->Shutdown();
-		delete m_Graphics;
-		m_Graphics = NULL;
+		m_Window->Shutdown();
+		delete m_Window;
+		m_Window = NULL;
 	}
 
 	if(m_Input)
@@ -91,7 +102,9 @@ bool Hikari::Engine::Frame()
 		return false;
 	}
 
-	result = m_Graphics->Frame(); // zamieniæ na Renderer->render();
+	//result = m_Graphics->Frame(); // zamieniæ na Renderer->render();
+	result = m_Renderer->render();
+
 	if(!result)
 	{
 		return false;
@@ -121,6 +134,16 @@ LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND hwnd, UINT umsg, WPARAM wpa
 			return DefWindowProc(hwnd, umsg, wparam, lparam);
 		}
 	}
+}
+
+Hikari::Engine& Hikari::Engine::setWindowTitle(const char *title)
+{
+	m_Window->setTitle(title);
+}
+
+Hikari::Engine& Hikari::Engine::setWindowSize(unsigned int width, unsigned int height)
+{
+	m_Window->setSize(width, height);
 }
 
 // InitializeWindows
