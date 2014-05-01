@@ -1,8 +1,9 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
-#include <Windows.hpp>
+#include <Windows.h>
 #include "WinAPIWindow.hpp"
+#include "WinAPIInput.hpp"
 #include "Renderer.hpp"
 
 /*
