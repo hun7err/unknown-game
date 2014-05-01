@@ -5,6 +5,7 @@
 #include "WinAPIWindow.hpp"
 #include "WinAPIInput.hpp"
 #include "Renderer.hpp"
+#include "ObjectManager.hpp"
 
 /*
 	to-do:
@@ -27,6 +28,8 @@ namespace Hikari
 			void Shutdown();
 			void Run();
 
+			ObjectManager* objects(void);
+
 			Engine& setWindowTitle(const char* title);
 			Engine& setWindowSize(unsigned int width, unsigned int height);
 
@@ -43,6 +46,8 @@ namespace Hikari
 
 			WinAPIInput* m_Input;
 			Renderer* m_Renderer;
+			ObjectManager* m_ObjectManager;
+
 			WinAPIWindow* m_Window;
 	};
 
