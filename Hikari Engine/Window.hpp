@@ -1,8 +1,8 @@
-#ifndef __WINDOW_H__
-#define __WINDOW_H__
+#ifndef __WINDOW_HPP__
+#define __WINDOW_HPP__
 
 #include <string>
-#include "Point.h"
+#include "Vector.hpp"
 
 namespace Hikari {
 	class Window {
@@ -11,8 +11,8 @@ namespace Hikari {
 			Window(std::string title, unsigned int width = 800, unsigned int height = 600, unsigned int posX = 0, unsigned int posY = 0): m_Title(title), m_Width(width), m_Height(height), m_PosX(posX), m_PosY(posY) {}
 
 			Window& setPosition(int x, int y);
-			Window& setPosition(Point2D& point);
-			Point2D getPosition(void);
+			Window& setPosition(Vector2D& point);
+			Vector2D getPosition(void);
 			std::string getTitle(void);
 			Window& setTitle(const char* title);
 			Window& setTitle(std::string title);
@@ -27,4 +27,4 @@ namespace Hikari {
 	};
 }
 
-#endif // __WINDOW_H__
+#endif // __WINDOW_HPP__

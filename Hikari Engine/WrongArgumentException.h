@@ -1,11 +1,11 @@
-#ifndef __WRONGARGUMENTEXCEPTION_H__
-#define __WRONGARGUMENTEXCEPTION_H__
+#ifndef __WRONGARGUMENTEXCEPTION_HPP__
+#define __WRONGARGUMENTEXCEPTION_HPP__
 
-#include "Exception.h"
+#include "Exception.hpp"
 
 class WrongArgumentException : public Exception {
 	public:
 		WrongArgumentException(char* message): Exception(message, "WrongArgumentException") {}
 };
 
-#endif // __WRONGARGUEMNTEXCEPTION_H__
+#endif // __WRONGARGUEMNTEXCEPTION_HPP__

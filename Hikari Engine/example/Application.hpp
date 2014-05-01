@@ -1,5 +1,5 @@
-#ifndef __APPLICATION_H__
-#define __APPLICATION_H__
+#ifndef __APPLICATION_HPP__
+#define __APPLICATION_HPP__
 
 /**
 	\class	Application
@@ -11,4 +11,4 @@ class Application {
 		virtual void run(void) = 0; ///< uruchamia aplikacje (ciê¿ko by³o siê domyœliæ, nie? :P)
 };
 
-#endif // __APPLICATION_H__
+#endif // __APPLICATION_HPP__

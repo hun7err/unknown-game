@@ -1,5 +1,5 @@
-#ifndef __WINAPI_INPUT_H__
-#define __WINAPI_INPUT_H__
+#ifndef __WINAPI_INPUT_HPP__
+#define __WINAPI_INPUT_HPP__
 
 namespace Hikari {
 	class WinAPIInput {
@@ -20,4 +20,4 @@ namespace Hikari {
 	};
 }
 
-#endif // __WINAPI_INPUT_H__
+#endif // __WINAPI_INPUT_HPP__

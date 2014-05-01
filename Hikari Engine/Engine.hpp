@@ -1,9 +1,9 @@
-#ifndef ENGINE_H
-#define ENGINE_H
+#ifndef ENGINE_HPP
+#define ENGINE_HPP
 
-#include <Windows.h>
-#include "WinAPIWindow.h"
-#include "Renderer.h"
+#include <Windows.hpp>
+#include "WinAPIWindow.hpp"
+#include "Renderer.hpp"
 
 /*
 	to-do:
@@ -50,4 +50,4 @@ namespace Hikari
 	static Engine* ApplicationHandle = 0;
 }
 
-#endif // ENGINE_H
+#endif // ENGINE_HPP

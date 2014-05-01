@@ -1,7 +1,7 @@
-#ifndef __EXAMPLEAPPLICATION_H__
-#define __EXAMPLEAPPLICATION_H__
+#ifndef __EXAMPLEAPPLICATION_HPP__
+#define __EXAMPLEAPPLICATION_HPP__
 
-#include "Application.h"
+#include "Application.hpp"
 #include <Windows.h>
 
 /**
@@ -21,4 +21,4 @@ class ExampleApplication : public Application {
 		int m_nCmdShow;			///< tryb wyœwietlania okna
 };
 
-#endif // __EXAMPLEAPPLICATION_H__
+#endif // __EXAMPLEAPPLICATION_HPP__

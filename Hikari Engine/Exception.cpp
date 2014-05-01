@@ -1,4 +1,4 @@
-#include "Exception.h"
+#include "Exception.hpp"
 
 Exception::Exception(char* pMessage, char* pType): m_pMessage(pMessage), m_pType(pType)
 {

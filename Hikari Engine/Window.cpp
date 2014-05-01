@@ -1,4 +1,4 @@
-#include "Window.h"
+#include "Window.hpp"
 
 Hikari::Window& Hikari::Window::setPosition(int x, int y)
 {
@@ -8,7 +8,7 @@ Hikari::Window& Hikari::Window::setPosition(int x, int y)
 	return *this;
 }
 
-Hikari::Window& Hikari::Window::setPosition(Hikari::Point2D& point)
+Hikari::Window& Hikari::Window::setPosition(Hikari::Vector2D& point)
 {
 	m_PosX = point.x();
 	m_PosY = point.y();
@@ -16,9 +16,9 @@ Hikari::Window& Hikari::Window::setPosition(Hikari::Point2D& point)
 	return *this;
 }
 
-Hikari::Point2D Hikari::Window::getPosition()
+Hikari::Vector2D Hikari::Window::getPosition()
 {
-	return Point2D(m_PosX, m_PosY);
+	return Vector2D(m_PosX, m_PosY);
 }
 
 std::string Hikari::Window::getTitle(void)

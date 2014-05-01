@@ -40,7 +40,7 @@ void ExampleApplication::run(void)
 
 	// to-do:
 	// - przepisaæ wszystko z engine, aby bardziej by³o silnikiem ni¿ frameworkiem
-	// - wielkie litery zmienic na male na poczatku linii
+	// - wielkie litery zmienic na male na poczatku linii w metodach
 
 	engine->Shutdown();
 	delete engine;

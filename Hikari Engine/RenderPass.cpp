@@ -1,5 +1,5 @@
-#include "RenderPass.h"
-#include "Exception.h"
+#include "RenderPass.hpp"
+#include "Exception.hpp"
 
 Hikari::RenderPass::RenderPass()
 {

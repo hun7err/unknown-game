@@ -1,5 +1,5 @@
-#include "WinAPIInput.h"
-#include "Exception.h"
+#include "WinAPIInput.hpp"
+#include "Exception.hpp"
 
 Hikari::WinAPIInput::WinAPIInput()
 {

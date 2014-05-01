@@ -1,5 +1,5 @@
-#ifndef __EXCEPTION_H__
-#define __EXCEPTION_H__
+#ifndef __EXCEPTION_HPP__
+#define __EXCEPTION_HPP__
 
 /**
 	\class Exception
@@ -16,4 +16,4 @@ class Exception {
 		char* m_pType;		///< typ wyj¹tku, najlepiej jeœli bêdzie to nazwa klasy (np. WrongArgumentException, IllegalOperationException itp.)
 };
 
-#endif // __EXCEPTION_H__
+#endif // __EXCEPTION_HPP__

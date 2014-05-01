@@ -1,7 +1,7 @@
 #ifndef __WINAPI_WINDOW_H__
 #define __WINAPI_WINDOW_H__
 
-#include "Window.h"
+#include "Window.hpp"
 #include <Windows.h>
 
 namespace Hikari {

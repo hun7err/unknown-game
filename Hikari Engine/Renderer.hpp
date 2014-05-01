@@ -1,8 +1,8 @@
-#ifndef __RENDERER_H__
-#define __RENDERER_H__
+#ifndef __RENDERER_HPP__
+#define __RENDERER_HPP__
 
 #include <vector>
-#include "RenderPass.h"
+#include "RenderPass.hpp"
 
 namespace Hikari {
 	/**
@@ -19,4 +19,4 @@ namespace Hikari {
 	};
 }
 
-#endif // __RENDERER_H__
+#endif // __RENDERER_HPP__

@@ -1,5 +1,5 @@
-#include "Engine.h"
-#include "Exception.h"
+#include "Engine.hpp"
+#include "Exception.hpp"
 
 Hikari::Engine::Engine()
 {

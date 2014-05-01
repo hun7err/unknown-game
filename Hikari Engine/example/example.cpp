@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <iostream>
-#include "ExampleApplication.h"
-#include "../Exception.h"
+#include "ExampleApplication.hpp"
+#include "../Exception.hpp"
 
 /**
 	\fn int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
