@@ -6,6 +6,11 @@
 namespace Hikari {
 	class Object {
 		public:
+			Object();
+			Object(std::string name);
+
+			virtual ~Object();
+
 			std::string name(void);
 			void name(std::string name);
 

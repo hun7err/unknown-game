@@ -1,47 +1,54 @@
 #include "Window.hpp"
 
-Hikari::Window& Hikari::Window::setPosition(int x, int y)
+void Hikari::Window::position(int x, int y)
 {
 	m_PosX = x;
 	m_PosY = y;
-
-	return *this;
 }
 
-Hikari::Window& Hikari::Window::setPosition(Hikari::Vector2D& point)
+void Hikari::Window::position(Hikari::Vector2D& point)
 {
 	m_PosX = point.x();
 	m_PosY = point.y();
-
-	return *this;
 }
 
-Hikari::Vector2D Hikari::Window::getPosition()
+Hikari::Vector2D& Hikari::Window::position()
 {
 	return Vector2D(m_PosX, m_PosY);
 }
 
-std::string Hikari::Window::getTitle(void)
+std::string Hikari::Window::title(void)
 {
 	return m_Title;
 }
 
-Hikari::Window& Hikari::Window::setTitle(const char* title)
+void Hikari::Window::title(const char* title)
 {
 	m_Title = std::string(title);
-
-	return *this;
 }
 
-Hikari::Window& Hikari::Window::setTitle(std::string title)
+void Hikari::Window::title(std::string title)
 {
 	m_Title = title;
-
-	return *this;
 }
 
-Hikari::Window& Hikari::Window::setSize(unsigned int width, unsigned int height)
+void Hikari::Window::size(unsigned int width, unsigned int height)
 {
 	m_Width = width;
 	m_Height = height;
+}
+
+Hikari::Vector2D& Hikari::Window::size(void)
+{
+	return Vector2D(m_Width, m_Height);
+}
+
+void Hikari::Window::fullscreen(bool fullscreen)
+{
+	m_Fullscreen = fullscreen;
+}
+
+bool Hikari::Window::fullscreen(void)
+{
+	return m_Fullscreen;
 }

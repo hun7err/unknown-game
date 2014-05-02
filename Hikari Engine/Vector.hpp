@@ -18,12 +18,12 @@ namespace Hikari {
 	class Vector3D : public Vector2D {
 		public:
 			Vector3D(int x, int y, int z): Vector2D(x, y), m_z(z) {}
-			Vector3D(const Vector3D& vector): Vector2D(vector.m_x, vector.m_y), m_z(vector.m_z) {}
+			Vector3D(const Vector3D& rVector): Vector2D(rVector.m_x, rVector.m_y), m_z(rVector.m_z) {}
 
 			int z(void) { return m_z; }
 			void z(int z) { m_z = z; }
 
-			Vector3D& operator- (Vector3D& other) { return Vector3D(m_x - other.m_x, m_y - other.m_y, m_z - other.m_z); }
+			Vector3D& operator- (const Vector3D& rOther) { return Vector3D(m_x - rOther.m_x, m_y - rOther.m_y, m_z - rOther.m_z); }
 		protected:
 			int m_z;
 	};
@@ -31,8 +31,8 @@ namespace Hikari {
 	class Vector4D : public Vector3D {
 		public:
 			Vector4D(int x, int y, int z, int w): Vector3D(x, y, z), m_w(w) {}
-			Vector4D(Vector3D& vector, int w): Vector3D(vector), m_w(w) {}
-			Vector4D(Vector3D& start, Vector3D& end): Vector3D(start-end), m_w(0) {} // czy na pewno 0 to wektor?
+			Vector4D(Vector3D& rVector, int w): Vector3D(rVector), m_w(w) {}
+			Vector4D(Vector3D& rStart, Vector3D& rEnd): Vector3D(rEnd - rStart), m_w(0) {} // czy na pewno 0 to wektor?
 
 			int w(void) { return m_w; }
 

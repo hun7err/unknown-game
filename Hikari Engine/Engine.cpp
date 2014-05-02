@@ -1,149 +1,128 @@
 #include "Engine.hpp"
 #include "Exception.hpp"
 
-Hikari::Engine::Engine()
+Hikari::Engine::Engine(void)
 {
-	m_Input = m_Window = m_Renderer = NULL;
+	m_pRenderer = NULL;
+	m_pObjectManager = NULL;
 }
 
-Hikari::Engine::Engine(const Engine& engine)
+void Hikari::Engine::setup(void)
 {
+
+	// m_pRenderer = new Hikari::
+	objectManagerMutex.lock();
+	m_pObjectManager = new Hikari::Manager<Object>();
+	objectManagerMutex.unlock();
+	materialManagerMutex.lock();
+	m_pMaterialManager = new Hikari::Manager<Material>();
+	materialManagerMutex.unlock();
+	m_pObjectManager->setup();
+	m_pMaterialManager->setup();
 }
 
-Hikari::Engine::~Engine()
+void Hikari::Engine::cleanup(void)
 {
+	objectManagerMutex.lock();
+	m_pObjectManager->cleanup();
+	delete m_pObjectManager;
+	m_pObjectManager = NULL;
+	objectManagerMutex.unlock();
+
+	materialManagerMutex.lock();
+	m_pMaterialManager->cleanup();
+	delete m_pMaterialManager;
+	m_pMaterialManager = NULL;
+	materialManagerMutex.unlock();
+
 }
 
-Hikari::Engine& Hikari::Engine::Setup()
+LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	int screenWidth, screenHeight;
-
-	screenWidth = screenHeight = 0;
-
-	InitializeWindows(screenWidth, screenHeight);
-
-	m_Input = new WinAPIInput();
-	if(!m_Input)
+	switch(message)
 	{
-		throw new Exception("Could not initialize WinAPI input", "EngineInitializationException");
-	}
-
-	m_Input->Setup();
-
-	m_Window = new WinAPIWindow("tutaj przekazac title z Engine, dodac setter do tytulu");
-
-	if(!m_Window)
-	{
-		throw new Exception("Could not create WinAPI window", "WindowCreationException");
-	}
-
-	m_Window->Setup(m_hwnd);
-
-	return *this;
-}
-
-void Hikari::Engine::Shutdown()
-{
-	if(m_Window)
-	{
-		m_Window->Shutdown();
-		delete m_Window;
-		m_Window = NULL;
-	}
-
-	if(m_Input)
-	{
-		delete m_Input;
-		m_Input = 0;
-	}
-
-	ShutdownWindows();
-}
-
-void Hikari::Engine::Run()
-{
-	MSG msg;
-	bool done, result;
-
-	ZeroMemory(&msg, sizeof(MSG));
-
-	done = false;
-
-	while(!done)
-	{
-		if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		case WM_DESTROY:
 		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+			PostQuitMessage(0);
+			return 0;
 		}
-
-		if(msg.message == WM_QUIT)
+		break;
+		case WM_CLOSE:
 		{
-			done = true;
+			PostQuitMessage(0);
+			return 0;
 		}
-		else
+		break;
+		default:
 		{
-			result = Frame();
-
-			if(!result)
-			{
-				done = true;
-			}
+			return EngineHandle->MessageHandler(WindowHandle, message, wParam, lParam);
 		}
 	}
 }
 
-bool Hikari::Engine::Frame()
+LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	bool result;
-
-	if(m_Input->IsKeyDown(VK_ESCAPE))
-	{
-		return false;
-	}
-
-	//result = m_Graphics->Frame(); // zamieniæ na Renderer->render();
-	result = m_Renderer->render();
-
-	if(!result)
-	{
-		return false;
-	}
-
-	return true;
-}
-
-LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
-{
-	switch(umsg)
+	switch(message)
 	{
 		case WM_KEYDOWN:
 		{
-			m_Input->KeyDown((unsigned int)wparam);
+			m_Input->KeyDown((unsigned int)wParam);
 			return 0;
 		}
-
 		case WM_KEYUP:
 		{
-			m_Input->KeyUp((unsigned int)wparam);
+			m_Input->KeyUp((unsigned int)wParam);
 			return 0;
 		}
-
 		default:
 		{
-			return DefWindowProc(hwnd, umsg, wparam, lparam);
+			return DefWindowProc(WindowHandle, message, wParam, lParam);
 		}
 	}
 }
 
-Hikari::Engine& Hikari::Engine::setWindowTitle(const char *title)
+Hikari::Manager<Hikari::Object>* Hikari::Engine::objectManager(void)
 {
-	m_Window->setTitle(title);
+	objectManagerMutex.lock();
+	if(m_pObjectManager == NULL)
+	{
+		objectManagerMutex.unlock();
+		throw new Exception("m_pObjectManager is not initialized in Engine::objectManager(void)", "NullPointerException");
+	}
+	objectManagerMutex.unlock();
+
+	return m_pObjectManager;
 }
 
-Hikari::Engine& Hikari::Engine::setWindowSize(unsigned int width, unsigned int height)
+void Hikari::Engine::objectManager(Hikari::Manager<Hikari::Object>* pObjectManager)
 {
-	m_Window->setSize(width, height);
+	if(pObjectManager == NULL)
+	{
+		throw new Exception("Can't set new ObjectManager to a NULL pointer in Engine::objectManager(Manager<Object>*)", "NullPointerException");
+	}
+
+	m_pObjectManager = pObjectManager;
 }
 
-// InitializeWindows
+Hikari::Manager<Hikari::Material>* Hikari::Engine::materialManager(void)
+{
+	materialManagerMutex.lock();
+	if(m_pObjectManager == NULL)
+	{
+		materialManagerMutex.unlock();
+		throw new Exception("m_pObjectManager is not initialized in Engine::materialManager(void)", "NullPointerException");
+	}
+	materialManagerMutex.unlock();
+
+	return m_pMaterialManager;
+}
+
+void Hikari::Engine::materialManager(Hikari::Manager<Hikari::Material>* pMaterialManager)
+{
+	if(pMaterialManager == NULL)
+	{
+		throw new Exception("Can't set new MaterialManager to a NULL pointer in Engine::objectManager(Manager<Material>*)", "NullPointerException");
+	}
+
+	m_pMaterialManager = pMaterialManager;
+}
