@@ -5,20 +5,97 @@ Hikari::Engine::Engine(void)
 {
 	m_pRenderer = NULL;
 	m_pObjectManager = NULL;
+	m_pMaterialManager = NULL;
+	m_Running = false;
 }
 
-void Hikari::Engine::setup(void)
+Hikari::Engine::Engine(const Hikari::Engine& rOther)
 {
+}
+
+Hikari::Engine::~Engine()
+{
+}
+
+void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
+{
+	m_hInstance = hInstance;	// walidowaæ!
+	m_nCmdShow = nCmdShow;	// walidowaæ!
 
 	// m_pRenderer = new Hikari::
 	objectManagerMutex.lock();
 	m_pObjectManager = new Hikari::Manager<Object>();
 	objectManagerMutex.unlock();
+
 	materialManagerMutex.lock();
 	m_pMaterialManager = new Hikari::Manager<Material>();
 	materialManagerMutex.unlock();
+	
+	inputMutex.lock();
+	m_pInput = new Hikari::WinAPIInput();
+	inputMutex.unlock();
+
 	m_pObjectManager->setup();
 	m_pMaterialManager->setup();
+	m_pInput->setup();
+}
+
+void Hikari::Engine::run(void)
+{
+	MSG eventMessage;
+	ZeroMemory(&eventMessage, sizeof(MSG));
+
+	runningMutex.lock();
+	m_Running = true;
+	runningMutex.unlock();
+
+	while(true)
+	{
+		if(PeekMessage(&eventMessage, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&eventMessage);
+			DispatchMessage(&eventMessage);
+		}
+
+		if(eventMessage.message == WM_QUIT)
+		{
+			stop();
+		}
+		else
+		{
+			processFrame();
+		}
+
+		runningMutex.lock();
+		if(m_Running == true)
+		{
+			runningMutex.unlock();
+			break;
+		}
+		runningMutex.unlock();
+	}
+}
+
+void Hikari::Engine::stop(void)
+{
+	runningMutex.lock();
+	if(m_Running == true)
+	{
+		m_Running = false;
+		runningMutex.unlock();
+	}
+	runningMutex.unlock();
+}
+
+void Hikari::Engine::processFrame(void)
+{
+	for(int currentKey = 0; currentKey < 256; currentKey++)
+	{
+		if(m_pInput->keyHandler(currentKey) != nullptr && m_pInput->isKeyDown(currentKey))
+		{
+			m_pInput->keyHandler(currentKey)(this);
+		}
+	}
 }
 
 void Hikari::Engine::cleanup(void)
@@ -66,12 +143,12 @@ LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND WindowHandle, UINT message,
 	{
 		case WM_KEYDOWN:
 		{
-			m_Input->KeyDown((unsigned int)wParam);
+			m_pInput->keyDown((unsigned int)wParam);
 			return 0;
 		}
 		case WM_KEYUP:
 		{
-			m_Input->KeyUp((unsigned int)wParam);
+			m_pInput->keyUp((unsigned int)wParam);
 			return 0;
 		}
 		default:
@@ -125,4 +202,71 @@ void Hikari::Engine::materialManager(Hikari::Manager<Hikari::Material>* pMateria
 	}
 
 	m_pMaterialManager = pMaterialManager;
+}
+
+Hikari::Window* Hikari::Engine::window(void)
+{
+	if(m_Window == NULL)
+	{
+		throw new Exception("m_Window is not initialized in Engine::window(void)", "NullPointerException");
+	}
+
+	return m_Window;
+}
+
+void Hikari::Engine::window(Hikari::Window* window)
+{
+	if(window == NULL)
+	{
+		throw new Exception("Can't set new window to a NULL pointer in Engine::window(Window*)", "NullPointerException");
+	}
+
+	WinAPIWindow* newWindow = dynamic_cast<WinAPIWindow*>(window);
+
+	if(newWindow == NULL)
+	{
+		throw new Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*)", "InvalidTypeException");
+	}
+
+	m_Window = newWindow;
+}
+
+Hikari::Application* Hikari::Engine::application(void)
+{
+	if(m_pApplication == NULL)
+	{
+		throw new Exception("m_pApplication is not initialized in Engine::application(void)", "NullPointerException");
+	}
+
+	return m_pApplication;
+}
+
+void Hikari::Engine::application(Hikari::Application* application)
+{
+	if(application == NULL)
+	{
+		throw new Exception("Can't set new application to a NULL pointer in Engine::application(Application*)", "NullPointerException");
+	}
+
+	m_pApplication = application;
+}
+
+Hikari::WinAPIInput* Hikari::Engine::input(void)
+{
+	if(m_pInput == NULL)
+	{
+		throw new Exception("m_pInput is not initialized in Engine::input(void)", "NullPointerException");
+	}
+
+	return m_pInput;
+}
+
+void Hikari::Engine::input(Hikari::WinAPIInput* input)
+{
+	if(input == NULL)
+	{
+		throw new Exception("Can't set new input handler to a NULL pointer in Engine::input(WinAPIInput*)", "NullPointerException");
+	}
+
+	m_pInput = input;
 }

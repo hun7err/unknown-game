@@ -1,6 +1,9 @@
 #ifndef __WINAPI_INPUT_HPP__
 #define __WINAPI_INPUT_HPP__
 
+#include <functional>
+#include "Engine.hpp"
+
 namespace Hikari {
 	class WinAPIInput {
 		public:
@@ -8,15 +11,17 @@ namespace Hikari {
 			WinAPIInput(const WinAPIInput& other);
 			~WinAPIInput();
 
-			void Setup();
+			void setup();
 
-			void KeyDown(unsigned int key);
-			void KeyUp(unsigned int key);
+			void keyDown(unsigned int key);
+			void keyUp(unsigned int key);
 
 			bool isKeyDown(unsigned int key);
+			std::function<void(Hikari::Engine*)> keyHandler(unsigned int key);
+			void keyHandler(unsigned int key, std::function<void(Hikari::Engine*)> keyHandler);
 
 		private:
-			bool m_Keys[256];
+			std::pair<bool, std::function<void(void)> > m_Keys[256];
 	};
 }
 

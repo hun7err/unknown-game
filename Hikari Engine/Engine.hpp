@@ -1,14 +1,18 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
+// biblioteka standardowa
 #include <mutex>
+// windows
 #include <Windows.h>
+// silnik
 #include "WinAPIWindow.hpp"
+#include "Application.hpp"
 #include "WinAPIInput.hpp"
+#include "Material.hpp"
 #include "Renderer.hpp"
 #include "Manager.hpp"
 #include "Object.hpp"
-#include "Material.hpp"
 
 /*
 	to-do:
@@ -24,38 +28,52 @@ namespace Hikari
 
 	class Engine {
 		public:
+			/** \brief	domyœlny konstruktor, zeruje wskaŸniki przygotowuj¹c do odpalenia */
 			Engine();
-			Engine(const Engine& rOther);
-			~Engine();
+			Engine(const Engine& rOther /** \brief	referencja do obiektu kopiowanego */);	// konstruktor kopiuj¹cy
+			~Engine();	// domyœlny destruktor (póki co nie robi nic)
 
-			void setup(void);
-			void cleanup(void);
+			void setup(HINSTANCE hInstance, int nCmdShow);	// przygotowuje silnik do pracy
+			void run(void);
+			void stop(void);
+			void cleanup(void);		// sprz¹ta po zakoñczonej pracy
 
-			Manager<Object>* objectManager(void);
-			void objectManager(Manager<Object>* pObjectManager);
+			Manager<Object>* objectManager(void);	// pobiera wskaŸnik na mened¿er obiektów
+			void objectManager(Manager<Object>* pObjectManager);	// ustawia nowy mened¿er obiektów
 
-			Manager<Material>* materialManager(void);
-			void materialManager(Manager<Material>* pMaterialManager);
+			Manager<Material>* materialManager(void);	// pobiera wskaŸnik na mened¿er materia³ów
+			void materialManager(Manager<Material>* pMaterialManager);	// ustawia nowy mened¿er materia³ów
 
-			Engine& setWindowTitle(const char* title);
-			Engine& setWindowSize(unsigned int width, unsigned int height);
+			Window* window(void);	// pobiera wskaŸnik na okno
+			void window(Window* window);	// ustawia nowe okno
 
-			LRESULT CALLBACK MessageHandler(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam);
+			Application* application(void);
+			void application(Application* application);
+
+			WinAPIInput* input(void);
+			void input(WinAPIInput* input);
+
+			LRESULT CALLBACK MessageHandler(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); //
+			void processFrame(void);
 
 		private:
-			bool Frame();
+			bool m_Running;
 
 			LPCWSTR m_applicationName;
 			HINSTANCE m_hInstance;
 			HWND m_hwnd;
+			int m_nCmdShow;
+			WinAPIInput* m_pInput;
 
-			WinAPIInput* m_Input;
 			Renderer* m_pRenderer;
 			Manager<Object>* m_pObjectManager;
 			Manager<Material>* m_pMaterialManager;
+			Application* m_pApplication;
 
 			std::mutex objectManagerMutex;
 			std::mutex materialManagerMutex;
+			std::mutex inputMutex;
+			std::mutex runningMutex;
 
 			WinAPIWindow* m_Window;
 	};
