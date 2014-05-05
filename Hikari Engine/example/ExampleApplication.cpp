@@ -36,7 +36,6 @@ void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
 void ExampleApplication::run(void)
 {
 	Hikari::Engine* engine;
-	bool result;
 
 	engine = new Hikari::Engine();
 	if(!engine)

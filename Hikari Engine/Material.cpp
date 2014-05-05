@@ -9,7 +9,7 @@ Hikari::Material::Material(std::string name)
 	m_Name = name;
 }
 
-Hikari::Material::Material()
+Hikari::Material::~Material()
 {
 }
 

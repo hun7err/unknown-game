@@ -21,7 +21,7 @@ namespace Hikari
 			
 			void setup(void)
 			{
-				m_Objects = new std::list<Object*>();
+				m_Objects = new std::list<ManagedType*>();
 
 				if(m_Objects == NULL)
 				{

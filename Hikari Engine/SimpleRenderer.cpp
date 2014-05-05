@@ -8,8 +8,8 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	ZeroMemory(&viewport, sizeof(D3D11_VIEWPORT));
 	viewport.TopLeftX = 0;
 	viewport.TopLeftY = 0;
-	viewport.Height = height;
-	viewport.Width = width;
+	viewport.Height = (float)height;
+	viewport.Width = (float)width;
 
 	SimplePass* backbufferPass = new SimplePass();
 	ID3D11Texture2D *pBackBufferTexture;
@@ -45,7 +45,7 @@ void Hikari::SimpleRenderer::render(void)
 		
 		for(std::vector<ID3D11RenderTargetView*>::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)
 		{
-			m_pD3D11System->deviceContext()->ClearRenderTargetView(renderTargetViews[currentTarget], clearColor.components());	// wyczyœæ cele
+			m_pD3D11System->deviceContext()->ClearRenderTargetView(*currentTarget, clearColor.components());	// wyczyœæ cele
 		}
 		(*currentPass)->run(lastRenderPass);	// uruchom przejœcie renderera
 
