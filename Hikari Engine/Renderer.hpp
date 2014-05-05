@@ -5,12 +5,14 @@
 #include "RenderPass.hpp"
 #include "D3D11System.hpp"
 
-namespace Hikari {
+namespace Hikari
+{
 	/**
 		\class	Renderer
 		\brief	Klasa odpowiadaj¹ca za wygenerowanie obrazu
 	*/
-	class Renderer {
+	class Renderer
+	{
 		public:
 			/** \brief	Metoda wirtualna odpowiadaj¹ca za odpalenie kolejnych passów renderera */
 			virtual void setup(unsigned int width, unsigned int height) = 0;

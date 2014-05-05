@@ -4,8 +4,10 @@
 #include <string>
 #include "Vector.hpp"
 
-namespace Hikari {
-	class Window {
+namespace Hikari
+{
+	class Window
+	{
 		public:
 			Window(const char* title, unsigned int width = 800, unsigned int height = 600, unsigned int posX = 0, unsigned int posY = 0): m_Title(std::string(title)), m_Width(width), m_Height(height), m_PosX(posX), m_PosY(posY), m_Fullscreen(false) {}
 			Window(std::string title, unsigned int width = 800, unsigned int height = 600, unsigned int posX = 0, unsigned int posY = 0): m_Title(title), m_Width(width), m_Height(height), m_PosX(posX), m_PosY(posY), m_Fullscreen(false) {}

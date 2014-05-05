@@ -3,7 +3,8 @@
 
 #include "Exception.hpp"
 
-class WrongArgumentException : public Exception {
+class WrongArgumentException : public Exception
+{
 	public:
 		WrongArgumentException(char* message): Exception(message, "WrongArgumentException") {}
 };

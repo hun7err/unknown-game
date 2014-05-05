@@ -47,7 +47,7 @@ void ExampleApplication::run(void)
 	engine->setup(m_hInstance, m_nCmdShow);
 	Hikari::Window* mainWindow = new Hikari::WinAPIWindow("Hikari::Engine application", 800, 600, 100, 100);
 	engine->window(mainWindow);
-	auto escHandler = std::bind(&stopEngine, std::placeholders::_1);
+	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
 	engine->input()->keyHandler(VK_ESCAPE, escHandler);
 
 	engine->run();
@@ -55,8 +55,6 @@ void ExampleApplication::run(void)
 	engine->cleanup();
 	delete engine;
 	engine = NULL;
-
-	// g³ówna czêœæ aplikacji
 }
 
 ExampleApplication::~ExampleApplication() {}

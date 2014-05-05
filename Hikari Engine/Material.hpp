@@ -3,8 +3,10 @@
 
 #include <string>
 
-namespace Hikari {
-	class Material {
+namespace Hikari
+{
+	class Material
+	{
 		public:
 			Material();
 			Material(std::string name);

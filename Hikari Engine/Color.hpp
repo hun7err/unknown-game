@@ -3,8 +3,10 @@
 
 #include "Exception.hpp"
 
-namespace Hikari {
-	class Color {
+namespace Hikari
+{
+	class Color
+	{
 		public:
 			Color(float red, float green, float blue, float alpha);
 			

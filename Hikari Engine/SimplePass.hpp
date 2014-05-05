@@ -3,10 +3,12 @@
 
 #include "RenderPass.hpp"
 
-namespace Hikari {
-	class SimplePass : public RenderPass {
+namespace Hikari
+{
+	class SimplePass : public RenderPass
+	{
 		public:
-			SimplePass(D3D11_VIEWPORT viewport) : RenderPass(viewport) {}
+			SimplePass() : RenderPass() {}
 
 			void run(std::list<RenderPass*> *renderTargets)
 			{

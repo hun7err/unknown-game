@@ -3,8 +3,10 @@
 
 #include <string>
 
-namespace Hikari {
-	class Object {
+namespace Hikari
+{
+	class Object
+	{
 		public:
 			Object();
 			Object(std::string name);

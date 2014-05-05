@@ -5,8 +5,10 @@
 #include <string>
 #include <mutex>
 
-namespace Hikari {
-	template <typename ManagedType> class Manager {
+namespace Hikari
+{
+	template <typename ManagedType> class Manager
+	{
 		public:
 			Manager()
 			{
@@ -40,7 +42,7 @@ namespace Hikari {
 				m_ObjectOperationMutex.unlock();
 			}
 
-			Object* get(std::string name)
+			ManagedType* get(std::string name)
 			{
 				m_ObjectOperationMutex.lock();
 				for(std::list<Hikari::Object*>::iterator currentObject = m_Objects->begin(); currentObject != m_Objects->end(); currentObject++)

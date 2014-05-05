@@ -51,7 +51,7 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 
 void Hikari::Engine::run(void)
 {
-	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen());
+	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), 1);
 	Vector2D windowSize = m_pWindow->size();
 	m_pRenderer->setup(windowSize.x(), windowSize.y());
 

@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		#endif
 		eApp->setup(hInstance, lpCmdLine, nCmdShow);	///< konfiguracja aplikacji; moglibyœmy teoretycznie zrobiæ to w konstruktorze, ale nie mo¿na by³oby wtedy obs³u¿yæ ewentualnych b³êdów
 	}
-	catch(Exception& e /**< wyj¹tek podczas konfiguracji aplikacji */)
+	catch(Exception& e) /**< wyj¹tek podczas konfiguracji aplikacji */
 	{
 		std::cerr << "Przechwycono wyjatek " << e.type() << ": " << e.message() << std::endl;
 		system("PAUSE");

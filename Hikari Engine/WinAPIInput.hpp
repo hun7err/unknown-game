@@ -4,8 +4,12 @@
 #include <functional>
 #include "Engine.hpp"
 
-namespace Hikari {
-	class WinAPIInput {
+namespace Hikari
+{
+	class Engine;
+
+	class WinAPIInput
+	{
 		public:
 			WinAPIInput();
 			WinAPIInput(const WinAPIInput& other);
@@ -21,7 +25,7 @@ namespace Hikari {
 			void keyHandler(unsigned int key, std::function<void(Hikari::Engine*)> keyHandler);
 
 		private:
-			std::pair<bool, std::function<void(void)> > m_Keys[256];
+			std::pair<bool, std::function<void(Hikari::Engine*)> > m_Keys[256];
 	};
 }
 

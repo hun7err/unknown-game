@@ -5,8 +5,10 @@
 #include <d3d10.h>
 #include <dxgi.h>	// do IDXGISwapChain
 
-namespace Hikari {
-	class D3D11System {
+namespace Hikari
+{
+	class D3D11System
+	{
 		public:
 			void setup(HWND windowHandle, bool windowed, int sampleCount);
 			void cleanup(void);

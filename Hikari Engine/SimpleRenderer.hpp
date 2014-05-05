@@ -3,8 +3,10 @@
 
 #include "Renderer.hpp"
 
-namespace Hikari {
-	class SimpleRenderer : public Renderer {
+namespace Hikari
+{
+	class SimpleRenderer : public Renderer
+	{
 		public:
 			void setup(unsigned int width, unsigned int height);
 			void cleanup(void);

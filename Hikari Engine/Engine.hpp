@@ -27,7 +27,8 @@ namespace Hikari
 {
 	static LRESULT CALLBACK WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); // czy static tu ma byæ?
 
-	class Engine {
+	class Engine
+	{
 		public:
 			/** \brief	domyœlny konstruktor, zeruje wskaŸniki przygotowuj¹c do odpalenia */
 			Engine();

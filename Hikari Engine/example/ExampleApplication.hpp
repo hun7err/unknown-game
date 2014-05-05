@@ -1,15 +1,16 @@
 #ifndef __EXAMPLEAPPLICATION_HPP__
 #define __EXAMPLEAPPLICATION_HPP__
 
+#include <Windows.h>
 #include "../Application.hpp"
 #include "../Engine.hpp"
-#include <Windows.h>
 
 /**
 	\class ExampleApplication
 	\brief Przyk³adowa aplikacja wykorzystuj¹ca Hikari Engine
 */
-class ExampleApplication : public Hikari::Application {
+class ExampleApplication : public Hikari::Application
+{
 	public:
 		void run(void);	///< dziedziczone z Application, uruchamia aplikacjê (czyli wszystko co istotne tak naprawdê)
 		void setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow);	///< konfiguracja aplikacji: uchwyt do instancji, argumenty i tryb okna
