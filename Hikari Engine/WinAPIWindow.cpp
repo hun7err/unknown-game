@@ -65,6 +65,16 @@ int Hikari::WinAPIWindow::visibility(void)
 	return m_Visibility;
 }
 
+HWND Hikari::WinAPIWindow::handle(void)
+{
+	return m_WindowHandle;
+}
+
+void Hikari::WinAPIWindow::handle(HWND hWnd)
+{
+	m_WindowHandle = hWnd;
+}
+
 void Hikari::WinAPIWindow::fullscreen(bool fullscreen)
 {
 	Hikari::Window::fullscreen(fullscreen);

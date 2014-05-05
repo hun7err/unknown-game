@@ -1,5 +1,9 @@
 #include "Window.hpp"
 
+Hikari::Window::~Window()
+{
+}
+
 void Hikari::Window::position(int x, int y)
 {
 	m_PosX = x;
