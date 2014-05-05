@@ -1,9 +1,9 @@
 #ifndef __RENDER_PASS_HPP__
 #define __RENDER_PASS_HPP__
 
-#include <d3d11.h>
 #include <vector>
 #include <list>
+#include <d3d11.h>
 
 namespace Hikari {
 	/**
@@ -30,6 +30,7 @@ namespace Hikari {
 			RenderPass(D3D11_VIEWPORT viewport);
 			/** \brief	Wirtualny destruktor m.in. zwalniajacy liste celow */
 			virtual ~RenderPass();
+
 		protected:
 			std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * m_pRenderTargets;
 			D3D11_VIEWPORT m_renderTargetViewport;

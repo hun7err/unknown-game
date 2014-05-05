@@ -1,5 +1,5 @@
-#ifndef __POINT_HPP__
-#define __POINT_HPP__
+#ifndef __HIKARI_VECTOR_HPP__
+#define __HIKARI_VECTOR_HPP__
 
 namespace Hikari {
 	class Vector2D {
@@ -41,4 +41,4 @@ namespace Hikari {
 	};
 }
 
-#endif // __POINT_HPP__
+#endif // __HIKARI_VECTOR_HPP__

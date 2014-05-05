@@ -1,8 +1,8 @@
 #ifndef __WINAPI_WINDOW_H__
 #define __WINAPI_WINDOW_H__
 
-#include "Window.hpp"
 #include <Windows.h>
+#include "Window.hpp"
 
 namespace Hikari {
 	class WinAPIWindow : public Window {

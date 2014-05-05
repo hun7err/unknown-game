@@ -2,8 +2,8 @@
 #define MONEYTEST_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Hikari Engine/example/ExampleApplication.h"
-#include "../Hikari Engine/WrongArgumentException.h"
+#include "../Hikari Engine/example/ExampleApplication.hpp"
+#include "../Hikari Engine/WrongArgumentException.hpp"
 
 class ExampleApplicationTest : public CppUnit::TestFixture
 {
