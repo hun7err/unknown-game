@@ -11,15 +11,37 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="D3D11System.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="example\example.cpp" />
     <ClCompile Include="example\ExampleApplication.cpp" />
-    <ClCompile Include="example\Exception.cpp" />
+    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="RenderPass.cpp" />
+    <ClCompile Include="SimpleRenderer.cpp" />
+    <ClCompile Include="WinAPIInput.cpp" />
+    <ClCompile Include="WinAPIWindow.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="example\Application.h" />
-    <ClInclude Include="example\ExampleApplication.h" />
-    <ClInclude Include="example\Exception.h" />
-    <ClInclude Include="example\WrongArgumentException.h" />
+    <ClInclude Include="Color.hpp" />
+    <ClInclude Include="SimplePass.hpp" />
+    <ClInclude Include="D3D11System.hpp" />
+    <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Application.hpp" />
+    <ClInclude Include="example\ExampleApplication.hpp" />
+    <ClInclude Include="Exception.hpp" />
+    <ClInclude Include="Material.hpp" />
+    <ClInclude Include="Object.hpp" />
+    <ClInclude Include="Manager.hpp" />
+    <ClInclude Include="SimpleRenderer.hpp" />
+    <ClInclude Include="Vector.hpp" />
+    <ClInclude Include="Renderer.hpp" />
+    <ClInclude Include="RenderPass.hpp" />
+    <ClInclude Include="WinAPIInput.hpp" />
+    <ClInclude Include="WinAPIWindow.hpp" />
+    <ClInclude Include="Window.hpp" />
+    <ClInclude Include="WrongArgumentException.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B176FA67-7620-4117-9966-B8B55373B9C5}</ProjectGuid>

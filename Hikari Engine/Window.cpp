@@ -12,7 +12,7 @@ void Hikari::Window::position(Hikari::Vector2D& point)
 	m_PosY = point.y();
 }
 
-Hikari::Vector2D& Hikari::Window::position()
+Hikari::Vector2D Hikari::Window::position()
 {
 	return Vector2D(m_PosX, m_PosY);
 }
@@ -38,7 +38,7 @@ void Hikari::Window::size(unsigned int width, unsigned int height)
 	m_Height = height;
 }
 
-Hikari::Vector2D& Hikari::Window::size(void)
+Hikari::Vector2D Hikari::Window::size(void)
 {
 	return Vector2D(m_Width, m_Height);
 }

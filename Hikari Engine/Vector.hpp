@@ -23,7 +23,7 @@ namespace Hikari {
 			int z(void) { return m_z; }
 			void z(int z) { m_z = z; }
 
-			Vector3D& operator- (const Vector3D& rOther) { return Vector3D(m_x - rOther.m_x, m_y - rOther.m_y, m_z - rOther.m_z); }
+			Vector3D operator- (const Vector3D& rOther) { return Vector3D(m_x - rOther.m_x, m_y - rOther.m_y, m_z - rOther.m_z); }
 		protected:
 			int m_z;
 	};

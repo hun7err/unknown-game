@@ -13,6 +13,7 @@
 #include "Renderer.hpp"
 #include "Manager.hpp"
 #include "Object.hpp"
+#include "D3D11System.hpp"
 
 /*
 	to-do:
@@ -24,7 +25,7 @@
 
 namespace Hikari
 {
-	/*static*/ LRESULT CALLBACK WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam);
+	static LRESULT CALLBACK WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); // czy static tu ma byæ?
 
 	class Engine {
 		public:
@@ -66,6 +67,7 @@ namespace Hikari
 			WinAPIInput* m_pInput;
 
 			Renderer* m_pRenderer;
+			D3D11System* m_pD3DSystem;
 			Manager<Object>* m_pObjectManager;
 			Manager<Material>* m_pMaterialManager;
 			Application* m_pApplication;
@@ -74,8 +76,10 @@ namespace Hikari
 			std::mutex materialManagerMutex;
 			std::mutex inputMutex;
 			std::mutex runningMutex;
+			std::mutex d3dsystemMutex;
+			// dodaæ mutexy na wszystkie "krytyczne" obiekty
 
-			WinAPIWindow* m_Window;
+			WinAPIWindow* m_pWindow;
 	};
 
 	static Engine* EngineHandle = 0;

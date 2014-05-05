@@ -8,4 +8,4 @@ class WrongArgumentException : public Exception {
 		WrongArgumentException(char* message): Exception(message, "WrongArgumentException") {}
 };
 
-#endif // __WRONGARGUEMNTEXCEPTION_HPP__
+#endif // __WRONGARGUMENTEXCEPTION_HPP__

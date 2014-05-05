@@ -66,7 +66,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Hikari Engine\example\ExampleApplication.cpp" />
-    <ClCompile Include="..\Hikari Engine\example\Exception.cpp" />
+    <ClCompile Include="..\Hikari Engine\Exception.cpp" />
     <ClCompile Include="ExampleApplicationTest.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

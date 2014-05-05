@@ -1,11 +1,13 @@
 #include "Engine.hpp"
 #include "Exception.hpp"
+#include "SimpleRenderer.hpp"
 
 Hikari::Engine::Engine(void)
 {
 	m_pRenderer = NULL;
 	m_pObjectManager = NULL;
 	m_pMaterialManager = NULL;
+	m_pD3DSystem = NULL;
 	m_Running = false;
 }
 
@@ -30,10 +32,17 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 	materialManagerMutex.lock();
 	m_pMaterialManager = new Hikari::Manager<Material>();
 	materialManagerMutex.unlock();
+
+	// mutex
+	m_pRenderer = new SimpleRenderer();
 	
 	inputMutex.lock();
 	m_pInput = new Hikari::WinAPIInput();
 	inputMutex.unlock();
+
+	d3dsystemMutex.lock();
+	m_pD3DSystem = new Hikari::D3D11System();
+	d3dsystemMutex.unlock();
 
 	m_pObjectManager->setup();
 	m_pMaterialManager->setup();
@@ -42,6 +51,10 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 
 void Hikari::Engine::run(void)
 {
+	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen());
+	Vector2D windowSize = m_pWindow->size();
+	m_pRenderer->setup(windowSize.x(), windowSize.y());
+
 	MSG eventMessage;
 	ZeroMemory(&eventMessage, sizeof(MSG));
 
@@ -91,15 +104,21 @@ void Hikari::Engine::processFrame(void)
 {
 	for(int currentKey = 0; currentKey < 256; currentKey++)
 	{
-		if(m_pInput->keyHandler(currentKey) != nullptr && m_pInput->isKeyDown(currentKey))
+		if( m_pInput->keyHandler(currentKey) != nullptr && m_pInput->isKeyDown(currentKey) )
 		{
 			m_pInput->keyHandler(currentKey)(this);
 		}
 	}
+
+	// podepnij bufory obiektów itp.
+	m_pRenderer->render();
 }
 
 void Hikari::Engine::cleanup(void)
 {
+	m_pRenderer->cleanup();
+	m_pD3DSystem->cleanup();
+
 	objectManagerMutex.lock();
 	m_pObjectManager->cleanup();
 	delete m_pObjectManager;
@@ -112,6 +131,10 @@ void Hikari::Engine::cleanup(void)
 	m_pMaterialManager = NULL;
 	materialManagerMutex.unlock();
 
+	// mutex
+	m_pRenderer->cleanup();
+	delete m_pRenderer;
+	m_pRenderer = NULL;
 }
 
 LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
@@ -123,13 +146,11 @@ LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam,
 			PostQuitMessage(0);
 			return 0;
 		}
-		break;
 		case WM_CLOSE:
 		{
 			PostQuitMessage(0);
 			return 0;
 		}
-		break;
 		default:
 		{
 			return EngineHandle->MessageHandler(WindowHandle, message, wParam, lParam);
@@ -206,12 +227,12 @@ void Hikari::Engine::materialManager(Hikari::Manager<Hikari::Material>* pMateria
 
 Hikari::Window* Hikari::Engine::window(void)
 {
-	if(m_Window == NULL)
+	if(m_pWindow == NULL)
 	{
-		throw new Exception("m_Window is not initialized in Engine::window(void)", "NullPointerException");
+		throw new Exception("m_pWindow is not initialized in Engine::window(void)", "NullPointerException");
 	}
 
-	return m_Window;
+	return m_pWindow;
 }
 
 void Hikari::Engine::window(Hikari::Window* window)
@@ -228,7 +249,7 @@ void Hikari::Engine::window(Hikari::Window* window)
 		throw new Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*)", "InvalidTypeException");
 	}
 
-	m_Window = newWindow;
+	m_pWindow = newWindow;
 }
 
 Hikari::Application* Hikari::Engine::application(void)

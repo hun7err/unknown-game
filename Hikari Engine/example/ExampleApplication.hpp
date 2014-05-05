@@ -2,6 +2,7 @@
 #define __EXAMPLEAPPLICATION_HPP__
 
 #include "../Application.hpp"
+#include "../Engine.hpp"
 #include <Windows.h>
 
 /**
@@ -13,6 +14,7 @@ class ExampleApplication : public Hikari::Application {
 		void run(void);	///< dziedziczone z Application, uruchamia aplikacjê (czyli wszystko co istotne tak naprawdê)
 		void setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow);	///< konfiguracja aplikacji: uchwyt do instancji, argumenty i tryb okna
 
+		void stopEngine(Hikari::Engine* pEngine);
 		ExampleApplication();	///< póki co do konstruktora nic nie przekazujemy
 		~ExampleApplication();	///< w destruktorze na tê chwilê nie ma co usuwaæ, wiêc jest pusty
 	private:

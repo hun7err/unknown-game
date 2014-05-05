@@ -1,6 +1,7 @@
-#include "ExampleApplication.h"
-#include "../WrongArgumentException.h"
-#include "../Engine.h"
+#include "ExampleApplication.hpp"
+#include "../WrongArgumentException.hpp"
+#include "../WinAPIWindow.hpp"
+#include <functional>
 
 ExampleApplication::ExampleApplication() {}
 
@@ -21,6 +22,15 @@ void ExampleApplication::setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdSho
 	{
 		throw new WrongArgumentException("niepoprawny parametr nCmdShow");
 	}
+
+	m_hInstance = hInstance;
+	m_lpCmdLine = lpCmdLine;
+	m_nCmdShow = nCmdShow;
+}
+
+void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
+{
+	pEngine->stop();
 }
 
 void ExampleApplication::run(void)
@@ -34,15 +44,15 @@ void ExampleApplication::run(void)
 		throw new Exception("Could not create Hikari::Engine instance", "EngineInitException");
 	}
 
-	engine->Setup().setWindowTitle("Example application");
+	engine->setup(m_hInstance, m_nCmdShow);
+	Hikari::Window* mainWindow = new Hikari::WinAPIWindow("Hikari::Engine application", 800, 600, 100, 100);
+	engine->window(mainWindow);
+	auto escHandler = std::bind(&stopEngine, std::placeholders::_1);
+	engine->input()->keyHandler(VK_ESCAPE, escHandler);
 
-	engine->Run();
+	engine->run();
 
-	// to-do:
-	// - przepisaæ wszystko z engine, aby bardziej by³o silnikiem ni¿ frameworkiem
-	// - wielkie litery zmienic na male na poczatku linii w metodach
-
-	engine->Shutdown();
+	engine->cleanup();
 	delete engine;
 	engine = NULL;
 
