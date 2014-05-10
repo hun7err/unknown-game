@@ -51,8 +51,11 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 
 void Hikari::Engine::run(void)
 {
-	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), 1);
+	m_pWindow->setup(m_hInstance, m_nCmdShow);
+
 	Vector2D windowSize = m_pWindow->size();
+	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), windowSize.x(), windowSize.y(), 1);
+	m_pRenderer->d3d11system(m_pD3DSystem);
 	m_pRenderer->setup(windowSize.x(), windowSize.y());
 
 	MSG eventMessage;
@@ -73,6 +76,7 @@ void Hikari::Engine::run(void)
 		if(eventMessage.message == WM_QUIT)
 		{
 			stop();
+			// ustaliæ czemu tutaj jest coœ z abort()
 		}
 		else
 		{
@@ -80,7 +84,7 @@ void Hikari::Engine::run(void)
 		}
 
 		runningMutex.lock();
-		if(m_Running == true)
+		if(m_Running == false)
 		{
 			runningMutex.unlock();
 			break;

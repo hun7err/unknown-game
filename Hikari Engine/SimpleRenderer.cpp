@@ -15,7 +15,7 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	ID3D11Texture2D *pBackBufferTexture;
 	ID3D11RenderTargetView *pBackBuffer;
 
-	m_pD3D11System->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture);
+	m_pD3D11System->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture); // wyj¹tek ze swapChain()
 	m_pD3D11System->device()->CreateRenderTargetView(pBackBufferTexture, NULL, &pBackBuffer);
 	pBackBufferTexture->Release();
 	backbufferPass->addRenderTarget(pBackBufferTexture, pBackBuffer, viewport);

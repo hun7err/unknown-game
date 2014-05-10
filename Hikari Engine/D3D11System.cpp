@@ -1,31 +1,44 @@
 #include "D3D11System.hpp"
 #include "Exception.hpp"
 
-void Hikari::D3D11System::setup(HWND windowHandle, bool windowed, int sampleCount = 1)
+void Hikari::D3D11System::setup(HWND windowHandle, bool fullscreen, int width, int height, int sampleCount = 1)
 {
 	DXGI_SWAP_CHAIN_DESC swapChainDescription;
 	ZeroMemory(&swapChainDescription, sizeof(DXGI_SWAP_CHAIN_DESC));
 
-	swapChainDescription.BufferCount = 1;
+	swapChainDescription.BufferCount = 1;	// do ewentualnej poprawy, nei jestem pewien czy tak mo¿e byæ
 	swapChainDescription.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	swapChainDescription.BufferDesc.Width = width;
+	swapChainDescription.BufferDesc.Height = height;
 	swapChainDescription.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	swapChainDescription.OutputWindow = windowHandle;
 	swapChainDescription.SampleDesc.Count = sampleCount;
-	swapChainDescription.Windowed = windowed;
+	swapChainDescription.Windowed = !fullscreen;
+	swapChainDescription.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
-	D3D11CreateDeviceAndSwapChain(	NULL,
+	/*D3D_FEATURE_LEVEL featureLevels[]={
+        D3D_FEATURE_LEVEL_11_0,
+        D3D_FEATURE_LEVEL_10_1,
+        D3D_FEATURE_LEVEL_9_3,
+    };
+    unsigned int featuresSize = ARRAYSIZE(featureLevels);*/
+
+	if(FAILED(D3D11CreateDeviceAndSwapChain(	NULL,
 									D3D_DRIVER_TYPE_HARDWARE,
 									NULL,
 									NULL,
-									NULL,
-									NULL,
+									NULL,//featureLevels,
+									NULL,//featuresSize,
 									D3D11_SDK_VERSION,
 									&swapChainDescription,
 									&m_pSwapChain,
 									&m_pDevice,
 									NULL,
 									&m_pDeviceContext
-								);
+								)))
+	{
+		throw new Exception("D3D11CreateDeviceAndSwapChain failed in D3D11System::setup()", "NullPointerException");
+	}
 }
 
 void Hikari::D3D11System::cleanup(void)

@@ -10,7 +10,7 @@ namespace Hikari
 	class D3D11System
 	{
 		public:
-			void setup(HWND windowHandle, bool windowed, int sampleCount);
+			void setup(HWND windowHandle, bool fullscreen, int width, int height, int sampleCount);
 			void cleanup(void);
 
 			IDXGISwapChain* swapChain(void);
