@@ -18,6 +18,9 @@ void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji
 
 	RegisterClassEx(&m_WindowClassEx);		// zarejestruj klasê okna w systemie
 
+	//RECT wr = {0, 0, m_Width, m_Height};
+	//AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
+
 	m_WindowHandle = CreateWindowEx(NULL,					/** \brief	Rozszerzony styl okna  */
 									"HikariWindowClass",	/** \brief	Nazwa klasy okna  */
 									m_Title.c_str(),		/** \brief	Nag³ówek okna  */
@@ -35,7 +38,7 @@ void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji
 	
 	SetForegroundWindow(m_WindowHandle);
 	SetFocus(m_WindowHandle);
-	ShowCursor(false);
+	//ShowCursor(false);
 }
 
 void Hikari::WinAPIWindow::cleanup(void)

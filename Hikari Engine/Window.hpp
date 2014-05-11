@@ -15,11 +15,16 @@ namespace Hikari
 			void position(int x, int y);
 			void position(Vector2D& point);
 			Vector2D position(void);
+
 			std::string title(void);
 			void title(const char* title);
 			void title(std::string title);
+
 			void size(unsigned int width, unsigned int height);
 			Vector2D size(void);
+
+			unsigned int width(void);
+			unsigned int height(void);
 
 			virtual void fullscreen(bool fullscreen);
 			virtual bool fullscreen(void);

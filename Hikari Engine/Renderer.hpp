@@ -34,6 +34,11 @@ namespace Hikari
 		protected:
 			std::vector<RenderPass*> m_RenderPasses;
 			D3D11System* m_pD3D11System;
+
+			void addRenderPass(RenderPass* pass)
+			{
+				m_RenderPasses.push_back(pass);
+			}
 	};
 }
 

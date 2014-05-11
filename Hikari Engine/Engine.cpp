@@ -52,9 +52,9 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 void Hikari::Engine::run(void)
 {
 	m_pWindow->setup(m_hInstance, m_nCmdShow);
-
 	Vector2D windowSize = m_pWindow->size();
-	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), windowSize.x(), windowSize.y(), 1);
+
+	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), m_pWindow->width(), m_pWindow->height(), 1);
 	m_pRenderer->d3d11system(m_pD3DSystem);
 	m_pRenderer->setup(windowSize.x(), windowSize.y());
 
@@ -76,7 +76,7 @@ void Hikari::Engine::run(void)
 		if(eventMessage.message == WM_QUIT)
 		{
 			stop();
-			// ustaliæ czemu tutaj jest coœ z abort()
+			// ustaliæ czemu tutaj jest jakiœ b³¹d z abort() przy wyjœciu
 		}
 		else
 		{

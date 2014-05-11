@@ -12,10 +12,12 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	viewport.Width = (float)width;
 
 	SimplePass* backbufferPass = new SimplePass();
+	addRenderPass(backbufferPass);
+
 	ID3D11Texture2D *pBackBufferTexture;
 	ID3D11RenderTargetView *pBackBuffer;
 
-	m_pD3D11System->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture); // wyj¹tek ze swapChain()
+	m_pD3D11System->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture);
 	m_pD3D11System->device()->CreateRenderTargetView(pBackBufferTexture, NULL, &pBackBuffer);
 	pBackBufferTexture->Release();
 	backbufferPass->addRenderTarget(pBackBufferTexture, pBackBuffer, viewport);
@@ -35,6 +37,7 @@ void Hikari::SimpleRenderer::render(void)
 	// jeszcze (tylko) viewport + kompilacja
 	Hikari::RenderPass* lastRenderPass = NULL;
 	static Hikari::Color clearColor(0.0f, 0.2f, 0.4f, 1.0f);
+	//float myColor[] = { 0.0f, 0.2f, 0.4f, 1.0f };
 
 	for(std::vector<RenderPass*>::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)
 	{
@@ -46,6 +49,7 @@ void Hikari::SimpleRenderer::render(void)
 		for(std::vector<ID3D11RenderTargetView*>::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)
 		{
 			m_pD3D11System->deviceContext()->ClearRenderTargetView(*currentTarget, clearColor.components());	// wyczyœæ cele
+			// czemu nie czyœci do tego koloru?
 		}
 		(*currentPass)->run(lastRenderPass);	// uruchom przejœcie renderera
 

@@ -47,6 +47,16 @@ Hikari::Vector2D Hikari::Window::size(void)
 	return Vector2D(m_Width, m_Height);
 }
 
+unsigned int Hikari::Window::width(void)
+{
+	return m_Width;
+}
+
+unsigned int Hikari::Window::height(void)
+{
+	return m_Height;
+}
+
 void Hikari::Window::fullscreen(bool fullscreen)
 {
 	m_Fullscreen = fullscreen;
