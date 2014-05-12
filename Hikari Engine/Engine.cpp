@@ -8,6 +8,7 @@ Hikari::Engine::Engine(void)
 	m_pObjectManager = NULL;
 	m_pMaterialManager = NULL;
 	m_pD3DSystem = NULL;
+	m_pInput = NULL;
 	m_Running = false;
 }
 
@@ -23,6 +24,8 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 {
 	m_hInstance = hInstance;	// walidowaæ!
 	m_nCmdShow = nCmdShow;	// walidowaæ!
+
+	Hikari::EngineHandle = this;
 
 	// m_pRenderer = new Hikari::
 	objectManagerMutex.lock();
@@ -137,6 +140,11 @@ void Hikari::Engine::cleanup(void)
 	m_pRenderer->cleanup();
 	delete m_pRenderer;
 	m_pRenderer = NULL;
+
+	delete m_pInput;
+	m_pInput = NULL;
+
+	Hikari::EngineHandle = NULL;
 }
 
 LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
