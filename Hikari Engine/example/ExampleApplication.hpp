@@ -1,9 +1,9 @@
 #ifndef __EXAMPLEAPPLICATION_HPP__
 #define __EXAMPLEAPPLICATION_HPP__
 
-#include <Windows.h>
-#include "../Application.hpp"
-#include "../Engine.hpp"
+#include <Windows.h>			// HINSTANCE, LPSTR itp.
+#include "../Application.hpp"	// Hikari::Application
+#include "../Engine.hpp"		// Hikari::Engine
 
 /**
 	\class ExampleApplication
@@ -15,7 +15,7 @@ class ExampleApplication : public Hikari::Application
 		void run(void);	///< dziedziczone z Application, uruchamia aplikacjê (czyli wszystko co istotne tak naprawdê)
 		void setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow);	///< konfiguracja aplikacji: uchwyt do instancji, argumenty i tryb okna
 
-		void stopEngine(Hikari::Engine* pEngine);
+		void stopEngine(Hikari::Engine* pEngine);	///< metoda zatrzymuj¹ca silnik (zbindujemy j¹ do odpowiedniego przycisku)
 		ExampleApplication();	///< póki co do konstruktora nic nie przekazujemy
 		~ExampleApplication();	///< w destruktorze na tê chwilê nie ma co usuwaæ, wiêc jest pusty
 	private:

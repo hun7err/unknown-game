@@ -35,18 +35,18 @@ namespace Hikari
 			/** \brief	domyœlny konstruktor, zeruje wskaŸniki przygotowuj¹c do odpalenia */
 			Engine();
 			Engine(const Engine& rOther /** \brief	referencja do obiektu kopiowanego */);	// konstruktor kopiuj¹cy
-			~Engine();	// domyœlny destruktor (póki co nie robi nic)
+			~Engine();	///< domyœlny destruktor (póki co nie robi nic)
 
-			void setup(HINSTANCE hInstance, int nCmdShow);	// przygotowuje silnik do pracy
-			void run(void);
-			void stop(void);
-			void cleanup(void);		// sprz¹ta po zakoñczonej pracy
+			void setup(HINSTANCE hInstance, int nCmdShow);	///< przygotowuje silnik do pracy tworz¹c wymagane obiekty
+			void run(void);			///< uruchamia pêtlê g³ówn¹ w³¹czaj¹c proces renderingu, obs³ugi wejœcia/wyjœcia itp. w pêtli g³ównej
+			void stop(void);		///< zatrzymuje dzia³anie silnika przez ustawienie zmiennej m_Running na false, co powoduje wyjœcie z pêtli g³ównej
+			void cleanup(void);		///< sprz¹ta po zakoñczonej pracy
 
-			Manager<Object>* objectManager(void);	// pobiera wskaŸnik na mened¿er obiektów
-			void objectManager(Manager<Object>* pObjectManager);	// ustawia nowy mened¿er obiektów
+			Manager<Object>* objectManager(void);	///< pobiera wskaŸnik na mened¿er obiektów; jeœli ten jest NULLem, rzucony zostaje wyj¹tek typu NullPointerException
+			void objectManager(Manager<Object>* pObjectManager);	///< ustawia nowy mened¿er obiektów, lub - jeœli ma zostaæ ustawiony NULL - rzuca wyj¹tek Exception typu NullPointerException
 
-			Manager<Material>* materialManager(void);	// pobiera wskaŸnik na mened¿er materia³ów
-			void materialManager(Manager<Material>* pMaterialManager);	// ustawia nowy mened¿er materia³ów
+			Manager<Material>* materialManager(void);	///< pobiera wskaŸnik na mened¿er materia³ów lub rzuca wyj¹tek Exception typu NullPointerException, jeœli ten jest NULLem
+			void materialManager(Manager<Material>* pMaterialManager);	///< ustawia nowy mened¿er materia³ów lub rzuca wyj¹tek Exception typu NullPointerException, jeœli mia³by zostaæ ustawiony NULL
 
 			Window* window(void);	// pobiera wskaŸnik na okno
 			void window(Window* window);	// ustawia nowe okno
@@ -75,6 +75,7 @@ namespace Hikari
 			Manager<Material>* m_pMaterialManager;
 			Application* m_pApplication;
 
+			// mutexy pozwalaj¹ce zablokowaæ zasoby nale¿¹ce do sekcji krytycznej
 			std::mutex objectManagerMutex;
 			std::mutex materialManagerMutex;
 			std::mutex inputMutex;

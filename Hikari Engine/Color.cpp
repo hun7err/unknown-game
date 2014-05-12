@@ -89,10 +89,15 @@ float* Hikari::Color::components(void)
 	return &m_Red;
 }
 
-void Hikari::Color::components(float* components)
+void Hikari::Color::components(float* pComponents)
 {
-	m_Red = components[0];
-	m_Green = components[1];
-	m_Blue = components[2];
-	m_Alpha = components[3];
+	if(pComponents == nullptr || pComponents+1 == nullptr || pComponents+2 == nullptr || pComponents+3 == nullptr)
+	{
+		throw new Exception("Invalid pointer in Color::components(float*)", "NullPointerException");
+	}
+
+	m_Red = pComponents[0];
+	m_Green = pComponents[1];
+	m_Blue = pComponents[2];
+	m_Alpha = pComponents[3];
 }

@@ -10,13 +10,13 @@ namespace Hikari
 	class D3D11System
 	{
 		public:
-			void setup(HWND windowHandle, bool fullscreen, int width, int height, int sampleCount);
-			void cleanup(void);
+			void setup(HWND windowHandle, bool fullscreen, int width, int height, int sampleCount);	///< przygotowuje system Direct3D 11 - alokuje zasoby, przygotowuje swapChain, urz¹dzenie D3D11 i jego kontekst; jeœli nie uda siê stworzyæ urz¹dzenia, kontekstu i swapChaina w wyniku wykonania D3D11CreateDeviceAndSwapChain (test makrem FAILED), to zostanie rzucony wyj¹tek typu NullPointerException
+			void cleanup(void);	///< sprz¹ta, czyli wykonuje Release() na obiektach COM + zwalnia zasoby i zeruje wskaŸniki do przysz³ego u¿ycia
 
-			IDXGISwapChain* swapChain(void);
-			void swapChain(IDXGISwapChain* pSwapChain);
+			IDXGISwapChain* swapChain(void);			///< zwraca wskaŸnik na swapChain
+			void swapChain(IDXGISwapChain* pSwapChain);	///< ustawia nowy swapChain
 
-			ID3D11Device* device(void);
+			ID3D11Device* device(void);			///< zwraca wskaŸnik na urz¹dzenie
 			void device(ID3D11Device* pDevice);
 
 			ID3D11DeviceContext* deviceContext(void);

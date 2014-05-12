@@ -33,6 +33,16 @@ void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
 	pEngine->stop();
 }
 
+/*
+	to-do:
+	
+	- dodaæ tu komentarze w kodzie
+	- dokoñczyæ komentowanie ca³oœci (zwróciæ uwagê przy pierwszych plikach na to, czy opisane s¹ wyj¹tki rzucane przy z³ych parametrach/z³ych memberach)
+	- dodaæ ustawianie DEBUG na 1 w Debug, a na 0 w Release
+	- naprawiæ bugi przy wychodzeniu i obs³udze przycisku
+	- przenieœæ Renderer i jego setup() z Engine do aplikacji (czyli tutaj), w tym d3dsystem(D3D11Sytem* system)
+*/
+
 void ExampleApplication::run(void)
 {
 	Hikari::Engine* engine;
@@ -47,7 +57,7 @@ void ExampleApplication::run(void)
 	Hikari::Window* mainWindow = new Hikari::WinAPIWindow("Hikari::Engine application", 800, 600, 100, 100);
 	engine->window(mainWindow);
 	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
-	engine->input()->keyHandler(VK_ESCAPE, escHandler);
+	engine->input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
 
 	engine->run();
 

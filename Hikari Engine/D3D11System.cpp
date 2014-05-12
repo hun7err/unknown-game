@@ -23,6 +23,9 @@ void Hikari::D3D11System::setup(HWND windowHandle, bool fullscreen, int width, i
     };
     unsigned int featuresSize = ARRAYSIZE(featureLevels);*/
 
+	// to-do:
+	// opisaæ tutaj parametry D3D11CreateDeviceAndSwapChain
+
 	if(FAILED(D3D11CreateDeviceAndSwapChain(	NULL,
 									D3D_DRIVER_TYPE_HARDWARE,
 									NULL,
