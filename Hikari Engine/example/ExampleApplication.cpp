@@ -1,6 +1,7 @@
 #include "ExampleApplication.hpp"
 #include "../WrongArgumentException.hpp"
 #include "../WinAPIWindow.hpp"
+#include "../SimpleRenderer.hpp"
 #include <functional>
 
 ExampleApplication::ExampleApplication() {}
@@ -39,8 +40,12 @@ void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
 	- dodaæ tu komentarze w kodzie
 	- dokoñczyæ komentowanie ca³oœci (zwróciæ uwagê przy pierwszych plikach na to, czy opisane s¹ wyj¹tki rzucane przy z³ych parametrach/z³ych memberach)
 	- dodaæ ustawianie DEBUG na 1 w Debug, a na 0 w Release
-	- naprawiæ bugi przy wychodzeniu i obs³udze przycisku
-	- przenieœæ Renderer i jego setup() z Engine do aplikacji (czyli tutaj), w tym d3dsystem(D3D11Sytem* system)
+	- dodaæ zwalnianie poprzednich wskaŸników przy ustawianiu nowych memberów, które s¹ wskaŸnikami
+	- sprawdziæ, czy wyj¹tki nie powoduj¹ memory leaków
+	- dodaæ obs³ugê b³êdów inicjalizacji DirectXa (np. brak wsparcia)
+	- Engine jako Singleton?
+	- ObjectGroup jako kompozyt
+	- Logger jako singleton
 */
 
 void ExampleApplication::run(void)
@@ -54,8 +59,13 @@ void ExampleApplication::run(void)
 	}
 
 	engine->setup(m_hInstance, m_nCmdShow);
+	
+	Hikari::Renderer* myRenderer = new Hikari::SimpleRenderer();
+	engine->renderer(myRenderer);
+
 	Hikari::Window* mainWindow = new Hikari::WinAPIWindow("Hikari::Engine application", 800, 600, 100, 100);
 	engine->window(mainWindow);
+
 	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
 	engine->input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
 

@@ -37,7 +37,7 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 	materialManagerMutex.unlock();
 
 	// mutex
-	m_pRenderer = new SimpleRenderer();
+	//m_pRenderer = new SimpleRenderer();
 	
 	inputMutex.lock();
 	m_pInput = new Hikari::WinAPIInput();
@@ -245,14 +245,14 @@ Hikari::Window* Hikari::Engine::window(void)
 	return m_pWindow;
 }
 
-void Hikari::Engine::window(Hikari::Window* window)
+void Hikari::Engine::window(Hikari::Window* pWindow)
 {
-	if(window == NULL)
+	if(pWindow == NULL)
 	{
 		throw new Exception("Can't set new window to a NULL pointer in Engine::window(Window*)", "NullPointerException");
 	}
 
-	WinAPIWindow* newWindow = dynamic_cast<WinAPIWindow*>(window);
+	WinAPIWindow* newWindow = dynamic_cast<WinAPIWindow*>(pWindow);
 
 	if(newWindow == NULL)
 	{
@@ -282,6 +282,31 @@ void Hikari::Engine::application(Hikari::Application* application)
 	m_pApplication = application;
 }
 
+Hikari::Renderer* Hikari::Engine::renderer(void)
+{
+	if(m_pRenderer == NULL)
+	{
+		throw new Exception("m_pRenderer is not initialized in Engine::renderer(void)", "NullPointerException");
+	}
+
+	return m_pRenderer;
+}
+
+void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
+{
+	if(pRenderer == NULL)
+	{
+		throw new Exception("Can't set new renderer to NULL in Engine::renderer(Renderer*)", "NullPointerException");
+	}
+
+	if(m_pRenderer != NULL)
+	{
+		delete m_pRenderer;
+	}
+
+	m_pRenderer = pRenderer;
+}
+
 Hikari::WinAPIInput* Hikari::Engine::input(void)
 {
 	if(m_pInput == NULL)
@@ -292,12 +317,12 @@ Hikari::WinAPIInput* Hikari::Engine::input(void)
 	return m_pInput;
 }
 
-void Hikari::Engine::input(Hikari::WinAPIInput* input)
+void Hikari::Engine::input(Hikari::WinAPIInput* pInput)
 {
-	if(input == NULL)
+	if(pInput == NULL)
 	{
 		throw new Exception("Can't set new input handler to a NULL pointer in Engine::input(WinAPIInput*)", "NullPointerException");
 	}
 
-	m_pInput = input;
+	m_pInput = pInput;
 }
