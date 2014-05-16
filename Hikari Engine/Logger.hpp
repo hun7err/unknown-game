@@ -2,21 +2,22 @@
 #define __LOGGER_HPP__
 
 #include <utility>
+#include <mutex>
 #include <string>
 #include <ctime>
 #include <list>
 
 namespace Hikari
 {
-	class LoggerClass
+	class Logger
 	{
 		public:
-			static LoggerClass* getInstance();
 			static void addRecord(std::string record);
+			static void dump(std::string filename);
 
 		private:
-			LoggerClass* m_pInstance;
-			std::list<std::pair<time_t, std::string> > m_Records;
+			static std::list<std::pair<time_t, std::string> > m_Records;
+			static std::mutex m_recordMutex;
 
 	};
 }

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ExampleApplication.hpp"
 #include "../Exception.hpp"
+#include "../Logger.hpp"
 
 /**
 	\fn int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -40,6 +41,10 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , LPSTR lpCmdLi
 	#ifdef DEBUG
 		std::cout << "Uruchamianie przykladowej aplikacji" << std::endl;
 	#endif
+	
+	Hikari::Logger::addRecord("odpalam aplikacjê");
+	Hikari::Logger::dump("test.txt");
+
 	application->run();	// uruchamiamy aplikacjê
 
 	return 0;

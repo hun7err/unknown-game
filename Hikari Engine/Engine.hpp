@@ -12,14 +12,13 @@
 #include "Material.hpp"
 #include "Renderer.hpp"
 #include "Manager.hpp"
-#include "Object.hpp"
+#include "ObjectGroup.hpp"
 #include "D3D11System.hpp"
 
 /*
 	to-do:
 		- (!!!) Naprawiæ -> tutoriale DX11, z Rastertek obs³uga okna itp.
-		- ogarn¹æ kod i okomentowaæ metody i zmienne
-		- pododawaæ nazwy argumentów metod
+		- StackWalker -> stacktrace zbieraæ jak coœ siê stanie z³ego
 		- logo silnika
 */
 
