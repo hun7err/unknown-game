@@ -17,10 +17,8 @@
     <ClCompile Include="example\example.cpp" />
     <ClCompile Include="example\ExampleApplication.cpp" />
     <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="RenderPass.cpp" />
     <ClCompile Include="SimpleRenderer.cpp" />
     <ClCompile Include="WinAPIInput.cpp" />
@@ -30,7 +28,6 @@
   <ItemGroup>
     <ClInclude Include="Color.hpp" />
     <ClInclude Include="Logger.hpp" />
-    <ClInclude Include="ObjectGroup.hpp" />
     <ClInclude Include="SimplePass.hpp" />
     <ClInclude Include="D3D11System.hpp" />
     <ClInclude Include="Engine.hpp" />
