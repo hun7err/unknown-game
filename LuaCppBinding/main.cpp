@@ -76,6 +76,8 @@ int main()
 	{
 		fprintf(stderr, "error: %s\n", lua_tostring(L, -1));
 		lua_pop(L, 1);
+
+		system("PAUSE");
 		return 1;
 	}
 	assert(lua_gettop(L) == 0);
