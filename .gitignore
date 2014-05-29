@@ -12,3 +12,4 @@ Hikari Engine/Debug/CL.read.1.tlog
 *.ilk
 Hikari Engine/Hikari Engine.vcxproj.filters
 Hikari Engine/Hikari Engine.v11.suo
+LuaCppBinding/LuaCppBinding.vcxproj.filters
