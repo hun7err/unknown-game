@@ -7,14 +7,19 @@ Hikari::D3D11ShaderProgram::D3D11ShaderProgram(std::string vertexShaderName, std
 {
 	m_VertexShaderName = vertexShaderName;
 	
-	if(pixelShaderName == "")
-	{
-		m_PixelShaderName = vertexShaderName;
-	}
-	else
-	{
-		m_PixelShaderName = pixelShaderName;
-	}
+	m_PixelShaderName = pixelShaderName;
+}
+
+Hikari::D3D11ShaderProgram::D3D11ShaderProgram(std::string shaderName)
+{
+	m_VertexShaderName = shaderName;
+	m_PixelShaderName = shaderName;
+}
+
+Hikari::D3D11ShaderProgram::~D3D11ShaderProgram()
+{
+	m_pVertexShader->Release();
+	m_pPixelShader->Release();
 }
 
 void Hikari::D3D11ShaderProgram::deviceContext(ID3D11DeviceContext* pDeviceContext)
@@ -25,6 +30,18 @@ void Hikari::D3D11ShaderProgram::deviceContext(ID3D11DeviceContext* pDeviceConte
 	}
 
 	m_pDeviceContext = pDeviceContext;
+}
+
+void Hikari::D3D11ShaderProgram::entryPointNames(std::string vertexShaderEntryPointName, std::string pixelShaderEntryPointName)
+{
+	m_VertexShaderEntryPointName = (LPCSTR)vertexShaderEntryPointName.c_str();
+	m_PixelShaderEntryPointName = (LPCSTR)pixelShaderEntryPointName.c_str();
+}
+
+void Hikari::D3D11ShaderProgram::entryPointNames(std::string shaderEntryPointName)
+{
+	m_VertexShaderEntryPointName = (LPCSTR)shaderEntryPointName.c_str();
+	m_PixelShaderEntryPointName = (LPCSTR)shaderEntryPointName.c_str();
 }
 
 ID3D10Blob* Hikari::D3D11ShaderProgram::vertexShaderBlob(void)

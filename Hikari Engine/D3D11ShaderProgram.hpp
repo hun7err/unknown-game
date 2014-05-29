@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <d3d10.h>
+#include <d3d10_1.h>
 #include <d3d11.h>
 
 namespace Hikari
@@ -11,7 +11,13 @@ namespace Hikari
 	class D3D11ShaderProgram
 	{
 		public:
-			D3D11ShaderProgram(std::string vertexShaderName, std::string pixelShaderName/*, std::string geometryShaderName*/);
+			D3D11ShaderProgram(std::string vertexShaderName, std::string pixelShaderName);
+			D3D11ShaderProgram(std::string shaderName);
+
+			virtual ~D3D11ShaderProgram();
+
+			void entryPointNames(std::string vertexShaderEntryPointName, std::string pixelShaderEntryPointName);
+			void entryPointNames(std::string shaderEntryPointName);
 
 			void deviceContext(ID3D11DeviceContext *pDeviceContext);
 			
@@ -40,7 +46,7 @@ namespace Hikari
 						m_PixelShaderName/*,
 						m_GeometryShaderName*/;
 
-			LPCSTR m_VertexShaderEntryPointName, // dodaæ g³ównie settery, ew. gettery
+			LPCSTR m_VertexShaderEntryPointName, // dodaæ ew. gettery
 					m_PixelShaderEntryPointName;
 	};
 };
