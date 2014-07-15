@@ -121,7 +121,11 @@ void Hikari::Engine::processFrame(void)
 
 void Hikari::Engine::cleanup(void)
 {
+	// mutex
 	m_pRenderer->cleanup();
+	delete m_pRenderer;
+	m_pRenderer = NULL;
+
 	m_pD3DSystem->cleanup();
 
 	objectManagerMutex.lock();
@@ -135,11 +139,6 @@ void Hikari::Engine::cleanup(void)
 	delete m_pMaterialManager;
 	m_pMaterialManager = NULL;
 	materialManagerMutex.unlock();
-
-	// mutex
-	m_pRenderer->cleanup();
-	delete m_pRenderer;
-	m_pRenderer = NULL;
 
 	delete m_pInput;
 	m_pInput = NULL;

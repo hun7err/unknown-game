@@ -6,20 +6,26 @@
 #include <d3d10_1.h>
 #include <d3d11.h>
 
+#include "D3D11System.hpp"
+
 namespace Hikari
 {
 	class D3D11ShaderProgram
 	{
 		public:
-			D3D11ShaderProgram(std::string vertexShaderName, std::string pixelShaderName);
-			D3D11ShaderProgram(std::string shaderName);
+			D3D11ShaderProgram();
+
+			void setup(std::wstring vertexShaderName, std::wstring pixelShaderName);
+			void setup(std::wstring shaderName);
+
+			void cleanup(void);
 
 			virtual ~D3D11ShaderProgram();
 
 			void entryPointNames(std::string vertexShaderEntryPointName, std::string pixelShaderEntryPointName);
 			void entryPointNames(std::string shaderEntryPointName);
 
-			void deviceContext(ID3D11DeviceContext *pDeviceContext);
+			void d3d11system(D3D11System *pD3D11System);
 			
 			ID3D10Blob* vertexShaderBlob(void);
 			ID3D10Blob* pixelShaderBlob(void);
@@ -40,14 +46,14 @@ namespace Hikari
 			ID3D11PixelShader *m_pPixelShader;
 			//ID3D11GeometryShader *m_pGeometryShader;
 
-			ID3D11DeviceContext *m_pDeviceContext;
-
-			std::string m_VertexShaderName,
+			std::wstring m_VertexShaderName,
 						m_PixelShaderName/*,
 						m_GeometryShaderName*/;
 
 			LPCSTR m_VertexShaderEntryPointName, // dodaæ ew. gettery
 					m_PixelShaderEntryPointName;
+
+			D3D11System *m_pD3D11System;
 	};
 };
 
