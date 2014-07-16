@@ -46,12 +46,12 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	};
 	ID3D11InputLayout *pLayout;
 
-	m_pD3D11System->device()->CreateInputLayout(ied, 2, triangleShader->pixelShaderBlob()->GetBufferPointer(), triangleShader->vertexShaderBlob()->GetBufferSize(), &pLayout);
-
-	m_pD3D11System->deviceContext()->IASetInputLayout(pLayout);
-
 	m_pD3D11System->deviceContext()->VSSetShader(triangleShader->vertexShader(), 0, 0);
 	m_pD3D11System->deviceContext()->PSSetShader(triangleShader->pixelShader(), 0, 0);
+
+	m_pD3D11System->device()->CreateInputLayout(ied, 2, triangleShader->vertexShaderBlob()->GetBufferPointer(), triangleShader->vertexShaderBlob()->GetBufferSize(), &pLayout);
+
+	m_pD3D11System->deviceContext()->IASetInputLayout(pLayout);
 
 	D3D11_BUFFER_DESC bd;
 	ZeroMemory(&bd, sizeof(bd));

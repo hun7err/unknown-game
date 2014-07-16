@@ -32,7 +32,7 @@ void Hikari::D3D11ShaderProgram::setup(std::wstring shaderName)
 
 void Hikari::D3D11ShaderProgram::cleanup()
 {
-	m_pVertexShader->Release();	// tu siê skur[cenzura] wywala
+	m_pVertexShader->Release();
 	m_pPixelShader->Release();
 
 	delete [] m_PixelShaderEntryPointName;
@@ -125,6 +125,6 @@ void Hikari::D3D11ShaderProgram::compile(void)
 		throw new Exception("Pixel shader compilation failed", "ShaderCompilationException");
 	}
 
-	m_pD3D11System->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);	// unhandled exception
+	m_pD3D11System->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);
 	m_pD3D11System->device()->CreatePixelShader(m_pPixelShaderBlob->GetBufferPointer(), m_pPixelShaderBlob->GetBufferSize(), NULL, &m_pPixelShader);
 }
