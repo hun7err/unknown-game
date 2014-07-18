@@ -24,6 +24,9 @@
 
 namespace Hikari
 {
+	const char buildDate[] = __DATE__;
+	const char buildTime[] = __TIME__;
+
 	class WinAPIInput;
 
 	LRESULT CALLBACK WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); ///< wywo³ywane przez DispatchMessage, odpowiada za przetworzenie komunikatów okna
