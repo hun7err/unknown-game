@@ -1,95 +1,119 @@
 #ifndef __MANAGER_HPP__
 #define __MANAGER_HPP__
 
-#include <list>
+#include <vector>
 #include <string>
 #include <mutex>
+#include "Exception.hpp"
 
 namespace Hikari
 {
-	template <typename ManagedType> class Manager
+	template <typename TypeName> class Manager
 	{
 		public:
-			Manager()
+			static unsigned int add(TypeName* pObject)
 			{
-				m_Objects = NULL;
+				unsigned int key;
+				m_ItemMutex.lock();
+
+				key = m_Items.size();
+				m_Items.push_back(pObject);
+
+				m_ItemMutex.unlock();
+
+				return key;
 			}
 
-			Manager(const Manager& other) {}
-
-			virtual ~Manager() {}
-			
-			void setup(void)
+			static TypeName* get(int key)
 			{
-				m_Objects = new std::list<ManagedType*>();
-
-				if(m_Objects == NULL)
+				m_ItemMutex.lock();
+				if(key >= (int)m_Items.size() || key < 0)
 				{
-					throw new Exception("Could not initialize m_Objects pointer in Manager::setup()", "NullPointerException");
+					m_ItemMutex.unlock();
+
+					Exception e("Invalid key in Manager::get(int)", "InvalidKeyException");
+					throw e;
 				}
+
+				TypeName* pMaterial = m_Items[key];
+				m_ItemMutex.unlock();
+
+				return pMaterial;
 			}
 
-			void cleanup(void)
+			static TypeName* get(std::string name)
 			{
-				delete m_Objects;
-				m_Objects = NULL;
-			}
+				m_ItemMutex.lock();
 
-			void add(ManagedType* pObject)
-			{
-				m_ObjectOperationMutex.lock();
-				m_Objects->push_back(pObject);
-				m_ObjectOperationMutex.unlock();
-			}
-
-			ManagedType* get(std::string name)
-			{
-				m_ObjectOperationMutex.lock();
-				for(std::list<Hikari::Object*>::iterator currentObject = m_Objects->begin(); currentObject != m_Objects->end(); currentObject++)
+				for(std::vector<TypeName*>::iterator currentItem = m_Items.begin(); currentItem != m_Items.end(); ++currentItem)
 				{
-					if((*currentObject)->name() == name)
+					if((*currentItem)->name() == name)
 					{
-						m_ObjectOperationMutex.unlock();
-						return *currentObject;
+						m_ItemMutex.unlock();
+						return *currentMaterial;
 					}
 				}
 
-				m_ObjectOperationMutex.unlock();
-
-				std::string message("Could not find object of name '");
-				message.append(name + "'");
-
-				throw new Exception(const_cast<char*>(message.c_str()), "ObjectNotFoundException");
+				m_ItemMutex.unlock();
+				return NULL;
 			}
 
-			void remove(std::string name)
+			static void remove(std::string name)
 			{
-				m_ObjectOperationMutex.lock();
-				bool found;
+				m_ItemMutex.lock();
 
-				for(std::list<Hikari::Object*>::iterator currentObject = m_Objects->begin(); currentObject != m_Objects->end(); currentObject++)
+				for(std::vector<TypeName*>::iterator currentItem = m_Items.begin(); currentItem != m_Items.end(); ++currentItem)
 				{
-					if((*currentObject)->name() == name)
+					if((*currentItem)->name() == name)
 					{
-						m_Objects->erase(currentObject);
-						m_ObjectOperationMutex.unlock();
-						found = true;
+						m_ItemMutex.unlock();
+						m_Items.erase(currentItem);
 						break;
 					}
 				}
 
-				if(!found)
-				{
-					std::string message("Could not find object of name '");
-					message.append(name + "'");
+				m_ItemMutex.unlock();
 
-					throw new Exception(const_cast<char*>(message.c_str()), "ObjectNotFoundException");
-				}
+				//Exception e("An element with given name could not be found in Hikari::MaterialManager::remove(std::string)", "NoSuchElementException");
+				//throw e;
 			}
 
-		private:
-			std::list<ManagedType*>* m_Objects;
-			std::mutex m_ObjectOperationMutex;
+			static void remove(int key)
+			{
+				m_ItemMutex.lock();
+				if(key >= (int)m_Items.size() || key < 0)
+				{
+					m_ItemMutex.unlock();
+
+					Exception e("Invalid key in Manager::remove(int)", "OutOfBoundsException");
+					throw e;
+				}
+
+				m_Items.erase(m_Items.begin() + key);
+
+				m_ItemMutex.unlock();
+			}
+
+			static bool isValidKey(int key)
+			{
+				bool valid = false;
+				m_ItemMutex.lock();
+				if(key < (int)m_Items.size() && key >= 0)
+				{
+					if(m_Items[key] != NULL)
+					{
+						valid = true;
+					}
+				}
+				m_ItemMutex.unlock();
+
+				return valid;
+			}
+
+		protected:
+			static std::vector<TypeName*> m_Items;
+			Manager();
+			static std::mutex m_ItemMutex;
 	};
 }
 

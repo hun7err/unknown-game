@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="D3D11ShaderProgram.cpp" />
     <ClCompile Include="D3D11System.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -22,19 +21,26 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ObjectGroup.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="RenderPass.cpp" />
     <ClCompile Include="SimpleRenderer.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="WinAPIInput.cpp" />
     <ClCompile Include="WinAPIWindow.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.hpp" />
     <ClInclude Include="D3D11ShaderProgram.hpp" />
     <ClInclude Include="File.hpp" />
+    <ClInclude Include="Handle.hpp" />
+    <ClInclude Include="HTexture.hpp" />
     <ClInclude Include="Logger.hpp" />
-    <ClInclude Include="ObjectGroup.hpp" />
+    <ClInclude Include="HMaterial.hpp" />
+    <ClInclude Include="MaterialManager.hpp" />
+    <ClInclude Include="Node.hpp" />
+    <ClInclude Include="HShader.hpp" />
+    <ClInclude Include="ObjectManager.hpp" />
+    <ClInclude Include="ShaderManager.hpp" />
     <ClInclude Include="SimplePass.hpp" />
     <ClInclude Include="D3D11System.hpp" />
     <ClInclude Include="Engine.hpp" />
@@ -45,6 +51,8 @@
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Manager.hpp" />
     <ClInclude Include="SimpleRenderer.hpp" />
+    <ClInclude Include="Texture.hpp" />
+    <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="Vector.hpp" />
     <ClInclude Include="Renderer.hpp" />
     <ClInclude Include="RenderPass.hpp" />

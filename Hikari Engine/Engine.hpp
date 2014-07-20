@@ -9,10 +9,7 @@
 #include "WinAPIWindow.hpp"
 #include "Application.hpp"
 #include "WinAPIInput.hpp"
-#include "Material.hpp"
 #include "Renderer.hpp"
-#include "Manager.hpp"
-#include "ObjectGroup.hpp"
 #include "D3D11System.hpp"
 
 /*
@@ -44,12 +41,6 @@ namespace Hikari
 			void stop(void);		///< zatrzymuje dzia³anie silnika przez ustawienie zmiennej m_Running na false, co powoduje wyjœcie z pêtli g³ównej
 			void cleanup(void);		///< sprz¹ta po zakoñczonej pracy
 
-			Manager<Object>* objectManager(void);	///< pobiera wskaŸnik na mened¿er obiektów; jeœli ten jest NULLem, rzucony zostaje wyj¹tek typu NullPointerException
-			void objectManager(Manager<Object>* pObjectManager);	///< ustawia nowy mened¿er obiektów, lub - jeœli ma zostaæ ustawiony NULL - rzuca wyj¹tek Exception typu NullPointerException
-
-			Manager<Material>* materialManager(void);	///< pobiera wskaŸnik na mened¿er materia³ów lub rzuca wyj¹tek Exception typu NullPointerException, jeœli ten jest NULLem
-			void materialManager(Manager<Material>* pMaterialManager);	///< ustawia nowy mened¿er materia³ów lub rzuca wyj¹tek Exception typu NullPointerException, jeœli mia³by zostaæ ustawiony NULL
-
 			Window* window(void);	// pobiera wskaŸnik na okno; jeœli mia³by zostaæ zwrócony NULL, rzucony zostanie wyj¹tek Exception typu NullPointerException
 			void window(Window* pWindow);	// ustawia nowe okno jeœli pWindow nie jest NULLem, w przeciwnym wypadku rzucony zostanie wyj¹tek Exception typu NullPointerException
 
@@ -79,13 +70,9 @@ namespace Hikari
 
 			Renderer* m_pRenderer;		///< generuje obraz metod¹ render()
 			D3D11System* m_pD3DSystem;	///< odpowiada za utworzenie i zwolnienie urz¹dzenia D3D11 i jego kontekstu + swapChain
-			Manager<Object>* m_pObjectManager;		///< mened¿er obiektów, przechowuje renderowane obiekty
-			Manager<Material>* m_pMaterialManager;	///< mened¿er materia³ów
 			Application* m_pApplication;			// mo¿liwe ¿e zbêdne
 
 			// mutexy pozwalaj¹ce zablokowaæ zasoby nale¿¹ce do sekcji krytycznej
-			std::mutex objectManagerMutex;
-			std::mutex materialManagerMutex;
 			std::mutex inputMutex;
 			std::mutex runningMutex;
 			std::mutex d3dsystemMutex;

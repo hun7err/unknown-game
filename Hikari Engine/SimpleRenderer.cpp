@@ -1,24 +1,14 @@
 #include "SimpleRenderer.hpp"
+#include <DirectXPackedVector.h>
+#include <DirectXColors.h>
 #include "SimplePass.hpp"
-#include "Color.hpp"
 
 // test start
-struct COLOR
-{
-	FLOAT r,g,b,a;
-	COLOR(FLOAT _r, FLOAT _g, FLOAT _b, FLOAT _a = 1.0f)
-	{
-		r = _r;
-		g = _g;
-		b = _b;
-		a = _a;
-	}
-};
 
 struct Vertex
 {
 	FLOAT X, Y, Z;
-	COLOR Color;
+	DirectX::XMFLOAT4 Color;
 };
 // test end
 
@@ -34,9 +24,9 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 
 	Vertex OurVertices[] = 
 	{
-		{0.0f, 0.5f, 0.0f, COLOR(1.0f, 0.0f, 0.0f, 1.0f)},
-		{0.45f, -0.5f, 0.0f, COLOR(0.0f, 1.0f, 0.0f, 1.0f)},
-		{-0.45f, -0.5f, 0.0f, COLOR(0.0f, 0.0f, 1.0f, 1.0f)}
+		{0.0f, 0.5f, 0.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
+		{0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)},
+		{-0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)}
 	};
 	// vertex buffer i inne tego typu wrzuciæ w Object
 	D3D11_INPUT_ELEMENT_DESC ied[] =
@@ -106,8 +96,8 @@ void Hikari::SimpleRenderer::cleanup(void)
 void Hikari::SimpleRenderer::render(void)
 {
 	Hikari::RenderPass* lastRenderPass = NULL;
-	static Hikari::Color clearColor(0.0f, 0.2f, 0.4f, 1.0f);
-
+	//static Hikari::Color clearColor(0.0f, 0.2f, 0.4f, 1.0f);
+	static DirectX::XMVECTORF32 clearColor = DirectX::Colors::Chocolate;
 
 	for(std::vector<RenderPass*>::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)
 	{
@@ -120,7 +110,7 @@ void Hikari::SimpleRenderer::render(void)
 		{
 			// clearColor wywaliæ do renderTarget?
 
-			m_pD3D11System->deviceContext()->ClearRenderTargetView(*currentTarget, clearColor.components());	// wyczyœæ cele
+			m_pD3D11System->deviceContext()->ClearRenderTargetView(*currentTarget, clearColor);	// wyczyœæ cele
 		}
 		(*currentPass)->run(lastRenderPass);	// uruchom przejœcie renderera
 
