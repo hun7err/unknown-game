@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include <d3d11.h>
+#include <DirectXPackedVector.h>
 
 namespace Hikari
 {
