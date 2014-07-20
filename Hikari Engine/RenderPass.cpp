@@ -1,8 +1,10 @@
 #include "RenderPass.hpp"
 #include "Exception.hpp"
+#include <DirectXColors.h>
 
 Hikari::RenderPass::RenderPass()
 {
+	m_ClearColor = DirectX::Colors::Black;
 	m_pRenderTargets = new std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > ();
 	m_pRenderTargetViewports = new std::vector<D3D11_VIEWPORT> ();
 }
@@ -137,4 +139,12 @@ std::vector<D3D11_VIEWPORT> Hikari::RenderPass::viewports(void)
 	return *m_pRenderTargetViewports;
 }
 
+DirectX::XMVECTORF32 Hikari::RenderPass::clearColor(void)
+{
+	return m_ClearColor;
+}
 
+void Hikari::RenderPass::clearColor(DirectX::XMVECTORF32 *newClearColor)
+{
+	m_ClearColor = *newClearColor;
+}

@@ -30,11 +30,16 @@ namespace Hikari
 			D3D11_VIEWPORT viewport(unsigned int index);
 			std::vector<D3D11_VIEWPORT> viewports(void);
 
+			// wyprowadziæ kiedyœ clearColor do renderTargetów, ¿eby nie by³y per pass a per RT
+			DirectX::XMVECTORF32 clearColor(void);
+			void clearColor(DirectX::XMVECTORF32 *newClearColor);
+
 			RenderPass();
 			/** \brief	Wirtualny destruktor m.in. zwalniajacy liste celow */
 			virtual ~RenderPass();
 
 		protected:
+			DirectX::XMVECTORF32 m_ClearColor;
 			std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * m_pRenderTargets;
 			std::vector<D3D11_VIEWPORT> * m_pRenderTargetViewports;
 	};
