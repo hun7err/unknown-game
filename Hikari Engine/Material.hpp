@@ -21,15 +21,19 @@ namespace Hikari
 
 			DirectX::XMVECTORF32 diffuseColor(void);
 			void diffuseColor(DirectX::XMVECTORF32 *newDiffuseColor);
+			void diffuseColor(float r, float g, float b, float a);
 
 			DirectX::XMVECTORF32 specularColor(void);
 			void specularColor(DirectX::XMVECTORF32 *newSpecularColor);
+			void specularColor(float r, float g, float b, float a);
 
 			DirectX::XMVECTORF32 ambientColor(void);
 			void ambientColor(DirectX::XMVECTORF32 *newAmbientColor);
+			void ambientColor(float r, float g, float b, float a);
 
 			DirectX::XMVECTORF32 emissiveColor(void);
 			void emissiveColor(DirectX::XMVECTORF32 *newEmissiveColor);
+			void emissiveColor(float r, float g, float b, float a);
 
 			HTexture diffuseMap(void);
 			void diffuseMap(HTexture newDiffuseMap);

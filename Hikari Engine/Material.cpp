@@ -49,6 +49,14 @@ void Hikari::Material::diffuseColor(DirectX::XMVECTORF32 *newDiffuseColor)
 	m_DiffuseColor = *newDiffuseColor;
 }
 
+void Hikari::Material::diffuseColor(float r, float g, float b, float a = 1.0f)
+{
+	m_DiffuseColor.f[0] = r;
+	m_DiffuseColor.f[1] = g;
+	m_DiffuseColor.f[2] = b;
+	m_DiffuseColor.f[3] = a;
+}
+
 DirectX::XMVECTORF32 Hikari::Material::specularColor(void)
 {
 	return m_SpecularColor;
@@ -57,6 +65,14 @@ DirectX::XMVECTORF32 Hikari::Material::specularColor(void)
 void Hikari::Material::specularColor(DirectX::XMVECTORF32 *newSpecularColor)
 {
 	m_SpecularColor = *newSpecularColor;
+}
+
+void Hikari::Material::specularColor(float r, float g, float b, float a = 1.0f)
+{
+	m_SpecularColor.f[0] = r;
+	m_SpecularColor.f[1] = g;
+	m_SpecularColor.f[2] = b;
+	m_SpecularColor.f[3] = a;
 }
 
 DirectX::XMVECTORF32 Hikari::Material::ambientColor(void)
@@ -69,6 +85,14 @@ void Hikari::Material::ambientColor(DirectX::XMVECTORF32 *newAmbientColor)
 	m_AmbientColor = *newAmbientColor;
 }
 
+void Hikari::Material::ambientColor(float r, float g, float b, float a = 1.0f)
+{
+	m_AmbientColor.f[0] = r;
+	m_AmbientColor.f[1] = g;
+	m_AmbientColor.f[2] = b;
+	m_AmbientColor.f[3] = a;
+}
+
 DirectX::XMVECTORF32 Hikari::Material::emissiveColor(void)
 {
 	return m_EmissiveColor;
@@ -77,6 +101,14 @@ DirectX::XMVECTORF32 Hikari::Material::emissiveColor(void)
 void Hikari::Material::emissiveColor(DirectX::XMVECTORF32 *newEmissiveColor)
 {
 	m_EmissiveColor = *newEmissiveColor;
+}
+
+void Hikari::Material::emissiveColor(float r, float g, float b, float a = 1.0f)
+{
+	m_EmissiveColor.f[0] = r;
+	m_EmissiveColor.f[1] = g;
+	m_EmissiveColor.f[2] = b;
+	m_EmissiveColor.f[3] = a;
 }
 
 Hikari::HTexture Hikari::Material::diffuseMap(void)
