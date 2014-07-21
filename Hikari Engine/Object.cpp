@@ -28,14 +28,14 @@ Hikari::Object::~Object()
 	if(m_pVertexBuffer)
 	{
 		m_pVertexBuffer->Release();
+		m_pVertexBuffer = NULL;
 	}
-	m_pVertexBuffer = NULL;
 
 	if(m_pIndexBuffer)
 	{
 		m_pIndexBuffer->Release();
+		m_pIndexBuffer = NULL;
 	}
-	m_pIndexBuffer = NULL;
 }
 
 void Hikari::Object::setup(ID3D11Device *pDevice)
