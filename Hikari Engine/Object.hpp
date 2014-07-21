@@ -21,7 +21,7 @@ namespace Hikari
 			std::string name(void);
 			void name(std::string name);
 
-			virtual void setup(ID3D11Device* pDevice) = 0;
+			void setup(ID3D11Device* pDevice);
 			void draw(ID3D11DeviceContext* pDeviceContext); // virtual?
 			void cleanup(void);
 
@@ -32,22 +32,26 @@ namespace Hikari
 			void material(HMaterial materialHandle);
 
 		protected:
+			struct Vertex {
+				Hikari::Vector3D position_modelSpace;
+				Hikari::Vector2D uv;
+				Hikari::Vector3D normal_modelSpace;
+			};
+
+			Vertex *m_pVertices;
+			unsigned long *m_pIndices;
+
 			unsigned int m_VertexCount,
 						 m_IndexCount;
 			D3D11_PRIMITIVE_TOPOLOGY m_PrimitiveTopology;
-
-			void initialize(void);
 
 			std::string m_Name;
 			ID3D11Buffer *m_pVertexBuffer, *m_pIndexBuffer;
 
 			HMaterial m_MaterialHandle;
 
-			struct Vertex {
-				Hikari::Vector3D position_modelSpace;
-				Hikari::Vector2D uv;
-				Hikari::Vector3D normal_modelSpace;
-			};
+		private:
+			void initialize(void);
 	};
 }
 
