@@ -69,62 +69,56 @@ void Hikari::Node::name(std::string name)
 	m_Name = name;
 }
 
-int Hikari::Node::add(Hikari::Object* pObject, std::string groupName = "")
+void Hikari::Node::add(Hikari::Object *pObject)
 {
-	if( groupName == "" )
+	m_pObjects->push_back(pObject);
+}
+
+int Hikari::Node::add(Hikari::Object* pObject, std::string groupName)
+{
+	if( m_Name == groupName )
 	{
 		m_pObjects->push_back(pObject);
 		return 0;
 	}
-	else
-	{
-		if( m_Name == groupName )
-		{
-			m_pObjects->push_back(pObject);
-			return 0;
-		}
 
-		if( ! m_pNodes->empty() )
+	if( ! m_pNodes->empty() )
+	{
+		for(auto currentGroup = m_pNodes->begin(); currentGroup != m_pNodes->end(); ++currentGroup)
 		{
-			for(auto currentGroup = m_pNodes->begin(); currentGroup != m_pNodes->end(); ++currentGroup)
+			if((*currentGroup)->add(pObject, groupName) == 0)	// +- DFS
 			{
-				if((*currentGroup)->add(pObject, groupName) == 0)	// +- DFS
-				{
-					return 0;
-				}
+				return 0;
 			}
 		}
-		return -1;
 	}
+	return -1;
 }
 
-int Hikari::Node::add(Hikari::Node* pGroup, std::string groupName = "")
+void Hikari::Node::add(Hikari::Node *pNode)
 {
-	if( groupName == "" )
+	m_pNodes->push_back(pNode);
+}
+
+int Hikari::Node::add(Hikari::Node* pGroup, std::string groupName)
+{
+	if( m_Name == groupName )
 	{
 		m_pNodes->push_back(pGroup);
 		return 0;
 	}
-	else
-	{
-		if( m_Name == groupName )
-		{
-			m_pNodes->push_back(pGroup);
-			return 0;
-		}
 
-		if( ! m_pNodes->empty() )
+	if( ! m_pNodes->empty() )
+	{
+		for(auto currentGroup = m_pNodes->begin(); currentGroup != m_pNodes->end(); ++currentGroup)
 		{
-			for(auto currentGroup = m_pNodes->begin(); currentGroup != m_pNodes->end(); ++currentGroup)
+			if((*currentGroup)->add(pGroup, groupName) == 0)	// +- DFS
 			{
-				if((*currentGroup)->add(pGroup, groupName) == 0)	// +- DFS
-				{
-					return 0;
-				}
+				return 0;
 			}
 		}
-		return -1;
 	}
+	return -1;
 }
 
 

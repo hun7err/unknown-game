@@ -19,8 +19,10 @@ namespace Hikari
 			std::string name(void);			/**  */
 			void name(std::string name);	/**  */
 
-			int add(Object* pObject, std::string groupName);		/**  */
-			int add(Node* pGroup, std::string groupName);	/**  */
+			void add(Object *pObject);
+			int add(Object *pObject, std::string groupName);		/**  */
+			void add(Node *pGroup);
+			int add(Node *pGroup, std::string groupName);	/**  */
 
 			std::list<Node*>* nodes();
 			std::list<Object*>* objects();
