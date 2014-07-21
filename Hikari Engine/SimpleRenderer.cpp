@@ -96,7 +96,6 @@ void Hikari::SimpleRenderer::cleanup(void)
 void Hikari::SimpleRenderer::render(void)
 {
 	Hikari::RenderPass* lastRenderPass = NULL;
-	//static Hikari::Color clearColor(0.0f, 0.2f, 0.4f, 1.0f);
 
 	for(std::vector<RenderPass*>::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)
 	{
