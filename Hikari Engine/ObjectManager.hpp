@@ -1,31 +1,36 @@
 #ifndef __OBJECTMANAGER_HPP__
 #define __OBJECTMANAGER_HPP__
 
-#include "Object.hpp"
 #include "Manager.hpp"
+#include "Node.hpp"
 
 namespace Hikari
 {
-	typedef Manager<Object> ObjectManager;
-
-	std::vector<Object*> ObjectManager::m_Items;
-	std::mutex ObjectManager::m_ItemMutex;
-	/*
 	class ObjectManager : public Manager<Node>
 	{
 		public:
-			void add(Object* pObject)
+			static void add(Object* pObject)
 			{
 				if(m_Items.empty())
 				{
 					root = new Node();
 				}
-				root.add(pObject);
+				root->add(pObject);
 			}
 
-			void add(Object* pObject, std::string nodeName)
+			static int add(Object* pObject, std::string nodeName)
 			{
-				// znajdŸ odpowiedni¹ grupê i dodaj tam pObject
+				return root->add(pObject, nodeName);
+			}
+
+			static void add(Node *pNode)
+			{
+				root->add(pNode);
+			}
+
+			static int add(Node *pNode, std::string nodeName)
+			{
+				return root->add(pNode, nodeName);
 			}
 
 			~ObjectManager()
@@ -33,9 +38,13 @@ namespace Hikari
 				delete root;
 			}
 		private:
-			Node* root;
+			ObjectManager() {}
+			static Node* root;
 	};
-	*/
+
+	std::vector<Node*> ObjectManager::m_Items;
+	std::mutex ObjectManager::m_ItemMutex;
+	Hikari::Node* Hikari::ObjectManager::root = new Hikari::Node();
 }
 
 #endif
