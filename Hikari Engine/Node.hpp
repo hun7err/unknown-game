@@ -27,6 +27,8 @@ namespace Hikari
 
 			void draw(ID3D11DeviceContext* pDeviceContext);	// zaimplementowaæ!
 
+			static Node* load(std::string filename);
+
 			//void removeObject(std::string name);
 			//void removeGroup(std::string name);
 
@@ -38,8 +40,9 @@ namespace Hikari
 			std::list<Object*> * m_pObjects;
 			std::list<Node*> * m_pNodes;
 			std::string m_Name;
+			void initialize(void);
 
-			DirectX::XMMATRIX transformationMatrix;
+			DirectX::XMMATRIX m_TransformationMatrix;
 			// node transformation matrix
 	};
 }

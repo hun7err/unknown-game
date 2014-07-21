@@ -2,15 +2,20 @@
 
 Hikari::Node::Node()
 {
-	m_pNodes = new std::list<Hikari::Node*>();
-	m_pObjects = new std::list<Hikari::Object*>();
+	initialize();
 }
 
 Hikari::Node::Node(Hikari::Object* pObject)
 {
+	initialize();
+	m_pObjects->push_back(pObject);
+}
+
+void Hikari::Node::initialize(void)
+{
 	m_pNodes = new std::list<Hikari::Node*>();
 	m_pObjects = new std::list<Hikari::Object*>();
-	m_pObjects->push_back(pObject);
+	m_TransformationMatrix = DirectX::XMMatrixIdentity();
 }
 
 Hikari::Node::~Node()
@@ -31,6 +36,27 @@ std::list<Hikari::Object*>* Hikari::Node::objects(void)
 
 void Hikari::Node::draw(ID3D11DeviceContext* pDeviceContext)
 {
+	/*
+		notka od autora
+		---------------
+
+		najpierw wyrysowujê obiekty a dopiero wêz³y, bo inaczej pDeviceContext odk³ada³oby siê, przez rekurencjê, na stosie. W ten sposób staram siê ograniczyæ narzut pamiêciowy zwi¹zany z wyrysowaniem obiektów i podwêz³ów
+	*/
+
+	for(std::list<Object*>::iterator currentObject = m_pObjects->begin(); currentObject != m_pObjects->end(); ++currentObject)
+	{
+		(*currentObject)->draw(pDeviceContext);
+	}
+
+	for(std::list<Node*>::iterator currentNode = m_pNodes->begin(); currentNode != m_pNodes->end(); ++currentNode)
+	{
+		(*currentNode)->draw(pDeviceContext);
+	}
+}
+
+Hikari::Node* Hikari::Node::load(std::string filename)
+{
+	return new Node();	// do zaimplementowania ³adowanie Assimpem
 }
 
 std::string Hikari::Node::name(void)
