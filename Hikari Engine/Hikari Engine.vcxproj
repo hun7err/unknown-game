@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="D3D11ShaderProgram.cpp" />
     <ClCompile Include="D3D11System.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -25,11 +26,13 @@
     <ClCompile Include="RenderPass.cpp" />
     <ClCompile Include="SimpleRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="WinAPIInput.cpp" />
     <ClCompile Include="WinAPIWindow.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.hpp" />
     <ClInclude Include="D3D11ShaderProgram.hpp" />
     <ClInclude Include="File.hpp" />
     <ClInclude Include="Handle.hpp" />
@@ -53,6 +56,7 @@
     <ClInclude Include="SimpleRenderer.hpp" />
     <ClInclude Include="Texture.hpp" />
     <ClInclude Include="TextureManager.hpp" />
+    <ClInclude Include="Triangle.hpp" />
     <ClInclude Include="Vector.hpp" />
     <ClInclude Include="Renderer.hpp" />
     <ClInclude Include="RenderPass.hpp" />
