@@ -11,62 +11,62 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="D3D11ShaderProgram.cpp" />
-    <ClCompile Include="D3D11System.cpp" />
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="example\example.cpp" />
-    <ClCompile Include="example\ExampleApplication.cpp" />
-    <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="File.cpp" />
-    <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="Material.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="RenderPass.cpp" />
-    <ClCompile Include="SimpleRenderer.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Triangle.cpp" />
-    <ClCompile Include="WinAPIInput.cpp" />
-    <ClCompile Include="WinAPIWindow.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="example\src\example.cpp" />
+    <ClCompile Include="example\src\ExampleApplication.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\D3D11ShaderProgram.cpp" />
+    <ClCompile Include="src\D3D11System.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Exception.cpp" />
+    <ClCompile Include="src\File.cpp" />
+    <ClCompile Include="src\Logger.cpp" />
+    <ClCompile Include="src\Material.cpp" />
+    <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\RenderPass.cpp" />
+    <ClCompile Include="src\SimpleRenderer.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
+    <ClCompile Include="src\WinAPIInput.cpp" />
+    <ClCompile Include="src\WinAPIWindow.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.hpp" />
-    <ClInclude Include="D3D11ShaderProgram.hpp" />
-    <ClInclude Include="File.hpp" />
-    <ClInclude Include="Handle.hpp" />
-    <ClInclude Include="HTexture.hpp" />
-    <ClInclude Include="Logger.hpp" />
-    <ClInclude Include="HMaterial.hpp" />
-    <ClInclude Include="MaterialManager.hpp" />
-    <ClInclude Include="Node.hpp" />
-    <ClInclude Include="HShader.hpp" />
-    <ClInclude Include="ObjectManager.hpp" />
-    <ClInclude Include="ShaderManager.hpp" />
-    <ClInclude Include="SimplePass.hpp" />
-    <ClInclude Include="D3D11System.hpp" />
-    <ClInclude Include="Engine.hpp" />
-    <ClInclude Include="Application.hpp" />
-    <ClInclude Include="example\ExampleApplication.hpp" />
-    <ClInclude Include="Exception.hpp" />
-    <ClInclude Include="Material.hpp" />
-    <ClInclude Include="Object.hpp" />
-    <ClInclude Include="Manager.hpp" />
-    <ClInclude Include="SimpleRenderer.hpp" />
-    <ClInclude Include="Texture.hpp" />
-    <ClInclude Include="TextureManager.hpp" />
-    <ClInclude Include="Triangle.hpp" />
-    <ClInclude Include="Vector.hpp" />
-    <ClInclude Include="Renderer.hpp" />
-    <ClInclude Include="RenderPass.hpp" />
-    <ClInclude Include="WinAPIInput.hpp" />
-    <ClInclude Include="WinAPIWindow.hpp" />
-    <ClInclude Include="Window.hpp" />
-    <ClInclude Include="WrongArgumentException.hpp" />
+    <ClInclude Include="example\include\ExampleApplication.hpp" />
+    <ClInclude Include="include\Application.hpp" />
+    <ClInclude Include="include\Camera.hpp" />
+    <ClInclude Include="include\D3D11ShaderProgram.hpp" />
+    <ClInclude Include="include\D3D11System.hpp" />
+    <ClInclude Include="include\Engine.hpp" />
+    <ClInclude Include="include\Exception.hpp" />
+    <ClInclude Include="include\File.hpp" />
+    <ClInclude Include="include\Handle.hpp" />
+    <ClInclude Include="include\HMaterial.hpp" />
+    <ClInclude Include="include\HShader.hpp" />
+    <ClInclude Include="include\HTexture.hpp" />
+    <ClInclude Include="include\Logger.hpp" />
+    <ClInclude Include="include\Manager.hpp" />
+    <ClInclude Include="include\Material.hpp" />
+    <ClInclude Include="include\MaterialManager.hpp" />
+    <ClInclude Include="include\Node.hpp" />
+    <ClInclude Include="include\Object.hpp" />
+    <ClInclude Include="include\ObjectManager.hpp" />
+    <ClInclude Include="include\Renderer.hpp" />
+    <ClInclude Include="include\RenderPass.hpp" />
+    <ClInclude Include="include\ShaderManager.hpp" />
+    <ClInclude Include="include\SimplePass.hpp" />
+    <ClInclude Include="include\SimpleRenderer.hpp" />
+    <ClInclude Include="include\Texture.hpp" />
+    <ClInclude Include="include\TextureManager.hpp" />
+    <ClInclude Include="include\Triangle.hpp" />
+    <ClInclude Include="include\Vector.hpp" />
+    <ClInclude Include="include\WinAPIInput.hpp" />
+    <ClInclude Include="include\WinAPIWindow.hpp" />
+    <ClInclude Include="include\Window.hpp" />
+    <ClInclude Include="include\WrongArgumentException.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="triangle_shader.hlsl">
+    <FxCompile Include="res\shaders\triangle.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VShader</EntryPointName>
     </FxCompile>
   </ItemGroup>
