@@ -2,6 +2,8 @@
 #include "../WrongArgumentException.hpp"
 #include "../WinAPIWindow.hpp"
 #include "../SimpleRenderer.hpp"
+#include "../ObjectManager.hpp"
+#include "../Triangle.hpp"
 #include <functional>
 
 ExampleApplication::ExampleApplication() {}
@@ -69,7 +71,16 @@ void ExampleApplication::run(void)
 	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
 	engine->input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
 
+	Hikari::Object* pTriangle = new Hikari::Objects::Triangle(
+		Hikari::Vector3D(0.0f, 0.5f, 0.0f),
+		Hikari::Vector3D(0.45f, -0.5f, 0.0f),
+		Hikari::Vector3D(-0.45f, -0.5f, 0.0f)
+	);
+	Hikari::ObjectManager::add(pTriangle);
+
 	engine->run();
+
+	delete pTriangle;
 
 	engine->cleanup();
 	delete engine;
