@@ -29,7 +29,7 @@ void Hikari::WinAPIInput::keyDown(unsigned int key)
 {
 	if(key >= 256)
 	{
-		throw new Exception("Nieprawidlowy kod przycisku w KeyDown", "InvalidKeyException");
+		throw Exception("Nieprawidlowy kod przycisku w KeyDown", "InvalidKeyException");
 	}
 	m_Keys[key].first = true;
 }
@@ -38,7 +38,7 @@ void Hikari::WinAPIInput::keyUp(unsigned int key)
 {
 	if(key >= 256)
 	{
-		throw new Exception("Nieprawidlowy kod przycisku w KeyUp", "InvalidKeyException");
+		throw Exception("Nieprawidlowy kod przycisku w KeyUp", "InvalidKeyException");
 	}
 	m_Keys[key].first = false;
 }
@@ -47,7 +47,7 @@ bool Hikari::WinAPIInput::isKeyDown(unsigned int key)
 {
 	if(key >= 256)
 	{
-		throw new Exception("Nieprawidlowy kod przycisku w isKeyDown", "InvalidKeyException");
+		throw Exception("Nieprawidlowy kod przycisku w isKeyDown", "InvalidKeyException");
 	}
 	return m_Keys[key].first;
 }
@@ -56,7 +56,7 @@ std::function<void(Hikari::Engine*)> Hikari::WinAPIInput::keyHandler(unsigned in
 {
 	if(key >= 256)
 	{
-		throw new Exception("Nieprawidlowy kod przycisku w KeyUp", "InvalidKeyException");
+		throw Exception("Nieprawidlowy kod przycisku w KeyUp", "InvalidKeyException");
 	}
 
 	return m_Keys[key].second;
@@ -66,7 +66,7 @@ void Hikari::WinAPIInput::keyHandler(unsigned int key, std::function<void(Hikari
 {
 	if(key >= 256)
 	{
-		throw new Exception("Nieprawidlowy kod przycisku w keyHandler(std::function<void(Hikari::Engine*)>)", "InvalidKeyException");
+		throw Exception("Nieprawidlowy kod przycisku w keyHandler(std::function<void(Hikari::Engine*)>)", "InvalidKeyException");
 	}
 
 	m_Keys[key].second = keyHandler;

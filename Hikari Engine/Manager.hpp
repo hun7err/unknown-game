@@ -74,8 +74,8 @@ namespace Hikari
 
 				m_ItemMutex.unlock();
 
-				//Exception e("An element with given name could not be found in Hikari::MaterialManager::remove(std::string)", "NoSuchElementException");
-				//throw e;
+				Exception e("An element with given name could not be found in Hikari::Manager::remove(std::string)", "NoSuchElementException");
+				throw e;
 			}
 
 			static void remove(int key)

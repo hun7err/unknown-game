@@ -169,7 +169,7 @@ Hikari::Window* Hikari::Engine::window(void)
 {
 	if(m_pWindow == NULL)
 	{
-		throw new Exception("m_pWindow is not initialized in Engine::window(void)", "NullPointerException");
+		throw Exception("m_pWindow is not initialized in Engine::window(void)", "NullPointerException");
 	}
 
 	return m_pWindow;
@@ -179,14 +179,14 @@ void Hikari::Engine::window(Hikari::Window* pWindow)
 {
 	if(pWindow == NULL)
 	{
-		throw new Exception("Can't set new window to a NULL pointer in Engine::window(Window*)", "NullPointerException");
+		throw Exception("Can't set new window to a NULL pointer in Engine::window(Window*)", "NullPointerException");
 	}
 
 	WinAPIWindow* newWindow = dynamic_cast<WinAPIWindow*>(pWindow);
 
 	if(newWindow == NULL)
 	{
-		throw new Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*)", "InvalidTypeException");
+		throw Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*)", "InvalidTypeException");
 	}
 
 	m_pWindow = newWindow;
@@ -196,7 +196,7 @@ Hikari::Application* Hikari::Engine::application(void)
 {
 	if(m_pApplication == NULL)
 	{
-		throw new Exception("m_pApplication is not initialized in Engine::application(void)", "NullPointerException");
+		throw Exception("m_pApplication is not initialized in Engine::application(void)", "NullPointerException");
 	}
 
 	return m_pApplication;
@@ -206,7 +206,7 @@ void Hikari::Engine::application(Hikari::Application* application)
 {
 	if(application == NULL)
 	{
-		throw new Exception("Can't set new application to a NULL pointer in Engine::application(Application*)", "NullPointerException");
+		throw Exception("Can't set new application to a NULL pointer in Engine::application(Application*)", "NullPointerException");
 	}
 
 	m_pApplication = application;
@@ -216,7 +216,7 @@ Hikari::Renderer* Hikari::Engine::renderer(void)
 {
 	if(m_pRenderer == NULL)
 	{
-		throw new Exception("m_pRenderer is not initialized in Engine::renderer(void)", "NullPointerException");
+		throw Exception("m_pRenderer is not initialized in Engine::renderer(void)", "NullPointerException");
 	}
 
 	return m_pRenderer;
@@ -226,7 +226,7 @@ void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 {
 	if(pRenderer == NULL)
 	{
-		throw new Exception("Can't set new renderer to NULL in Engine::renderer(Renderer*)", "NullPointerException");
+		throw Exception("Can't set new renderer to NULL in Engine::renderer(Renderer*)", "NullPointerException");
 	}
 
 	if(m_pRenderer != NULL)
@@ -241,7 +241,7 @@ Hikari::WinAPIInput* Hikari::Engine::input(void)
 {
 	if(m_pInput == NULL)
 	{
-		throw new Exception("m_pInput is not initialized in Engine::input(void)", "NullPointerException");
+		throw Exception("m_pInput is not initialized in Engine::input(void)", "NullPointerException");
 	}
 
 	return m_pInput;
@@ -251,7 +251,7 @@ void Hikari::Engine::input(Hikari::WinAPIInput* pInput)
 {
 	if(pInput == NULL)
 	{
-		throw new Exception("Can't set new input handler to a NULL pointer in Engine::input(WinAPIInput*)", "NullPointerException");
+		throw Exception("Can't set new input handler to a NULL pointer in Engine::input(WinAPIInput*)", "NullPointerException");
 	}
 
 	m_pInput = pInput;

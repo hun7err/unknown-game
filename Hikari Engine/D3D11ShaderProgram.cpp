@@ -12,7 +12,7 @@ void Hikari::D3D11ShaderProgram::setup(std::wstring vertexShaderName, std::wstri
 {
 	if(!File::exists(vertexShaderName) || !File::exists(pixelShaderName))
 	{
-		throw new Exception("The specified shader file could not be found in D3D11ShaderProgram::setup(std::string)", "FileNotFoundException");
+		throw Exception("The specified shader file could not be found in D3D11ShaderProgram::setup(std::string)", "FileNotFoundException");
 	}
 
 	m_VertexShaderName = vertexShaderName;
@@ -23,7 +23,7 @@ void Hikari::D3D11ShaderProgram::setup(std::wstring shaderName)
 {
 	if(!File::exists(shaderName))
 	{
-		throw new Exception("The specified shader file could not be found in D3D11ShaderProgram::setup(std::string)", "FileNotFoundException");
+		throw Exception("The specified shader file could not be found in D3D11ShaderProgram::setup(std::string)", "FileNotFoundException");
 	}
 
 	m_VertexShaderName = shaderName;
@@ -47,7 +47,7 @@ void Hikari::D3D11ShaderProgram::d3d11system(Hikari::D3D11System* pD3D11System)
 {
 	if(pD3D11System == NULL)
 	{
-		throw new Exception("Invalid device context pointer in D3D11ShaderProgram::deviceContext(ID3D11DeviceContext*)", "NullPointerException");
+		throw Exception("Invalid device context pointer in D3D11ShaderProgram::deviceContext(ID3D11DeviceContext*)", "NullPointerException");
 	}
 
 	m_pD3D11System = pD3D11System;
@@ -74,7 +74,7 @@ ID3D10Blob* Hikari::D3D11ShaderProgram::vertexShaderBlob(void)
 {
 	if(m_pVertexShaderBlob == NULL)
 	{
-		throw new Exception("Vertex Shader blob pointer is not initialized in D3D11ShaderProgram::vertexShaderBlob(void)", "NullPointerException");
+		throw Exception("Vertex Shader blob pointer is not initialized in D3D11ShaderProgram::vertexShaderBlob(void)", "NullPointerException");
 	}
 
 	return m_pVertexShaderBlob;
@@ -84,7 +84,7 @@ ID3D10Blob* Hikari::D3D11ShaderProgram::pixelShaderBlob(void)
 {
 	if(m_pPixelShaderBlob == NULL)
 	{
-		throw new Exception("Pixel Shader blob is not initialized in D3D11ShaderProgram::pixelShaderBlob(void)", "NullPointerException");
+		throw Exception("Pixel Shader blob is not initialized in D3D11ShaderProgram::pixelShaderBlob(void)", "NullPointerException");
 	}
 
 	return m_pPixelShaderBlob;
@@ -94,7 +94,7 @@ ID3D11VertexShader* Hikari::D3D11ShaderProgram::vertexShader(void)
 {
 	if(m_pVertexShader == NULL)
 	{
-		throw new Exception("Vertex Shader pointer is not initialized in D3D11ShaderProgram::vertexShader(void)", "NullPointerException");
+		throw Exception("Vertex Shader pointer is not initialized in D3D11ShaderProgram::vertexShader(void)", "NullPointerException");
 	}
 
 	return m_pVertexShader;
@@ -104,7 +104,7 @@ ID3D11PixelShader* Hikari::D3D11ShaderProgram::pixelShader(void)
 {
 	if(m_pPixelShader == NULL)
 	{
-		throw new Exception("Pixel Shader pointer is not initialized in D3D11ShaderProgram::pixelShader(void)", "NullPointerException");
+		throw Exception("Pixel Shader pointer is not initialized in D3D11ShaderProgram::pixelShader(void)", "NullPointerException");
 	}
 
 	return m_pPixelShader;
@@ -117,12 +117,12 @@ void Hikari::D3D11ShaderProgram::compile(void)
 
 	if(FAILED(D3DCompileFromFile(wVertexShaderName, NULL, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_VertexShaderEntryPointName, "vs_4_0", 0, 0, &m_pVertexShaderBlob, NULL)))
 	{
-		throw new Exception("Vertex shader compilation failed", "ShaderCompilationException");
+		throw Exception("Vertex shader compilation failed", "ShaderCompilationException");
 	}
 
 	if(FAILED(D3DCompileFromFile(wPixelShaderName, NULL, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_PixelShaderEntryPointName, "ps_4_0", 0, 0, &m_pPixelShaderBlob, NULL)))
 	{
-		throw new Exception("Pixel shader compilation failed", "ShaderCompilationException");
+		throw Exception("Pixel shader compilation failed", "ShaderCompilationException");
 	}
 
 	m_pD3D11System->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);

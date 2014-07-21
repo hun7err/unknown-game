@@ -46,6 +46,6 @@ void Hikari::Logger::dump(std::string filename)
 	catch(std::ifstream::failure e)
 	{
 		std::string exceptionMessage("Could not open '" + filename + "' in Logger::dump(std::string) :  " + e.code().message() + "/" + e.what());
-		throw new Exception(const_cast<char*>(exceptionMessage.c_str()), "IOException");
+		throw Exception(const_cast<char*>(exceptionMessage.c_str()), "IOException");
 	}
 }
