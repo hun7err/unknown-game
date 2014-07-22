@@ -2,8 +2,25 @@
 #include "../include/Exception.hpp"
 #include "../include/SimpleRenderer.hpp"
 
+bool Hikari::Engine::m_Running = false;
+HINSTANCE Hikari::Engine::m_hInstance;
+HWND Hikari::Engine::m_hwnd;
+int Hikari::Engine::m_nCmdShow;
+Hikari::WinAPIInput *Hikari::Engine::m_pInput = NULL;
+Hikari::WinAPIWindow *Hikari::Engine::m_pWindow = NULL;
+Hikari::Renderer *Hikari::Engine::m_pRenderer = NULL;
+Hikari::D3D11System *Hikari::Engine::m_pD3DSystem = NULL;
+std::mutex Hikari::Engine::inputMutex;
+std::mutex Hikari::Engine::runningMutex;
+std::mutex Hikari::Engine::d3dsystemMutex;
+Hikari::Engine *Hikari::Engine::m_pInstance = NULL;
+	
+const char Hikari::Engine::buildDate[] = __DATE__;
+const char Hikari::Engine::buildTime[] = __TIME__;
+
 Hikari::Engine::Engine(void)
 {
+	m_pInstance = this;
 	m_pRenderer = NULL;
 	m_pD3DSystem = NULL;
 	m_pInput = NULL;
@@ -18,18 +35,31 @@ Hikari::Engine::~Engine()
 {
 }
 
-void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
+HINSTANCE Hikari::Engine::applicationInstanceHandle(void)
 {
-	m_hInstance = hInstance;	// walidowaæ!
-	m_nCmdShow = nCmdShow;	// walidowaæ!
+	return m_hInstance;
+}
 
-	Hikari::EngineHandle = this;
+void Hikari::Engine::applicationInstanceHandle(HINSTANCE hApplicationInstance)
+{
+	m_hInstance = hApplicationInstance;
+}
 
-	// m_pRenderer = new Hikari::
+int Hikari::Engine::windowShowFlags(void)
+{
+	return m_nCmdShow;
+}
 
-	// mutex
-	//m_pRenderer = new SimpleRenderer();
-	
+void Hikari::Engine::windowShowFlags(int newFlags)
+{
+	m_nCmdShow = newFlags;
+}
+
+void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
+{
+	m_hInstance = hApplicationInstance;
+	m_nCmdShow = nCmdShow;
+
 	inputMutex.lock();
 	m_pInput = new Hikari::WinAPIInput();
 	inputMutex.unlock();
@@ -43,10 +73,9 @@ void Hikari::Engine::setup(HINSTANCE hInstance, int nCmdShow)
 
 void Hikari::Engine::run(void)
 {
-	m_pWindow->setup(m_hInstance, m_nCmdShow);
 	Vector2D windowSize = m_pWindow->size();
 
-	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), m_pWindow->width(), m_pWindow->height(), 1);
+	// wyrzuciæ to do setup albo initialize
 	m_pRenderer->d3d11system(m_pD3DSystem);
 	m_pRenderer->setup(m_pWindow->width(), m_pWindow->height());
 
@@ -100,7 +129,7 @@ void Hikari::Engine::processFrame(void)
 	{
 		if( m_pInput->keyHandler(currentKey) != nullptr && m_pInput->isKeyDown(currentKey) )
 		{
-			m_pInput->keyHandler(currentKey)(this);
+			m_pInput->keyHandler(currentKey)();
 		}
 	}
 
@@ -120,7 +149,7 @@ void Hikari::Engine::cleanup(void)
 	delete m_pInput;
 	m_pInput = NULL;
 
-	Hikari::EngineHandle = NULL;
+	//Hikari::EngineHandle = NULL;
 }
 
 LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
@@ -139,7 +168,7 @@ LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam,
 		}
 		default:
 		{
-			return EngineHandle->MessageHandler(WindowHandle, message, wParam, lParam);
+			return Engine::MessageHandler(WindowHandle, message, wParam, lParam);
 		}
 	}
 }
@@ -175,7 +204,7 @@ Hikari::Window* Hikari::Engine::window(void)
 	return m_pWindow;
 }
 
-void Hikari::Engine::window(Hikari::Window* pWindow)
+void Hikari::Engine::window(Hikari::Window* pWindow, unsigned int sampleCount)
 {
 	if(pWindow == NULL)
 	{
@@ -186,30 +215,12 @@ void Hikari::Engine::window(Hikari::Window* pWindow)
 
 	if(newWindow == NULL)
 	{
-		throw Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*)", "InvalidTypeException");
+		throw Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*,uint)", "InvalidTypeException");
 	}
 
 	m_pWindow = newWindow;
-}
-
-Hikari::Application* Hikari::Engine::application(void)
-{
-	if(m_pApplication == NULL)
-	{
-		throw Exception("m_pApplication is not initialized in Engine::application(void)", "NullPointerException");
-	}
-
-	return m_pApplication;
-}
-
-void Hikari::Engine::application(Hikari::Application* application)
-{
-	if(application == NULL)
-	{
-		throw Exception("Can't set new application to a NULL pointer in Engine::application(Application*)", "NullPointerException");
-	}
-
-	m_pApplication = application;
+	m_pWindow->setup(m_hInstance, m_nCmdShow);
+	m_pD3DSystem->setup(m_pWindow->handle(), m_pWindow->fullscreen(), m_pWindow->width(), m_pWindow->height(), sampleCount);
 }
 
 Hikari::Renderer* Hikari::Engine::renderer(void)
@@ -255,4 +266,9 @@ void Hikari::Engine::input(Hikari::WinAPIInput* pInput)
 	}
 
 	m_pInput = pInput;
+}
+
+Hikari::D3D11System *Hikari::Engine::d3dsystem(void)
+{
+	return m_pD3DSystem;
 }

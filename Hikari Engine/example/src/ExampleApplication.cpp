@@ -1,4 +1,5 @@
 #include "../include/ExampleApplication.hpp"
+#include "../../include/Engine.hpp"		// Hikari::Engine
 #include "../../include/WrongArgumentException.hpp"
 #include "../../include/WinAPIWindow.hpp"
 #include "../../include/SimpleRenderer.hpp"
@@ -31,9 +32,9 @@ void ExampleApplication::setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdSho
 	m_nCmdShow = nCmdShow;
 }
 
-void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
+void ExampleApplication::stopEngine(void)
 {
-	pEngine->stop();
+	Hikari::Engine::stop();
 }
 
 /*
@@ -49,27 +50,33 @@ void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
 
 void ExampleApplication::run(void)
 {
-	Hikari::Engine* engine;
+	//Hikari::Engine* engine;
 
-	engine = new Hikari::Engine();
-	if(!engine)
+	//engine = new Hikari::Engine();
+	/*if(!engine)
 	{
 		throw Exception("Could not create Hikari::Engine instance", "EngineInitException");
-	}
+	}*/
 
-	engine->setup(m_hInstance, m_nCmdShow);
-	
+	Hikari::Engine::initialize(m_hInstance, m_nCmdShow); // ale mo¿na te¿ tak:
+	/*
+	Hikari::Engine::applicationInstanceHandle(m_hInstance);
+	Hikari::Engine::windowShowFlags(m_nCmdShow);
+	*/
+
 	Hikari::Renderer* myRenderer = new Hikari::SimpleRenderer();
-	engine->renderer(myRenderer);
+	Hikari::Engine::renderer(myRenderer);
 
 	Hikari::Window* mainWindow = new Hikari::WinAPIWindow("Hikari::Engine application", 800, 600, 100, 100);
-	engine->window(mainWindow);
+	Hikari::Engine::window(mainWindow);
 
-	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
-	engine->input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
+	std::function<void(void)> escHandler = std::bind(&ExampleApplication::stopEngine, this);
+	Hikari::Engine::input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
 
 	Hikari::ShaderProgram *pSimpleShader = new Hikari::ShaderProgram();
 	pSimpleShader->setup(L"res/shaders/triangle.hlsl");
+	pSimpleShader->entryPointNames("VShader", "PShader");
+	pSimpleShader->compile(); // tutaj leci wyj¹tek, nie ma device w d3dsystem
 	Hikari::HShader shaderHandle(Hikari::ShaderManager::add(pSimpleShader));
 
 	Hikari::Object *pTriangle = new Hikari::Objects::Triangle(
@@ -81,15 +88,15 @@ void ExampleApplication::run(void)
 	pMaterial->shader(shaderHandle);
 	Hikari::ObjectManager::add(pTriangle);
 
-	engine->run();
+	Hikari::Engine::run();
 
+	pTriangle->cleanup();
 	delete pTriangle;
 	delete pMaterial;
+	pSimpleShader->cleanup();
 	delete pSimpleShader;
 
-	engine->cleanup();
-	delete engine;
-	engine = NULL;
+	Hikari::Engine::cleanup();
 }
 
 ExampleApplication::~ExampleApplication() {}

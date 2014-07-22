@@ -24,8 +24,6 @@ namespace Hikari
 
 			void entryPointNames(std::string vertexShaderEntryPointName, std::string pixelShaderEntryPointName);
 			void entryPointNames(std::string shaderEntryPointName);
-
-			void d3d11system(D3D11System *pD3D11System);
 			
 			ID3D10Blob* vertexShaderBlob(void);
 			ID3D10Blob* pixelShaderBlob(void);
@@ -37,7 +35,7 @@ namespace Hikari
 
 			ID3D11InputLayout* inputLayout(void);
 
-			void compile(void);
+			void compile();
 
 		private:
 			ID3D10Blob	*m_pVertexShaderBlob,
@@ -60,9 +58,7 @@ namespace Hikari
 			LPCSTR m_VertexShaderEntryPointName, // dodaæ ew. gettery
 					m_PixelShaderEntryPointName;
 
-			D3D11System *m_pD3D11System;
-
-			void compileAndCreateShaders(void);
+			void compileAndCreateShaders();
 			void setInputElementDescription(void);
 	};
 };

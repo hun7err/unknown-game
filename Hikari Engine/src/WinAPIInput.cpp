@@ -18,7 +18,7 @@ void Hikari::WinAPIInput::setup()
 	int i;
 
 	//std::function<void(Hikari::Engine*)> defaultFunction = [](Hikari::Engine*) {};
-	std::function<void(Hikari::Engine*)> defaultFunction = nullptr;
+	std::function<void(void)> defaultFunction = nullptr;
 	for(i = 0; i < 256; i++)
 	{
 		m_Keys[i] = std::make_pair(false, defaultFunction);
@@ -52,7 +52,7 @@ bool Hikari::WinAPIInput::isKeyDown(unsigned int key)
 	return m_Keys[key].first;
 }
 
-std::function<void(Hikari::Engine*)> Hikari::WinAPIInput::keyHandler(unsigned int key)
+std::function<void(void)> Hikari::WinAPIInput::keyHandler(unsigned int key)
 {
 	if(key >= 256)
 	{
@@ -62,7 +62,7 @@ std::function<void(Hikari::Engine*)> Hikari::WinAPIInput::keyHandler(unsigned in
 	return m_Keys[key].second;
 }
 
-void Hikari::WinAPIInput::keyHandler(unsigned int key, std::function<void(Hikari::Engine*)> keyHandler)
+void Hikari::WinAPIInput::keyHandler(unsigned int key, std::function<void(void)> keyHandler)
 {
 	if(key >= 256)
 	{

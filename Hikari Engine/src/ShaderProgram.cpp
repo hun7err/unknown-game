@@ -3,10 +3,10 @@
 #include "../include/ShaderProgram.hpp"
 #include "../include/Exception.hpp"
 #include "../include/File.hpp"
+#include "../include/Engine.hpp"
 
 Hikari::ShaderProgram::ShaderProgram()
 {
-	m_pD3D11System = NULL;
 	m_pInputLayout = NULL;
 	m_pPixelShader = NULL;
 	m_pPixelShaderBlob = NULL;
@@ -56,18 +56,6 @@ void Hikari::ShaderProgram::cleanup()
 
 Hikari::ShaderProgram::~ShaderProgram()
 {
-}
-
-void Hikari::ShaderProgram::d3d11system(Hikari::D3D11System* pD3D11System)
-{
-	#ifdef _DEBUG
-	if(pD3D11System == NULL)
-	{
-		throw Exception("Invalid device context pointer in ShaderProgram::deviceContext(ID3D11DeviceContext*)", "NullPointerException");
-	}
-	#endif
-
-	m_pD3D11System = pD3D11System;
 }
 
 void Hikari::ShaderProgram::entryPointNames(std::string vertexShaderEntryPointName, std::string pixelShaderEntryPointName)
@@ -140,7 +128,7 @@ ID3D11InputLayout* Hikari::ShaderProgram::inputLayout(void)
 	return m_pInputLayout;
 }
 
-void Hikari::ShaderProgram::compileAndCreateShaders(void)
+void Hikari::ShaderProgram::compileAndCreateShaders()
 {
 	LPCWSTR wVertexShaderName = (LPCWSTR)m_VertexShaderName.c_str(),
 			wPixelShaderName = (LPCWSTR)m_PixelShaderName.c_str();
@@ -155,8 +143,8 @@ void Hikari::ShaderProgram::compileAndCreateShaders(void)
 		throw Exception("Pixel shader compilation failed", "ShaderCompilationException");
 	}
 
-	m_pD3D11System->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);
-	m_pD3D11System->device()->CreatePixelShader(m_pPixelShaderBlob->GetBufferPointer(), m_pPixelShaderBlob->GetBufferSize(), NULL, &m_pPixelShader);
+	Hikari::Engine::d3dsystem()->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);
+	Hikari::Engine::d3dsystem()->device()->CreatePixelShader(m_pPixelShaderBlob->GetBufferPointer(), m_pPixelShaderBlob->GetBufferSize(), NULL, &m_pPixelShader);
 }
 
 void Hikari::ShaderProgram::setInputElementDescription(void)
@@ -187,14 +175,14 @@ void Hikari::ShaderProgram::setInputElementDescription(void)
 	m_InputElementDescription[2].InstanceDataStepRate = 0;
 }
 
-void Hikari::ShaderProgram::compile(void)
+void Hikari::ShaderProgram::compile()
 {
 	compileAndCreateShaders();
 	setInputElementDescription();
 
 	/*int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
 
-	if(FAILED(m_pD3D11System->device()->CreateInputLayout(m_InputElementDescription, descriptionElementCount, m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), &m_pInputLayout)))
+	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateInputLayout(m_InputElementDescription, descriptionElementCount, m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), &m_pInputLayout)))
 	{
 		throw Exception("Could not create input layout in ShaderProgram::compile(void)", "ShaderCompilationException");
 	}

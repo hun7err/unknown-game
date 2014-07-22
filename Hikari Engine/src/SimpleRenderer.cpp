@@ -18,7 +18,6 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	// test start
 	triangleShader = new ShaderProgram();	// ok
 	triangleShader->setup(L"res/shaders/triangle.hlsl");
-	triangleShader->d3d11system(m_pD3D11System);	// ok
 	triangleShader->entryPointNames("VShader", "PShader");	// ok
 
 	triangleShader->compile();	// ok
