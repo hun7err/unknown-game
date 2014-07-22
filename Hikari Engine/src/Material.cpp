@@ -23,7 +23,6 @@ void Hikari::Material::initialize(void)
 	m_SpecularMap = nullptr;
 	m_NormalMap = nullptr;
 	m_Shininess = 0.5f;
-	m_ShaderProgram = nullptr;
 }
 
 Hikari::Material::~Material()
@@ -158,4 +157,17 @@ Hikari::HTexture Hikari::Material::bumpMap(void)
 
 void Hikari::Material::bumpMap(Hikari::HTexture newBumpMap)
 {
+}
+
+Hikari::HShader Hikari::Material::shader(void)
+{
+	return m_ShaderProgramHandle;
+}
+
+void Hikari::Material::shader(Hikari::HShader newShaderHandle)
+{
+	if(newShaderHandle.isValid())
+	{
+		m_ShaderProgramHandle = newShaderHandle;
+	}
 }

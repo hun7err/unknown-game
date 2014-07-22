@@ -47,6 +47,9 @@ namespace Hikari
 
 			HTexture bumpMap(void);
 			void bumpMap(HTexture newBumpMap);
+
+			HShader shader(void);
+			void shader(HShader newShaderHandle);
 		private:
 			void initialize(void);
 
@@ -61,7 +64,7 @@ namespace Hikari
 					 m_SpecularMap,
 					 m_NormalMap;
 
-			HShader m_ShaderProgram;
+			HShader m_ShaderProgramHandle;
 
 			float m_Shininess;
 
