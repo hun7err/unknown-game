@@ -1,0 +1,8 @@
+<map id="WinMain" name="WinMain">
+<area shape="rect" id="node3" href="$class_example_application.html#a4c4c3db9b9eb11d6cd0ec10a553d16f8" title="konfiguracja aplikacji: uchwyt do instancji, argumenty i tryb okna" alt="" coords="148,5,284,51"/>
+<area shape="rect" id="node5" href="$class_exception.html#a5359c96ae2ffa8a7af750486fea36a53" title="pobierz typ wyjątku w postaci ciągu znaków, np. WrongArgumentException" alt="" coords="160,75,272,104"/>
+<area shape="rect" id="node7" href="$class_exception.html#ad821d7ec9efccf80574aa7fe09a1aace" title="pobierz komunikat wyjątku" alt="" coords="145,128,287,157"/>
+<area shape="rect" id="node9" href="$class_hikari_1_1_logger.html#ab2fab9e234249a1466f2c5c52e3b139f" title="Hikari::Logger::addRecord" alt="" coords="129,181,303,211"/>
+<area shape="rect" id="node11" href="$class_hikari_1_1_logger.html#a40508b34c27d574c312216ba9fc0d57d" title="Hikari::Logger::dump" alt="" coords="145,235,287,264"/>
+<area shape="rect" id="node13" href="$class_hikari_1_1_application.html#ae18c6636f8169dd5ed5317ed2b87de54" title="uruchamia aplikacje (ciężko było się domyślić, nie? :P)" alt="" coords="139,288,293,317"/>
+</map>

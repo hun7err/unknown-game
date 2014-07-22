@@ -1,0 +1,14 @@
+<map id="Hikari::SimpleRenderer::setup" name="Hikari::SimpleRenderer::setup">
+<area shape="rect" id="node3" href="$class_hikari_1_1_shader_program.html#a71de2642b4d6ddf5b2c5e010cb81bd00" title="Hikari::ShaderProgram\l::setup" alt="" coords="243,5,397,51"/>
+<area shape="rect" id="node7" href="$class_hikari_1_1_shader_program.html#a98ba47629488ea7aeb30cb8b0c6683f5" title="Hikari::ShaderProgram\l::entryPointNames" alt="" coords="243,74,397,121"/>
+<area shape="rect" id="node9" href="$class_hikari_1_1_shader_program.html#a17f4b249e5e4e44dcb0f05b91a27c6f8" title="Hikari::ShaderProgram\l::compile" alt="" coords="243,143,397,190"/>
+<area shape="rect" id="node11" href="$class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4" title="Hikari::D3D11System\l::deviceContext" alt="" coords="245,213,395,259"/>
+<area shape="rect" id="node13" href="$class_hikari_1_1_shader_program.html#aacee5bb0bd1bd17cc3759fc50e5dbe40" title="Hikari::ShaderProgram\l::vertexShader" alt="" coords="243,282,397,329"/>
+<area shape="rect" id="node15" href="$class_hikari_1_1_shader_program.html#af147545f3b11d2b5c75f739edb77ceb2" title="Hikari::ShaderProgram\l::pixelShader" alt="" coords="243,351,397,398"/>
+<area shape="rect" id="node17" href="$class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie" alt="" coords="245,421,395,467"/>
+<area shape="rect" id="node19" href="$class_hikari_1_1_shader_program.html#adeb1351df0d3e9647901f774bb74c5b9" title="Hikari::ShaderProgram\l::vertexShaderBlob" alt="" coords="243,490,397,537"/>
+<area shape="rect" id="node21" href="$class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4" title="Hikari::Renderer::addRenderPass" alt="" coords="211,560,429,589"/>
+<area shape="rect" id="node23" href="$class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="245,613,395,659"/>
+<area shape="rect" id="node25" href="$class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel." alt="" coords="252,682,388,729"/>
+<area shape="rect" id="node5" href="$class_hikari_1_1_file.html#a6c6c6abd90ba12eb202ff7d51a4466a5" title="Hikari::File::exists" alt="" coords="477,13,605,43"/>
+</map>

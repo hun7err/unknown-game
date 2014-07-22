@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_exception.html" title="Ogólna klasa wyjątku, aby stworzyć nowy rodzaj wyjątku należy dodać konstruktor a po nim :Exception(m..." alt="" coords="5,5,85,35"/>
+<area shape="rect" id="node3" href="$class_wrong_argument_exception.html" title="WrongArgumentException" alt="" coords="135,5,308,35"/>
+</map>

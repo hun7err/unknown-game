@@ -1,0 +1,10 @@
+<map id="Hikari::Manager::isValidKey" name="Hikari::Manager::isValidKey">
+<area shape="rect" id="node3" href="$class_hikari_1_1_h_material.html#add497235a04fcca3ca40feac95e5102e" title="Hikari::HMaterial:\l:isValid" alt="" coords="259,5,381,51"/>
+<area shape="rect" id="node7" href="$class_hikari_1_1_h_shader.html#ae92491082ced20c708bba5e8e0cfe38c" title="Hikari::HShader::isValid" alt="" coords="239,75,401,104"/>
+<area shape="rect" id="node11" href="$class_hikari_1_1_h_texture.html#ab248b7a3b79ae2fb465a1df029beee1a" title="Hikari::HTexture::isValid" alt="" coords="237,155,403,184"/>
+<area shape="rect" id="node5" href="$class_hikari_1_1_object.html#a9aab60056e4e8f27475225cfd650e323" title="Hikari::Object::material" alt="" coords="469,13,624,43"/>
+<area shape="rect" id="node9" href="$class_hikari_1_1_material.html#ad74d68d4fbfbc396a8400b92d1b27624" title="Hikari::Material::shader" alt="" coords="468,71,625,100"/>
+<area shape="rect" id="node13" href="$class_hikari_1_1_material.html#afcf4ceafd39e9d77ce720a3cf6f1997e" title="Hikari::Material::diffuseMap" alt="" coords="456,124,637,153"/>
+<area shape="rect" id="node15" href="$class_hikari_1_1_material.html#a406b82fea231a7119c82f481162d39fe" title="Hikari::Material::specularMap" alt="" coords="451,177,643,207"/>
+<area shape="rect" id="node17" href="$class_hikari_1_1_material.html#adf5cebf44640bdbe2276613929b49d9f" title="Hikari::Material::normalMap" alt="" coords="456,231,637,260"/>
+</map>
