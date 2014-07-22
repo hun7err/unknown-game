@@ -6,6 +6,8 @@ namespace Hikari
 	template <typename TypeName> class Handle
 	{
 		public:
+			Handle(int key = -1) : m_ItemKey(key) {}
+
 			virtual TypeName* operator->(void) const = 0;
 			int key(void)
 			{

@@ -9,6 +9,8 @@ namespace Hikari
 	class HShader : public Handle<ShaderProgram>
 	{
 		public:
+			HShader(unsigned int key = -1) : Handle(key) {}
+
 			ShaderProgram* operator->(void) const
 			{
 				return ShaderManager::get(m_ItemKey);
