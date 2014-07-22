@@ -4,7 +4,7 @@
 #include "Renderer.hpp"
 
 // temporary!
-#include "D3D11ShaderProgram.hpp"
+#include "ShaderProgram.hpp"
 
 namespace Hikari
 {
@@ -17,7 +17,7 @@ namespace Hikari
 			void render(void);
 
 			// temporary!
-			D3D11ShaderProgram *triangleShader;
+			ShaderProgram *triangleShader;
 	
 			ID3D11Buffer *pVBuffer;    // global
 			// end temporary

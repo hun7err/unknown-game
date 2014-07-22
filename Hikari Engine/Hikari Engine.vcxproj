@@ -14,7 +14,7 @@
     <ClCompile Include="example\src\example.cpp" />
     <ClCompile Include="example\src\ExampleApplication.cpp" />
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\D3D11ShaderProgram.cpp" />
+    <ClCompile Include="src\ShaderProgram.cpp" />
     <ClCompile Include="src\D3D11System.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Exception.cpp" />
@@ -35,7 +35,7 @@
     <ClInclude Include="example\include\ExampleApplication.hpp" />
     <ClInclude Include="include\Application.hpp" />
     <ClInclude Include="include\Camera.hpp" />
-    <ClInclude Include="include\D3D11ShaderProgram.hpp" />
+    <ClInclude Include="include\ShaderProgram.hpp" />
     <ClInclude Include="include\D3D11System.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\Exception.hpp" />

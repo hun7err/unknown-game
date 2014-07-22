@@ -6,10 +6,10 @@
 
 namespace Hikari
 {
-	class HShader : public Handle<D3D11ShaderProgram>
+	class HShader : public Handle<ShaderProgram>
 	{
 		public:
-			D3D11ShaderProgram* operator->(void) const
+			ShaderProgram* operator->(void) const
 			{
 				return ShaderManager::get(m_ItemKey);
 			}
@@ -17,6 +17,11 @@ namespace Hikari
 			bool isValid(void)
 			{
 				return ShaderManager::isValidKey(m_ItemKey);
+			}
+			
+			void operator=(std::nullptr_t value)
+			{
+				m_ItemKey = -1;
 			}
 	};
 }

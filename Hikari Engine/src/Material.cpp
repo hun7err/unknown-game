@@ -23,6 +23,7 @@ void Hikari::Material::initialize(void)
 	m_SpecularMap = nullptr;
 	m_NormalMap = nullptr;
 	m_Shininess = 0.5f;
+	m_ShaderProgram = nullptr;
 }
 
 Hikari::Material::~Material()

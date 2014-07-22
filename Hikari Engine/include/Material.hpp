@@ -2,9 +2,10 @@
 #define __MATERIAL_HPP__
 
 #include <DirectXPackedVector.h>
-#include "D3D11ShaderProgram.hpp"
-#include "HTexture.hpp"
 #include <string>
+
+#include "HTexture.hpp"
+#include "HShader.hpp"
 
 namespace Hikari
 {
@@ -60,7 +61,7 @@ namespace Hikari
 					 m_SpecularMap,
 					 m_NormalMap;
 
-			D3D11ShaderProgram m_ShaderProgram;
+			HShader m_ShaderProgram;
 
 			float m_Shininess;
 
