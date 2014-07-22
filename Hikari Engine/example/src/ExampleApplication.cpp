@@ -43,11 +43,8 @@ void ExampleApplication::stopEngine(Hikari::Engine* pEngine)
 	- dokoñczyæ komentowanie ca³oœci (zwróciæ uwagê przy pierwszych plikach na to, czy opisane s¹ wyj¹tki rzucane przy z³ych parametrach/z³ych memberach)
 	- dodaæ ustawianie DEBUG na 1 w Debug, a na 0 w Release
 	- dodaæ zwalnianie poprzednich wskaŸników przy ustawianiu nowych memberów, które s¹ wskaŸnikami
-	- sprawdziæ, czy wyj¹tki nie powoduj¹ memory leaków
 	- dodaæ obs³ugê b³êdów inicjalizacji DirectXa (np. brak wsparcia)
 	- Engine jako Singleton?
-	- ObjectGroup jako kompozyt
-	- Logger jako singleton
 */
 
 void ExampleApplication::run(void)
