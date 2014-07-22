@@ -23,6 +23,7 @@ namespace Hikari
 			int add(Object *pObject, std::string groupName);		/**  */
 			void add(Node *pGroup);
 			int add(Node *pGroup, std::string groupName);	/**  */
+			void setup(ID3D11Device *pDevice);
 
 			std::list<Node*>* nodes();
 			std::list<Object*>* objects();

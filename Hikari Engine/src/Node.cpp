@@ -121,4 +121,15 @@ int Hikari::Node::add(Hikari::Node* pGroup, std::string groupName)
 	return -1;
 }
 
+void Hikari::Node::setup(ID3D11Device *pDevice)
+{
+	for(std::list<Object*>::iterator currentObject = m_pObjects->begin(); currentObject != m_pObjects->end(); ++currentObject)
+	{
+		(*currentObject)->setup(pDevice);
+	}
 
+	for(std::list<Node*>::iterator currentNode = m_pNodes->begin(); currentNode != m_pNodes->end(); ++currentNode)
+	{
+		(*currentNode)->setup(pDevice);
+	}
+}
