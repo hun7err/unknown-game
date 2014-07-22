@@ -35,6 +35,8 @@ namespace Hikari
 			ID3D11PixelShader* pixelShader(void);
 			//ID3D11GeometryShader* geometryShader(void);
 
+			ID3D11InputLayout* inputLayout(void);
+
 			void compile(void);
 
 		private:
@@ -46,6 +48,11 @@ namespace Hikari
 			ID3D11PixelShader *m_pPixelShader;
 			//ID3D11GeometryShader *m_pGeometryShader;
 
+			ID3D11InputLayout *m_pInputLayout;
+
+			D3D11_INPUT_ELEMENT_DESC m_InputElementDescription[3];
+			D3D11_BUFFER_DESC matrixBufferDescription;
+
 			std::wstring m_VertexShaderName,
 						m_PixelShaderName/*,
 						m_GeometryShaderName*/;
@@ -54,6 +61,9 @@ namespace Hikari
 					m_PixelShaderEntryPointName;
 
 			D3D11System *m_pD3D11System;
+
+			void compileAndCreateShaders(void);
+			void setInputElementDescription(void);
 	};
 };
 
