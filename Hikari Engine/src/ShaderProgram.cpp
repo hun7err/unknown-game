@@ -190,9 +190,9 @@ void Hikari::ShaderProgram::setInputElementDescription(void)
 void Hikari::ShaderProgram::compile(void)
 {
 	compileAndCreateShaders();
-	/*setInputElementDescription();
+	setInputElementDescription();
 
-	int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
+	/*int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
 
 	if(FAILED(m_pD3D11System->device()->CreateInputLayout(m_InputElementDescription, descriptionElementCount, m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), &m_pInputLayout)))
 	{
