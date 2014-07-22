@@ -68,16 +68,24 @@ void ExampleApplication::run(void)
 	std::function<void(Hikari::Engine*)> escHandler = std::bind(&ExampleApplication::stopEngine, this, std::placeholders::_1);
 	engine->input()->keyHandler(VK_ESCAPE, escHandler);	// ustaw escHandler jako procedurê obs³ugi przycisku Escape
 
-	Hikari::Object* pTriangle = new Hikari::Objects::Triangle(
+	Hikari::ShaderProgram *pSimpleShader = new Hikari::ShaderProgram();
+	pSimpleShader->setup(L"res/shaders/triangle.hlsl");
+	Hikari::HShader shaderHandle(Hikari::ShaderManager::add(pSimpleShader));
+
+	Hikari::Object *pTriangle = new Hikari::Objects::Triangle(
 		Hikari::Vector3D(0.0f, 0.5f, 0.0f),
 		Hikari::Vector3D(0.45f, -0.5f, 0.0f),
 		Hikari::Vector3D(-0.45f, -0.5f, 0.0f)
 	);
+	Hikari::Material *pMaterial = new Hikari::Material("triangle");
+	pMaterial->shader(shaderHandle);
 	Hikari::ObjectManager::add(pTriangle);
 
 	engine->run();
 
 	delete pTriangle;
+	delete pMaterial;
+	delete pSimpleShader;
 
 	engine->cleanup();
 	delete engine;
