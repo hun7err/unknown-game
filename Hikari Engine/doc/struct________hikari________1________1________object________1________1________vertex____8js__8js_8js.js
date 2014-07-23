@@ -1,4 +1,0 @@
-var struct________hikari________1________1________object________1________1________vertex____8js__8js_8js =
-[
-    [ "struct____hikari____1____1____object____1____1____vertex__8js_8js", "struct________hikari________1________1________object________1________1________vertex____8js__8js_8js.html#aacfa14887a6b60181d3b27a51081faeb", null ]
-];

@@ -1,6 +1,0 @@
-<map id="Hikari::Engine::window" name="Hikari::Engine::window">
-<area shape="rect" id="node3" href="$class_hikari_1_1_win_a_p_i_window.html#a43a2da328e58aa74134a7ebdfeab71c5" title="Hikari::WinAPIWindow\l::setup" alt="" coords="212,27,367,74"/>
-<area shape="rect" id="node5" href="$namespace_hikari.html#a4f78923b5e992ce6dc3d051751243620" title="wywoływane przez DispatchMessage, odpowiada za przetworzenie komunikatów okna" alt="" coords="436,5,553,35"/>
-<area shape="rect" id="node9" href="$class_hikari_1_1_win_a_p_i_window.html#ae1939615b4729bbef1ad960686d78608" title="Hikari::WinAPIWindow\l::visibility" alt="" coords="417,58,572,105"/>
-<area shape="rect" id="node7" href="$class_hikari_1_1_engine.html#a4895b3222f193a99dd6451024b65a21a" title="procedura obsługi komunikatów okna przekazanych z WndProc(HWND, UINT, WPARAM, LPARAM)" alt="" coords="621,5,832,35"/>
-</map>

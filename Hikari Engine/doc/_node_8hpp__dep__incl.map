@@ -1,8 +1,0 @@
-<map id="include/Node.hpp" name="include/Node.hpp">
-<area shape="rect" id="node3" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="341,83,520,112"/>
-<area shape="rect" id="node13" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="544,83,643,112"/>
-<area shape="rect" id="node5" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="5,160,243,189"/>
-<area shape="rect" id="node7" href="$_object_manager_8cpp.html" title="src/ObjectManager.cpp" alt="" coords="267,160,424,189"/>
-<area shape="rect" id="node9" href="$_simple_pass_8cpp.html" title="src/SimplePass.cpp" alt="" coords="448,160,587,189"/>
-<area shape="rect" id="node11" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="611,160,773,189"/>
-</map>

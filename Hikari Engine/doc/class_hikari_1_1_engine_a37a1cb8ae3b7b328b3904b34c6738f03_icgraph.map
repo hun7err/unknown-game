@@ -1,9 +1,0 @@
-<map id="Hikari::Engine::d3dsystem" name="Hikari::Engine::d3dsystem">
-<area shape="rect" id="node3" href="$class_hikari_1_1_object.html#a9c04e88ed34d4e406e11f3abd3611a7b" title="Hikari::Object::setup" alt="" coords="237,5,379,35"/>
-<area shape="rect" id="node9" href="$class_hikari_1_1_object.html#a26bee5af1b710734c2b2ff30eb556cc7" title="Hikari::Object::draw" alt="" coords="239,59,377,88"/>
-<area shape="rect" id="node11" href="$class_hikari_1_1_shader_program.html#a17f4b249e5e4e44dcb0f05b91a27c6f8" title="Hikari::ShaderProgram\l::compile" alt="" coords="448,81,603,127"/>
-<area shape="rect" id="node14" href="$class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1" title="Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera." alt="" coords="229,162,387,209"/>
-<area shape="rect" id="node16" href="$class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e" title="Hikari::SimpleRenderer\l::render" alt="" coords="229,231,387,278"/>
-<area shape="rect" id="node5" href="$class_hikari_1_1_object_manager.html#a8d7584736f574b5665a7c42e409772de" title="Hikari::ObjectManager::add" alt="" coords="435,17,616,47"/>
-<area shape="rect" id="node7" href="$class_example_application.html#ac8f37e1c09c271f3362cf06853294aa4" title="dziedziczone z Application, uruchamia aplikację (czyli wszystko co istotne tak naprawdę)" alt="" coords="664,53,827,83"/>
-</map>

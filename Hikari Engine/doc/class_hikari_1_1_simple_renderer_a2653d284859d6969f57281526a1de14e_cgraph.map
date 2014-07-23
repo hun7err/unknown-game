@@ -1,6 +1,0 @@
-<map id="Hikari::SimpleRenderer::render" name="Hikari::SimpleRenderer::render">
-<area shape="rect" id="node3" href="$class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be" title="Hikari::RenderPass\l::renderTargetViews" alt="" coords="229,5,368,51"/>
-<area shape="rect" id="node5" href="$class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03" title="Hikari::Engine::d3dsystem" alt="" coords="211,75,387,104"/>
-<area shape="rect" id="node7" href="$class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4" title="Hikari::D3D11System\l::deviceContext" alt="" coords="224,127,373,174"/>
-<area shape="rect" id="node9" href="$class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="224,197,373,243"/>
-</map>

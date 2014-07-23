@@ -1,4 +1,0 @@
-var class____hikari____1____1____objects____1____1____equilateral____triangle__8js_8js =
-[
-    [ "class__hikari__1__1__objects__1__1__equilateral__triangle_8js", "class____hikari____1____1____objects____1____1____equilateral____triangle__8js_8js.html#a325bbee9f2d8ecc41c1b6e3b8f8491f2", null ]
-];

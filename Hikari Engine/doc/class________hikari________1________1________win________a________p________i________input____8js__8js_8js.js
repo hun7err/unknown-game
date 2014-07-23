@@ -1,4 +1,0 @@
-var class________hikari________1________1________win________a________p________i________input____8js__8js_8js =
-[
-    [ "class____hikari____1____1____win____a____p____i____input__8js_8js", "class________hikari________1________1________win________a________p________i________input____8js__8js_8js.html#aca23e84578d6f6e0678264aca919b93f", null ]
-];

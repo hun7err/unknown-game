@@ -1,3 +1,0 @@
-<map id="ExampleApplication::stopEngine" name="ExampleApplication::stopEngine">
-<area shape="rect" id="node3" href="$class_hikari_1_1_engine.html#a695fea2de211973bd23351855615479e" title="zatrzymuje działanie silnika przez ustawienie zmiennej m_Running na false, co powoduje wyjście z pętl..." alt="" coords="193,13,329,43"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Hikari::SimpleRenderer::setup" name="Hikari::SimpleRenderer::setup">
-<area shape="rect" id="node3" href="$class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4" title="Hikari::Renderer::addRenderPass" alt="" coords="211,5,429,35"/>
-<area shape="rect" id="node5" href="$class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03" title="Hikari::Engine::d3dsystem" alt="" coords="232,59,408,88"/>
-<area shape="rect" id="node7" href="$class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="245,111,395,158"/>
-<area shape="rect" id="node9" href="$class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie" alt="" coords="245,181,395,227"/>
-<area shape="rect" id="node11" href="$class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel." alt="" coords="252,250,388,297"/>
-</map>

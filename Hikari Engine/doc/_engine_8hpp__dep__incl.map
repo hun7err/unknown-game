@@ -1,8 +1,0 @@
-<map id="include/Engine.hpp" name="include/Engine.hpp">
-<area shape="rect" id="node3" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="5,83,243,112"/>
-<area shape="rect" id="node5" href="$_engine_8cpp.html" title="src/Engine.cpp" alt="" coords="267,83,376,112"/>
-<area shape="rect" id="node7" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="400,83,507,112"/>
-<area shape="rect" id="node9" href="$_shader_program_8cpp.html" title="src/ShaderProgram.cpp" alt="" coords="531,83,688,112"/>
-<area shape="rect" id="node11" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="712,83,875,112"/>
-<area shape="rect" id="node13" href="$_win_a_p_i_window_8cpp.html" title="src/WinAPIWindow.cpp" alt="" coords="899,83,1059,112"/>
-</map>

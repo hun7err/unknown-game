@@ -1,9 +1,0 @@
-<map id="Hikari::Objects::EquilateralTriangle" name="Hikari::Objects::EquilateralTriangle">
-<area shape="rect" id="node2" href="$class_hikari_1_1_objects_1_1_triangle.html" title="Hikari::Objects::Triangle" alt="" coords="91,373,253,403"/>
-<area shape="rect" id="node4" href="$class_hikari_1_1_object.html" title="Hikari::Object" alt="" coords="121,293,223,323"/>
-<area shape="rect" id="node6" href="$class_hikari_1_1_h_material.html" title="Hikari::HMaterial" alt="" coords="32,197,152,227"/>
-<area shape="rect" id="node8" href="$class_hikari_1_1_handle.html" title="Hikari::Handle\&lt; Material \&gt;" alt="" coords="5,85,179,115"/>
-<area shape="rect" id="node10" href="$struct_hikari_1_1_object_1_1_vertex.html" title="Hikari::Object::Vertex" alt="" coords="176,197,323,227"/>
-<area shape="rect" id="node12" href="$class_hikari_1_1_vector2_d.html" title="Hikari::Vector2D" alt="" coords="212,5,329,35"/>
-<area shape="rect" id="node14" href="$class_hikari_1_1_vector3_d.html" title="Hikari::Vector3D" alt="" coords="280,85,397,115"/>
-</map>

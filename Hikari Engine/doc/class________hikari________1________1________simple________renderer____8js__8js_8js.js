@@ -1,4 +1,0 @@
-var class________hikari________1________1________simple________renderer____8js__8js_8js =
-[
-    [ "class____hikari____1____1____simple____renderer__8js_8js", "class________hikari________1________1________simple________renderer____8js__8js_8js.html#a29753a48dc476a10ba9933cbfc988822", null ]
-];

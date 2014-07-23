@@ -1,4 +1,0 @@
-<map id="Hikari::Engine::stop" name="Hikari::Engine::stop">
-<area shape="rect" id="node3" href="$class_example_application.html#ad1bd8010bdcbc428a8a3827946dbc414" title="metoda zatrzymująca silnik (zbindujemy ją do odpowiedniego przycisku)" alt="" coords="193,5,329,51"/>
-<area shape="rect" id="node5" href="$class_example_application.html#ac8f37e1c09c271f3362cf06853294aa4" title="dziedziczone z Application, uruchamia aplikację (czyli wszystko co istotne tak naprawdę)" alt="" coords="379,13,541,43"/>
-</map>

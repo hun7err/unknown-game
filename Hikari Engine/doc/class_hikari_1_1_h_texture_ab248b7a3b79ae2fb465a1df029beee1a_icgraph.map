@@ -1,5 +1,0 @@
-<map id="Hikari::HTexture::isValid" name="Hikari::HTexture::isValid">
-<area shape="rect" id="node3" href="$class_hikari_1_1_material.html#afcf4ceafd39e9d77ce720a3cf6f1997e" title="Hikari::Material::diffuseMap" alt="" coords="224,5,405,35"/>
-<area shape="rect" id="node5" href="$class_hikari_1_1_material.html#a406b82fea231a7119c82f481162d39fe" title="Hikari::Material::specularMap" alt="" coords="219,59,411,88"/>
-<area shape="rect" id="node7" href="$class_hikari_1_1_material.html#adf5cebf44640bdbe2276613929b49d9f" title="Hikari::Material::normalMap" alt="" coords="224,112,405,141"/>
-</map>
