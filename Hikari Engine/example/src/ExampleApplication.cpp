@@ -4,6 +4,7 @@
 #include "../../include/WinAPIWindow.hpp"
 #include "../../include/SimpleRenderer.hpp"
 #include "../../include/ObjectManager.hpp"
+#include "../../include/MaterialManager.hpp"
 #include "../../include/Triangle.hpp"
 #include <functional>
 
@@ -76,7 +77,7 @@ void ExampleApplication::run(void)
 	Hikari::ShaderProgram *pSimpleShader = new Hikari::ShaderProgram();
 	pSimpleShader->setup(L"res/shaders/triangle.hlsl");
 	pSimpleShader->entryPointNames("VShader", "PShader");
-	pSimpleShader->compile(); // tutaj leci wyj¹tek, nie ma device w d3dsystem
+	pSimpleShader->compile();
 	Hikari::HShader shaderHandle(Hikari::ShaderManager::add(pSimpleShader));
 
 	Hikari::Object *pTriangle = new Hikari::Objects::Triangle(
@@ -84,8 +85,13 @@ void ExampleApplication::run(void)
 		Hikari::Vector3D(0.45f, -0.5f, 0.0f),
 		Hikari::Vector3D(-0.45f, -0.5f, 0.0f)
 	);
+	
 	Hikari::Material *pMaterial = new Hikari::Material("triangle");
 	pMaterial->shader(shaderHandle);
+	Hikari::HMaterial hTriangleMaterial;
+	hTriangleMaterial.key(Hikari::MaterialManager::add(pMaterial));
+	pTriangle->material(hTriangleMaterial);
+
 	Hikari::ObjectManager::add(pTriangle);
 
 	Hikari::Engine::run();

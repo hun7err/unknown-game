@@ -76,7 +76,6 @@ void Hikari::Engine::run(void)
 	Vector2D windowSize = m_pWindow->size();
 
 	// wyrzuciæ to do setup albo initialize
-	m_pRenderer->d3d11system(m_pD3DSystem);
 	m_pRenderer->setup(m_pWindow->width(), m_pWindow->height());
 
 	MSG eventMessage;

@@ -9,42 +9,21 @@ namespace Hikari
 	class ObjectManager : public Manager<Node>
 	{
 		public:
-			static void add(Object* pObject)
-			{
-				if(m_Items.empty())
-				{
-					root = new Node();
-				}
-				root->add(pObject);
-			}
+			static void add(Object *pObject);
+			static int add(Object *pObject, std::string nodeName);
+			static void add(Node *pNode);
+			static int add(Node *pNode, std::string nodeName);
+			static Node* root(void);
 
-			static int add(Object* pObject, std::string nodeName)
-			{
-				return root->add(pObject, nodeName);
-			}
-
-			static void add(Node *pNode)
-			{
-				root->add(pNode);
-			}
-
-			static int add(Node *pNode, std::string nodeName)
-			{
-				return root->add(pNode, nodeName);
-			}
-
-			~ObjectManager()
-			{
-				delete root;
-			}
+			~ObjectManager();
 		private:
-			ObjectManager() {}
-			static Node* root;
-	};
+			ObjectManager();
+			static Node* m_pRoot;
 
-	std::vector<Node*> ObjectManager::m_Items;
-	std::mutex ObjectManager::m_ItemMutex;
-	Hikari::Node* Hikari::ObjectManager::root = new Hikari::Node();
+			// to mo¿e byæ kiepski workaround, który zepsuje domyœlne dzia³anie, wiêc dajê tu ten komentarz jako przestrogê dla siebie samego
+			static std::vector<Hikari::Node*> m_Items;
+			static std::mutex m_ItemMutex;
+	};
 }
 
 #endif

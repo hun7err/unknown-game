@@ -17,9 +17,11 @@ Hikari::RenderPass::~RenderPass()
 	m_pRenderTargetViewports = NULL;
 }
 
+/*
 void Hikari::RenderPass::run(Hikari::RenderPass* pRenderTargets)
 {
 }
+*/
 
 std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * Hikari::RenderPass::renderTargets(void)
 {

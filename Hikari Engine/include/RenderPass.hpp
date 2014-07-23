@@ -15,7 +15,7 @@ namespace Hikari
 	class RenderPass
 	{
 		public:
-			virtual void run(RenderPass* pRenderTargets /** \brief wskaŸnik na listê celów (do ³¹czenia wielu etapów)*/); //< uruchamia proces renderingu, zwraca *this aby robiæ ci¹g wywo³añ
+			virtual void run(RenderPass* pRenderTargets /** \brief wskaŸnik na listê celów (do ³¹czenia wielu etapów)*/) = 0; //< uruchamia proces renderingu, zwraca *this aby robiæ ci¹g wywo³añ
 
 			/** \brief	Pobiera listê celów */
 			std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * renderTargets(void);

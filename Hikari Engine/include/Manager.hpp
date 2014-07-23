@@ -112,7 +112,7 @@ namespace Hikari
 
 		protected:
 			static std::vector<TypeName*> m_Items;
-			Manager();
+			Manager() {}
 			static std::mutex m_ItemMutex;
 	};
 }

@@ -21,8 +21,8 @@ namespace Hikari
 			std::string name(void);
 			void name(std::string name);
 
-			void setup(ID3D11Device* pDevice);
-			void draw(ID3D11DeviceContext* pDeviceContext); // virtual?
+			void setup(void);
+			void draw(void); // virtual? (raczej nie)
 			void cleanup(void);
 
 			unsigned int vertexCount(void);

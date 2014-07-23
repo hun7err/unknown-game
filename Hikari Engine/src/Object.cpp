@@ -1,5 +1,6 @@
 #include "../include/Object.hpp"
 #include "../include/Exception.hpp"
+#include "../include/Engine.hpp"
 
 void Hikari::Object::initialize(void)
 {
@@ -38,7 +39,7 @@ Hikari::Object::~Object()
 	}
 }
 
-void Hikari::Object::setup(ID3D11Device *pDevice)
+void Hikari::Object::setup(void)
 {
 	if(m_pVertices == NULL || m_pIndices == NULL)
 	{
@@ -61,7 +62,7 @@ void Hikari::Object::setup(ID3D11Device *pDevice)
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
-	if(FAILED(pDevice->CreateBuffer(&vertexBufferDescription, &vertexData, &m_pVertexBuffer)))
+	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateBuffer(&vertexBufferDescription, &vertexData, &m_pVertexBuffer)))
 	{
 		throw Exception("Could not create Vertex Buffer in Hikari::Object::setup(ID3D11Device*)", "DirectXException");
 	}
@@ -75,13 +76,13 @@ void Hikari::Object::setup(ID3D11Device *pDevice)
 
 	indexData.pSysMem = m_pIndices;
 
-	if(FAILED(pDevice->CreateBuffer(&indexBufferDescription, &indexData, &m_pIndexBuffer)))
+	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateBuffer(&indexBufferDescription, &indexData, &m_pIndexBuffer)))
 	{
 		throw Exception("Could not create Index Buffer in Hikari::Object::setup(ID3D11Device*)", "DirectXException");
 	}
 }
 
-void Hikari::Object::draw(ID3D11DeviceContext* pDeviceContext)
+void Hikari::Object::draw(void)
 {
 	if(m_IndexCount == 0 || m_VertexCount == 0)
 	{
@@ -95,11 +96,15 @@ void Hikari::Object::draw(ID3D11DeviceContext* pDeviceContext)
 		offset = 0;
 		stride = sizeof(Vertex);
 
-		pDeviceContext->IASetVertexBuffers(0, 1, &m_pVertexBuffer, &stride, &offset);
-		pDeviceContext->IASetIndexBuffer(m_pIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
-		pDeviceContext->IASetPrimitiveTopology(m_PrimitiveTopology);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetVertexBuffers(0, 1, &m_pVertexBuffer, &stride, &offset);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetIndexBuffer(m_pIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetPrimitiveTopology(m_PrimitiveTopology);
 
-		pDeviceContext->DrawIndexed(m_IndexCount, 0, 0);
+		Hikari::Engine::d3dsystem()->deviceContext()->VSSetShader(m_MaterialHandle->shader()->vertexShader(), 0, 0);
+		Hikari::Engine::d3dsystem()->deviceContext()->PSSetShader(m_MaterialHandle->shader()->pixelShader(), 0, 0);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetInputLayout(m_MaterialHandle->shader()->inputLayout());
+
+		Hikari::Engine::d3dsystem()->deviceContext()->DrawIndexed(m_IndexCount, 0, 0);
 	}
 }
 

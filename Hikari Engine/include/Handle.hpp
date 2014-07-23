@@ -13,6 +13,10 @@ namespace Hikari
 			{
 				return m_ItemKey;
 			}
+			void key(int newKey)
+			{
+				m_ItemKey = newKey;
+			}
 
 			virtual bool isValid() = 0;
 

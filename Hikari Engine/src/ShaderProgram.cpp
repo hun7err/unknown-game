@@ -42,7 +42,7 @@ void Hikari::ShaderProgram::cleanup()
 	m_pPixelShader->Release();
 	m_pVertexShaderBlob->Release();
 	m_pPixelShaderBlob->Release();
-	//m_pInputLayout->Release();
+	m_pInputLayout->Release();
 
 	m_pVertexShader = NULL;
 	m_pPixelShader = NULL;
@@ -180,11 +180,10 @@ void Hikari::ShaderProgram::compile()
 	compileAndCreateShaders();
 	setInputElementDescription();
 
-	/*int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
+	int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
 
 	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateInputLayout(m_InputElementDescription, descriptionElementCount, m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), &m_pInputLayout)))
 	{
 		throw Exception("Could not create input layout in ShaderProgram::compile(void)", "ShaderCompilationException");
 	}
-	*/
 }

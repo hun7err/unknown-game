@@ -1,20 +1,14 @@
 #include "../include/SimpleRenderer.hpp"
 #include "../include/SimplePass.hpp"
+#include "../include/ObjectManager.hpp"
+#include "../include/Engine.hpp"
 
 #include <DirectXPackedVector.h>
 #include <DirectXColors.h>
 
-// test start
-
-struct Vertex
-{
-	FLOAT X, Y, Z;
-	DirectX::XMFLOAT4 Color;
-};
-// test end
-
 void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 {
+	/*
 	// test start
 	triangleShader = new ShaderProgram();	// ok
 	triangleShader->setup(L"res/shaders/triangle.hlsl");
@@ -57,7 +51,7 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	m_pD3D11System->deviceContext()->Map(pVBuffer, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &ms);
 	memcpy(ms.pData, OurVertices, sizeof(OurVertices));
 	m_pD3D11System->deviceContext()->Unmap(pVBuffer, NULL);
-
+	*/
 	// test_end
 
 	D3D11_VIEWPORT viewport;
@@ -73,8 +67,8 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	ID3D11Texture2D *pBackBufferTexture;
 	ID3D11RenderTargetView *pBackBuffer;
 
-	m_pD3D11System->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture);
-	m_pD3D11System->device()->CreateRenderTargetView(pBackBufferTexture, NULL, &pBackBuffer);
+	Hikari::Engine::d3dsystem()->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture);
+	Hikari::Engine::d3dsystem()->device()->CreateRenderTargetView(pBackBufferTexture, NULL, &pBackBuffer);
 	pBackBufferTexture->Release();
 	backbufferPass->addRenderTarget(pBackBufferTexture, pBackBuffer, viewport);
 }
@@ -88,8 +82,8 @@ void Hikari::SimpleRenderer::cleanup(void)
 	}
 
 	// test start
-	triangleShader->cleanup();
-	delete triangleShader;
+	//triangleShader->cleanup();
+	//delete triangleShader;
 	// test end
 }
 
@@ -101,30 +95,33 @@ void Hikari::SimpleRenderer::render(void)
 	{
 		std::vector<ID3D11RenderTargetView*> renderTargetViews = (*currentPass)->renderTargetViews();	// pobierz kontener RenderTargetView* odpowiadaj¹cy celom
 		std::vector<D3D11_VIEWPORT> viewports = (*currentPass)->viewports();
-		m_pD3D11System->deviceContext()->OMSetRenderTargets(renderTargetViews.size(), &renderTargetViews[0], NULL);	// ustaw cele pobrane wczeœniej (w przypadku > 1 celu automatycznie wykonane zostanie MTR -> Multi-Target Rendering)
-		m_pD3D11System->deviceContext()->RSSetViewports(viewports.size(), &viewports[0]);	// ustaw viewport
+		Hikari::Engine::d3dsystem()->deviceContext()->OMSetRenderTargets(renderTargetViews.size(), &renderTargetViews[0], NULL);	// ustaw cele pobrane wczeœniej (w przypadku > 1 celu automatycznie wykonane zostanie MTR -> Multi-Target Rendering)
+		Hikari::Engine::d3dsystem()->deviceContext()->RSSetViewports(viewports.size(), &viewports[0]);	// ustaw viewport
 	
 		for(std::vector<ID3D11RenderTargetView*>::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)
 		{
-			// clearColor wywaliæ do renderTarget?
-
-			m_pD3D11System->deviceContext()->ClearRenderTargetView(*currentTarget, (*currentPass)->clearColor());	// wyczyœæ cele
+			Hikari::Engine::d3dsystem()->deviceContext()->ClearRenderTargetView(*currentTarget, (*currentPass)->clearColor());	// wyczyœæ cele
 		}
-		(*currentPass)->run(lastRenderPass);	// uruchom przejœcie renderera
 
+		// tutaj by³o Hikari::ObjectManager::root()->draw();
+
+		// breakpoint --v
+		(*currentPass)->run(lastRenderPass);	// uruchom przejœcie renderera... ale co tu w³aœciwie powinno siê dziaæ? czy tu nie powinno byæ to draw() ?
+
+		/*
 		// test start
 		UINT stride = sizeof(Vertex);
 		UINT offset = 0;
-		m_pD3D11System->deviceContext()->IASetVertexBuffers(0, 1, &pVBuffer, &stride, &offset);
-		m_pD3D11System->deviceContext()->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetVertexBuffers(0, 1, &pVBuffer, &stride, &offset);
+		Hikari::Engine::d3dsystem()->deviceContext()->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		// test end
-
+		*/
 		lastRenderPass = *currentPass;	// przeka¿ wynik do nastêpnego etapu (przejœcia)
 		// wyrysuj co trzeba
 
 		// test start
-		m_pD3D11System->deviceContext()->Draw(3, 0);
+		//Hikari::Engine::d3dsystem()->deviceContext()->Draw(3, 0);
 		// test end
 	}
-	m_pD3D11System->swapChain()->Present(0, 0);
+	Hikari::Engine::d3dsystem()->swapChain()->Present(0, 0);
 }

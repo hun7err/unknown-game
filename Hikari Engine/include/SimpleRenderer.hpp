@@ -15,12 +15,6 @@ namespace Hikari
 			void cleanup(void);
 
 			void render(void);
-
-			// temporary!
-			ShaderProgram *triangleShader;
-	
-			ID3D11Buffer *pVBuffer;    // global
-			// end temporary
 	};
 }
 

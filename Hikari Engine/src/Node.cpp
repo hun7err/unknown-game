@@ -34,23 +34,16 @@ std::list<Hikari::Object*>* Hikari::Node::objects(void)
 	return m_pObjects;
 }
 
-void Hikari::Node::draw(ID3D11DeviceContext* pDeviceContext)
+void Hikari::Node::draw(void)
 {
-	/*
-		notka od autora
-		---------------
-
-		najpierw wyrysowujê obiekty a dopiero wêz³y, bo inaczej pDeviceContext odk³ada³oby siê, przez rekurencjê, na stosie. W ten sposób staram siê ograniczyæ narzut pamiêciowy zwi¹zany z wyrysowaniem obiektów i podwêz³ów
-	*/
-
 	for(std::list<Object*>::iterator currentObject = m_pObjects->begin(); currentObject != m_pObjects->end(); ++currentObject)
 	{
-		(*currentObject)->draw(pDeviceContext);
+		(*currentObject)->draw();
 	}
 
 	for(std::list<Node*>::iterator currentNode = m_pNodes->begin(); currentNode != m_pNodes->end(); ++currentNode)
 	{
-		(*currentNode)->draw(pDeviceContext);
+		(*currentNode)->draw();
 	}
 }
 
@@ -121,15 +114,15 @@ int Hikari::Node::add(Hikari::Node* pGroup, std::string groupName)
 	return -1;
 }
 
-void Hikari::Node::setup(ID3D11Device *pDevice)
+void Hikari::Node::setup(void)
 {
 	for(std::list<Object*>::iterator currentObject = m_pObjects->begin(); currentObject != m_pObjects->end(); ++currentObject)
 	{
-		(*currentObject)->setup(pDevice);
+		(*currentObject)->setup();
 	}
 
 	for(std::list<Node*>::iterator currentNode = m_pNodes->begin(); currentNode != m_pNodes->end(); ++currentNode)
 	{
-		(*currentNode)->setup(pDevice);
+		(*currentNode)->setup();
 	}
 }

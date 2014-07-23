@@ -10,18 +10,9 @@ namespace Hikari
 		public:
 			SimplePass() : RenderPass() {}
 
-			void run(std::list<RenderPass*> *renderTargets)
-			{
-				// placeholder
-			}
+			void run(RenderPass* pRenderTargets);
 
-			~SimplePass()
-			{
-				for(std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> >::iterator currentTarget = m_pRenderTargets->begin(); currentTarget != m_pRenderTargets->end(); ++currentTarget)
-				{
-					(*currentTarget).first->Release();
-				}
-			}
+			~SimplePass();
 	};
 }
 
