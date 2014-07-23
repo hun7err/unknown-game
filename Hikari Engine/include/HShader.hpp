@@ -1,30 +1,19 @@
 #ifndef __HSHADER_HPP__
 #define __HSHADER_HPP__
 
-#include "ShaderManager.hpp"
 #include "Handle.hpp"
+#include "ShaderProgram.hpp"
 
 namespace Hikari
 {
 	class HShader : public Handle<ShaderProgram>
 	{
 		public:
-			HShader(unsigned int key = -1) : Handle(key) {}
+			HShader(int key = -1);
 
-			ShaderProgram* operator->(void) const
-			{
-				return ShaderManager::get(m_ItemKey);
-			}
-
-			bool isValid(void)
-			{
-				return ShaderManager::isValidKey(m_ItemKey);
-			}
-			
-			void operator=(std::nullptr_t value)
-			{
-				m_ItemKey = -1;
-			}
+			ShaderProgram* operator->(void) const;
+			bool isValid(void);
+			void operator=(std::nullptr_t value);
 	};
 }
 

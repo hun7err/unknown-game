@@ -5,6 +5,7 @@
 #include "../../include/SimpleRenderer.hpp"
 #include "../../include/ObjectManager.hpp"
 #include "../../include/MaterialManager.hpp"
+#include "../../include/ShaderManager.hpp"
 #include "../../include/Triangle.hpp"
 #include <functional>
 
@@ -78,7 +79,7 @@ void ExampleApplication::run(void)
 	pSimpleShader->setup(L"res/shaders/triangle.hlsl");
 	pSimpleShader->entryPointNames("VShader", "PShader");
 	pSimpleShader->compile();
-	Hikari::HShader shaderHandle(Hikari::ShaderManager::add(pSimpleShader));
+	Hikari::HShader shaderHandle = Hikari::ShaderManager::add(pSimpleShader);
 
 	Hikari::Object *pTriangle = new Hikari::Objects::Triangle(
 		Hikari::Vector3D(0.0f, 0.5f, 0.0f),
