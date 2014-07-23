@@ -19,10 +19,6 @@ namespace Hikari
 		private:
 			ObjectManager();
 			static Node* m_pRoot;
-
-			// to mo¿e byæ kiepski workaround, który zepsuje domyœlne dzia³anie, wiêc dajê tu ten komentarz jako przestrogê dla siebie samego
-			static std::vector<Hikari::Node*> m_Items;
-			static std::mutex m_ItemMutex;
 	};
 }
 

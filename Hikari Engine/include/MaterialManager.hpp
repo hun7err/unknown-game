@@ -3,13 +3,18 @@
 
 #include "Material.hpp"
 #include "Manager.hpp"
+#include "HMaterial.hpp"
 
 namespace Hikari
 {
-	typedef Manager<Material> MaterialManager;
+	class MaterialManager : public Manager<Material>
+	{
+		public:
+			static HMaterial add(Material *pMaterial);
 
-	std::vector<Material*> MaterialManager::m_Items;
-	std::mutex MaterialManager::m_ItemMutex;
+		private:
+			MaterialManager();
+	};
 }
 
-#endif
+#endif // __MATERIALMANAGER_HPP__

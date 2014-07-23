@@ -88,8 +88,7 @@ void ExampleApplication::run(void)
 	
 	Hikari::Material *pMaterial = new Hikari::Material("triangle");
 	pMaterial->shader(shaderHandle);
-	Hikari::HMaterial hTriangleMaterial;
-	hTriangleMaterial.key(Hikari::MaterialManager::add(pMaterial));
+	Hikari::HMaterial hTriangleMaterial = Hikari::MaterialManager::add(pMaterial);
 	pTriangle->material(hTriangleMaterial);
 
 	Hikari::ObjectManager::add(pTriangle);

@@ -1,7 +1,7 @@
 #include "../include/ObjectManager.hpp"
 
-std::vector<Hikari::Node*> Hikari::ObjectManager::m_Items;
-std::mutex Hikari::ObjectManager::m_ItemMutex;
+std::vector<Hikari::Node*> Hikari::Manager<Hikari::Node>::m_Items;
+std::mutex Hikari::Manager<Hikari::Node>::m_ItemMutex;
 Hikari::Node* Hikari::ObjectManager::m_pRoot = new Hikari::Node();
 
 Hikari::ObjectManager::ObjectManager()
