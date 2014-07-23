@@ -104,7 +104,6 @@ $(document).ready(function(){initNavTree('class_hikari_1_1_simple_renderer.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_hikari_1_1_simple_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Hikari::SimpleRenderer Class Reference</div>  </div>
@@ -119,14 +118,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a457dac41140c94df32188d404735a8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera.  <a href="#a457dac41140c94df32188d404735a8b1"></a><br/></td></tr>
 <tr class="memitem:a07f9cc1e0166c02e1218775298bd6c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">cleanup</a> (void)</td></tr>
 <tr class="memitem:a2653d284859d6969f57281526a1de14e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e">render</a> (void)</td></tr>
-<tr class="inherit_header pub_methods_class_hikari_1_1_renderer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_hikari_1_1_renderer')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="class_hikari_1_1_renderer.html">Hikari::Renderer</a></td></tr>
-<tr class="memitem:a9b80e686a9306b3a80a32af452b006cf inherit pub_methods_class_hikari_1_1_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a9b80e686a9306b3a80a32af452b006cf">d3d11system</a> (<a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *pD3D11System)</td></tr>
-<tr class="memitem:ad75ef98e395610f248af0196bdebe48c inherit pub_methods_class_hikari_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#ad75ef98e395610f248af0196bdebe48c">d3d11system</a> (void)</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a5a68b524ed511c52aa04b38826329b84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hikari_1_1_shader_program.html">ShaderProgram</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a></td></tr>
-<tr class="memitem:a467b6bca23ddd50f54609313aa400e03"><td class="memItemLeft" align="right" valign="top">ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_simple_renderer.html#a467b6bca23ddd50f54609313aa400e03">pVBuffer</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -134,7 +125,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a41b07c0d06300e81fc59150cbf5868d4 inherit pro_methods_class_hikari_1_1_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4">addRenderPass</a> (<a class="el" href="class_hikari_1_1_render_pass.html">RenderPass</a> *pass)</td></tr>
 <tr class="inherit_header pro_attribs_class_hikari_1_1_renderer"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_hikari_1_1_renderer')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="class_hikari_1_1_renderer.html">Hikari::Renderer</a></td></tr>
 <tr class="memitem:a6cf621b217c4e41000d68353eade7349 inherit pro_attribs_class_hikari_1_1_renderer"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_hikari_1_1_render_pass.html">RenderPass</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a6cf621b217c4e41000d68353eade7349">m_RenderPasses</a></td></tr>
-<tr class="memitem:ab55f3fcc39303465b3fe2c942b6774d1 inherit pro_attribs_class_hikari_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -151,7 +141,7 @@ Collaboration diagram for Hikari::SimpleRenderer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hikari_1_1_simple_renderer__coll__graph.png" border="0" usemap="#_hikari_1_1_simple_renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="_hikari_1_1_simple_renderer_coll__map" id="_hikari_1_1_simple_renderer_coll__map">
-<area shape="rect" id="node2" href="class_hikari_1_1_renderer.html" title="Klasa odpowiadająca za wygenerowanie obrazu." alt="" coords="21,101,139,131"/><area shape="rect" id="node4" href="class_hikari_1_1_d3_d11_system.html" title="Hikari::D3D11System" alt="" coords="5,5,155,35"/><area shape="rect" id="node6" href="class_hikari_1_1_shader_program.html" title="Hikari::ShaderProgram" alt="" coords="163,101,317,131"/></map>
+<area shape="rect" id="node2" href="class_hikari_1_1_renderer.html" title="Klasa odpowiadająca za wygenerowanie obrazu." alt="" coords="25,5,143,35"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <h2>Member Function Documentation</h2>
 <a class="anchor" id="a07f9cc1e0166c02e1218775298bd6c5b"></a>
@@ -178,7 +168,7 @@ Collaboration diagram for Hikari::SimpleRenderer:</div>
 
 <p>Implements <a class="el" href="class_hikari_1_1_renderer.html#a8e8f1bb5593a572dc08ee780efc66f4c">Hikari::Renderer</a>.</p>
 
-<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00082">82</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00076">76</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,14 +196,14 @@ Collaboration diagram for Hikari::SimpleRenderer:</div>
 
 <p>Implements <a class="el" href="class_hikari_1_1_renderer.html#a0dd81779b0fad5e320780839b12e9d61">Hikari::Renderer</a>.</p>
 
-<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00096">96</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00090">90</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hikari_1_1_simple_renderer_a2653d284859d6969f57281526a1de14e_cgraph.png" border="0" usemap="#class_hikari_1_1_simple_renderer_a2653d284859d6969f57281526a1de14e_cgraph" alt=""/></div>
 <map name="class_hikari_1_1_simple_renderer_a2653d284859d6969f57281526a1de14e_cgraph" id="class_hikari_1_1_simple_renderer_a2653d284859d6969f57281526a1de14e_cgraph">
-<area shape="rect" id="node3" href="class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be" title="Hikari::RenderPass\l::renderTargetViews" alt="" coords="211,5,349,51"/></map>
+<area shape="rect" id="node3" href="class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be" title="Hikari::RenderPass\l::renderTargetViews" alt="" coords="229,5,368,51"/><area shape="rect" id="node5" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03" title="Hikari::Engine::d3dsystem" alt="" coords="211,75,387,104"/><area shape="rect" id="node7" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4" title="Hikari::D3D11System\l::deviceContext" alt="" coords="224,127,373,174"/><area shape="rect" id="node9" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="224,197,373,243"/></map>
 </div>
 </p>
 
@@ -255,45 +245,16 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_hikari_1_1_renderer.html#a33e53a3572acad4bf39226974661f1f5">Hikari::Renderer</a>.</p>
 
-<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00016">16</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simple_renderer_8cpp_source.html#l00009">9</a> of file <a class="el" href="_simple_renderer_8cpp_source.html">SimpleRenderer.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hikari_1_1_simple_renderer_a457dac41140c94df32188d404735a8b1_cgraph.png" border="0" usemap="#class_hikari_1_1_simple_renderer_a457dac41140c94df32188d404735a8b1_cgraph" alt=""/></div>
 <map name="class_hikari_1_1_simple_renderer_a457dac41140c94df32188d404735a8b1_cgraph" id="class_hikari_1_1_simple_renderer_a457dac41140c94df32188d404735a8b1_cgraph">
-<area shape="rect" id="node3" href="class_hikari_1_1_shader_program.html#a71de2642b4d6ddf5b2c5e010cb81bd00" title="Hikari::ShaderProgram\l::setup" alt="" coords="243,5,397,51"/><area shape="rect" id="node7" href="class_hikari_1_1_shader_program.html#a98ba47629488ea7aeb30cb8b0c6683f5" title="Hikari::ShaderProgram\l::entryPointNames" alt="" coords="243,74,397,121"/><area shape="rect" id="node9" href="class_hikari_1_1_shader_program.html#a17f4b249e5e4e44dcb0f05b91a27c6f8" title="Hikari::ShaderProgram\l::compile" alt="" coords="243,143,397,190"/><area shape="rect" id="node11" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4" title="Hikari::D3D11System\l::deviceContext" alt="" coords="245,213,395,259"/><area shape="rect" id="node13" href="class_hikari_1_1_shader_program.html#aacee5bb0bd1bd17cc3759fc50e5dbe40" title="Hikari::ShaderProgram\l::vertexShader" alt="" coords="243,282,397,329"/><area shape="rect" id="node15" href="class_hikari_1_1_shader_program.html#af147545f3b11d2b5c75f739edb77ceb2" title="Hikari::ShaderProgram\l::pixelShader" alt="" coords="243,351,397,398"/><area shape="rect" id="node17" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie" alt="" coords="245,421,395,467"/><area shape="rect" id="node19" href="class_hikari_1_1_shader_program.html#adeb1351df0d3e9647901f774bb74c5b9" title="Hikari::ShaderProgram\l::vertexShaderBlob" alt="" coords="243,490,397,537"/><area shape="rect" id="node21" href="class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4" title="Hikari::Renderer::addRenderPass" alt="" coords="211,560,429,589"/><area shape="rect" id="node23" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="245,613,395,659"/><area shape="rect" id="node25" href="class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel." alt="" coords="252,682,388,729"/><area shape="rect" id="node5" href="class_hikari_1_1_file.html#a6c6c6abd90ba12eb202ff7d51a4466a5" title="Hikari::File::exists" alt="" coords="477,13,605,43"/></map>
+<area shape="rect" id="node3" href="class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4" title="Hikari::Renderer::addRenderPass" alt="" coords="211,5,429,35"/><area shape="rect" id="node5" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03" title="Hikari::Engine::d3dsystem" alt="" coords="232,59,408,88"/><area shape="rect" id="node7" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j..." alt="" coords="245,111,395,158"/><area shape="rect" id="node9" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie" alt="" coords="245,181,395,227"/><area shape="rect" id="node11" href="class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel." alt="" coords="252,250,388,297"/></map>
 </div>
 </p>
-
-</div>
-</div>
-<h2>Member Data Documentation</h2>
-<a class="anchor" id="a467b6bca23ddd50f54609313aa400e03"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ID3D11Buffer* Hikari::SimpleRenderer::pVBuffer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_simple_renderer_8hpp_source.html#l00022">22</a> of file <a class="el" href="_simple_renderer_8hpp_source.html">SimpleRenderer.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5a68b524ed511c52aa04b38826329b84"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_hikari_1_1_shader_program.html">ShaderProgram</a>* Hikari::SimpleRenderer::triangleShader</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_simple_renderer_8hpp_source.html#l00020">20</a> of file <a class="el" href="_simple_renderer_8hpp_source.html">SimpleRenderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +268,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_hikari.html">Hikari</a></li><li class="navelem"><a class="el" href="class_hikari_1_1_simple_renderer.html">SimpleRenderer</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

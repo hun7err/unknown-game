@@ -46,7 +46,6 @@ var hierarchy =
         [ "Hikari::Vector4D", "class_hikari_1_1_vector4_d.html", null ]
       ] ]
     ] ],
-    [ "Vertex", "struct_vertex.html", null ],
     [ "Hikari::Object::Vertex", "struct_hikari_1_1_object_1_1_vertex.html", null ],
     [ "Hikari::WinAPIInput", "class_hikari_1_1_win_a_p_i_input.html", null ],
     [ "Hikari::Window", "class_hikari_1_1_window.html", [

@@ -106,141 +106,138 @@ $(document).ready(function(){initNavTree('_simple_renderer_8cpp_source.html','')
 <div class="contents">
 <a href="_simple_renderer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../include/SimpleRenderer.hpp&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../include/SimplePass.hpp&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;DirectXPackedVector.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;DirectXColors.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// test start</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../include/ObjectManager.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../include/Engine.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;DirectXPackedVector.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;DirectXColors.h&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="struct_vertex.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_vertex.html">Vertex</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1" title="Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera.">Hikari::SimpleRenderer::setup</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="struct_vertex.html#a3df982543e984a45b1cc71908111c4c6">   11</a></span>&#160;    FLOAT <a class="code" href="struct_vertex.html#ad2ae94a116c46755511d5b5ad1e677e1">X</a>, <a class="code" href="struct_vertex.html#a952133f9359aabe6706d91793996eb5a">Y</a>, <a class="code" href="struct_vertex.html#a3df982543e984a45b1cc71908111c4c6">Z</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="struct_vertex.html#a98fd91c181a316de963a06c060ff5448">   12</a></span>&#160;    DirectX::XMFLOAT4 <a class="code" href="struct_vertex.html#a98fd91c181a316de963a06c060ff5448">Color</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// test end</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1" title="Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera.">Hikari::SimpleRenderer::setup</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// test start</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a> = <span class="keyword">new</span> <a class="code" href="class_hikari_1_1_shader_program.html">ShaderProgram</a>();   <span class="comment">// ok</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#a71de2642b4d6ddf5b2c5e010cb81bd00">setup</a>(L<span class="stringliteral">&quot;res/shaders/triangle.hlsl&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#a98ba47629488ea7aeb30cb8b0c6683f5">entryPointNames</a>(<span class="stringliteral">&quot;VShader&quot;</span>, <span class="stringliteral">&quot;PShader&quot;</span>);  <span class="comment">// ok</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#a17f4b249e5e4e44dcb0f05b91a27c6f8">compile</a>();  <span class="comment">// ok</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="struct_vertex.html">Vertex</a> OurVertices[] = </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {0.0f, 0.5f, 0.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)},</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {-0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// vertex buffer i inne tego typu wrzucić w Object</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    D3D11_INPUT_ELEMENT_DESC ied[] =</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {<span class="stringliteral">&quot;POSITION&quot;</span>, 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {<span class="stringliteral">&quot;COLOR&quot;</span>, 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ID3D11InputLayout *pLayout;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;VSSetShader(<a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#aacee5bb0bd1bd17cc3759fc50e5dbe40">vertexShader</a>(), 0, 0);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;PSSetShader(<a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#af147545f3b11d2b5c75f739edb77ceb2">pixelShader</a>(), 0, 0);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie">device</a>()-&gt;CreateInputLayout(ied, 2, <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#adeb1351df0d3e9647901f774bb74c5b9">vertexShaderBlob</a>()-&gt;GetBufferPointer(), <a class="code" href="class_hikari_1_1_simple_renderer.html#a5a68b524ed511c52aa04b38826329b84">triangleShader</a>-&gt;<a class="code" href="class_hikari_1_1_shader_program.html#adeb1351df0d3e9647901f774bb74c5b9">vertexShaderBlob</a>()-&gt;GetBufferSize(), &amp;pLayout);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;IASetInputLayout(pLayout);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    D3D11_BUFFER_DESC bd;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ZeroMemory(&amp;bd, <span class="keyword">sizeof</span>(bd));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    bd.Usage = D3D11_USAGE_DYNAMIC;                <span class="comment">// write access access by CPU and GPU</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    bd.ByteWidth = <span class="keyword">sizeof</span>(<a class="code" href="struct_vertex.html">Vertex</a>) * 3;             <span class="comment">// size is the VERTEX struct * 3</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;       <span class="comment">// use as a vertex buffer</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;    <span class="comment">// allow CPU to write in buffer</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie">device</a>()-&gt;CreateBuffer(&amp;bd, NULL, &amp;<a class="code" href="class_hikari_1_1_simple_renderer.html#a467b6bca23ddd50f54609313aa400e03">pVBuffer</a>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    D3D11_MAPPED_SUBRESOURCE ms;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;Map(<a class="code" href="class_hikari_1_1_simple_renderer.html#a467b6bca23ddd50f54609313aa400e03">pVBuffer</a>, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &amp;ms);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    memcpy(ms.pData, OurVertices, <span class="keyword">sizeof</span>(OurVertices));</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;Unmap(<a class="code" href="class_hikari_1_1_simple_renderer.html#a467b6bca23ddd50f54609313aa400e03">pVBuffer</a>, NULL);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// test_end</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    D3D11_VIEWPORT viewport;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ZeroMemory(&amp;viewport, <span class="keyword">sizeof</span>(D3D11_VIEWPORT));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    viewport.TopLeftX = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    viewport.TopLeftY = 0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    viewport.Height = (float)height;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    viewport.Width = (float)width;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    // test start</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    triangleShader = new ShaderProgram();   // ok</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    triangleShader-&gt;setup(L&quot;res/shaders/triangle.hlsl&quot;);</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    triangleShader-&gt;entryPointNames(&quot;VShader&quot;, &quot;PShader&quot;);  // ok</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">    triangleShader-&gt;compile();  // ok</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">    Vertex OurVertices[] = </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        {0.0f, 0.5f, 0.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">        {0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)},</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        {-0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)}</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">    };</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">    // vertex buffer i inne tego typu wrzucić w Object</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">    D3D11_INPUT_ELEMENT_DESC ied[] =</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">        {&quot;POSITION&quot;, 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        {&quot;COLOR&quot;, 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">    };</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">    ID3D11InputLayout *pLayout;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    m_pD3D11System-&gt;deviceContext()-&gt;VSSetShader(triangleShader-&gt;vertexShader(), 0, 0);</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">    m_pD3D11System-&gt;deviceContext()-&gt;PSSetShader(triangleShader-&gt;pixelShader(), 0, 0);</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    m_pD3D11System-&gt;device()-&gt;CreateInputLayout(ied, 2, triangleShader-&gt;vertexShaderBlob()-&gt;GetBufferPointer(), triangleShader-&gt;vertexShaderBlob()-&gt;GetBufferSize(), &amp;pLayout);</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    m_pD3D11System-&gt;deviceContext()-&gt;IASetInputLayout(pLayout);</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    D3D11_BUFFER_DESC bd;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    ZeroMemory(&amp;bd, sizeof(bd));</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    bd.Usage = D3D11_USAGE_DYNAMIC;                // write access access by CPU and GPU</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    bd.ByteWidth = sizeof(Vertex) * 3;             // size is the VERTEX struct * 3</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;       // use as a vertex buffer</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;    // allow CPU to write in buffer</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    m_pD3D11System-&gt;device()-&gt;CreateBuffer(&amp;bd, NULL, &amp;pVBuffer);</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    D3D11_MAPPED_SUBRESOURCE ms;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">    m_pD3D11System-&gt;deviceContext()-&gt;Map(pVBuffer, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &amp;ms);</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">    memcpy(ms.pData, OurVertices, sizeof(OurVertices));</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    m_pD3D11System-&gt;deviceContext()-&gt;Unmap(pVBuffer, NULL);</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// test_end</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    D3D11_VIEWPORT viewport;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ZeroMemory(&amp;viewport, <span class="keyword">sizeof</span>(D3D11_VIEWPORT));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    viewport.TopLeftX = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    viewport.TopLeftY = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    viewport.Height = (float)height;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    viewport.Width = (float)width;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_hikari_1_1_simple_pass.html">SimplePass</a>* backbufferPass = <span class="keyword">new</span> <a class="code" href="class_hikari_1_1_simple_pass.html">SimplePass</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4">addRenderPass</a>(backbufferPass);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ID3D11Texture2D *pBackBufferTexture;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    ID3D11RenderTargetView *pBackBuffer;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_hikari_1_1_simple_pass.html">SimplePass</a>* backbufferPass = <span class="keyword">new</span> <a class="code" href="class_hikari_1_1_simple_pass.html">SimplePass</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#a41b07c0d06300e81fc59150cbf5868d4">addRenderPass</a>(backbufferPass);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    ID3D11Texture2D *pBackBufferTexture;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ID3D11RenderTargetView *pBackBuffer;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j...">swapChain</a>()-&gt;GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&amp;pBackBufferTexture);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie">device</a>()-&gt;CreateRenderTargetView(pBackBufferTexture, NULL, &amp;pBackBuffer);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    pBackBufferTexture-&gt;Release();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    backbufferPass-&gt;<a class="code" href="class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel.">addRenderTarget</a>(pBackBufferTexture, pBackBuffer, viewport);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j...">swapChain</a>()-&gt;GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&amp;pBackBufferTexture);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a>-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a70499e57c6cb364f77b30ac03667ccb5" title="zwraca wskaźnik na urządzenie">device</a>()-&gt;CreateRenderTargetView(pBackBufferTexture, NULL, &amp;pBackBuffer);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    pBackBufferTexture-&gt;Release();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    backbufferPass-&gt;<a class="code" href="class_hikari_1_1_render_pass.html#add3d70678f7236acf5fecaa64830b957" title="Dodaje pojedynczy cel.">addRenderTarget</a>(pBackBufferTexture, pBackBuffer, viewport);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">Hikari::SimpleRenderer::cleanup</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">delete</span> (*currentPass);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        (*currentPass) = NULL;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">Hikari::SimpleRenderer::cleanup</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">delete</span> (*currentPass);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        (*currentPass) = NULL;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// test start</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//triangleShader-&gt;cleanup();</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//delete triangleShader;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// test end</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// test start</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    triangleShader-&gt;cleanup();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">delete</span> triangleShader;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// test end</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e">Hikari::SimpleRenderer::render</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">Hikari::RenderPass</a>* lastRenderPass = NULL;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span>(std::vector&lt;RenderPass*&gt;::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        std::vector&lt;ID3D11RenderTargetView*&gt; renderTargetViews = (*currentPass)-&gt;<a class="code" href="class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be">renderTargetViews</a>();   <span class="comment">// pobierz kontener RenderTargetView* odpowiadający celom</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        std::vector&lt;D3D11_VIEWPORT&gt; viewports = (*currentPass)-&gt;viewports();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        m_pD3D11System-&gt;deviceContext()-&gt;OMSetRenderTargets(renderTargetViews.size(), &amp;renderTargetViews[0], NULL); <span class="comment">// ustaw cele pobrane wcześniej (w przypadku &gt; 1 celu automatycznie wykonane zostanie MTR -&gt; Multi-Target Rendering)</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        m_pD3D11System-&gt;deviceContext()-&gt;RSSetViewports(viewports.size(), &amp;viewports[0]);   <span class="comment">// ustaw viewport</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">for</span>(std::vector&lt;ID3D11RenderTargetView*&gt;::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="comment">// clearColor wywalić do renderTarget?</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e">   90</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e">Hikari::SimpleRenderer::render</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">Hikari::RenderPass</a>* lastRenderPass = NULL;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span>(std::vector&lt;RenderPass*&gt;::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        std::vector&lt;ID3D11RenderTargetView*&gt; renderTargetViews = (*currentPass)-&gt;<a class="code" href="class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be">renderTargetViews</a>();   <span class="comment">// pobierz kontener RenderTargetView* odpowiadający celom</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::vector&lt;D3D11_VIEWPORT&gt; viewports = (*currentPass)-&gt;viewports();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;OMSetRenderTargets(renderTargetViews.size(), &amp;renderTargetViews[0], NULL);    <span class="comment">// ustaw cele pobrane wcześniej (w przypadku &gt; 1 celu automatycznie wykonane zostanie MTR -&gt; Multi-Target Rendering)</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;RSSetViewports(viewports.size(), &amp;viewports[0]);  <span class="comment">// ustaw viewport</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span>(std::vector&lt;ID3D11RenderTargetView*&gt;::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a0115547d7bc968332fa70b0f75ffbcd4">deviceContext</a>()-&gt;ClearRenderTargetView(*currentTarget, (*currentPass)-&gt;clearColor());  <span class="comment">// wyczyść cele</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// tutaj było Hikari::ObjectManager::root()-&gt;draw();</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// breakpoint --v</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        (*currentPass)-&gt;run(lastRenderPass);    <span class="comment">// uruchom przejście renderera... ale co tu właściwie powinno się dziać? czy tu nie powinno być to draw() ?</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            m_pD3D11System-&gt;deviceContext()-&gt;ClearRenderTargetView(*currentTarget, (*currentPass)-&gt;clearColor());   <span class="comment">// wyczyść cele</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        (*currentPass)-&gt;run(lastRenderPass);    <span class="comment">// uruchom przejście renderera</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">// test start</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        UINT stride = <span class="keyword">sizeof</span>(<a class="code" href="struct_vertex.html">Vertex</a>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        UINT offset = 0;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        m_pD3D11System-&gt;deviceContext()-&gt;IASetVertexBuffers(0, 1, &amp;pVBuffer, &amp;stride, &amp;offset);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        m_pD3D11System-&gt;deviceContext()-&gt;IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// test end</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">        // test start</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">        UINT stride = sizeof(Vertex);</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">        UINT offset = 0;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">        Hikari::Engine::d3dsystem()-&gt;deviceContext()-&gt;IASetVertexBuffers(0, 1, &amp;pVBuffer, &amp;stride, &amp;offset);</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">        Hikari::Engine::d3dsystem()-&gt;deviceContext()-&gt;IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">        // test end</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">        */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        lastRenderPass = *currentPass;  <span class="comment">// przekaż wynik do następnego etapu (przejścia)</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// wyrysuj co trzeba</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        lastRenderPass = *currentPass;  <span class="comment">// przekaż wynik do następnego etapu (przejścia)</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="comment">// wyrysuj co trzeba</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="comment">// test start</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        m_pD3D11System-&gt;deviceContext()-&gt;Draw(3, 0);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// test end</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    m_pD3D11System-&gt;swapChain()-&gt;Present(0, 0);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="comment">// test start</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="comment">//Hikari::Engine::d3dsystem()-&gt;deviceContext()-&gt;Draw(3, 0);</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="comment">// test end</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="class_hikari_1_1_engine.html#a37a1cb8ae3b7b328b3904b34c6738f03">Hikari::Engine::d3dsystem</a>()-&gt;<a class="code" href="class_hikari_1_1_d3_d11_system.html#a474c3e0e5ade94d7adc25dd113cc9081" title="zwraca wskaźnik na swapChain lub rzuca wyjątek Exception typu NullPointerException gdy m_pSwapChain j...">swapChain</a>()-&gt;Present(0, 0);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_simple_renderer_8cpp.html">SimpleRenderer.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

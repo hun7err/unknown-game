@@ -1,17 +1,20 @@
 <map id="include/Texture.hpp" name="include/Texture.hpp">
-<area shape="rect" id="node3" href="$_texture_manager_8hpp.html" title="include/TextureManager.hpp" alt="" coords="371,83,557,112"/>
-<area shape="rect" id="node32" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="581,83,693,112"/>
-<area shape="rect" id="node5" href="$_h_texture_8hpp.html" title="include/HTexture.hpp" alt="" coords="391,160,537,189"/>
-<area shape="rect" id="node7" href="$_material_8hpp.html" title="include/Material.hpp" alt="" coords="395,237,533,267"/>
-<area shape="rect" id="node9" href="$_material_manager_8hpp.html" title="include/MaterialManager.hpp" alt="" coords="284,315,471,344"/>
-<area shape="rect" id="node30" href="$_material_8cpp.html" title="src/Material.cpp" alt="" coords="495,315,609,344"/>
-<area shape="rect" id="node11" href="$_h_material_8hpp.html" title="include/HMaterial.hpp" alt="" coords="304,392,451,421"/>
-<area shape="rect" id="node13" href="$_object_8hpp.html" title="include/Object.hpp" alt="" coords="312,469,443,499"/>
-<area shape="rect" id="node15" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="161,547,284,576"/>
-<area shape="rect" id="node23" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="308,547,447,576"/>
-<area shape="rect" id="node28" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="471,547,577,576"/>
-<area shape="rect" id="node17" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="5,624,184,653"/>
-<area shape="rect" id="node21" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="208,624,307,653"/>
-<area shape="rect" id="node19" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="100,701,337,731"/>
-<area shape="rect" id="node26" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="381,624,496,653"/>
+<area shape="rect" id="node3" href="$_texture_manager_8hpp.html" title="include/TextureManager.hpp" alt="" coords="740,83,927,112"/>
+<area shape="rect" id="node39" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="951,83,1063,112"/>
+<area shape="rect" id="node5" href="$_h_texture_8hpp.html" title="include/HTexture.hpp" alt="" coords="760,160,907,189"/>
+<area shape="rect" id="node7" href="$_material_8hpp.html" title="include/Material.hpp" alt="" coords="764,237,903,267"/>
+<area shape="rect" id="node9" href="$_material_manager_8hpp.html" title="include/MaterialManager.hpp" alt="" coords="653,315,840,344"/>
+<area shape="rect" id="node37" href="$_material_8cpp.html" title="src/Material.cpp" alt="" coords="864,315,979,344"/>
+<area shape="rect" id="node11" href="$_h_material_8hpp.html" title="include/HMaterial.hpp" alt="" coords="587,392,733,421"/>
+<area shape="rect" id="node19" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="536,701,773,731"/>
+<area shape="rect" id="node13" href="$_object_8hpp.html" title="include/Object.hpp" alt="" coords="563,469,693,499"/>
+<area shape="rect" id="node15" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="380,547,503,576"/>
+<area shape="rect" id="node29" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="527,547,665,576"/>
+<area shape="rect" id="node34" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="689,547,796,576"/>
+<area shape="rect" id="node17" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="224,624,403,653"/>
+<area shape="rect" id="node27" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="427,624,525,653"/>
+<area shape="rect" id="node21" href="$_object_manager_8cpp.html" title="src/ObjectManager.cpp" alt="" coords="5,701,163,731"/>
+<area shape="rect" id="node23" href="$_simple_pass_8cpp.html" title="src/SimplePass.cpp" alt="" coords="187,701,325,731"/>
+<area shape="rect" id="node25" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="349,701,512,731"/>
+<area shape="rect" id="node32" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="633,624,748,653"/>
 </map>

@@ -1,7 +1,9 @@
 <map id="include/WinAPIWindow.hpp" name="include/WinAPIWindow.hpp">
-<area shape="rect" id="node3" href="$_engine_8hpp.html" title="include/Engine.hpp" alt="" coords="315,83,445,112"/>
+<area shape="rect" id="node3" href="$_engine_8hpp.html" title="include/Engine.hpp" alt="" coords="465,83,596,112"/>
 <area shape="rect" id="node5" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="5,160,243,189"/>
-<area shape="rect" id="node11" href="$_win_a_p_i_window_8cpp.html" title="src/WinAPIWindow.cpp" alt="" coords="581,160,741,189"/>
+<area shape="rect" id="node15" href="$_win_a_p_i_window_8cpp.html" title="src/WinAPIWindow.cpp" alt="" coords="899,160,1059,189"/>
 <area shape="rect" id="node7" href="$_engine_8cpp.html" title="src/Engine.cpp" alt="" coords="267,160,376,189"/>
-<area shape="rect" id="node9" href="$_shader_program_8cpp.html" title="src/ShaderProgram.cpp" alt="" coords="400,160,557,189"/>
+<area shape="rect" id="node9" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="400,160,507,189"/>
+<area shape="rect" id="node11" href="$_shader_program_8cpp.html" title="src/ShaderProgram.cpp" alt="" coords="531,160,688,189"/>
+<area shape="rect" id="node13" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="712,160,875,189"/>
 </map>

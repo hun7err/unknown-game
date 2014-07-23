@@ -5,6 +5,7 @@ var searchData=
   ['object_2ecpp',['Object.cpp',['../_object_8cpp.html',1,'']]],
   ['object_2ehpp',['Object.hpp',['../_object_8hpp.html',1,'']]],
   ['objectmanager',['ObjectManager',['../class_hikari_1_1_object_manager.html',1,'Hikari']]],
+  ['objectmanager_2ecpp',['ObjectManager.cpp',['../_object_manager_8cpp.html',1,'']]],
   ['objectmanager_2ehpp',['ObjectManager.hpp',['../_object_manager_8hpp.html',1,'']]],
   ['objects',['objects',['../class_hikari_1_1_node.html#abbd21ff1af65504be2a28e441a9ac010',1,'Hikari::Node']]],
   ['operator_2b',['operator+',['../class_hikari_1_1_vector3_d.html#af69d5a53d5507355661b6d187621670e',1,'Hikari::Vector3D']]],

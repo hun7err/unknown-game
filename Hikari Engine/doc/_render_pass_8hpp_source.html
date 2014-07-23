@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('_render_pass_8hpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_hikari_1_1_render_pass.html">   15</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">RenderPass</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_render_pass.html#aed9e1363001165164ed42fd2b078b139">run</a>(<a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">RenderPass</a>* pRenderTargets ); <span class="comment">//&lt; uruchamia proces renderingu, zwraca *this aby robić ciąg wywołań</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_render_pass.html#a5ebc1e6f45577e531137d0788470cfb8">run</a>(<a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">RenderPass</a>* pRenderTargets ) = 0; <span class="comment">//&lt; uruchamia proces renderingu, zwraca *this aby robić ciąg wywołań</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            std::vector&lt;std::pair&lt;ID3D11RenderTargetView*, ID3D11Texture2D*&gt; &gt; * <a class="code" href="class_hikari_1_1_render_pass.html#a9e1ead188a11e43f03eb827af09fd541" title="Pobiera listę celów.">renderTargets</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            std::vector&lt;ID3D11RenderTargetView*&gt; <a class="code" href="class_hikari_1_1_render_pass.html#a6ee147b4f4201957b6685599157837be">renderTargetViews</a>(<span class="keywordtype">void</span>);</div>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('_render_pass_8hpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="_render_pass_8hpp.html">RenderPass.hpp</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

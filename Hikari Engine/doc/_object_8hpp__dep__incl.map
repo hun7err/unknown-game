@@ -1,9 +1,12 @@
 <map id="include/Object.hpp" name="include/Object.hpp">
-<area shape="rect" id="node3" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="161,83,284,112"/>
-<area shape="rect" id="node11" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="308,83,447,112"/>
-<area shape="rect" id="node16" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="471,83,577,112"/>
-<area shape="rect" id="node5" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="5,160,184,189"/>
-<area shape="rect" id="node9" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="208,160,307,189"/>
-<area shape="rect" id="node7" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="100,237,337,267"/>
-<area shape="rect" id="node14" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="381,160,496,189"/>
+<area shape="rect" id="node3" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="456,83,579,112"/>
+<area shape="rect" id="node17" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="603,83,741,112"/>
+<area shape="rect" id="node22" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="765,83,872,112"/>
+<area shape="rect" id="node5" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="299,160,477,189"/>
+<area shape="rect" id="node15" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="501,160,600,189"/>
+<area shape="rect" id="node7" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="536,237,773,267"/>
+<area shape="rect" id="node9" href="$_object_manager_8cpp.html" title="src/ObjectManager.cpp" alt="" coords="5,237,163,267"/>
+<area shape="rect" id="node11" href="$_simple_pass_8cpp.html" title="src/SimplePass.cpp" alt="" coords="187,237,325,267"/>
+<area shape="rect" id="node13" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="349,237,512,267"/>
+<area shape="rect" id="node20" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="692,160,807,189"/>
 </map>

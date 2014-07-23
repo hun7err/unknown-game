@@ -140,112 +140,105 @@ $(document).ready(function(){initNavTree('_node_8cpp_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> m_pObjects;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a5ca978d9230439abe99bd90a43481e9b">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a5ca978d9230439abe99bd90a43481e9b">Hikari::Node::draw</a>(ID3D11DeviceContext* pDeviceContext)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#abc25707b0fabc68b6649a26457a32f15">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#abc25707b0fabc68b6649a26457a32f15">Hikari::Node::draw</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        notka od autora</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">        ---------------</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        najpierw wyrysowuję obiekty a dopiero węzły, bo inaczej pDeviceContext odkładałoby się, przez rekurencję, na stosie. W ten sposób staram się ograniczyć narzut pamięciowy związany z wyrysowaniem obiektów i podwęzłów</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Object*&gt;::iterator currentObject = m_pObjects-&gt;begin(); currentObject != m_pObjects-&gt;end(); ++currentObject)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        (*currentObject)-&gt;draw(pDeviceContext);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Node*&gt;::iterator currentNode = m_pNodes-&gt;begin(); currentNode != m_pNodes-&gt;end(); ++currentNode)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        (*currentNode)-&gt;draw(pDeviceContext);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a0991db5d37db2fee368cbcb315b78ddf">   57</a></span>&#160;<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a>* <a class="code" href="class_hikari_1_1_node.html#a0991db5d37db2fee368cbcb315b78ddf">Hikari::Node::load</a>(std::string filename)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_hikari_1_1_node.html">Node</a>();  <span class="comment">// do zaimplementowania ładowanie Assimpem</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">   62</a></span>&#160;std::string <a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">Hikari::Node::name</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> m_Name;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#aa57355f485ee41ef0e8a983989a34478">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">Hikari::Node::name</a>(std::string name)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    m_Name = name;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_object.html">Hikari::Object</a> *pObject)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    m_pObjects-&gt;push_back(pObject);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a2ff084234394b2c3110c8cbacdc26a9b">   77</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_object.html">Hikari::Object</a>* pObject, std::string groupName)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>( m_Name == groupName )</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        m_pObjects-&gt;push_back(pObject);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span>( ! m_pNodes-&gt;empty() )</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentGroup = m_pNodes-&gt;begin(); currentGroup != m_pNodes-&gt;end(); ++currentGroup)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">if</span>((*currentGroup)-&gt;add(pObject, groupName) == 0)   <span class="comment">// +- DFS</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ad786d4ef9d6aa3d8de2b9c3ad79301e4">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a> *pNode)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    m_pNodes-&gt;push_back(pNode);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ad7be7c5e590ce9197d6e26df7f701037">  103</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a>* pGroup, std::string groupName)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span>( m_Name == groupName )</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        m_pNodes-&gt;push_back(pGroup);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span>( ! m_pNodes-&gt;empty() )</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentGroup = m_pNodes-&gt;begin(); currentGroup != m_pNodes-&gt;end(); ++currentGroup)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">if</span>((*currentGroup)-&gt;add(pGroup, groupName) == 0)    <span class="comment">// +- DFS</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Object*&gt;::iterator currentObject = m_pObjects-&gt;begin(); currentObject != m_pObjects-&gt;end(); ++currentObject)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        (*currentObject)-&gt;draw();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Node*&gt;::iterator currentNode = m_pNodes-&gt;begin(); currentNode != m_pNodes-&gt;end(); ++currentNode)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        (*currentNode)-&gt;draw();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a0991db5d37db2fee368cbcb315b78ddf">   50</a></span>&#160;<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a>* <a class="code" href="class_hikari_1_1_node.html#a0991db5d37db2fee368cbcb315b78ddf">Hikari::Node::load</a>(std::string filename)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_hikari_1_1_node.html">Node</a>();  <span class="comment">// do zaimplementowania ładowanie Assimpem</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">   55</a></span>&#160;std::string <a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">Hikari::Node::name</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> m_Name;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#aa57355f485ee41ef0e8a983989a34478">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#ac1b4f9e3f57c24bfd23dade149da02b7">Hikari::Node::name</a>(std::string name)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    m_Name = name;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_object.html">Hikari::Object</a> *pObject)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    m_pObjects-&gt;push_back(pObject);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a2ff084234394b2c3110c8cbacdc26a9b">   70</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_object.html">Hikari::Object</a>* pObject, std::string groupName)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span>( m_Name == groupName )</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        m_pObjects-&gt;push_back(pObject);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>( ! m_pNodes-&gt;empty() )</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentGroup = m_pNodes-&gt;begin(); currentGroup != m_pNodes-&gt;end(); ++currentGroup)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">if</span>((*currentGroup)-&gt;add(pObject, groupName) == 0)   <span class="comment">// +- DFS</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ad786d4ef9d6aa3d8de2b9c3ad79301e4">   91</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a> *pNode)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    m_pNodes-&gt;push_back(pNode);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#ad7be7c5e590ce9197d6e26df7f701037">   96</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_hikari_1_1_node.html#a9b81fcddd2985db6233032958ad2e4f6">Hikari::Node::add</a>(<a class="code" href="class_hikari_1_1_node.html">Hikari::Node</a>* pGroup, std::string groupName)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>( m_Name == groupName )</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        m_pNodes-&gt;push_back(pGroup);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span>( ! m_pNodes-&gt;empty() )</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> currentGroup = m_pNodes-&gt;begin(); currentGroup != m_pNodes-&gt;end(); ++currentGroup)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span>((*currentGroup)-&gt;add(pGroup, groupName) == 0)    <span class="comment">// +- DFS</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#a446949a44bf3b2542abc4fba39ce50ac">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#a446949a44bf3b2542abc4fba39ce50ac">Hikari::Node::setup</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Object*&gt;::iterator currentObject = m_pObjects-&gt;begin(); currentObject != m_pObjects-&gt;end(); ++currentObject)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        (*currentObject)-&gt;setup();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="class_hikari_1_1_node.html#acb6ead695e7bf86f04df49edb8a69c4f">  124</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_node.html#acb6ead695e7bf86f04df49edb8a69c4f">Hikari::Node::setup</a>(ID3D11Device *pDevice)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Object*&gt;::iterator currentObject = m_pObjects-&gt;begin(); currentObject != m_pObjects-&gt;end(); ++currentObject)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        (*currentObject)-&gt;setup(pDevice);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Node*&gt;::iterator currentNode = m_pNodes-&gt;begin(); currentNode != m_pNodes-&gt;end(); ++currentNode)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        (*currentNode)-&gt;setup(pDevice);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">for</span>(std::list&lt;Node*&gt;::iterator currentNode = m_pNodes-&gt;begin(); currentNode != m_pNodes-&gt;end(); ++currentNode)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        (*currentNode)-&gt;setup();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_node_8cpp.html">Node.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

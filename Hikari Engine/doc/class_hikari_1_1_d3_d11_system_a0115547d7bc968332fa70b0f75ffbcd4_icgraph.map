@@ -1,3 +1,4 @@
 <map id="Hikari::D3D11System::deviceContext" name="Hikari::D3D11System::deviceContext">
-<area shape="rect" id="node3" href="$class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1" title="Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera." alt="" coords="205,5,363,51"/>
+<area shape="rect" id="node3" href="$class_hikari_1_1_object.html#a26bee5af1b710734c2b2ff30eb556cc7" title="Hikari::Object::draw" alt="" coords="215,5,353,35"/>
+<area shape="rect" id="node5" href="$class_hikari_1_1_simple_renderer.html#a2653d284859d6969f57281526a1de14e" title="Hikari::SimpleRenderer\l::render" alt="" coords="205,58,363,105"/>
 </map>

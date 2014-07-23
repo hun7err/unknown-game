@@ -1,11 +1,14 @@
 <map id="include/MaterialManager.hpp" name="include/MaterialManager.hpp">
-<area shape="rect" id="node3" href="$_h_material_8hpp.html" title="include/HMaterial.hpp" alt="" coords="304,83,451,112"/>
-<area shape="rect" id="node5" href="$_object_8hpp.html" title="include/Object.hpp" alt="" coords="312,160,443,189"/>
-<area shape="rect" id="node7" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="161,237,284,267"/>
-<area shape="rect" id="node15" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="308,237,447,267"/>
-<area shape="rect" id="node20" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="471,237,577,267"/>
-<area shape="rect" id="node9" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="5,315,184,344"/>
-<area shape="rect" id="node13" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="208,315,307,344"/>
-<area shape="rect" id="node11" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="100,392,337,421"/>
-<area shape="rect" id="node18" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="381,315,496,344"/>
+<area shape="rect" id="node3" href="$_h_material_8hpp.html" title="include/HMaterial.hpp" alt="" coords="587,83,733,112"/>
+<area shape="rect" id="node11" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="536,392,773,421"/>
+<area shape="rect" id="node5" href="$_object_8hpp.html" title="include/Object.hpp" alt="" coords="563,160,693,189"/>
+<area shape="rect" id="node7" href="$_node_8hpp.html" title="include/Node.hpp" alt="" coords="380,237,503,267"/>
+<area shape="rect" id="node21" href="$_triangle_8hpp.html" title="include/Triangle.hpp" alt="" coords="527,237,665,267"/>
+<area shape="rect" id="node26" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="689,237,796,267"/>
+<area shape="rect" id="node9" href="$_object_manager_8hpp.html" title="include/ObjectManager.hpp" alt="" coords="224,315,403,344"/>
+<area shape="rect" id="node19" href="$_node_8cpp.html" title="src/Node.cpp" alt="" coords="427,315,525,344"/>
+<area shape="rect" id="node13" href="$_object_manager_8cpp.html" title="src/ObjectManager.cpp" alt="" coords="5,392,163,421"/>
+<area shape="rect" id="node15" href="$_simple_pass_8cpp.html" title="src/SimplePass.cpp" alt="" coords="187,392,325,421"/>
+<area shape="rect" id="node17" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="349,392,512,421"/>
+<area shape="rect" id="node24" href="$_triangle_8cpp.html" title="src/Triangle.cpp" alt="" coords="633,315,748,344"/>
 </map>

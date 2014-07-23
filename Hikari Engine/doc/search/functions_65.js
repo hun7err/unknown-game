@@ -5,5 +5,6 @@ var searchData=
   ['equilateraltriangle',['EquilateralTriangle',['../class_hikari_1_1_objects_1_1_equilateral_triangle.html#a5984785c348842dd1a3c0d26dc694b85',1,'Hikari::Objects::EquilateralTriangle']]],
   ['exampleapplication',['ExampleApplication',['../class_example_application.html#a3fb3b3b1dd4820cc3290944879ecb6d2',1,'ExampleApplication']]],
   ['exception',['Exception',['../class_exception.html#ac85a475cf8c49e782373d0e896b2abea',1,'Exception']]],
-  ['exists',['exists',['../class_hikari_1_1_file.html#a6c6c6abd90ba12eb202ff7d51a4466a5',1,'Hikari::File']]]
+  ['exists',['exists',['../class_hikari_1_1_file.html#a6c6c6abd90ba12eb202ff7d51a4466a5',1,'Hikari::File']]],
+  ['expandnode',['expandNode',['../navtree_8js.html#a4eb1f166c9d93b198e1621a4c787a412',1,'navtree.js']]]
 ];

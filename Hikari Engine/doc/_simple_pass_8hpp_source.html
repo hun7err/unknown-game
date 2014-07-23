@@ -116,29 +116,20 @@ $(document).ready(function(){initNavTree('_simple_pass_8hpp_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_pass.html#aea1170502bbdb8bd860f2907663350a6">   11</a></span>&#160;            <a class="code" href="class_hikari_1_1_simple_pass.html#aea1170502bbdb8bd860f2907663350a6">SimplePass</a>() : <a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">RenderPass</a>() {}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_pass.html#ab8c337432ce83c2f3299ef337c1c9772">   13</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_pass.html#ab8c337432ce83c2f3299ef337c1c9772">run</a>(std::list&lt;RenderPass*&gt; *<a class="code" href="class_hikari_1_1_render_pass.html#a9e1ead188a11e43f03eb827af09fd541" title="Pobiera listę celów.">renderTargets</a>)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                <span class="comment">// placeholder</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_hikari_1_1_simple_pass.html#a052f8a9aba4b5db9c7119a94d9126e61">   18</a></span>&#160;            <a class="code" href="class_hikari_1_1_simple_pass.html#a052f8a9aba4b5db9c7119a94d9126e61">~SimplePass</a>()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">for</span>(std::vector&lt;std::pair&lt;ID3D11RenderTargetView*, ID3D11Texture2D*&gt; &gt;::iterator currentTarget = <a class="code" href="class_hikari_1_1_render_pass.html#a0791dd1b54bc138441d2bad473a02a16">m_pRenderTargets</a>-&gt;begin(); currentTarget != <a class="code" href="class_hikari_1_1_render_pass.html#a0791dd1b54bc138441d2bad473a02a16">m_pRenderTargets</a>-&gt;end(); ++currentTarget)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    (*currentTarget).first-&gt;Release();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // __SIMPLE_PASS_HPP__</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_hikari_1_1_simple_pass.html#a77eb58fb006fb36233b6ea83a96f064c">run</a>(<a class="code" href="class_hikari_1_1_render_pass.html" title="(DEVEL! może ulec dużym zmianom) Pojedyncze przejscie renderera, metoda run() uruchamia proces render...">RenderPass</a>* pRenderTargets);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="class_hikari_1_1_simple_pass.html#a052f8a9aba4b5db9c7119a94d9126e61">~SimplePass</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    };</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // __SIMPLE_PASS_HPP__</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="_simple_pass_8hpp.html">SimplePass.hpp</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

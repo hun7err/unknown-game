@@ -1,3 +1,6 @@
 <map id="include/ObjectManager.hpp" name="include/ObjectManager.hpp">
 <area shape="rect" id="node3" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="5,83,243,112"/>
+<area shape="rect" id="node5" href="$_object_manager_8cpp.html" title="src/ObjectManager.cpp" alt="" coords="267,83,424,112"/>
+<area shape="rect" id="node7" href="$_simple_pass_8cpp.html" title="src/SimplePass.cpp" alt="" coords="448,83,587,112"/>
+<area shape="rect" id="node9" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="611,83,773,112"/>
 </map>

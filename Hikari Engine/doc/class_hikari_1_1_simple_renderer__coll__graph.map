@@ -1,5 +1,3 @@
 <map id="Hikari::SimpleRenderer" name="Hikari::SimpleRenderer">
-<area shape="rect" id="node2" href="$class_hikari_1_1_renderer.html" title="Klasa odpowiadająca za wygenerowanie obrazu." alt="" coords="21,101,139,131"/>
-<area shape="rect" id="node4" href="$class_hikari_1_1_d3_d11_system.html" title="Hikari::D3D11System" alt="" coords="5,5,155,35"/>
-<area shape="rect" id="node6" href="$class_hikari_1_1_shader_program.html" title="Hikari::ShaderProgram" alt="" coords="163,101,317,131"/>
+<area shape="rect" id="node2" href="$class_hikari_1_1_renderer.html" title="Klasa odpowiadająca za wygenerowanie obrazu." alt="" coords="25,5,143,35"/>
 </map>

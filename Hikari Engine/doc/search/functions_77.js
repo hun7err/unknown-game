@@ -8,5 +8,6 @@ var searchData=
   ['windowshowflags',['windowShowFlags',['../class_hikari_1_1_engine.html#a7a01acef93f0f18cc91ec18ddf479373',1,'Hikari::Engine::windowShowFlags(void)'],['../class_hikari_1_1_engine.html#a85393627a09962469344ffdde0b16605',1,'Hikari::Engine::windowShowFlags(int newFlags)']]],
   ['winmain',['WinMain',['../example_8cpp.html#a661c2abc03926acfaeb93b4ae7db4943',1,'example.cpp']]],
   ['wndproc',['WndProc',['../namespace_hikari.html#a4f78923b5e992ce6dc3d051751243620',1,'Hikari']]],
+  ['writecookie',['writeCookie',['../resize_8js.html#ad0822459a7d442b8c5e4db795d0aabb4',1,'resize.js']]],
   ['wrongargumentexception',['WrongArgumentException',['../class_wrong_argument_exception.html#a88dcc56b089f86f8fe139ff6ad3f3fbf',1,'WrongArgumentException']]]
 ];

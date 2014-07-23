@@ -1,4 +1,3 @@
 <map id="Hikari::ShaderProgram::setup" name="Hikari::ShaderProgram::setup">
-<area shape="rect" id="node3" href="$class_example_application.html#ac8f37e1c09c271f3362cf06853294aa4" title="dziedziczone z Application, uruchamia aplikację (czyli wszystko co istotne tak naprawdę)" alt="" coords="208,5,371,35"/>
-<area shape="rect" id="node5" href="$class_hikari_1_1_simple_renderer.html#a457dac41140c94df32188d404735a8b1" title="Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera." alt="" coords="211,58,368,105"/>
+<area shape="rect" id="node3" href="$class_example_application.html#ac8f37e1c09c271f3362cf06853294aa4" title="dziedziczone z Application, uruchamia aplikację (czyli wszystko co istotne tak naprawdę)" alt="" coords="208,13,371,43"/>
 </map>

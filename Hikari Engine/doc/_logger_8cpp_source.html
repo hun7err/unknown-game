@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('_logger_8cpp_source.html','');});
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        outFile.close();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">catch</span>(std::ifstream::failure e)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">catch</span>(std::ifstream::failure <a class="code" href="jquery_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::string exceptionMessage(<span class="stringliteral">&quot;Could not open &#39;&quot;</span> + filename + <span class="stringliteral">&quot;&#39; in Logger::dump(std::string) :  &quot;</span> + e.code().message() + <span class="stringliteral">&quot;/&quot;</span> + e.what());</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_exception.html" title="Ogólna klasa wyjątku, aby stworzyć nowy rodzaj wyjątku należy dodać konstruktor a po nim :Exception(m...">Exception</a>(const_cast&lt;char*&gt;(exceptionMessage.c_str()), <span class="stringliteral">&quot;IOException&quot;</span>);</div>
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('_logger_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_logger_8cpp.html">Logger.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

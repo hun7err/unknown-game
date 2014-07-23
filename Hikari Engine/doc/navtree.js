@@ -23,8 +23,9 @@ var NAVTREE =
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", "globals_vars" ]
       ] ]
     ] ]
   ] ]
@@ -32,8 +33,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_application_8hpp.html",
-"class_hikari_1_1_object_manager.html#a89dc8cd56a240f79dd8683a7cab41de5"
+"________engine________8hpp____8js__8js_8js.html",
+"all____66__8js_8js.html#ac0cc39fbbbda13326e7bd3f2086eaa90",
+"class____hikari____1____1____application__8js_8js.html#a6d11389eaa186afbdceb4df02a9cf54c",
+"class_hikari_1_1_handle.html#abdb5652dd4160ade3a03e027ee3cccac",
+"classes__73_8js_source.html",
+"files__8js_8js.html",
+"functions____70__8js_8js_source.html",
+"namespaces____68__8js_8js.html",
+"variables____64__8js_8js.html"
 ];
 
 var navTreeSubIndices = new Array();

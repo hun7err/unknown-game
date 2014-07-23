@@ -9,11 +9,11 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "Material.cpp", "_material_8cpp.html", null ],
     [ "Node.cpp", "_node_8cpp.html", null ],
     [ "Object.cpp", "_object_8cpp.html", null ],
+    [ "ObjectManager.cpp", "_object_manager_8cpp.html", null ],
     [ "RenderPass.cpp", "_render_pass_8cpp.html", null ],
     [ "ShaderProgram.cpp", "_shader_program_8cpp.html", null ],
-    [ "SimpleRenderer.cpp", "_simple_renderer_8cpp.html", [
-      [ "Vertex", "struct_vertex.html", "struct_vertex" ]
-    ] ],
+    [ "SimplePass.cpp", "_simple_pass_8cpp.html", null ],
+    [ "SimpleRenderer.cpp", "_simple_renderer_8cpp.html", null ],
     [ "Texture.cpp", "_texture_8cpp.html", null ],
     [ "Triangle.cpp", "_triangle_8cpp.html", null ],
     [ "WinAPIInput.cpp", "_win_a_p_i_input_8cpp.html", null ],

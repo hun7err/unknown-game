@@ -123,8 +123,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a33e53a3572acad4bf39226974661f1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda wirtualna odpowiadająca za odpalenie kolejnych passów renderera.  <a href="#a33e53a3572acad4bf39226974661f1f5"></a><br/></td></tr>
 <tr class="memitem:a8e8f1bb5593a572dc08ee780efc66f4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a8e8f1bb5593a572dc08ee780efc66f4c">cleanup</a> (void)=0</td></tr>
 <tr class="memitem:a0dd81779b0fad5e320780839b12e9d61"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a0dd81779b0fad5e320780839b12e9d61">render</a> (void)=0</td></tr>
-<tr class="memitem:a9b80e686a9306b3a80a32af452b006cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a9b80e686a9306b3a80a32af452b006cf">d3d11system</a> (<a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *pD3D11System)</td></tr>
-<tr class="memitem:ad75ef98e395610f248af0196bdebe48c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#ad75ef98e395610f248af0196bdebe48c">d3d11system</a> (void)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -133,7 +131,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a6cf621b217c4e41000d68353eade7349"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_hikari_1_1_render_pass.html">RenderPass</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#a6cf621b217c4e41000d68353eade7349">m_RenderPasses</a></td></tr>
-<tr class="memitem:ab55f3fcc39303465b3fe2c942b6774d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1">m_pD3D11System</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Klasa odpowiadająca za wygenerowanie obrazu. </p>
@@ -145,13 +142,6 @@ Inheritance diagram for Hikari::Renderer:</div>
 <div class="center"><img src="class_hikari_1_1_renderer__inherit__graph.png" border="0" usemap="#_hikari_1_1_renderer_inherit__map" alt="Inheritance graph"/></div>
 <map name="_hikari_1_1_renderer_inherit__map" id="_hikari_1_1_renderer_inherit__map">
 <area shape="rect" id="node3" href="class_hikari_1_1_simple_renderer.html" title="Hikari::SimpleRenderer" alt="" coords="5,83,163,112"/></map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Hikari::Renderer:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_hikari_1_1_renderer__coll__graph.png" border="0" usemap="#_hikari_1_1_renderer_coll__map" alt="Collaboration graph"/></div>
-<map name="_hikari_1_1_renderer_coll__map" id="_hikari_1_1_renderer_coll__map">
-<area shape="rect" id="node2" href="class_hikari_1_1_d3_d11_system.html" title="Hikari::D3D11System" alt="" coords="5,5,155,35"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <h2>Member Function Documentation</h2>
 <a class="anchor" id="a41b07c0d06300e81fc59150cbf5868d4"></a>
@@ -176,7 +166,7 @@ Collaboration diagram for Hikari::Renderer:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00038">38</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00025">25</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -212,58 +202,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="class_hikari_1_1_simple_renderer.html#a07f9cc1e0166c02e1218775298bd6c5b">Hikari::SimpleRenderer</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b80e686a9306b3a80a32af452b006cf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Hikari::Renderer::d3d11system </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a> *&#160;</td>
-          <td class="paramname"><em>pD3D11System</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00022">22</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad75ef98e395610f248af0196bdebe48c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a>* Hikari::Renderer::d3d11system </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00028">28</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -332,28 +270,6 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2>Member Data Documentation</h2>
-<a class="anchor" id="ab55f3fcc39303465b3fe2c942b6774d1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_hikari_1_1_d3_d11_system.html">D3D11System</a>* Hikari::Renderer::m_pD3D11System</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00036">36</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a6cf621b217c4e41000d68353eade7349"></a>
 <div class="memitem">
 <div class="memproto">
@@ -372,7 +288,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00035">35</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00023">23</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,7 +301,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_hikari.html">Hikari</a></li><li class="navelem"><a class="el" href="class_hikari_1_1_renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Tue Jul 22 2014 20:33:47 for Hikari Engine by
+    <li class="footer">Generated on Wed Jul 23 2014 12:04:32 for Hikari Engine by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

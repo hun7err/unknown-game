@@ -1,9 +1,10 @@
 <map id="include/Renderer.hpp" name="include/Renderer.hpp">
-<area shape="rect" id="node3" href="$_engine_8hpp.html" title="include/Engine.hpp" alt="" coords="379,83,509,112"/>
-<area shape="rect" id="node13" href="$_simple_renderer_8hpp.html" title="include/SimpleRenderer.hpp" alt="" coords="163,83,347,112"/>
-<area shape="rect" id="node5" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="325,160,563,189"/>
-<area shape="rect" id="node7" href="$_engine_8cpp.html" title="src/Engine.cpp" alt="" coords="192,160,301,189"/>
-<area shape="rect" id="node9" href="$_shader_program_8cpp.html" title="src/ShaderProgram.cpp" alt="" coords="771,160,928,189"/>
-<area shape="rect" id="node11" href="$_win_a_p_i_window_8cpp.html" title="src/WinAPIWindow.cpp" alt="" coords="587,160,747,189"/>
-<area shape="rect" id="node17" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="5,160,168,189"/>
+<area shape="rect" id="node3" href="$_engine_8hpp.html" title="include/Engine.hpp" alt="" coords="437,83,568,112"/>
+<area shape="rect" id="node17" href="$_simple_renderer_8hpp.html" title="include/SimpleRenderer.hpp" alt="" coords="229,83,413,112"/>
+<area shape="rect" id="node5" href="$_example_application_8cpp.html" title="example/src/ExampleApplication.cpp" alt="" coords="5,160,243,189"/>
+<area shape="rect" id="node7" href="$_engine_8cpp.html" title="src/Engine.cpp" alt="" coords="267,160,376,189"/>
+<area shape="rect" id="node9" href="$_object_8cpp.html" title="src/Object.cpp" alt="" coords="587,160,693,189"/>
+<area shape="rect" id="node11" href="$_shader_program_8cpp.html" title="src/ShaderProgram.cpp" alt="" coords="717,160,875,189"/>
+<area shape="rect" id="node13" href="$_simple_renderer_8cpp.html" title="src/SimpleRenderer.cpp" alt="" coords="400,160,563,189"/>
+<area shape="rect" id="node15" href="$_win_a_p_i_window_8cpp.html" title="src/WinAPIWindow.cpp" alt="" coords="899,160,1059,189"/>
 </map>

@@ -10,7 +10,6 @@ var searchData=
   ['m_5fitems',['m_Items',['../class_hikari_1_1_manager.html#ae9fb208edfe170b2798a4617393b27ff',1,'Hikari::Manager']]],
   ['m_5fmaterialhandle',['m_MaterialHandle',['../class_hikari_1_1_object.html#ae8ce9a329faa29cdb7e2ea2e411fe825',1,'Hikari::Object']]],
   ['m_5fname',['m_Name',['../class_hikari_1_1_object.html#aa17079b28ffe3ce636fdf18f7c821b20',1,'Hikari::Object']]],
-  ['m_5fpd3d11system',['m_pD3D11System',['../class_hikari_1_1_renderer.html#ab55f3fcc39303465b3fe2c942b6774d1',1,'Hikari::Renderer']]],
   ['m_5fpindexbuffer',['m_pIndexBuffer',['../class_hikari_1_1_object.html#ac12f5f23dd3ada2e05b7b6c4f6764b67',1,'Hikari::Object']]],
   ['m_5fpindices',['m_pIndices',['../class_hikari_1_1_object.html#a0f906b50cbc26f976f4353badff3e321',1,'Hikari::Object']]],
   ['m_5fposx',['m_PosX',['../class_hikari_1_1_window.html#a1928676db05b39a0f92ca2efbe84d1bf',1,'Hikari::Window']]],
