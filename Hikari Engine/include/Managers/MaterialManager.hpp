@@ -1,9 +1,9 @@
 #ifndef __MATERIALMANAGER_HPP__
 #define __MATERIALMANAGER_HPP__
 
-#include "Material.hpp"
-#include "Manager.hpp"
-#include "HMaterial.hpp"
+#include "../Material.hpp"
+#include "../Manager.hpp"
+#include "../HMaterial.hpp"
 
 namespace Hikari
 {

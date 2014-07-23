@@ -1,7 +1,7 @@
 #ifndef __TRIANGLE_HPP__
 #define __TRIANGLE_HPP__
 
-#include "Object.hpp"
+#include "../Object.hpp"
 
 namespace Hikari
 {

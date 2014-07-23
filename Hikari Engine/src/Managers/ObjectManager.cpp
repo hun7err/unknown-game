@@ -1,4 +1,4 @@
-#include "../include/ObjectManager.hpp"
+#include "../../include/Managers/ObjectManager.hpp"
 
 std::vector<Hikari::Node*> Hikari::Manager<Hikari::Node>::m_Items;
 std::mutex Hikari::Manager<Hikari::Node>::m_ItemMutex;

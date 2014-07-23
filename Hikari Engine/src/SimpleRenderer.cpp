@@ -1,6 +1,6 @@
 #include "../include/SimpleRenderer.hpp"
 #include "../include/SimplePass.hpp"
-#include "../include/ObjectManager.hpp"
+#include "../include/Managers/ObjectManager.hpp"
 #include "../include/Engine.hpp"
 
 #include <DirectXPackedVector.h>
@@ -8,52 +8,6 @@
 
 void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 {
-	/*
-	// test start
-	triangleShader = new ShaderProgram();	// ok
-	triangleShader->setup(L"res/shaders/triangle.hlsl");
-	triangleShader->entryPointNames("VShader", "PShader");	// ok
-
-	triangleShader->compile();	// ok
-
-	Vertex OurVertices[] = 
-	{
-		{0.0f, 0.5f, 0.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)},
-		{-0.45f, -0.5f, 0.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)}
-	};
-	// vertex buffer i inne tego typu wrzuciæ w Object
-	D3D11_INPUT_ELEMENT_DESC ied[] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{"COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},
-	};
-	ID3D11InputLayout *pLayout;
-
-	m_pD3D11System->deviceContext()->VSSetShader(triangleShader->vertexShader(), 0, 0);
-	m_pD3D11System->deviceContext()->PSSetShader(triangleShader->pixelShader(), 0, 0);
-
-	m_pD3D11System->device()->CreateInputLayout(ied, 2, triangleShader->vertexShaderBlob()->GetBufferPointer(), triangleShader->vertexShaderBlob()->GetBufferSize(), &pLayout);
-
-	m_pD3D11System->deviceContext()->IASetInputLayout(pLayout);
-
-	D3D11_BUFFER_DESC bd;
-	ZeroMemory(&bd, sizeof(bd));
-
-	bd.Usage = D3D11_USAGE_DYNAMIC;                // write access access by CPU and GPU
-	bd.ByteWidth = sizeof(Vertex) * 3;             // size is the VERTEX struct * 3
-	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;       // use as a vertex buffer
-	bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;    // allow CPU to write in buffer
-
-	m_pD3D11System->device()->CreateBuffer(&bd, NULL, &pVBuffer);
-
-	D3D11_MAPPED_SUBRESOURCE ms;
-	m_pD3D11System->deviceContext()->Map(pVBuffer, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &ms);
-	memcpy(ms.pData, OurVertices, sizeof(OurVertices));
-	m_pD3D11System->deviceContext()->Unmap(pVBuffer, NULL);
-	*/
-	// test_end
-
 	D3D11_VIEWPORT viewport;
 	ZeroMemory(&viewport, sizeof(D3D11_VIEWPORT));
 	viewport.TopLeftX = 0;
@@ -80,11 +34,6 @@ void Hikari::SimpleRenderer::cleanup(void)
 		delete (*currentPass);
 		(*currentPass) = NULL;
 	}
-
-	// test start
-	//triangleShader->cleanup();
-	//delete triangleShader;
-	// test end
 }
 
 void Hikari::SimpleRenderer::render(void)

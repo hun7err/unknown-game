@@ -3,10 +3,8 @@
 #include "../../include/WrongArgumentException.hpp"
 #include "../../include/WinAPIWindow.hpp"
 #include "../../include/SimpleRenderer.hpp"
-#include "../../include/ObjectManager.hpp"
-#include "../../include/MaterialManager.hpp"
-#include "../../include/ShaderManager.hpp"
-#include "../../include/Triangle.hpp"
+#include "../../include/Managers/Managers.hpp"
+#include "../../include/Objects/Triangle.hpp"
 #include <functional>
 
 ExampleApplication::ExampleApplication() {}
@@ -52,14 +50,6 @@ void ExampleApplication::stopEngine(void)
 
 void ExampleApplication::run(void)
 {
-	//Hikari::Engine* engine;
-
-	//engine = new Hikari::Engine();
-	/*if(!engine)
-	{
-		throw Exception("Could not create Hikari::Engine instance", "EngineInitException");
-	}*/
-
 	Hikari::Engine::initialize(m_hInstance, m_nCmdShow); // ale mo¿na te¿ tak:
 	/*
 	Hikari::Engine::applicationInstanceHandle(m_hInstance);

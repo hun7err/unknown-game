@@ -1,5 +1,5 @@
-#include "../include/Triangle.hpp"
-#include "../include/Exception.hpp"
+#include "../../include/Objects/Triangle.hpp"
+#include "../../include/Exception.hpp"
 
 Hikari::Objects::Triangle::Triangle(Hikari::Vector3D first_vertex, Hikari::Vector3D second_vertex, Hikari::Vector3D third_vertex) : Object()
 {

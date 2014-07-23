@@ -1,5 +1,5 @@
 #include "../include/HMaterial.hpp"
-#include "../include/MaterialManager.hpp"
+#include "../include/Managers/MaterialManager.hpp"
 
 Hikari::HMaterial::HMaterial(int key) : Handle(key)
 {

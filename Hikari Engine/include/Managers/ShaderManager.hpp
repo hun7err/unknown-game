@@ -1,9 +1,9 @@
 #ifndef __SHADERMANAGER_HPP__
 #define __SHADERMANAGER_HPP__
 
-#include "Manager.hpp"
-#include "ShaderProgram.hpp"
-#include "HShader.hpp"
+#include "../Manager.hpp"
+#include "../ShaderProgram.hpp"
+#include "../HShader.hpp"
 
 namespace Hikari
 {

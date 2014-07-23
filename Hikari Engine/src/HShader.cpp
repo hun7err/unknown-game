@@ -1,5 +1,5 @@
 #include "../include/HShader.hpp"
-#include "../include/ShaderManager.hpp"
+#include "../include/Managers/ShaderManager.hpp"
 
 Hikari::HShader::HShader(int key) : Handle(key)
 {

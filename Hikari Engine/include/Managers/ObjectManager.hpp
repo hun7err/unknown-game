@@ -1,8 +1,8 @@
 #ifndef __OBJECTMANAGER_HPP__
 #define __OBJECTMANAGER_HPP__
 
-#include "Manager.hpp"
-#include "Node.hpp"
+#include "../Manager.hpp"
+#include "../Node.hpp"
 
 namespace Hikari
 {

@@ -1,4 +1,4 @@
-#include "../include/ShaderManager.hpp"
+#include "../../include/Managers/ShaderManager.hpp"
 
 std::vector<Hikari::ShaderProgram*> Hikari::Manager<Hikari::ShaderProgram>::m_Items;
 std::mutex Hikari::Manager<Hikari::ShaderProgram>::m_ItemMutex;

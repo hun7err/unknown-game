@@ -1,9 +1,9 @@
 #ifndef __TEXTUREMANAGER_HPP__
 #define __TEXTUREMANAGER_HPP__
 
-#include "Manager.hpp"
-#include "Texture.hpp"
-#include "HTexture.hpp"
+#include "../Manager.hpp"
+#include "../Texture.hpp"
+#include "../HTexture.hpp"
 
 namespace Hikari
 {

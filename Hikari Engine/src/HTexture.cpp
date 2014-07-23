@@ -1,5 +1,5 @@
 #include "../include/HTexture.hpp"
-#include "../include/TextureManager.hpp"
+#include "../include/Managers/TextureManager.hpp"
 
 Hikari::HTexture::HTexture(int key) : Handle(key)
 {

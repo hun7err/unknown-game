@@ -1,4 +1,4 @@
-#include "../include/TextureManager.hpp"
+#include "../../include/Managers/TextureManager.hpp"
 
 std::vector<Hikari::Texture*> Hikari::Manager<Hikari::Texture>::m_Items;
 std::mutex Hikari::Manager<Hikari::Texture>::m_ItemMutex;

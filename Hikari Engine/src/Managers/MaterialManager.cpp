@@ -1,4 +1,4 @@
-#include "../include/MaterialManager.hpp"
+#include "../../include/Managers/MaterialManager.hpp"
 
 std::vector<Hikari::Material*> Hikari::Manager<Hikari::Material>::m_Items;
 std::mutex Hikari::Manager<Hikari::Material>::m_ItemMutex;

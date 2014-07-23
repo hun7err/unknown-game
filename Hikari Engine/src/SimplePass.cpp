@@ -1,5 +1,5 @@
 #include "../include/SimplePass.hpp"
-#include "../include/ObjectManager.hpp"
+#include "../include/Managers/ObjectManager.hpp"
 
 void Hikari::SimplePass::run(Hikari::RenderPass* pRenderTargets)
 {
