@@ -1,1 +1,3 @@
 doc/*
+*.suo
+*.vcxproj.filters
