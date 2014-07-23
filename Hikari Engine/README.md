@@ -5,7 +5,7 @@ Hikari::Engine to silnik graficzny stworzony nie po to, aby przerosn¹æ inne siln
 
 ## Podstawy
 
-Podstawow¹ przestrzeni¹ nazw jest Hikari::, jednak wewn¹trz - celem lepszej organizacji komponentów - wydzielone zosta³y dodatkowe przestrzenie nazw, które odpowiadaj¹ strukturze katalogów (zarówno w kwestii plików Ÿród³owych jak i nag³ówkówkowych).
+Podstawow¹ przestrzeni¹ nazw jest Hikari::, jednak wewn¹trz - celem lepszej organizacji komponentów - wydzielone zosta³y dodatkowe przestrzenie nazw, które odpowiadaj¹ strukturze katalogów (zarówno w kwestii plików Ÿród³owych jak i nag³ówkowych).
 Wewnêtrzne przestrzenie nazw zosta³y wymienione poni¿ej.
 
 Nazwa             | Opis
