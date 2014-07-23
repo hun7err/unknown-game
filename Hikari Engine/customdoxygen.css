@@ -27,6 +27,10 @@ h1.groupheader {
 }
 */
 
+.doxtable tbody tr th {
+	background-color: #2f3a48;
+}
+
 .ui-resizable .ui-resizable-handle {
 	background: none;
 }
