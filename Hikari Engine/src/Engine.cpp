@@ -2,6 +2,8 @@
 #include "../include/Exception.hpp"
 #include "../include/SimpleRenderer.hpp"
 
+#include <IL/il.h>
+
 bool Hikari::Engine::m_Running = false;
 HINSTANCE Hikari::Engine::m_hInstance;
 HWND Hikari::Engine::m_hwnd;
@@ -35,6 +37,29 @@ Hikari::Engine::~Engine()
 {
 }
 
+void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
+{
+	if(ilGetInteger(IL_VERSION_NUM) < IL_VERSION)
+	{
+		throw Exception("Different ResIL version detected", "ResILException");
+	}
+
+	ilInit();
+
+	m_hInstance = hApplicationInstance;
+	m_nCmdShow = nCmdShow;
+
+	inputMutex.lock();
+	m_pInput = new Hikari::WinAPIInput();
+	inputMutex.unlock();
+
+	d3dsystemMutex.lock();
+	m_pD3DSystem = new Hikari::D3D11System();
+	d3dsystemMutex.unlock();
+
+	m_pInput->setup();
+}
+
 HINSTANCE Hikari::Engine::applicationInstanceHandle(void)
 {
 	return m_hInstance;
@@ -53,22 +78,6 @@ int Hikari::Engine::windowShowFlags(void)
 void Hikari::Engine::windowShowFlags(int newFlags)
 {
 	m_nCmdShow = newFlags;
-}
-
-void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
-{
-	m_hInstance = hApplicationInstance;
-	m_nCmdShow = nCmdShow;
-
-	inputMutex.lock();
-	m_pInput = new Hikari::WinAPIInput();
-	inputMutex.unlock();
-
-	d3dsystemMutex.lock();
-	m_pD3DSystem = new Hikari::D3D11System();
-	d3dsystemMutex.unlock();
-
-	m_pInput->setup();
 }
 
 void Hikari::Engine::run(void)
