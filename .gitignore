@@ -1,6 +1,6 @@
 *.sdf
 *.opensdf
-Hikari Engine/Debug/CL.read.1.tlog
+*.read.1.tlog
 *.tlog
 *.exe
 *.obj
@@ -10,6 +10,5 @@ Hikari Engine/Debug/CL.read.1.tlog
 *.pdb
 *.idb
 *.ilk
-Hikari Engine/Hikari Engine.vcxproj.filters
-Hikari Engine/Hikari Engine.v11.suo
-LuaCppBinding/LuaCppBinding.vcxproj.filters
+*.v11.suo
+*.vcxproj.filters
