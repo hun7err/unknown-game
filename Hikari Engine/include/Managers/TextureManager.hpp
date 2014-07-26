@@ -5,16 +5,19 @@
 #include "../Texture.hpp"
 #include "../HTexture.hpp"
 
+#include <string>
+
 namespace Hikari
 {
 	class TextureManager : public Manager<Texture>
 	{
 		public:
-			HTexture add(Texture *pTexture);
+			static HTexture add(Texture *pTexture);
+			static HTexture load2D(std::string filename);
+
+		private:
+			TextureManager();
 	};
-
-	//typedef Manager<Texture> TextureManager;
-
 }
 
 #endif

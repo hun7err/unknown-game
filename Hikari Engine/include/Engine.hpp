@@ -36,14 +36,14 @@ namespace Hikari
 			static void stop(void);		///< zatrzymuje dzia³anie silnika przez ustawienie zmiennej m_Running na false, co powoduje wyjœcie z pêtli g³ównej
 			static void cleanup(void);		///< sprz¹ta po zakoñczonej pracy
 
-			static Window* window(void);	// pobiera wskaŸnik na okno; jeœli mia³by zostaæ zwrócony NULL, rzucony zostanie wyj¹tek Exception typu NullPointerException
-			static void window(Window* pWindow, unsigned int sampleCount = 1);	// ustawia nowe okno jeœli pWindow nie jest NULLem, w przeciwnym wypadku rzucony zostanie wyj¹tek Exception typu NullPointerException
+			static Window* window(void);	// pobiera wskaŸnik na okno; jeœli mia³by zostaæ zwrócony nullptr, rzucony zostanie wyj¹tek Exception typu NullPointerException
+			static void window(Window* pWindow, unsigned int sampleCount = 1);	// ustawia nowe okno jeœli pWindow nie jest nullptrem, w przeciwnym wypadku rzucony zostanie wyj¹tek Exception typu NullPointerException
 
-			static WinAPIInput* input(void);		///< zwraca wskaŸnik na obiekt m_pInput klasy WinAPIInput odpowiadaj¹cy za obs³ugê wejœcia, lub - jeœli wskaŸnik ten jest NULLem - rzuca wyj¹tek Exception typu NullPointerException
-			static void input(WinAPIInput* pInput);	///< jeœli pInput nie jest NULLem, ustawia nowy wskaŸnik m_pInput na wartoœæ pInput - nie jest przeprowadzana walidacja kompatybilnoœci wskaŸników. Jeœli pInput jest NULLem, zostanie rzucony wyj¹tek Exception typu NullPointerException
+			static WinAPIInput* input(void);		///< zwraca wskaŸnik na obiekt m_pInput klasy WinAPIInput odpowiadaj¹cy za obs³ugê wejœcia, lub - jeœli wskaŸnik ten jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
+			static void input(WinAPIInput* pInput);	///< jeœli pInput nie jest nullptrem, ustawia nowy wskaŸnik m_pInput na wartoœæ pInput - nie jest przeprowadzana walidacja kompatybilnoœci wskaŸników. Jeœli pInput jest nullptrem, zostanie rzucony wyj¹tek Exception typu NullPointerException
 
-			static Renderer* renderer(void);	///< zwraca wskaŸnik na obiekt m_pRenderer klasy Renderer, lub - jeœli m_pRenderer jest NULLem - rzuca wyj¹tek Exception typu NullPointerException
-			static void renderer(Renderer* pRenderer);	///< jeœli pRenderer nie jest NULLem, zostanie ustawiony nowy renderer. Jeœli jest, zostanie rzucony wyj¹tek Exception typu NullPointerException
+			static Renderer* renderer(void);	///< zwraca wskaŸnik na obiekt m_pRenderer klasy Renderer, lub - jeœli m_pRenderer jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
+			static void renderer(Renderer* pRenderer);	///< jeœli pRenderer nie jest nullptrem, zostanie ustawiony nowy renderer. Jeœli jest, zostanie rzucony wyj¹tek Exception typu NullPointerException
 
 			static HINSTANCE applicationInstanceHandle(void);
 			static void applicationInstanceHandle(HINSTANCE newApplicationHandle);

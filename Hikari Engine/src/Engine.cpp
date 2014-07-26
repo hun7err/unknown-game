@@ -2,20 +2,22 @@
 #include "../include/Exception.hpp"
 #include "../include/SimpleRenderer.hpp"
 
+#include "../include/Managers/Managers.hpp"
+
 #include <IL/il.h>
 
 bool Hikari::Engine::m_Running = false;
 HINSTANCE Hikari::Engine::m_hInstance;
 HWND Hikari::Engine::m_hwnd;
 int Hikari::Engine::m_nCmdShow;
-Hikari::WinAPIInput *Hikari::Engine::m_pInput = NULL;
-Hikari::WinAPIWindow *Hikari::Engine::m_pWindow = NULL;
-Hikari::Renderer *Hikari::Engine::m_pRenderer = NULL;
-Hikari::D3D11System *Hikari::Engine::m_pD3DSystem = NULL;
+Hikari::WinAPIInput *Hikari::Engine::m_pInput = nullptr;
+Hikari::WinAPIWindow *Hikari::Engine::m_pWindow = nullptr;
+Hikari::Renderer *Hikari::Engine::m_pRenderer = nullptr;
+Hikari::D3D11System *Hikari::Engine::m_pD3DSystem = nullptr;
 std::mutex Hikari::Engine::inputMutex;
 std::mutex Hikari::Engine::runningMutex;
 std::mutex Hikari::Engine::d3dsystemMutex;
-Hikari::Engine *Hikari::Engine::m_pInstance = NULL;
+Hikari::Engine *Hikari::Engine::m_pInstance = nullptr;
 	
 const char Hikari::Engine::buildDate[] = __DATE__;
 const char Hikari::Engine::buildTime[] = __TIME__;
@@ -23,9 +25,9 @@ const char Hikari::Engine::buildTime[] = __TIME__;
 Hikari::Engine::Engine(void)
 {
 	m_pInstance = this;
-	m_pRenderer = NULL;
-	m_pD3DSystem = NULL;
-	m_pInput = NULL;
+	m_pRenderer = nullptr;
+	m_pD3DSystem = nullptr;
+	m_pInput = nullptr;
 	m_Running = false;
 }
 
@@ -39,10 +41,10 @@ Hikari::Engine::~Engine()
 
 void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
 {
-	if(ilGetInteger(IL_VERSION_NUM) < IL_VERSION)
+	/*if(ilGetInteger(IL_VERSION_NUM) < IL_VERSION)
 	{
 		throw Exception("Different ResIL version detected", "ResILException");
-	}
+	}*/
 
 	ilInit();
 
@@ -96,7 +98,7 @@ void Hikari::Engine::run(void)
 
 	while(true)
 	{
-		if(PeekMessage(&eventMessage, NULL, 0, 0, PM_REMOVE))
+		if(PeekMessage(&eventMessage, nullptr, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&eventMessage);
 			DispatchMessage(&eventMessage);
@@ -150,14 +152,17 @@ void Hikari::Engine::cleanup(void)
 	// mutex
 	m_pRenderer->cleanup();
 	delete m_pRenderer;
-	m_pRenderer = NULL;
+	m_pRenderer = nullptr;
 
 	m_pD3DSystem->cleanup();
 
 	delete m_pInput;
-	m_pInput = NULL;
+	m_pInput = nullptr;
 
-	//Hikari::EngineHandle = NULL;
+	Hikari::ObjectManager::cleanup();	// nie dzia³a ;_;
+	// chodzi o to, ¿eby w mened¿erze (np. tekstur) zwalniaæ tekstury ³adowane dynamicznie przez TextureManager::load (to samo z obiektami dynamicznie za³adowanymi)
+
+	//Hikari::EngineHandle = nullptr;
 }
 
 LRESULT CALLBACK Hikari::WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam)
@@ -204,7 +209,7 @@ LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND WindowHandle, UINT message,
 
 Hikari::Window* Hikari::Engine::window(void)
 {
-	if(m_pWindow == NULL)
+	if(m_pWindow == nullptr)
 	{
 		throw Exception("m_pWindow is not initialized in Engine::window(void)", "NullPointerException");
 	}
@@ -214,14 +219,14 @@ Hikari::Window* Hikari::Engine::window(void)
 
 void Hikari::Engine::window(Hikari::Window* pWindow, unsigned int sampleCount)
 {
-	if(pWindow == NULL)
+	if(pWindow == nullptr)
 	{
-		throw Exception("Can't set new window to a NULL pointer in Engine::window(Window*)", "NullPointerException");
+		throw Exception("Can't set new window to a nullptr pointer in Engine::window(Window*)", "NullPointerException");
 	}
 
 	WinAPIWindow* newWindow = dynamic_cast<WinAPIWindow*>(pWindow);
 
-	if(newWindow == NULL)
+	if(newWindow == nullptr)
 	{
 		throw Exception("Can't dynamically cast window parameter to WinAPIWindow in Engine::window(Window*,uint)", "InvalidTypeException");
 	}
@@ -233,7 +238,7 @@ void Hikari::Engine::window(Hikari::Window* pWindow, unsigned int sampleCount)
 
 Hikari::Renderer* Hikari::Engine::renderer(void)
 {
-	if(m_pRenderer == NULL)
+	if(m_pRenderer == nullptr)
 	{
 		throw Exception("m_pRenderer is not initialized in Engine::renderer(void)", "NullPointerException");
 	}
@@ -243,12 +248,12 @@ Hikari::Renderer* Hikari::Engine::renderer(void)
 
 void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 {
-	if(pRenderer == NULL)
+	if(pRenderer == nullptr)
 	{
-		throw Exception("Can't set new renderer to NULL in Engine::renderer(Renderer*)", "NullPointerException");
+		throw Exception("Can't set new renderer to nullptr in Engine::renderer(Renderer*)", "NullPointerException");
 	}
 
-	if(m_pRenderer != NULL)
+	if(m_pRenderer != nullptr)
 	{
 		delete m_pRenderer;
 	}
@@ -258,7 +263,7 @@ void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 
 Hikari::WinAPIInput* Hikari::Engine::input(void)
 {
-	if(m_pInput == NULL)
+	if(m_pInput == nullptr)
 	{
 		throw Exception("m_pInput is not initialized in Engine::input(void)", "NullPointerException");
 	}
@@ -268,9 +273,9 @@ Hikari::WinAPIInput* Hikari::Engine::input(void)
 
 void Hikari::Engine::input(Hikari::WinAPIInput* pInput)
 {
-	if(pInput == NULL)
+	if(pInput == nullptr)
 	{
-		throw Exception("Can't set new input handler to a NULL pointer in Engine::input(WinAPIInput*)", "NullPointerException");
+		throw Exception("Can't set new input handler to a nullptr pointer in Engine::input(WinAPIInput*)", "NullPointerException");
 	}
 
 	m_pInput = pInput;

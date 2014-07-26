@@ -15,11 +15,11 @@ Hikari::Objects::Triangle::Triangle(Hikari::Vector3D first_vertex, Hikari::Vecto
 
 
 	// naprawiæ, ¿eby dla ka¿dego trójk¹ta pasowa³o
-	/*
-	m_Vertices[0].uv = Hikari::Vector2D(0.0f, 1.0f);
-	m_Vertices[1].uv = Hikari::Vector2D(0.5f, 0.0f);
-	m_Vertices[2].uv = Hikari::Vector2D(1.0f, 1.0f);
-	*/
+	
+	m_pVertices[0].uv = Hikari::Vector2D(0.0f, 1.0f);
+	m_pVertices[1].uv = Hikari::Vector2D(0.5f, 0.0f);
+	m_pVertices[2].uv = Hikari::Vector2D(1.0f, 1.0f);
+	
 	m_pIndices[0] = 0;
 	m_pIndices[1] = 1;
 	m_pIndices[2] = 2;

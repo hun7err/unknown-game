@@ -22,7 +22,7 @@ void Hikari::SimpleRenderer::setup(unsigned int width, unsigned int height)
 	ID3D11RenderTargetView *pBackBuffer;
 
 	Hikari::Engine::d3dsystem()->swapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBufferTexture);
-	Hikari::Engine::d3dsystem()->device()->CreateRenderTargetView(pBackBufferTexture, NULL, &pBackBuffer);
+	Hikari::Engine::d3dsystem()->device()->CreateRenderTargetView(pBackBufferTexture, nullptr, &pBackBuffer);
 	pBackBufferTexture->Release();
 	backbufferPass->addRenderTarget(pBackBufferTexture, pBackBuffer, viewport);
 }
@@ -32,19 +32,19 @@ void Hikari::SimpleRenderer::cleanup(void)
 	for(auto currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)
 	{
 		delete (*currentPass);
-		(*currentPass) = NULL;
+		(*currentPass) = nullptr;
 	}
 }
 
 void Hikari::SimpleRenderer::render(void)
 {
-	Hikari::RenderPass* lastRenderPass = NULL;
+	Hikari::RenderPass* lastRenderPass = nullptr;
 
 	for(std::vector<RenderPass*>::iterator currentPass = m_RenderPasses.begin(); currentPass != m_RenderPasses.end(); ++currentPass)
 	{
 		std::vector<ID3D11RenderTargetView*> renderTargetViews = (*currentPass)->renderTargetViews();	// pobierz kontener RenderTargetView* odpowiadaj¹cy celom
 		std::vector<D3D11_VIEWPORT> viewports = (*currentPass)->viewports();
-		Hikari::Engine::d3dsystem()->deviceContext()->OMSetRenderTargets(renderTargetViews.size(), &renderTargetViews[0], NULL);	// ustaw cele pobrane wczeœniej (w przypadku > 1 celu automatycznie wykonane zostanie MTR -> Multi-Target Rendering)
+		Hikari::Engine::d3dsystem()->deviceContext()->OMSetRenderTargets(renderTargetViews.size(), &renderTargetViews[0], nullptr);	// ustaw cele pobrane wczeœniej (w przypadku > 1 celu automatycznie wykonane zostanie MTR -> Multi-Target Rendering)
 		Hikari::Engine::d3dsystem()->deviceContext()->RSSetViewports(viewports.size(), &viewports[0]);	// ustaw viewport
 	
 		for(std::vector<ID3D11RenderTargetView*>::iterator currentTarget = renderTargetViews.begin(); currentTarget != renderTargetViews.end(); ++currentTarget)

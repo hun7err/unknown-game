@@ -4,10 +4,10 @@
 
 void Hikari::Object::initialize(void)
 {
-	m_pIndexBuffer = NULL;
-	m_pVertexBuffer = NULL;
-	m_pIndices = NULL;
-	m_pVertices = NULL;
+	m_pIndexBuffer = nullptr;
+	m_pVertexBuffer = nullptr;
+	m_pIndices = nullptr;
+	m_pVertices = nullptr;
 	m_IndexCount = 0;
 	m_VertexCount = 0;
 	m_PrimitiveTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
@@ -29,19 +29,19 @@ Hikari::Object::~Object()
 	if(m_pVertexBuffer)
 	{
 		m_pVertexBuffer->Release();
-		m_pVertexBuffer = NULL;
+		m_pVertexBuffer = nullptr;
 	}
 
 	if(m_pIndexBuffer)
 	{
 		m_pIndexBuffer->Release();
-		m_pIndexBuffer = NULL;
+		m_pIndexBuffer = nullptr;
 	}
 }
 
 void Hikari::Object::setup(void)
 {
-	if(m_pVertices == NULL || m_pIndices == NULL)
+	if(m_pVertices == nullptr || m_pIndices == nullptr)
 	{
 		throw Exception("Vertex and/or Index Array is not initialized in Object::setup(ID3D11Device*)", "NullPointerException");
 	}
@@ -100,9 +100,16 @@ void Hikari::Object::draw(void)
 		Hikari::Engine::d3dsystem()->deviceContext()->IASetIndexBuffer(m_pIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 		Hikari::Engine::d3dsystem()->deviceContext()->IASetPrimitiveTopology(m_PrimitiveTopology);
 
+		ID3D11ShaderResourceView *pTexture = m_MaterialHandle->diffuseMap()->shaderResourceView();
+		ID3D11SamplerState *pSamplerState = m_MaterialHandle->shader()->samplerState();
+
+		Hikari::Engine::d3dsystem()->deviceContext()->PSSetShaderResources(0, 1, &pTexture);
+
 		Hikari::Engine::d3dsystem()->deviceContext()->VSSetShader(m_MaterialHandle->shader()->vertexShader(), 0, 0);
 		Hikari::Engine::d3dsystem()->deviceContext()->PSSetShader(m_MaterialHandle->shader()->pixelShader(), 0, 0);
 		Hikari::Engine::d3dsystem()->deviceContext()->IASetInputLayout(m_MaterialHandle->shader()->inputLayout());
+
+		Hikari::Engine::d3dsystem()->deviceContext()->PSSetSamplers(0, 1, &pSamplerState);
 
 		Hikari::Engine::d3dsystem()->deviceContext()->DrawIndexed(m_IndexCount, 0, 0);
 	}
@@ -136,13 +143,13 @@ void Hikari::Object::cleanup(void)
 	if(m_pIndexBuffer)
 	{
 		m_pIndexBuffer->Release();
-		m_pIndexBuffer = NULL;
+		m_pIndexBuffer = nullptr;
 	}
 
 	if(m_pVertexBuffer)
 	{
 		m_pVertexBuffer->Release();
-		m_pVertexBuffer = NULL;
+		m_pVertexBuffer = nullptr;
 	}
 }
 

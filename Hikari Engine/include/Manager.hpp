@@ -6,6 +6,8 @@
 #include <mutex>
 #include "Exception.hpp"
 
+#include <Windows.h>
+
 namespace Hikari
 {
 	template <typename TypeName> class Manager
@@ -55,7 +57,7 @@ namespace Hikari
 				}
 
 				m_ItemMutex.unlock();
-				return NULL;
+				return nullptr;
 			}
 
 			static void remove(std::string name)
@@ -100,7 +102,7 @@ namespace Hikari
 				m_ItemMutex.lock();
 				if(key < (int)m_Items.size() && key >= 0)
 				{
-					if(m_Items[key] != NULL)
+					if(m_Items[key] != nullptr)
 					{
 						valid = true;
 					}
@@ -108,6 +110,14 @@ namespace Hikari
 				m_ItemMutex.unlock();
 
 				return valid;
+			}
+
+			static void cleanup(void)	// coœ nie dzia³a ;_; sprawdzane na ObjectManager
+			{
+				for(std::vector<TypeName*>::iterator currentItem = m_Items.begin(); currentItem != m_Items.end(); ++currentItem)
+				{
+					delete (*currentItem);
+				}
 			}
 
 		protected:

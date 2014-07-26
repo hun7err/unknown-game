@@ -12,9 +12,9 @@ Hikari::RenderPass::RenderPass()
 Hikari::RenderPass::~RenderPass()
 {
 	delete m_pRenderTargets;
-	m_pRenderTargets = NULL;
+	m_pRenderTargets = nullptr;
 	delete m_pRenderTargetViewports;
-	m_pRenderTargetViewports = NULL;
+	m_pRenderTargetViewports = nullptr;
 }
 
 /*
@@ -30,7 +30,7 @@ std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * Hikari::Ren
 
 std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> Hikari::RenderPass::renderTarget(unsigned int index)
 {
-	if(m_pRenderTargets == NULL)
+	if(m_pRenderTargets == nullptr)
 	{
 		throw Exception("m_pRenderTargets is not initialized in RenderPass::renderTarget(unsigned int)", "NullPointerException");
 	}
@@ -45,7 +45,7 @@ std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> Hikari::RenderPass::renderT
 
 std::vector<ID3D11RenderTargetView*> Hikari::RenderPass::renderTargetViews(void)
 {
-	if(m_pRenderTargets == NULL)
+	if(m_pRenderTargets == nullptr)
 	{
 		throw Exception("m_pRenderTargets is not initialized in RenderPass::getRenderTargetViews(void)", "NullPointerException");
 	}
@@ -62,7 +62,7 @@ std::vector<ID3D11RenderTargetView*> Hikari::RenderPass::renderTargetViews(void)
 
 void Hikari::RenderPass::renderTargets(std::vector<std::pair<ID3D11RenderTargetView*, ID3D11Texture2D*> > * pRenderTargets)
 {
-	if(pRenderTargets == NULL)
+	if(pRenderTargets == nullptr)
 	{
 		throw Exception("Nieprawidlowy wskaznik do listy celow w setRenderTarget", "InvalidPointerException");
 	}
@@ -72,17 +72,17 @@ void Hikari::RenderPass::renderTargets(std::vector<std::pair<ID3D11RenderTargetV
 
 void Hikari::RenderPass::addRenderTarget(ID3D11Texture2D* pTexture, ID3D11RenderTargetView* pRenderTarget, D3D11_VIEWPORT renderTargetViewport)
 {
-	if(pRenderTarget == NULL)
+	if(pRenderTarget == nullptr)
 	{
 		throw Exception("Nieprawidlowy wskaznik do celu w addRenderTarget", "InvalidPointerException");
 	}
 
-	if(m_pRenderTargets == NULL)
+	if(m_pRenderTargets == nullptr)
 	{
 		throw Exception("Nieprawidlowy wskaznik do kontenera celow w addRenderTarget", "InvalidPointerException");
 	}
 
-	if(m_pRenderTargetViewports == NULL)
+	if(m_pRenderTargetViewports == nullptr)
 	{
 		throw Exception("m_pRenderTargetViewports is not set in RenderPass::addRenderTarget(ID3D11Texture2D*,ID3D11RenderTargetView*,D3D11_VIEWPORT)", "NullPointerException");
 	}
@@ -93,7 +93,7 @@ void Hikari::RenderPass::addRenderTarget(ID3D11Texture2D* pTexture, ID3D11Render
 
 void Hikari::RenderPass::removeRenderTarget(unsigned int index)
 {
-	if(m_pRenderTargets == NULL)
+	if(m_pRenderTargets == nullptr)
 	{
 		throw Exception("Nieprawidlowy wskaznik do kontenera celow w addRenderTarget", "InvalidPointerException");
 	}
@@ -108,7 +108,7 @@ void Hikari::RenderPass::removeRenderTarget(unsigned int index)
 
 D3D11_VIEWPORT Hikari::RenderPass::viewport(unsigned int index)
 {
-	if(m_pRenderTargetViewports == NULL)
+	if(m_pRenderTargetViewports == nullptr)
 	{
 		throw Exception("m_pRenderTargetViewports is not set in RenderPass::viewport(unsigned int)", "NullPointerException");
 	}
@@ -123,7 +123,7 @@ D3D11_VIEWPORT Hikari::RenderPass::viewport(unsigned int index)
 
 std::vector<D3D11_VIEWPORT> Hikari::RenderPass::viewports(void)
 {
-	if(m_pRenderTargetViewports == NULL)
+	if(m_pRenderTargetViewports == nullptr)
 	{
 		throw Exception("m_pRenderTargetViewports is not set in RenderPass::viewports(void)", "NullPointerException");
 	}

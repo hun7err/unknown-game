@@ -26,17 +26,17 @@ void Hikari::D3D11System::setup(HWND windowHandle, bool fullscreen, int width, i
 	// to-do:
 	// opisaæ tutaj parametry D3D11CreateDeviceAndSwapChain
 
-	if(FAILED(D3D11CreateDeviceAndSwapChain(	NULL,
+	if(FAILED(D3D11CreateDeviceAndSwapChain(	nullptr,
 									D3D_DRIVER_TYPE_HARDWARE,
-									NULL,
-									NULL,
-									NULL,//featureLevels,
-									NULL,//featuresSize,
+									nullptr,
+									0,
+									nullptr,//featureLevels,
+									0,//featuresSize,
 									D3D11_SDK_VERSION,
 									&swapChainDescription,
 									&m_pSwapChain,
 									&m_pDevice,
-									NULL,
+									nullptr,
 									&m_pDeviceContext
 								)))
 	{
@@ -47,16 +47,16 @@ void Hikari::D3D11System::setup(HWND windowHandle, bool fullscreen, int width, i
 void Hikari::D3D11System::cleanup(void)
 {
 	m_pSwapChain->Release();
-	m_pSwapChain = NULL;
+	m_pSwapChain = nullptr;
 	m_pDevice->Release();
-	m_pDevice = NULL;
+	m_pDevice = nullptr;
 	m_pDeviceContext->Release();
-	m_pDeviceContext = NULL;
+	m_pDeviceContext = nullptr;
 }
 
 IDXGISwapChain* Hikari::D3D11System::swapChain(void)
 {
-	if(m_pSwapChain == NULL)
+	if(m_pSwapChain == nullptr)
 	{
 		throw Exception("m_pSwapChain is not initialized in Hikari::D3D11System::swapChain(void)", "NullPointerException");
 	}
@@ -66,14 +66,14 @@ IDXGISwapChain* Hikari::D3D11System::swapChain(void)
 
 void Hikari::D3D11System::swapChain(IDXGISwapChain* pSwapChain)
 {
-	if(m_pSwapChain == NULL)
+	if(m_pSwapChain == nullptr)
 	{
 		throw Exception("m_pSwapChain is not initialized in Hikari::D3D11System::swapChain(IDXGISwapChain*)", "NullPointerException");
 	}
 
-	if(pSwapChain == NULL)
+	if(pSwapChain == nullptr)
 	{
-		throw Exception("Can't set m_pSwapChain to a NULL pointer in Hikari::D3D11System::swapChain(IDXGISwapChain*)", "NullPointerException");
+		throw Exception("Can't set m_pSwapChain to a nullptr pointer in Hikari::D3D11System::swapChain(IDXGISwapChain*)", "NullPointerException");
 	}
 
 	m_pSwapChain = pSwapChain;
@@ -81,7 +81,7 @@ void Hikari::D3D11System::swapChain(IDXGISwapChain* pSwapChain)
 
 ID3D11Device* Hikari::D3D11System::device(void)
 {
-	if(m_pDevice == NULL)
+	if(m_pDevice == nullptr)
 	{
 		throw Exception("m_pDevice is not initialized in Hikari::D3D11System::device(void)", "NullPointerException");
 	}
@@ -91,14 +91,14 @@ ID3D11Device* Hikari::D3D11System::device(void)
 
 void Hikari::D3D11System::device(ID3D11Device* pDevice)
 {
-	if(m_pDevice == NULL)
+	if(m_pDevice == nullptr)
 	{
 		throw Exception("m_pDevice is not initialized in Hikari::D3D11System::device(ID3D11Device*)", "NullPointerException");
 	}
 
-	if(pDevice == NULL)
+	if(pDevice == nullptr)
 	{
-		throw Exception("Can't set m_pDevice to a NULL pointer in Hikari::D3D11System::device(ID3D11Device*)", "NullPointerException");
+		throw Exception("Can't set m_pDevice to a nullptr pointer in Hikari::D3D11System::device(ID3D11Device*)", "NullPointerException");
 	}
 
 	m_pDevice = pDevice;
@@ -106,7 +106,7 @@ void Hikari::D3D11System::device(ID3D11Device* pDevice)
 
 ID3D11DeviceContext* Hikari::D3D11System::deviceContext(void)
 {
-	if(m_pDeviceContext == NULL)
+	if(m_pDeviceContext == nullptr)
 	{
 		throw Exception("m_pDeviceContext is not initialized in Hikari::D3D11System::deviceContext(void)", "NullPointerException");
 	}
@@ -116,14 +116,14 @@ ID3D11DeviceContext* Hikari::D3D11System::deviceContext(void)
 
 void Hikari::D3D11System::deviceContext(ID3D11DeviceContext* pDeviceContext)
 {
-	if(m_pDeviceContext == NULL)
+	if(m_pDeviceContext == nullptr)
 	{
 		throw Exception("m_pDeviceContext is not initialized in Hikari::D3D11System::deviceContext(ID3D11DeviceContext*)", "NullPointerException");
 	}
 
-	if(pDeviceContext == NULL)
+	if(pDeviceContext == nullptr)
 	{
-		throw Exception("Can't set m_pDeviceContext to a NULL pointer in Hikari::D3D11System::device(ID3D11DeviceContext*)", "NullPointerException");
+		throw Exception("Can't set m_pDeviceContext to a nullptr pointer in Hikari::D3D11System::device(ID3D11DeviceContext*)", "NullPointerException");
 	}
 
 	m_pDeviceContext = pDeviceContext;

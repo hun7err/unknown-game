@@ -7,11 +7,13 @@
 
 Hikari::ShaderProgram::ShaderProgram()
 {
-	m_pInputLayout = NULL;
-	m_pPixelShader = NULL;
-	m_pPixelShaderBlob = NULL;
-	m_pVertexShader = NULL;
-	m_pVertexShaderBlob = NULL;
+	m_pInputLayout = nullptr;
+	m_pPixelShader = nullptr;
+	m_pPixelShaderBlob = nullptr;
+	m_pVertexShader = nullptr;
+	m_pVertexShaderBlob = nullptr;
+
+	m_pSamplerState = nullptr;
 }
 
 void Hikari::ShaderProgram::setup(std::wstring vertexShaderName, std::wstring pixelShaderName)
@@ -44,11 +46,15 @@ void Hikari::ShaderProgram::cleanup()
 	m_pPixelShaderBlob->Release();
 	m_pInputLayout->Release();
 
-	m_pVertexShader = NULL;
-	m_pPixelShader = NULL;
-	m_pInputLayout = NULL;
-	m_pPixelShaderBlob = NULL;
-	m_pVertexShaderBlob = NULL;
+	m_pSamplerState->Release();
+
+	m_pVertexShader = nullptr;
+	m_pPixelShader = nullptr;
+	m_pInputLayout = nullptr;
+	m_pPixelShaderBlob = nullptr;
+	m_pVertexShaderBlob = nullptr;
+
+	m_pSamplerState = nullptr;
 
 	delete [] m_PixelShaderEntryPointName;
 	delete [] m_VertexShaderEntryPointName;
@@ -78,7 +84,7 @@ void Hikari::ShaderProgram::entryPointNames(std::string shaderEntryPointName)
 ID3D10Blob* Hikari::ShaderProgram::vertexShaderBlob(void)
 {
 	#ifdef _DEBUG
-	if(m_pVertexShaderBlob == NULL)
+	if(m_pVertexShaderBlob == nullptr)
 	{
 		throw Exception("Vertex Shader blob pointer is not initialized in ShaderProgram::vertexShaderBlob(void)", "NullPointerException");
 	}
@@ -90,7 +96,7 @@ ID3D10Blob* Hikari::ShaderProgram::vertexShaderBlob(void)
 ID3D10Blob* Hikari::ShaderProgram::pixelShaderBlob(void)
 {
 	#ifdef _DEBUG
-	if(m_pPixelShaderBlob == NULL)
+	if(m_pPixelShaderBlob == nullptr)
 	{
 		throw Exception("Pixel Shader blob is not initialized in ShaderProgram::pixelShaderBlob(void)", "NullPointerException");
 	}
@@ -102,7 +108,7 @@ ID3D10Blob* Hikari::ShaderProgram::pixelShaderBlob(void)
 ID3D11VertexShader* Hikari::ShaderProgram::vertexShader(void)
 {
 	#ifdef _DEBUG
-	if(m_pVertexShader == NULL)
+	if(m_pVertexShader == nullptr)
 	{
 		throw Exception("Vertex Shader pointer is not initialized in ShaderProgram::vertexShader(void)", "NullPointerException");
 	}
@@ -114,13 +120,18 @@ ID3D11VertexShader* Hikari::ShaderProgram::vertexShader(void)
 ID3D11PixelShader* Hikari::ShaderProgram::pixelShader(void)
 {
 	#ifdef _DEBUG
-	if(m_pPixelShader == NULL)
+	if(m_pPixelShader == nullptr)
 	{
 		throw Exception("Pixel Shader pointer is not initialized in ShaderProgram::pixelShader(void)", "NullPointerException");
 	}
 	#endif
 
 	return m_pPixelShader;
+}
+
+ID3D11SamplerState *Hikari::ShaderProgram::samplerState(void)
+{
+	return m_pSamplerState;
 }
 
 ID3D11InputLayout* Hikari::ShaderProgram::inputLayout(void)
@@ -133,18 +144,18 @@ void Hikari::ShaderProgram::compileAndCreateShaders()
 	LPCWSTR wVertexShaderName = (LPCWSTR)m_VertexShaderName.c_str(),
 			wPixelShaderName = (LPCWSTR)m_PixelShaderName.c_str();
 
-	if(FAILED(D3DCompileFromFile(wVertexShaderName, NULL, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_VertexShaderEntryPointName, "vs_4_0", 0, 0, &m_pVertexShaderBlob, NULL)))
+	if(FAILED(D3DCompileFromFile(wVertexShaderName, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_VertexShaderEntryPointName, "vs_5_0", 0, 0, &m_pVertexShaderBlob, nullptr)))
 	{
 		throw Exception("Vertex shader compilation failed", "ShaderCompilationException");
 	}
 
-	if(FAILED(D3DCompileFromFile(wPixelShaderName, NULL, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_PixelShaderEntryPointName, "ps_4_0", 0, 0, &m_pPixelShaderBlob, NULL)))
+	if(FAILED(D3DCompileFromFile(wPixelShaderName, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, m_PixelShaderEntryPointName, "ps_5_0", 0, 0, &m_pPixelShaderBlob, nullptr)))
 	{
 		throw Exception("Pixel shader compilation failed", "ShaderCompilationException");
 	}
 
-	Hikari::Engine::d3dsystem()->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), NULL, &m_pVertexShader);
-	Hikari::Engine::d3dsystem()->device()->CreatePixelShader(m_pPixelShaderBlob->GetBufferPointer(), m_pPixelShaderBlob->GetBufferSize(), NULL, &m_pPixelShader);
+	Hikari::Engine::d3dsystem()->device()->CreateVertexShader(m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), nullptr, &m_pVertexShader);
+	Hikari::Engine::d3dsystem()->device()->CreatePixelShader(m_pPixelShaderBlob->GetBufferPointer(), m_pPixelShaderBlob->GetBufferSize(), nullptr, &m_pPixelShader);
 }
 
 void Hikari::ShaderProgram::setInputElementDescription(void)
@@ -175,15 +186,44 @@ void Hikari::ShaderProgram::setInputElementDescription(void)
 	m_InputElementDescription[2].InstanceDataStepRate = 0;
 }
 
-void Hikari::ShaderProgram::compile()
+void Hikari::ShaderProgram::createInputLayout(void)
 {
-	compileAndCreateShaders();
-	setInputElementDescription();
-
 	int descriptionElementCount = sizeof(m_InputElementDescription)/sizeof(m_InputElementDescription[0]);
 
 	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateInputLayout(m_InputElementDescription, descriptionElementCount, m_pVertexShaderBlob->GetBufferPointer(), m_pVertexShaderBlob->GetBufferSize(), &m_pInputLayout)))
 	{
 		throw Exception("Could not create input layout in ShaderProgram::compile(void)", "ShaderCompilationException");
 	}
+}
+
+void Hikari::ShaderProgram::createSamplerState(void)
+{
+	D3D11_SAMPLER_DESC samplerDescription;
+
+	samplerDescription.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	samplerDescription.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescription.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescription.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescription.MipLODBias = 0.0f;
+	samplerDescription.MaxAnisotropy = 1;
+	samplerDescription.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	ZeroMemory(samplerDescription.BorderColor, 4*sizeof(float));
+	samplerDescription.MinLOD = 0;
+	samplerDescription.MaxLOD = D3D11_FLOAT32_MAX;
+
+	if(FAILED(Hikari::Engine::d3dsystem()->device()->CreateSamplerState(&samplerDescription, &m_pSamplerState)))
+	{
+		m_pSamplerState->Release();
+		m_pSamplerState = nullptr;
+
+		throw Exception("Could not create sampler state in Hikari::ShaderProgram::compile(void)", "ShaderCompilationException");
+	}
+}
+
+void Hikari::ShaderProgram::compile(void)
+{
+	compileAndCreateShaders();
+	setInputElementDescription();
+	createInputLayout();
+	createSamplerState();
 }

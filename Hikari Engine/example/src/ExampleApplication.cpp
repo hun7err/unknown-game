@@ -5,20 +5,21 @@
 #include "../../include/SimpleRenderer.hpp"
 #include "../../include/Managers/Managers.hpp"
 #include "../../include/Objects/Triangle.hpp"
+#include "../../include/Textures/Texture2D.hpp"
 #include <functional>
 
 ExampleApplication::ExampleApplication() {}
 
 void ExampleApplication::setup(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	if(hInstance == NULL)
+	if(hInstance == nullptr)
 	{
-		throw WrongArgumentException("niepoprawny argument hInstance(NULL)");
+		throw WrongArgumentException("niepoprawny argument hInstance(nullptr)");
 	}
 
-	if(lpCmdLine == NULL)
+	if(lpCmdLine == nullptr)
 	{
-		throw WrongArgumentException("niepoprawny argument lpCmdLine (NULL)");
+		throw WrongArgumentException("niepoprawny argument lpCmdLine (nullptr)");
 	}
 
 	int options = SW_SHOWNORMAL|SW_SHOW|SW_HIDE|SW_MAXIMIZE|SW_MINIMIZE|SW_RESTORE|SW_SHOWMAXIMIZED|SW_SHOWMINIMIZED|SW_SHOWMINNOACTIVE|SW_SHOWNA|SW_SHOWNOACTIVATE;
@@ -77,8 +78,24 @@ void ExampleApplication::run(void)
 		Hikari::Vector3D(-0.45f, -0.5f, 0.0f)
 	);
 	
+	Hikari::Texture2D* pTexture = new Hikari::Texture2D();
+
+	try
+	{
+		const char *path = "res/textures/black_marble.jpg";
+		pTexture->load(path);	// b³¹d 1291 DevILa
+	}
+	catch(Exception& e)
+	{
+		MessageBox(NULL, e.message(), e.type(), MB_OK);
+		delete [] e.message();
+	}
+
 	Hikari::Material *pMaterial = new Hikari::Material("triangle");
 	pMaterial->shader(shaderHandle);
+	Hikari::HTexture hTexture = Hikari::TextureManager::add(pTexture);
+	pMaterial->diffuseMap(hTexture);
+
 	Hikari::HMaterial hTriangleMaterial = Hikari::MaterialManager::add(pMaterial);
 	pTriangle->material(hTriangleMaterial);
 
@@ -88,9 +105,14 @@ void ExampleApplication::run(void)
 
 	pTriangle->cleanup();
 	delete pTriangle;
+	pTriangle = nullptr;
 	delete pMaterial;
+	pMaterial = nullptr;
 	pSimpleShader->cleanup();
 	delete pSimpleShader;
+	pSimpleShader = nullptr;
+	delete pTexture;
+	pTexture = nullptr;
 
 	Hikari::Engine::cleanup();
 }

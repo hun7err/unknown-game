@@ -50,6 +50,7 @@ namespace Hikari
 
 			HShader shader(void);
 			void shader(HShader newShaderHandle);
+
 		private:
 			void initialize(void);
 

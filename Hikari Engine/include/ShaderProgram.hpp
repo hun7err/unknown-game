@@ -35,6 +35,8 @@ namespace Hikari
 
 			ID3D11InputLayout* inputLayout(void);
 
+			ID3D11SamplerState *samplerState(void);
+
 			void compile();
 
 		private:
@@ -48,6 +50,8 @@ namespace Hikari
 
 			ID3D11InputLayout *m_pInputLayout;
 
+			ID3D11SamplerState *m_pSamplerState;
+
 			D3D11_INPUT_ELEMENT_DESC m_InputElementDescription[3];
 			D3D11_BUFFER_DESC matrixBufferDescription;
 
@@ -58,8 +62,10 @@ namespace Hikari
 			LPCSTR m_VertexShaderEntryPointName, // dodaæ ew. gettery
 					m_PixelShaderEntryPointName;
 
-			void compileAndCreateShaders();
+			void compileAndCreateShaders(void);
 			void setInputElementDescription(void);
+			void createInputLayout(void);
+			void createSamplerState(void);
 	};
 };
 

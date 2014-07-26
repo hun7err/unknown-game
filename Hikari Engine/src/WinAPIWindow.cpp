@@ -12,7 +12,7 @@ void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji
 	m_WindowClassEx.style = CS_HREDRAW | CS_VREDRAW;		// styl/style okna
 	m_WindowClassEx.lpfnWndProc = Hikari::WndProc;			// wskaŸnik do procedury obs³ugi okna
 	m_WindowClassEx.hInstance = hInstance;					// uchwyt aplikacji wykorzystuj¹cej okno
-	m_WindowClassEx.hCursor = LoadCursor(NULL, IDC_ARROW);	// uchwyt kursora
+	m_WindowClassEx.hCursor = LoadCursor(nullptr, IDC_ARROW);	// uchwyt kursora
 	m_WindowClassEx.hbrBackground = (HBRUSH)COLOR_WINDOW;	// uchwyt do brusha(pêdzla?) t³a
 	m_WindowClassEx.lpszClassName = "HikariWindowClass";	// nazwa klasy okna
 
@@ -21,7 +21,7 @@ void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji
 	//RECT wr = {0, 0, m_Width, m_Height};
 	//AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
-	m_WindowHandle = CreateWindowEx(NULL,					/** \brief	Rozszerzony styl okna  */
+	m_WindowHandle = CreateWindowEx(0,					/** \brief	Rozszerzony styl okna  */
 									"HikariWindowClass",	/** \brief	Nazwa klasy okna  */
 									m_Title.c_str(),		/** \brief	Nag³ówek okna  */
 									WS_OVERLAPPEDWINDOW,	/** \brief	Styl okna  */
@@ -47,14 +47,14 @@ void Hikari::WinAPIWindow::cleanup(void)
 
 	if(Hikari::Window::m_Fullscreen)
 	{
-		ChangeDisplaySettings(NULL, 0);
+		ChangeDisplaySettings(nullptr, 0);
 	}
 
 	DestroyWindow(m_WindowHandle);
-	m_WindowHandle = NULL;
+	m_WindowHandle = nullptr;
 
 	UnregisterClass("HikariWindowClass", m_hInstance);
-	m_hInstance = NULL;
+	m_hInstance = nullptr;
 }
 
 void Hikari::WinAPIWindow::visibility(int nCmdShow)
@@ -98,7 +98,7 @@ void Hikari::WinAPIWindow::fullscreen(bool fullscreen)
 
 		ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);
 
-		SetWindowPos(m_WindowHandle, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+		SetWindowPos(m_WindowHandle, nullptr, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
 	}
 	else
 	{
@@ -109,7 +109,7 @@ void Hikari::WinAPIWindow::fullscreen(bool fullscreen)
 		dmScreenSettings.dmBitsPerPel = 32;
 		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
-		SetWindowPos(m_WindowHandle, NULL, m_PosX, m_PosY, 0, 0, 0);
+		SetWindowPos(m_WindowHandle, nullptr, m_PosX, m_PosY, 0, 0, 0);
 
 		ChangeDisplaySettings(&dmScreenSettings, 0);
 	}
