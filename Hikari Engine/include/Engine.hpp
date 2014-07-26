@@ -1,20 +1,25 @@
 #ifndef __ENGINE_HPP__
 #define __ENGINE_HPP__
 
+/**
+	\file	Engine.hpp
+	\date	2014-07-26
+	\author	Krzysztof 'hun7er' Marciniak
+	\brief	Zawiera deklaracjê podstawowej klasy, która udostêpnia m.in. urz¹dzenie i kontekst urz¹dzenia D3D11
+*/
+
 // biblioteka standardowa
 #include <mutex>
 // windows
 #include <Windows.h>
 // silnik
 #include "WinAPIWindow.hpp"
-#include "Application.hpp"
 #include "WinAPIInput.hpp"
 #include "Renderer.hpp"
 #include "D3D11System.hpp"
 
 /*
 	to-do:
-		- (!!!) Naprawiæ -> tutoriale DX11, z Rastertek obs³uga okna itp.
 		- StackWalker -> stacktrace zbieraæ jak coœ siê stanie z³ego
 		- logo silnika
 */
@@ -25,6 +30,10 @@ namespace Hikari
 
 	LRESULT CALLBACK WndProc(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); ///< wywo³ywane przez DispatchMessage, odpowiada za przetworzenie komunikatów okna
 
+	/**
+		\class	Engine
+		\brief	Podstawowa klasa, która udostêpnia m.in. kontekst D3D11. Na pocz¹tku ka¿dej aplikacji powinna zostaæ wywo³ana metoda initialize() tej klasy
+	*/
 	class Engine
 	{
 		public:
@@ -71,8 +80,7 @@ namespace Hikari
 
 			static Renderer* m_pRenderer;		///< generuje obraz metod¹ render()
 			static D3D11System* m_pD3DSystem;	///< odpowiada za utworzenie i zwolnienie urz¹dzenia D3D11 i jego kontekstu + swapChain
-			Application* m_pApplication;			// mo¿liwe ¿e zbêdne
-
+			
 			// mutexy pozwalaj¹ce zablokowaæ zasoby nale¿¹ce do sekcji krytycznej
 			static std::mutex inputMutex;
 			static std::mutex runningMutex;
@@ -84,8 +92,6 @@ namespace Hikari
 			static Engine *m_pInstance;
 			// dodaæ mutexy na wszystkie "krytyczne" obiekty
 	};
-
-	//static Engine* EngineHandle = 0;	///< wskaŸnik na instancjê obiektu, pozwala uzyskaæ coœ w stylu Singletona (niestety jest to konieczne z punktu widzenia WndProc)
 }
 
 #endif // __ENGINE_HPP__

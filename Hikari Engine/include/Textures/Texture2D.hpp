@@ -1,12 +1,22 @@
 #ifndef __TEXTURE2D_HPP__
 #define __TEXTURE2D_HPP__
 
+/**
+	\file	Triangle.hpp
+	\author	Krzysztof 'hun7er' Marciniak
+	\date	2014-07-26
+*/
+
 #include "../Texture.hpp"
 #include <IL/il.h>
 #include <string>
 
 namespace Hikari
 {
+	/**
+		\class	Texture2D
+		\brief	Tekstura 2D. Mo¿e byæ wykorzystana zarówno do tworzenia RT (render target) przy pomocy metod create() jak i jako zwyk³a tekstura ³adowana z pliku (metoda load() ).
+	*/
 	class Texture2D : public Texture
 	{
 		public:

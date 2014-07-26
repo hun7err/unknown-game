@@ -1,12 +1,22 @@
 #ifndef __TRIANGLE_HPP__
 #define __TRIANGLE_HPP__
 
+/**
+	\file	Triangle.hpp
+	\author	Krzysztof 'hun7er' Marciniak
+	\date	2014-07-23
+*/
+
 #include "../Object.hpp"
 
 namespace Hikari
 {
 	namespace Objects
 	{
+		/**
+			\class	Triangle
+			\brief	Obiekt trójk¹ta w przestrzeni 3D
+		*/
 		class Triangle : public Object
 		{
 			public:

@@ -14,7 +14,7 @@
 */
 int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , LPSTR lpCmdLine, int nCmdShow)
 {
-	Hikari::Application *application = new ExampleApplication();	// przyk³adowa aplikacja (z dostêpn¹ tylko i wy³¹cznie metod¹ run() )
+	Application *application = new ExampleApplication();	// przyk³adowa aplikacja (z dostêpn¹ tylko i wy³¹cznie metod¹ run() )
 
 	ExampleApplication *eApp = dynamic_cast<ExampleApplication*>(application);	// przyk³adowa aplikacja ze wszystkimi dostêpnymi metodami lub nullptr (jeœli nie uda³o siê zrzutowaæ na ExampleApplication*)
 	if(eApp == nullptr)	// brak mozliwosci zrzutowania na ExampleApplication*
