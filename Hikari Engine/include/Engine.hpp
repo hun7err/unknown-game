@@ -67,7 +67,7 @@ namespace Hikari
 
 		private:
 			Engine();
-			Engine(const Engine& rOther /** \brief	referencja do obiektu kopiowanego */);	// konstruktor kopiuj¹cy
+			Engine(const Engine& rOther /** referencja do obiektu kopiowanego */);	// konstruktor kopiuj¹cy
 
 			static bool m_Running;				///< czy pêtla g³ówna ma siê wykonywaæ?
 
