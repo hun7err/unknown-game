@@ -1,7 +1,7 @@
 #include "../../include/Objects/Triangle.hpp"
 #include "../../include/Exception.hpp"
 
-Hikari::Objects::Triangle::Triangle(Hikari::Vector3D first_vertex, Hikari::Vector3D second_vertex, Hikari::Vector3D third_vertex) : Object()
+Hikari::Objects::Triangle::Triangle(const Hikari::Vector3D& first_vertex, const Hikari::Vector3D& second_vertex, const Hikari::Vector3D& third_vertex) : Object()
 {
 	m_VertexCount = 3;
 	m_IndexCount = 3;
@@ -31,6 +31,6 @@ Hikari::Objects::Triangle::~Triangle()
 	delete [] m_pIndices;
 }
 
-Hikari::Objects::EquilateralTriangle::EquilateralTriangle(Hikari::Vector3D triangleCenter, float sideLength) : Triangle(triangleCenter + Hikari::Vector3D(-sideLength/2.0f,-sideLength/3.0f,0.0f), triangleCenter + Hikari::Vector3D(sideLength/2.0f,-sideLength/3,0.0f), triangleCenter + Hikari::Vector3D(0.0f,sideLength*2.0f/3.0f,0.0f))
+Hikari::Objects::EquilateralTriangle::EquilateralTriangle(const Hikari::Vector3D& triangleCenter, double sideLength) : Triangle(triangleCenter + Hikari::Vector3D(-sideLength/2.0f,-sideLength/3.0f,0.0f), triangleCenter + Hikari::Vector3D(sideLength/2.0f,-sideLength/3,0.0f), triangleCenter + Hikari::Vector3D(0.0f,sideLength*2.0f/3.0f,0.0f))
 {
 }

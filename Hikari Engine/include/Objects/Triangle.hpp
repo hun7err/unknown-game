@@ -20,7 +20,7 @@ namespace Hikari
 		class Triangle : public Object
 		{
 			public:
-				Triangle(Hikari::Vector3D first_vertex, Hikari::Vector3D second_vertex, Hikari::Vector3D third_vertex);
+				Triangle(const Vector3D& first_vertex, const Vector3D& second_vertex, const Vector3D& third_vertex);
 
 				virtual ~Triangle();
 		};
@@ -28,7 +28,7 @@ namespace Hikari
 		class EquilateralTriangle : public Triangle
 		{
 			public:
-				EquilateralTriangle(Hikari::Vector3D triangleCenter, float sideLength);
+				EquilateralTriangle(const Vector3D& triangleCenter, double sideLength);
 		};
 	}
 }
