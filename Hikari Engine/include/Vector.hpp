@@ -27,11 +27,15 @@ namespace Hikari
 			float z(void) { return m_z; }
 			void z(float z) { m_z = z; }
 
-			Vector3D operator- (const Vector3D& rOther) { return Vector3D(m_x - rOther.m_x, m_y - rOther.m_y, m_z - rOther.m_z); }
-			Vector3D operator+ (const Vector3D& rOther) { return Vector3D(m_x + rOther.m_x, m_y + rOther.m_y, m_z + rOther.m_z); }
+			friend Vector3D operator+ (const Vector3D& rFirst, const Vector3D& rSecond);
+			friend Vector3D operator- (const Vector3D& rFirst, const Vector3D& rSecond);
+
 		protected:
 			float m_z;
 	};
+
+	Vector3D operator+ (const Vector3D& rFirst, const Vector3D& rSecond) { return Vector3D(rFirst.m_x + rSecond.m_x, rFirst.m_y + rSecond.m_y, rFirst.m_z + rSecond.m_z); }
+	Vector3D operator- (const Vector3D& rFirst, const Vector3D& rSecond) { return Vector3D(rFirst.m_x - rSecond.m_x, rFirst.m_y - rSecond.m_y, rFirst.m_z - rSecond.m_z); }
 
 	class Vector4D : public Vector3D
 	{
