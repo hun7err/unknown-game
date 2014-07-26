@@ -2,7 +2,7 @@
 #include "../include/Exception.hpp"
 #include "../include/Engine.hpp"
 
-void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji korzystaj¹cej z okna */, int nCmdShow	/** \brief	Tryb wyœwietlania okna */)
+void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** Uchwyt aplikacji korzystaj¹cej z okna */, int nCmdShow	/** Tryb wyœwietlania okna */)
 {
 	m_hInstance = hInstance;
 
@@ -21,18 +21,18 @@ void Hikari::WinAPIWindow::setup(HINSTANCE hInstance	/** \brief	Uchwyt aplikacji
 	//RECT wr = {0, 0, m_Width, m_Height};
 	//AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
-	m_WindowHandle = CreateWindowEx(0,					/** \brief	Rozszerzony styl okna  */
-									"HikariWindowClass",	/** \brief	Nazwa klasy okna  */
-									m_Title.c_str(),		/** \brief	Nag³ówek okna  */
-									WS_OVERLAPPEDWINDOW,	/** \brief	Styl okna  */
-									m_PosX,					/** \brief	Wspó³rzêdna X okna  */
-									m_PosY,					/** \brief	Wspó³rzêdna Y okna  */
-									m_Width,				/** \brief	Szerokoœæ okna  */
-									m_Height,				/** \brief	Wysokoœæ okna  */
-									NULL,					/** \brief	Uchwyt okna-rodzica (parent window)  */
-									NULL,					/** \brief	Uchwyt menu  */
-									hInstance,				/** \brief	Uchwyt aplikacji  */
-									NULL					/** \brief	WskaŸnik do wartoœci przekazanej do okna przez CREATESTRUCT  */);
+	m_WindowHandle = CreateWindowEx(0,					/** Rozszerzony styl okna  */
+									"HikariWindowClass",	/** Nazwa klasy okna  */
+									m_Title.c_str(),		/** Nag³ówek okna  */
+									WS_OVERLAPPEDWINDOW,	/** Styl okna  */
+									m_PosX,					/** Wspó³rzêdna X okna  */
+									m_PosY,					/** Wspó³rzêdna Y okna  */
+									m_Width,				/** Szerokoœæ okna  */
+									m_Height,				/** Wysokoœæ okna  */
+									NULL,					/** Uchwyt okna-rodzica (parent window)  */
+									NULL,					/** Uchwyt menu  */
+									hInstance,				/** Uchwyt aplikacji  */
+									NULL					/** WskaŸnik do wartoœci przekazanej do okna przez CREATESTRUCT  */);
 
 	this->visibility(nCmdShow);
 	
