@@ -31,6 +31,12 @@ namespace Hikari
 			HMaterial material(void);
 			void material(HMaterial materialHandle);
 
+			bool visible(void);
+			void visible(bool newVisibility);
+
+			void hide(void);
+			void show(void);
+
 		protected:
 			struct Vertex {
 				Hikari::Vector3D position_modelSpace;
@@ -49,6 +55,8 @@ namespace Hikari
 			ID3D11Buffer *m_pVertexBuffer, *m_pIndexBuffer;
 
 			HMaterial m_MaterialHandle;
+
+			bool m_Visible;
 
 		private:
 			void initialize(void);

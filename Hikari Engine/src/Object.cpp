@@ -4,6 +4,7 @@
 
 void Hikari::Object::initialize(void)
 {
+	m_Visible = true;
 	m_pIndexBuffer = nullptr;
 	m_pVertexBuffer = nullptr;
 	m_pIndices = nullptr;
@@ -136,6 +137,26 @@ void Hikari::Object::material(Hikari::HMaterial materialHandle)
 	{
 		m_MaterialHandle = materialHandle;
 	}
+}
+
+bool Hikari::Object::visible(void)
+{
+	return m_Visible;
+}
+
+void Hikari::Object::visible(bool newVisibility)
+{
+	m_Visible = newVisibility;
+}
+
+void Hikari::Object::hide(void)
+{
+	m_Visible = false;
+}
+
+void Hikari::Object::show(void)
+{
+	m_Visible = true;
 }
 
 void Hikari::Object::cleanup(void)

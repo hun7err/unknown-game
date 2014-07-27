@@ -12,7 +12,7 @@
 	                          +--------> x+
 */
 
-Hikari::Objects::Cube::Cube(const Hikari::Vector3D& center, double sideLength)
+Hikari::Objects::Cube::Cube(const Hikari::Vector3D& center, double sideLength) : Object()
 {
 	m_VertexCount = 8;
 	m_IndexCount = 36;
@@ -53,5 +53,7 @@ Hikari::Objects::Cube::Cube(const Hikari::Vector3D& center, double sideLength)
 Hikari::Objects::Cube::~Cube()
 {
 	delete [] m_pVertices;
+	m_pVertices = nullptr;
 	delete [] m_pIndices;
+	m_pIndices = nullptr;
 }
