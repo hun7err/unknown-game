@@ -12,7 +12,7 @@
 	                          +--------> x+
 */
 
-Hikari::Objects::Cube::Cube(const Hikari::Vector3D& center, double sideLength)
+Hikari::Objects::Cube::Cube(const Hikari::Vector3D& center, float sideLength)
 {
 	m_VertexCount = 8;
 	m_IndexCount = 36;

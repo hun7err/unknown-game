@@ -9,29 +9,29 @@ namespace Hikari
 	{
 		public:
 			Vector2D();
-			Vector2D(double x, double y);
+			Vector2D(float x, float y);
 
-			double x(void) const;
-			double y(void) const;
-			void x(double x);
-			void y(double y);
+			float x(void) const;
+			float y(void) const;
+			void x(float x);
+			void y(float y);
 
 		protected:
-			double m_x, m_y;
+			float m_x, m_y;
 	};
 
 	class Vector3D : public Vector2D
 	{
 		public:
-			Vector3D(double x = 0.0f, double y = 0.0f, double z = 0.0f);
+			Vector3D(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 			Vector3D(const Vector3D& rVector);
 			Vector3D(const Vector3D& start, const Vector3D& end);
 
-			double z(void) const;
-			void z(double z);
+			float z(void) const;
+			void z(float z);
 
-			double length(void) const;
-			double lengthSqrd(void) const;
+			float length(void) const;
+			float lengthSqrd(void) const;
 
 			void normalize(void);
 			Vector3D normalized(void);
@@ -40,21 +40,21 @@ namespace Hikari
 			friend Vector3D operator- (const Vector3D& rFirst, const Vector3D& rSecond);
 
 		protected:
-			double m_z;
+			float m_z;
 	};
 
 	class Vector4D : public Vector3D
 	{
 		public:
-			Vector4D(double x = 0.0f, double y = 0.0f, double z = 0.0f, double w = 0.0f);
-			Vector4D(const Vector3D& rVector, double w);
+			Vector4D(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f);
+			Vector4D(const Vector3D& rVector, float w);
 			Vector4D(const Vector3D& rStart, const Vector3D& rEnd);
 
-			double w(void) const;
-			void w(double w);
+			float w(void) const;
+			void w(float w);
 
 		protected:
-			double m_w;
+			float m_w;
 	};
 }
 

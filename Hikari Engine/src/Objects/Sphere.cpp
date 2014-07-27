@@ -4,7 +4,7 @@
 
 #include "../../include/Objects/Sphere.hpp"
 
-Hikari::Objects::Sphere::Sphere(const Vector3D& center, double radius, unsigned int segments, unsigned int rings) : Object()
+Hikari::Objects::Sphere::Sphere(const Vector3D& center, float radius, unsigned int segments, unsigned int rings) : Object()
 {
 	m_VertexCount = 2 + rings*segments;
 	m_IndexCount = 6 * rings * segments;
@@ -28,7 +28,7 @@ Hikari::Objects::Sphere::Sphere(const Vector3D& center, double radius, unsigned 
 	unsigned int cur_pos = 1,
 				r = 1,
 				s;
-	double	r_f = M_PI/(rings+1),
+	float	r_f = M_PI/(rings+1),
 			s_f = 2*M_PI/segments;
 
 	Vector3D d;

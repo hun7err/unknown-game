@@ -16,7 +16,7 @@ namespace Hikari
 		class Box : public Object
 		{
 			public:
-				Box(const Vector3D& center, double height, double width, double depth);
+				Box(const Vector3D& center, float height, float width, float depth);
 
 				~Box();
 		};

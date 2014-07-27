@@ -16,7 +16,7 @@ namespace Hikari
 		class Cube : public Object
 		{
 			public:
-				Cube(const Vector3D& center, double sideLength);
+				Cube(const Vector3D& center, float sideLength);
 				~Cube();
 		};
 	}

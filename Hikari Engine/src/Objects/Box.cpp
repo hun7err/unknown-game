@@ -1,6 +1,6 @@
 #include "../../include/Objects/Box.hpp"
 
-Hikari::Objects::Box::Box(const Vector3D& center, double height, double width, double depth)
+Hikari::Objects::Box::Box(const Vector3D& center, float height, float width, float depth)
 {
 	m_VertexCount = 8;
 	m_IndexCount = 36;

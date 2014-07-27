@@ -18,7 +18,7 @@ void Hikari::Window::position(Hikari::Vector2D& point)
 
 Hikari::Vector2D Hikari::Window::position()
 {
-	return Vector2D(m_PosX, m_PosY);
+	return Vector2D((float)m_PosX, (float)m_PosY);
 }
 
 std::string Hikari::Window::title(void)

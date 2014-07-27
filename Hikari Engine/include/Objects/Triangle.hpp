@@ -28,7 +28,7 @@ namespace Hikari
 		class EquilateralTriangle : public Triangle
 		{
 			public:
-				EquilateralTriangle(const Vector3D& triangleCenter, double sideLength);
+				EquilateralTriangle(const Vector3D& triangleCenter, float sideLength);
 		};
 	}
 }

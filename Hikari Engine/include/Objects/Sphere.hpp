@@ -16,7 +16,7 @@ namespace Hikari
 		class Sphere : public Object
 		{
 			public:
-				Sphere(const Vector3D& center, double radius, unsigned int segments, unsigned int rings);
+				Sphere(const Vector3D& center, float radius, unsigned int segments, unsigned int rings);
 
 				~Sphere();
 		};
