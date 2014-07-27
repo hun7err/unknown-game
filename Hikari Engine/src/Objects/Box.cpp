@@ -41,5 +41,7 @@ Hikari::Objects::Box::Box(const Vector3D& center, double height, double width, d
 Hikari::Objects::Box::~Box()
 {
 	delete [] m_pVertices;
+	m_pVertices = nullptr;
 	delete [] m_pIndices;
+	m_pIndices = nullptr;
 }

@@ -17,6 +17,8 @@ namespace Hikari
 		{
 			public:
 				Box(const Vector3D& center, double height, double width, double depth);
+
+				~Box();
 		};
 	}
 }
