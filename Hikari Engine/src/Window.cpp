@@ -12,8 +12,8 @@ void Hikari::Window::position(int x, int y)
 
 void Hikari::Window::position(Hikari::Vector2D& point)
 {
-	m_PosX = static_cast<unsigned int>(point.x());
-	m_PosY = static_cast<unsigned int>(point.y());
+	m_PosX = point.x();
+	m_PosY = point.y();
 }
 
 Hikari::Vector2D Hikari::Window::position()

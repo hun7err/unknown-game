@@ -13,6 +13,7 @@ Hikari::Objects::Triangle::Triangle(const Hikari::Vector3D& first_vertex, const 
 	m_pVertices[1].position_modelSpace = second_vertex;
 	m_pVertices[2].position_modelSpace = third_vertex;
 
+
 	// naprawiæ, ¿eby dla ka¿dego trójk¹ta pasowa³o
 	
 	m_pVertices[0].uv = Hikari::Vector2D(0.0f, 1.0f);
@@ -27,9 +28,7 @@ Hikari::Objects::Triangle::Triangle(const Hikari::Vector3D& first_vertex, const 
 Hikari::Objects::Triangle::~Triangle()
 {
 	delete [] m_pVertices;
-	m_pVertices = nullptr;
 	delete [] m_pIndices;
-	m_pIndices = nullptr;
 }
 
 Hikari::Objects::EquilateralTriangle::EquilateralTriangle(const Hikari::Vector3D& triangleCenter, double sideLength) : Triangle(triangleCenter + Hikari::Vector3D(-sideLength/2.0f,-sideLength/3.0f,0.0f), triangleCenter + Hikari::Vector3D(sideLength/2.0f,-sideLength/3,0.0f), triangleCenter + Hikari::Vector3D(0.0f,sideLength*2.0f/3.0f,0.0f))

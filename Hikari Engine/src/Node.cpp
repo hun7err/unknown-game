@@ -38,9 +38,6 @@ void Hikari::Node::draw(void)
 {
 	for(std::list<Object*>::iterator currentObject = m_pObjects->begin(); currentObject != m_pObjects->end(); ++currentObject)
 	{
-		/*if(! (*currentObject)->visible() )	// nie rysujemy niewidocznych obiektów
-			continue;*/
-
 		(*currentObject)->draw();
 	}
 
