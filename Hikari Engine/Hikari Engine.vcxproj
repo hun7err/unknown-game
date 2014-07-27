@@ -28,6 +28,9 @@
     <ClCompile Include="src\Managers\MaterialManager.cpp" />
     <ClCompile Include="src\Managers\ObjectManager.cpp" />
     <ClCompile Include="src\Managers\ShaderManager.cpp" />
+    <ClCompile Include="src\Objects\Box.cpp" />
+    <ClCompile Include="src\Objects\Cube.cpp" />
+    <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\ShaderProgram.cpp" />
     <ClCompile Include="src\D3D11System.cpp" />
     <ClCompile Include="src\Engine.cpp" />
@@ -44,15 +47,19 @@
     <ClCompile Include="src\Managers\TextureManager.cpp" />
     <ClCompile Include="src\Objects\Triangle.cpp" />
     <ClCompile Include="src\Textures\Texture2D.cpp" />
+    <ClCompile Include="src\Vector.cpp" />
     <ClCompile Include="src\WinAPIInput.cpp" />
     <ClCompile Include="src\WinAPIWindow.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="example\include\ExampleApplication.hpp" />
-    <ClInclude Include="include\Application.hpp" />
+    <ClInclude Include="example\include\Application.hpp" />
     <ClInclude Include="include\Camera.hpp" />
     <ClInclude Include="include\Managers\Managers.hpp" />
+    <ClInclude Include="include\Objects\Box.hpp" />
+    <ClInclude Include="include\Objects\Cube.hpp" />
+    <ClInclude Include="include\Objects\Sphere.hpp" />
     <ClInclude Include="include\ShaderProgram.hpp" />
     <ClInclude Include="include\D3D11System.hpp" />
     <ClInclude Include="include\Engine.hpp" />
