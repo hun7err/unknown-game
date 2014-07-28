@@ -6,17 +6,20 @@
 
 namespace Hikari
 {
-	class File
+	namespace IO
 	{
-		public:
-			static bool exists(std::wstring filename);
-			/*std::string readline(void);
-			void open(std::string filename);
-			void close(void);*/
+		class File
+		{
+			public:
+				static bool exists(std::wstring filename);
+				/*std::string readline(void);
+				void open(std::string filename);
+				void close(void);*/
 
-		protected:
-			//std::ifstream m_InputStream;
-	};
+			protected:
+				//std::ifstream m_InputStream;
+		};
+	}
 }
 
 #endif // __FILE_HPP__

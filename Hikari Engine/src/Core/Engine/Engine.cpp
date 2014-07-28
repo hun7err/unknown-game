@@ -10,7 +10,7 @@ bool Hikari::Engine::m_Running = false;
 HINSTANCE Hikari::Engine::m_hInstance;
 HWND Hikari::Engine::m_hwnd;
 int Hikari::Engine::m_nCmdShow;
-Hikari::WinAPIInput *Hikari::Engine::m_pInput = nullptr;
+Hikari::IO::WinAPIInput *Hikari::Engine::m_pInput = nullptr;
 Hikari::WinAPIWindow *Hikari::Engine::m_pWindow = nullptr;
 Hikari::Renderer *Hikari::Engine::m_pRenderer = nullptr;
 Hikari::D3D11System *Hikari::Engine::m_pD3DSystem = nullptr;
@@ -52,7 +52,7 @@ void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
 	m_nCmdShow = nCmdShow;
 
 	inputMutex.lock();
-	m_pInput = new Hikari::WinAPIInput();
+	m_pInput = new Hikari::IO::WinAPIInput();
 	inputMutex.unlock();
 
 	d3dsystemMutex.lock();
@@ -261,7 +261,7 @@ void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 	m_pRenderer = pRenderer;
 }
 
-Hikari::WinAPIInput* Hikari::Engine::input(void)
+Hikari::IO::WinAPIInput* Hikari::Engine::input(void)
 {
 	if(m_pInput == nullptr)
 	{
@@ -271,7 +271,7 @@ Hikari::WinAPIInput* Hikari::Engine::input(void)
 	return m_pInput;
 }
 
-void Hikari::Engine::input(Hikari::WinAPIInput* pInput)
+void Hikari::Engine::input(Hikari::IO::WinAPIInput* pInput)
 {
 	if(pInput == nullptr)
 	{

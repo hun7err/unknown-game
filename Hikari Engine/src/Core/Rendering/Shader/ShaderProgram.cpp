@@ -18,7 +18,7 @@ Hikari::ShaderProgram::ShaderProgram()
 
 void Hikari::ShaderProgram::setup(std::wstring vertexShaderName, std::wstring pixelShaderName)
 {
-	if(!File::exists(vertexShaderName) || !File::exists(pixelShaderName))
+	if(!IO::File::exists(vertexShaderName) || !IO::File::exists(pixelShaderName))
 	{
 		throw Exception("The specified shader file could not be found in ShaderProgram::setup(std::string)", "FileNotFoundException");
 	}
@@ -29,7 +29,7 @@ void Hikari::ShaderProgram::setup(std::wstring vertexShaderName, std::wstring pi
 
 void Hikari::ShaderProgram::setup(std::wstring shaderName)
 {
-	if(!File::exists(shaderName))
+	if(!IO::File::exists(shaderName))
 	{
 		throw Exception("The specified shader file could not be found in ShaderProgram::setup(std::string)", "FileNotFoundException");
 	}

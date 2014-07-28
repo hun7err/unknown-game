@@ -48,8 +48,8 @@ namespace Hikari
 			static Window* window(void);	// pobiera wskaŸnik na okno; jeœli mia³by zostaæ zwrócony nullptr, rzucony zostanie wyj¹tek Exception typu NullPointerException
 			static void window(Window* pWindow, unsigned int sampleCount = 1);	// ustawia nowe okno jeœli pWindow nie jest nullptrem, w przeciwnym wypadku rzucony zostanie wyj¹tek Exception typu NullPointerException
 
-			static WinAPIInput* input(void);		///< zwraca wskaŸnik na obiekt m_pInput klasy WinAPIInput odpowiadaj¹cy za obs³ugê wejœcia, lub - jeœli wskaŸnik ten jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
-			static void input(WinAPIInput* pInput);	///< jeœli pInput nie jest nullptrem, ustawia nowy wskaŸnik m_pInput na wartoœæ pInput - nie jest przeprowadzana walidacja kompatybilnoœci wskaŸników. Jeœli pInput jest nullptrem, zostanie rzucony wyj¹tek Exception typu NullPointerException
+			static IO::WinAPIInput* input(void);		///< zwraca wskaŸnik na obiekt m_pInput klasy WinAPIInput odpowiadaj¹cy za obs³ugê wejœcia, lub - jeœli wskaŸnik ten jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
+			static void input(IO::WinAPIInput* pInput);	///< jeœli pInput nie jest nullptrem, ustawia nowy wskaŸnik m_pInput na wartoœæ pInput - nie jest przeprowadzana walidacja kompatybilnoœci wskaŸników. Jeœli pInput jest nullptrem, zostanie rzucony wyj¹tek Exception typu NullPointerException
 
 			static Renderer* renderer(void);	///< zwraca wskaŸnik na obiekt m_pRenderer klasy Renderer, lub - jeœli m_pRenderer jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
 			static void renderer(Renderer* pRenderer);	///< jeœli pRenderer nie jest nullptrem, zostanie ustawiony nowy renderer. Jeœli jest, zostanie rzucony wyj¹tek Exception typu NullPointerException
@@ -75,7 +75,7 @@ namespace Hikari
 			static HINSTANCE m_hInstance;		///< uchwyt do instancji aplikacji
 			static HWND m_hwnd;				///< uchwyt okna
 			static int m_nCmdShow;				///< tryb wyœwietlania okna
-			static WinAPIInput* m_pInput;		///< przetwarza input
+			static IO::WinAPIInput* m_pInput;		///< przetwarza input
 			static WinAPIWindow* m_pWindow;	///< okno WinAPI 
 
 			static Renderer* m_pRenderer;		///< generuje obraz metod¹ render()

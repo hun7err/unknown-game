@@ -1,7 +1,7 @@
 #include <fstream>
 #include "../../include/IO/File.hpp"
 
-bool Hikari::File::exists(std::wstring filename)
+bool Hikari::IO::File::exists(std::wstring filename)
 {
 	std::ifstream file(filename.c_str());
     if (file.good()) {
