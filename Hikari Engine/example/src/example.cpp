@@ -1,8 +1,8 @@
 #include <Windows.h>
 #include <iostream>
 #include "../include/ExampleApplication.hpp"
-#include "../../include/Exception.hpp"
-#include "../../include/Logger.hpp"
+#include "../../include/Helpers/Exception.hpp"
+#include "../../include/Helpers/Logger.hpp"
 
 /**
 	\fn int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
