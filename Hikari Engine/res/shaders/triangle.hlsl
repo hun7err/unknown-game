@@ -1,3 +1,10 @@
+cbuffer MVP
+{
+	matrix modelMatrix;
+	matrix viewMatrix;
+	matrix projectionMatrix;
+};
+
 struct VS_In
 {
 	float4 position : POSITION;

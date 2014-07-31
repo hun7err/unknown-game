@@ -1,7 +1,7 @@
 #ifndef __HMATERIAL_HPP__
 #define __HMATERIAL_HPP__
 
-#include "Handle.hpp"
+#include "../../../Core/Managers/Handles/Handle.hpp"
 #include "../../../Core/Materials/Material.hpp"
 
 namespace Hikari

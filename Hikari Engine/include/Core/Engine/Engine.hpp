@@ -13,10 +13,14 @@
 // windows
 #include <Windows.h>
 // silnik
-#include "../../Core/Engine/Window/WinAPIWindow.hpp"
-#include "../../IO/WinAPIInput.hpp"
+#include "../../Core/Rendering/Camera/Camera.hpp"
 #include "../../Core/Rendering/Renderer.hpp"
+#include "../../Core/Managers/EventHandlerManager.hpp"
+#include "../../Core/Engine/EventHandlers/MouseMoveHandler.hpp"
+#include "../../Core/Engine/Events/Events.hpp"
+#include "../../Core/Engine/Window/WinAPIWindow.hpp"
 #include "../../Core/Engine/D3D11System.hpp"
+#include "../../IO/WinAPIInput.hpp"
 
 /*
 	to-do:
@@ -54,6 +58,9 @@ namespace Hikari
 			static Renderer* renderer(void);	///< zwraca wskaŸnik na obiekt m_pRenderer klasy Renderer, lub - jeœli m_pRenderer jest nullptrem - rzuca wyj¹tek Exception typu NullPointerException
 			static void renderer(Renderer* pRenderer);	///< jeœli pRenderer nie jest nullptrem, zostanie ustawiony nowy renderer. Jeœli jest, zostanie rzucony wyj¹tek Exception typu NullPointerException
 
+			static Camera* camera(void);
+			static void camera(Camera* pNewCamera);
+
 			static HINSTANCE applicationInstanceHandle(void);
 			static void applicationInstanceHandle(HINSTANCE newApplicationHandle);
 
@@ -64,6 +71,9 @@ namespace Hikari
 
 			static LRESULT CALLBACK MessageHandler(HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam); ///< procedura obs³ugi komunikatów okna przekazanych z WndProc(HWND, UINT, WPARAM, LPARAM)
 			static void processFrame(void);	///< odpowiada za przetworzenie pojedynczej klatki: zebranie inputu/outputu, rendering itp.
+
+			static EventHandlerManager* eventHandlers(void);
+			//static void addEventHandler(EventHandlers::MouseMoveHandler* pHandler, Event handledEvent);
 
 		private:
 			Engine();
@@ -80,7 +90,10 @@ namespace Hikari
 
 			static Renderer* m_pRenderer;		///< generuje obraz metod¹ render()
 			static D3D11System* m_pD3DSystem;	///< odpowiada za utworzenie i zwolnienie urz¹dzenia D3D11 i jego kontekstu + swapChain
-			
+			static Camera* m_pCamera;
+
+			static EventHandlerManager* m_pEventHandlerManager;
+
 			// mutexy pozwalaj¹ce zablokowaæ zasoby nale¿¹ce do sekcji krytycznej
 			static std::mutex inputMutex;
 			static std::mutex runningMutex;

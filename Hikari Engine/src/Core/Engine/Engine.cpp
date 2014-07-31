@@ -1,9 +1,10 @@
 #include "../../../include/Core/Engine/Engine.hpp"
 #include "../../../include/Helpers/Exception.hpp"
 #include "../../../include/Core/Rendering/SimpleRenderer.hpp"
-
 #include "../../../include/Core/Managers/Managers.hpp"
+#include "../../../include/Core/Engine/EventHandlers/KeyPressHandler.hpp"
 
+#include <windowsx.h>
 #include <IL/il.h>
 
 bool Hikari::Engine::m_Running = false;
@@ -18,6 +19,8 @@ std::mutex Hikari::Engine::inputMutex;
 std::mutex Hikari::Engine::runningMutex;
 std::mutex Hikari::Engine::d3dsystemMutex;
 Hikari::Engine *Hikari::Engine::m_pInstance = nullptr;
+Hikari::Camera *Hikari::Engine::m_pCamera = nullptr;
+Hikari::EventHandlerManager *Hikari::Engine::m_pEventHandlerManager = nullptr;
 	
 const char Hikari::Engine::buildDate[] = __DATE__;
 const char Hikari::Engine::buildTime[] = __TIME__;
@@ -41,15 +44,12 @@ Hikari::Engine::~Engine()
 
 void Hikari::Engine::initialize(HINSTANCE hApplicationInstance, int nCmdShow)
 {
-	/*if(ilGetInteger(IL_VERSION_NUM) < IL_VERSION)
-	{
-		throw Exception("Different ResIL version detected", "ResILException");
-	}*/
-
 	ilInit();
 
 	m_hInstance = hApplicationInstance;
 	m_nCmdShow = nCmdShow;
+
+	m_pEventHandlerManager = new Hikari::EventHandlerManager();
 
 	inputMutex.lock();
 	m_pInput = new Hikari::IO::WinAPIInput();
@@ -84,9 +84,13 @@ void Hikari::Engine::windowShowFlags(int newFlags)
 
 void Hikari::Engine::run(void)
 {
+	/*if(m_pCamera == nullptr)
+	{
+		throw Exception("Camera is not set in Hikari::Engine::run(void)", "NullPointerException");
+	}*/
+
 	Vector2D windowSize = m_pWindow->size();
 
-	// wyrzuciæ to do setup albo initialize
 	m_pRenderer->setup(m_pWindow->width(), m_pWindow->height());
 
 	MSG eventMessage;
@@ -112,6 +116,8 @@ void Hikari::Engine::run(void)
 		{
 			processFrame();
 		}
+
+		m_pCamera->tick();
 
 		runningMutex.lock();
 		if(m_Running == false)
@@ -162,6 +168,9 @@ void Hikari::Engine::cleanup(void)
 	Hikari::ObjectManager::cleanup();	// nie dzia³a ;_;
 	// chodzi o to, ¿eby w mened¿erze (np. tekstur) zwalniaæ tekstury ³adowane dynamicznie przez TextureManager::load (to samo z obiektami dynamicznie za³adowanymi)
 
+	delete m_pEventHandlerManager;
+	m_pEventHandlerManager = nullptr;
+
 	//Hikari::EngineHandle = nullptr;
 }
 
@@ -193,11 +202,70 @@ LRESULT CALLBACK Hikari::Engine::MessageHandler(HWND WindowHandle, UINT message,
 		case WM_KEYDOWN:
 		{
 			m_pInput->keyDown((unsigned int)wParam);
+
+			Hikari::EventHandlers::KeyPressHandler* pEventHandler = nullptr;
+
+			std::vector<Hikari::EventHandler*>* pEventHandlers = m_pEventHandlerManager->eventHandlers(Hikari::Event::KeyPress);
+			for(std::vector<Hikari::EventHandler*>::iterator currentHandler = pEventHandlers->begin(); currentHandler != pEventHandlers->end(); ++currentHandler)
+			{
+				if(*currentHandler == nullptr)
+					continue;
+
+				pEventHandler = dynamic_cast<Hikari::EventHandlers::KeyPressHandler*>(*currentHandler);
+
+				if(pEventHandler != nullptr)
+				{
+					pEventHandler->keyCode((int)wParam);
+					pEventHandler->process();
+				}
+			}
+
 			return 0;
 		}
 		case WM_KEYUP:
 		{
 			m_pInput->keyUp((unsigned int)wParam);
+
+			Hikari::EventHandlers::KeyPressHandler* pEventHandler = nullptr;
+
+			std::vector<Hikari::EventHandler*>* pEventHandlers = m_pEventHandlerManager->eventHandlers(Hikari::Event::KeyRelease);
+			for(std::vector<Hikari::EventHandler*>::iterator currentHandler = pEventHandlers->begin(); currentHandler != pEventHandlers->end(); ++currentHandler)
+			{
+				if(*currentHandler == nullptr)
+					continue;
+
+				pEventHandler = dynamic_cast<Hikari::EventHandlers::KeyPressHandler*>(*currentHandler);
+
+				if(pEventHandler != nullptr)
+				{
+					pEventHandler->keyCode((int)wParam);
+					pEventHandler->process();
+				}
+			}
+
+			return 0;
+		}
+		case WM_MOUSEMOVE:
+		{
+			Hikari::EventHandlers::MouseMoveHandler* pEventHandler = nullptr;
+
+			std::vector<Hikari::EventHandler*>* pEventHandlers = m_pEventHandlerManager->eventHandlers(Hikari::Event::KeyRelease);
+			for(std::vector<Hikari::EventHandler*>::iterator currentHandler = pEventHandlers->begin(); currentHandler != pEventHandlers->end(); ++currentHandler)
+			{
+				if(*currentHandler == nullptr)
+					continue;
+
+				pEventHandler = dynamic_cast<Hikari::EventHandlers::MouseMoveHandler*>(*currentHandler);
+
+				if(pEventHandler != nullptr)
+				{
+					int x = GET_X_LPARAM(lParam),
+						y = GET_Y_LPARAM(lParam);
+					pEventHandler->cursorPosition(x, y);
+					pEventHandler->process();
+				}
+			}
+
 			return 0;
 		}
 		default:
@@ -238,20 +306,24 @@ void Hikari::Engine::window(Hikari::Window* pWindow, unsigned int sampleCount)
 
 Hikari::Renderer* Hikari::Engine::renderer(void)
 {
+	#ifdef _DEBUG
 	if(m_pRenderer == nullptr)
 	{
 		throw Exception("m_pRenderer is not initialized in Engine::renderer(void)", "NullPointerException");
 	}
+	#endif
 
 	return m_pRenderer;
 }
 
 void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 {
+	#ifdef _DEBUG
 	if(pRenderer == nullptr)
 	{
 		throw Exception("Can't set new renderer to nullptr in Engine::renderer(Renderer*)", "NullPointerException");
 	}
+	#endif
 
 	if(m_pRenderer != nullptr)
 	{
@@ -261,22 +333,60 @@ void Hikari::Engine::renderer(Hikari::Renderer* pRenderer)
 	m_pRenderer = pRenderer;
 }
 
+Hikari::Camera* Hikari::Engine::camera(void)
+{
+	#ifdef _DEBUG
+	if(m_pCamera == nullptr)
+	{
+		throw Exception("m_pCamera is not initialized in Engine::camera(void)", "NullPointerException");
+	}
+	#endif
+
+	return m_pCamera;
+}
+
+void Hikari::Engine::camera(Hikari::Camera* pNewCamera)
+{
+	#ifdef _DEBUG
+	if(pNewCamera == nullptr)
+	{
+		throw Exception("Can't set m_pCamera to nullptr in Hikari::Engine::camera(Camera*)", "NullPointerException");
+	}
+	#endif
+
+	if(m_pCamera != nullptr)
+	{
+		m_pCamera->disableBindigs();
+	}
+	m_pCamera = pNewCamera;
+	m_pCamera->setBindings();
+}
+
+Hikari::EventHandlerManager* Hikari::Engine::eventHandlers(void)
+{
+	return m_pEventHandlerManager;
+}
+
 Hikari::IO::WinAPIInput* Hikari::Engine::input(void)
 {
+	#ifdef _DEBUG
 	if(m_pInput == nullptr)
 	{
 		throw Exception("m_pInput is not initialized in Engine::input(void)", "NullPointerException");
 	}
+	#endif
 
 	return m_pInput;
 }
 
 void Hikari::Engine::input(Hikari::IO::WinAPIInput* pInput)
 {
+	#ifdef _DEBUG
 	if(pInput == nullptr)
 	{
 		throw Exception("Can't set new input handler to a nullptr pointer in Engine::input(WinAPIInput*)", "NullPointerException");
 	}
+	#endif
 
 	m_pInput = pInput;
 }

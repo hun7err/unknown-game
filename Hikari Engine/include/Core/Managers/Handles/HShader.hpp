@@ -1,7 +1,7 @@
 #ifndef __HSHADER_HPP__
 #define __HSHADER_HPP__
 
-#include "Handle.hpp"
+#include "../../../Core/Managers/Handles/Handle.hpp"
 #include "../../../Core/Rendering/Shader/ShaderProgram.hpp"
 
 namespace Hikari

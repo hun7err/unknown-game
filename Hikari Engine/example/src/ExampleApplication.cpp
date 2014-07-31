@@ -4,6 +4,8 @@
 #include "../../include/Core/Objects/Triangle.hpp"
 #include "../../include/Core/Textures/Texture2D.hpp"
 #include "../../include/Helpers/WrongArgumentException.hpp"
+#include "../../include/Core/Engine/EventHandlers/MouseMoveHandler.hpp"
+#include "../../include/Core/Rendering/Camera/FirstPersonCamera.hpp"
 
 #include <functional>
 
@@ -76,7 +78,7 @@ void ExampleApplication::run(void)
 		Hikari::Vector3D(0.45f, -0.5f, 0.0f),
 		Hikari::Vector3D(-0.45f, -0.5f, 0.0f)
 	);
-	
+
 	Hikari::Texture2D* pTexture = new Hikari::Texture2D();
 
 	try
@@ -100,6 +102,9 @@ void ExampleApplication::run(void)
 
 	Hikari::ObjectManager::add(pTriangle);
 
+	Hikari::Cameras::FirstPersonCamera *pCamera = new Hikari::Cameras::FirstPersonCamera();
+	Hikari::Engine::camera(pCamera);
+
 	Hikari::Engine::run();
 
 	pTriangle->cleanup();
@@ -112,6 +117,7 @@ void ExampleApplication::run(void)
 	pSimpleShader = nullptr;
 	delete pTexture;
 	pTexture = nullptr;
+	delete pCamera;
 
 	Hikari::Engine::cleanup();
 }

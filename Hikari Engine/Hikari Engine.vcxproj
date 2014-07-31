@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClCompile Include="example\src\example.cpp" />
     <ClCompile Include="example\src\ExampleApplication.cpp" />
+    <ClCompile Include="src\Core\Engine\EventHandlers\EventHandler.cpp" />
+    <ClCompile Include="src\Core\Engine\EventHandlers\KeyPressHandler.cpp" />
+    <ClCompile Include="src\Core\Engine\EventHandlers\MouseMoveHandler.cpp" />
+    <ClCompile Include="src\Core\Managers\EventHandlerManager.cpp" />
+    <ClCompile Include="src\Core\Managers\Handles\HEventHandler.cpp" />
     <ClCompile Include="src\Core\Rendering\Camera\Camera.cpp" />
     <ClCompile Include="src\Core\Managers\Handles\HMaterial.cpp" />
     <ClCompile Include="src\Core\Managers\Handles\HShader.cpp" />
@@ -31,6 +36,7 @@
     <ClCompile Include="src\Core\Objects\Box.cpp" />
     <ClCompile Include="src\Core\Objects\Cube.cpp" />
     <ClCompile Include="src\Core\Objects\Sphere.cpp" />
+    <ClCompile Include="src\Core\Rendering\Camera\FirstPersonCamera.cpp" />
     <ClCompile Include="src\Core\Rendering\Shader\ShaderProgram.cpp" />
     <ClCompile Include="src\Core\Engine\D3D11System.cpp" />
     <ClCompile Include="src\Core\Engine\Engine.cpp" />
@@ -55,12 +61,19 @@
   <ItemGroup>
     <ClInclude Include="example\include\ExampleApplication.hpp" />
     <ClInclude Include="example\include\Application.hpp" />
+    <ClInclude Include="include\Core\Engine\EventHandlers\EventHandler.hpp" />
+    <ClInclude Include="include\Core\Engine\EventHandlers\KeyPressHandler.hpp" />
+    <ClInclude Include="include\Core\Engine\EventHandlers\MouseMoveHandler.hpp" />
+    <ClInclude Include="include\Core\Engine\Events\Events.hpp" />
+    <ClInclude Include="include\Core\Managers\EventHandlerManager.hpp" />
+    <ClInclude Include="include\Core\Managers\Handles\HEventHandler.hpp" />
     <ClInclude Include="include\Core\Rendering\Camera\Camera.hpp" />
     <ClInclude Include="include\Core\Core.hpp" />
     <ClInclude Include="include\Core\Managers\Managers.hpp" />
     <ClInclude Include="include\Core\Objects\Box.hpp" />
     <ClInclude Include="include\Core\Objects\Cube.hpp" />
     <ClInclude Include="include\Core\Objects\Sphere.hpp" />
+    <ClInclude Include="include\Core\Rendering\Camera\FirstPersonCamera.hpp" />
     <ClInclude Include="include\GUI\GUI.hpp" />
     <ClInclude Include="include\Physics\Physics.hpp" />
     <ClInclude Include="include\Core\Rendering\Shader\ShaderProgram.hpp" />
