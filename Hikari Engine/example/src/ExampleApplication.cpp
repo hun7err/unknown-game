@@ -1,11 +1,10 @@
 #include "../include/ExampleApplication.hpp"
-#include "../../include/Engine.hpp"		// Hikari::Engine
-#include "../../include/WrongArgumentException.hpp"
-#include "../../include/WinAPIWindow.hpp"
-#include "../../include/SimpleRenderer.hpp"
-#include "../../include/Managers/Managers.hpp"
-#include "../../include/Objects/Triangle.hpp"
-#include "../../include/Textures/Texture2D.hpp"
+
+#include "../../include/Core/Core.hpp"
+#include "../../include/Core/Objects/Triangle.hpp"
+#include "../../include/Core/Textures/Texture2D.hpp"
+#include "../../include/Helpers/WrongArgumentException.hpp"
+
 #include <functional>
 
 ExampleApplication::ExampleApplication() {}

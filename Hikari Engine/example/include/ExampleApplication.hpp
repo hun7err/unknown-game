@@ -2,13 +2,13 @@
 #define __EXAMPLEAPPLICATION_HPP__
 
 #include <Windows.h>			// HINSTANCE, LPSTR itp.
-#include "../../include/Application.hpp"	// Hikari::Application
+#include "Application.hpp"		// Application
 
 /**
 	\class ExampleApplication
 	\brief Przyk³adowa aplikacja wykorzystuj¹ca Hikari Engine
 */
-class ExampleApplication : public Hikari::Application
+class ExampleApplication : public Application
 {
 	public:
 		void run(void);	///< dziedziczone z Application, uruchamia aplikacjê (czyli wszystko co istotne tak naprawdê)
