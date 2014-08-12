@@ -5,127 +5,17 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="example\src\example.cpp" />
-    <ClCompile Include="example\src\ExampleApplication.cpp" />
-    <ClCompile Include="src\Core\Engine\EventHandlers\EventHandler.cpp" />
-    <ClCompile Include="src\Core\Engine\EventHandlers\KeyPressHandler.cpp" />
-    <ClCompile Include="src\Core\Engine\EventHandlers\MouseMoveHandler.cpp" />
-    <ClCompile Include="src\Core\Managers\EventHandlerManager.cpp" />
-    <ClCompile Include="src\Core\Managers\Handles\HEventHandler.cpp" />
-    <ClCompile Include="src\Core\Rendering\Camera\Camera.cpp" />
-    <ClCompile Include="src\Core\Managers\Handles\HMaterial.cpp" />
-    <ClCompile Include="src\Core\Managers\Handles\HShader.cpp" />
-    <ClCompile Include="src\Core\Managers\Handles\HTexture.cpp" />
-    <ClCompile Include="src\Core\Managers\MaterialManager.cpp" />
-    <ClCompile Include="src\Core\Managers\ObjectManager.cpp" />
-    <ClCompile Include="src\Core\Managers\ShaderManager.cpp" />
-    <ClCompile Include="src\Core\Objects\Box.cpp" />
-    <ClCompile Include="src\Core\Objects\Cube.cpp" />
-    <ClCompile Include="src\Core\Objects\Sphere.cpp" />
-    <ClCompile Include="src\Core\Rendering\Camera\FirstPersonCamera.cpp" />
-    <ClCompile Include="src\Core\Rendering\Shader\ShaderProgram.cpp" />
-    <ClCompile Include="src\Core\Engine\D3D11System.cpp" />
-    <ClCompile Include="src\Core\Engine\Engine.cpp" />
-    <ClCompile Include="src\Helpers\Exception.cpp" />
-    <ClCompile Include="src\IO\File.cpp" />
-    <ClCompile Include="src\Helpers\Logger.cpp" />
-    <ClCompile Include="src\Core\Materials\Material.cpp" />
-    <ClCompile Include="src\Core\Objects\Node\Node.cpp" />
-    <ClCompile Include="src\Core\Objects\Object.cpp" />
-    <ClCompile Include="src\Core\Rendering\RenderPass.cpp" />
-    <ClCompile Include="src\Core\Rendering\SimplePass.cpp" />
-    <ClCompile Include="src\Core\Rendering\SimpleRenderer.cpp" />
-    <ClCompile Include="src\Core\Textures\Interface\Texture.cpp" />
-    <ClCompile Include="src\Core\Managers\TextureManager.cpp" />
-    <ClCompile Include="src\Core\Objects\Triangle.cpp" />
-    <ClCompile Include="src\Core\Textures\Texture2D.cpp" />
-    <ClCompile Include="src\Helpers\Vector.cpp" />
-    <ClCompile Include="src\IO\WinAPIInput.cpp" />
-    <ClCompile Include="src\Core\Engine\Window\WinAPIWindow.cpp" />
-    <ClCompile Include="src\Core\Engine\Window\Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="example\include\ExampleApplication.hpp" />
-    <ClInclude Include="example\include\Application.hpp" />
-    <ClInclude Include="include\Core\Engine\EventHandlers\EventHandler.hpp" />
-    <ClInclude Include="include\Core\Engine\EventHandlers\KeyPressHandler.hpp" />
-    <ClInclude Include="include\Core\Engine\EventHandlers\MouseMoveHandler.hpp" />
-    <ClInclude Include="include\Core\Engine\Events\Events.hpp" />
-    <ClInclude Include="include\Core\Managers\EventHandlerManager.hpp" />
-    <ClInclude Include="include\Core\Managers\Handles\HEventHandler.hpp" />
-    <ClInclude Include="include\Core\Rendering\Camera\Camera.hpp" />
-    <ClInclude Include="include\Core\Core.hpp" />
-    <ClInclude Include="include\Core\Managers\Managers.hpp" />
-    <ClInclude Include="include\Core\Objects\Box.hpp" />
-    <ClInclude Include="include\Core\Objects\Cube.hpp" />
-    <ClInclude Include="include\Core\Objects\Sphere.hpp" />
-    <ClInclude Include="include\Core\Rendering\Camera\FirstPersonCamera.hpp" />
-    <ClInclude Include="include\GUI\GUI.hpp" />
-    <ClInclude Include="include\Physics\Physics.hpp" />
-    <ClInclude Include="include\Core\Rendering\Shader\ShaderProgram.hpp" />
-    <ClInclude Include="include\Core\Engine\D3D11System.hpp" />
-    <ClInclude Include="include\Core\Engine\Engine.hpp" />
-    <ClInclude Include="include\Helpers\Exception.hpp" />
-    <ClInclude Include="include\IO\File.hpp" />
-    <ClInclude Include="include\Core\Managers\Handles\Handle.hpp" />
-    <ClInclude Include="include\Core\Managers\Handles\HMaterial.hpp" />
-    <ClInclude Include="include\Core\Managers\Handles\HShader.hpp" />
-    <ClInclude Include="include\Core\Managers\Handles\HTexture.hpp" />
-    <ClInclude Include="include\Helpers\Logger.hpp" />
-    <ClInclude Include="include\Core\Managers\Interface\Manager.hpp" />
-    <ClInclude Include="include\Core\Materials\Material.hpp" />
-    <ClInclude Include="include\Core\Managers\MaterialManager.hpp" />
-    <ClInclude Include="include\Core\Objects\Node\Node.hpp" />
-    <ClInclude Include="include\Core\Objects\Object.hpp" />
-    <ClInclude Include="include\Core\Managers\ObjectManager.hpp" />
-    <ClInclude Include="include\Core\Rendering\Renderer.hpp" />
-    <ClInclude Include="include\Core\Rendering\RenderPass.hpp" />
-    <ClInclude Include="include\Core\Managers\ShaderManager.hpp" />
-    <ClInclude Include="include\Core\Rendering\SimplePass.hpp" />
-    <ClInclude Include="include\Core\Rendering\SimpleRenderer.hpp" />
-    <ClInclude Include="include\Core\Textures\Interface\Texture.hpp" />
-    <ClInclude Include="include\Core\Managers\TextureManager.hpp" />
-    <ClInclude Include="include\Core\Objects\Triangle.hpp" />
-    <ClInclude Include="include\Core\Textures\Texture2D.hpp" />
-    <ClInclude Include="include\Helpers\Vector.hpp" />
-    <ClInclude Include="include\IO\WinAPIInput.hpp" />
-    <ClInclude Include="include\Core\Engine\Window\WinAPIWindow.hpp" />
-    <ClInclude Include="include\Core\Engine\Window\Window.hpp" />
-    <ClInclude Include="include\Helpers\WrongArgumentException.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="res\shaders\triangle.hlsl">
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VShader</EntryPointName>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-    </FxCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B176FA67-7620-4117-9966-B8B55373B9C5}</ProjectGuid>
+    <ProjectGuid>{D5724BB6-BA32-437E-B056-1F5221EB1B81}</ProjectGuid>
     <RootNamespace>HikariEngine</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
@@ -138,26 +28,13 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -171,17 +48,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;DevIL.lib;ILU.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;ResIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -199,21 +66,53 @@
       <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;DevIL.lib;ILU.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;ResIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Core\Components\Bool.hpp" />
+    <ClInclude Include="include\Helpers\ECS\Component.hpp" />
+    <ClInclude Include="include\Core\Components\ComponentTypeWrapper.hpp" />
+    <ClInclude Include="include\Core\Engine.hpp" />
+    <ClInclude Include="include\Helpers\ECS\Entity.hpp" />
+    <ClInclude Include="include\Core\Messaging\Events\KeyEvent.hpp" />
+    <ClInclude Include="include\Core\Messaging\Events\MouseEvent.hpp" />
+    <ClInclude Include="include\Core\Messaging\Events\SystemGUIEvent.hpp" />
+    <ClInclude Include="include\Core\Messaging\Events\UIEvent.hpp" />
+    <ClInclude Include="include\Graphics\GraphicsSystem.hpp" />
+    <ClInclude Include="include\Core\Messaging\Messages\KeyMessage.hpp" />
+    <ClInclude Include="include\Core\Messaging\Listener.hpp" />
+    <ClInclude Include="include\Core\Messaging\Message.hpp" />
+    <ClInclude Include="include\Core\Messaging\Messenger.hpp" />
+    <ClInclude Include="include\Core\Components\Position.hpp" />
+    <ClInclude Include="include\Core\Components\Size.hpp" />
+    <ClInclude Include="include\Core\Components\String.hpp" />
+    <ClInclude Include="include\Helpers\ECS\System.hpp" />
+    <ClInclude Include="include\Helpers\Math\Vector2D.hpp" />
+    <ClInclude Include="include\Helpers\Math\Vector3D.hpp" />
+    <ClInclude Include="include\Helpers\Math\Vector4D.hpp" />
+    <ClInclude Include="include\Windowing\WinAPIWindowParameters.hpp" />
+    <ClInclude Include="include\Windowing\Window.hpp" />
+    <ClInclude Include="include\Windowing\WindowingSystem.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="example\src\example.cpp" />
+    <ClCompile Include="src\Core\Components\Bool.cpp" />
+    <ClCompile Include="src\Helpers\ECS\Component.cpp" />
+    <ClCompile Include="src\Core\Engine.cpp" />
+    <ClCompile Include="src\Helpers\ECS\Entity.cpp" />
+    <ClCompile Include="src\Graphics\GraphicsSystem.cpp" />
+    <ClCompile Include="src\Core\Messaging\Messages\KeyMessage.cpp" />
+    <ClCompile Include="src\Core\Messaging\Listener.cpp" />
+    <ClCompile Include="src\Core\Messaging\Message.cpp" />
+    <ClCompile Include="src\Core\Messaging\Messenger.cpp" />
+    <ClCompile Include="src\Core\Components\Position.cpp" />
+    <ClCompile Include="src\Core\Components\Size.cpp" />
+    <ClCompile Include="src\Core\Components\String.cpp" />
+    <ClCompile Include="src\Helpers\Math\Vector2D.cpp" />
+    <ClCompile Include="src\Helpers\Math\Vector3D.cpp" />
+    <ClCompile Include="src\Helpers\Math\Vector4D.cpp" />
+    <ClCompile Include="src\Windowing\WinAPIWindowParameters.cpp" />
+    <ClCompile Include="src\Windowing\Window.cpp" />
+    <ClCompile Include="src\Windowing\WindowingSystem.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

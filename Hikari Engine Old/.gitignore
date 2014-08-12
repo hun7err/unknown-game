@@ -1,0 +1,5 @@
+doc/*
+*.suo
+*.vcxproj.filters
+Debug/*
+test.txt
