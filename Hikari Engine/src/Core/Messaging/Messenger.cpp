@@ -1,15 +1,5 @@
 #include "../../../include/Core/Messaging/Messenger.hpp"
 
-const char* Hikari::Exceptions::EventNotSupportedByMessengerException::what( void ) const
-{
-	return "Listener subscription failed because of wrong event type passed to Messenger's AddSubscriber() method; this event is not supported by that Messenger";
-}
-
-const char* Hikari::Exceptions::NoSpaceLeftInMessengerException::what( void ) const
-{
-	return "Listener subscription failed because there is no space left in the Messenger";
-}
-
 Hikari::Messenger::Messenger( short int postedEvent ) : Component("Messenger")
 {
 	m_PostedEvents.push_back(postedEvent);
@@ -37,11 +27,11 @@ void Hikari::Messenger::Notify( Hikari::Message* msg )
 	delete msg;
 }
 
-unsigned int Hikari::Messenger::AddListener( short int eventType, std::function<void(Message*)> callback )
+int Hikari::Messenger::AddListener( short int eventType, std::function<void(Message*)> callback )
 {
 	if(m_Listeners.size() == 256)
 	{
-		throw Exceptions::NoSpaceLeftInMessengerException();
+		return -NO_SPACE_IN_MESSENGER;
 	}
 
 	for(auto currentEvent = m_PostedEvents.begin(); currentEvent != m_PostedEvents.end(); ++currentEvent)
@@ -71,7 +61,7 @@ unsigned int Hikari::Messenger::AddListener( short int eventType, std::function<
 		}
 	}
 
-	throw Exceptions::EventNotSupportedByMessengerException();
+	return -EVENT_NOT_SUPPORTED_BY_MESSENGER;
 }
 
 void Hikari::Messenger::RemoveListener( unsigned int key )

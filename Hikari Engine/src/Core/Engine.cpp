@@ -13,6 +13,19 @@ void Hikari::Engine::Update( float dt )
 	}
 }
 
+Hikari::System *Hikari::Engine::GetSystem( const std::string& ID )
+{
+	for(auto currentSystem = m_Systems.begin(); currentSystem != m_Systems.end(); ++currentSystem)
+	{
+		if( (*currentSystem)->GetID() == ID )
+		{
+			return *currentSystem;
+		}
+	}
+
+	return nullptr;
+}
+
 void Hikari::Engine::InitializeSystems( void )
 {
 	for(auto currentSystem = m_Systems.begin(); currentSystem != m_Systems.end(); ++currentSystem)

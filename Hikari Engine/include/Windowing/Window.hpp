@@ -19,6 +19,7 @@ namespace Hikari
 				void SetFullscreen( bool fullscreen );
 
 				~Window();
+
 			private:
 				void SetFullscreenProper( HWND WindowHandle, bool Fullscreen, int nCmdShow, float Width, float Height, float x, float y );
 		};

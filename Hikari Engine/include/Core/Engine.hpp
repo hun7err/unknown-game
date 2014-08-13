@@ -3,6 +3,7 @@
 
 #include "../Helpers/ECS/System.hpp"
 #include <vector>
+#include <string>
 #include <Windows.h>
 
 /*
@@ -45,6 +46,8 @@ namespace Hikari
 			HINSTANCE GetInstanceHandle( void ) const;
 			int GetVisibility( void ) const;
 			LPSTR GetCommandLineArguments( void ) const;
+
+			System *GetSystem( const std::string& ID );
 
 		private:
 			void InitializeSystems( void );

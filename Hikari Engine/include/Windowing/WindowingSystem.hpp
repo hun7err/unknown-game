@@ -18,6 +18,9 @@ namespace Hikari
 			void Init( Engine *pEngine );
 			void Update( float dt );
 			
+			Entities::Window *GetMainWindow( void );
+			HWND GetMainWindowHandle( void ) const;
+
 			Messenger *GetMessenger( void );
 			static LRESULT CALLBACK WndProc( HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam );
 

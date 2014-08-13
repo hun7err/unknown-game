@@ -9,7 +9,7 @@
 
 Hikari::WindowingSystem *Hikari::WindowingSystem::m_pInstance = nullptr;
 
-Hikari::WindowingSystem::WindowingSystem( void )
+Hikari::WindowingSystem::WindowingSystem( void ) : System("Windowing")
 {
 	m_pInstance = this;
 }
@@ -50,18 +50,30 @@ Hikari::Messenger* Hikari::WindowingSystem::GetMessenger( void )
 	return m_pMessenger;
 }
 
+Hikari::Entities::Window *Hikari::WindowingSystem::GetMainWindow( void )
+{
+	return m_pMainWindow;
+}
+
+HWND Hikari::WindowingSystem::GetMainWindowHandle( void ) const
+{
+	Components::WinAPIWindowParameters *pWindowParameters = (Components::WinAPIWindowParameters*)m_pMainWindow->GetComponent("WinAPIWindowParameters");
+
+	return pWindowParameters->GetWindowHandle();
+}
+
 void Hikari::WindowingSystem::Update( float dt )
 {
 	static MSG eventMessage;
-	ZeroMemory(&eventMessage, sizeof(MSG));
+	ZeroMemory( &eventMessage, sizeof( MSG ) );
 
-	if(PeekMessage(&eventMessage, nullptr, 0, 0, PM_REMOVE))
+	if( PeekMessage( &eventMessage, nullptr, 0, 0, PM_REMOVE ) )
 	{
-		TranslateMessage(&eventMessage);
-		DispatchMessage(&eventMessage);	// wywo³uje WndProc z tego co pamiêtam
+		TranslateMessage( &eventMessage );
+		DispatchMessage( &eventMessage );	// wywo³uje WndProc z tego co pamiêtam
 	}
 
-	if(eventMessage.message == WM_QUIT)
+	if( eventMessage.message == WM_QUIT )
 	{
 		m_pEngine->Stop();
 	}
@@ -69,7 +81,7 @@ void Hikari::WindowingSystem::Update( float dt )
 
 LRESULT CALLBACK Hikari::WindowingSystem::WndProc( HWND WindowHandle, UINT message, WPARAM wParam, LPARAM lParam )
 {
-	switch(message)
+	switch( message )
 	{
 		case WM_DESTROY:
 		{

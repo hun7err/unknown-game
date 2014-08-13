@@ -7,23 +7,11 @@
 #include <mutex>
 #include <vector>
 
+#define EVENT_NOT_SUPPORTED_BY_MESSENGER -1
+#define NO_SPACE_IN_MESSENGER -2
+
 namespace Hikari
 {
-	namespace Exceptions
-	{
-		class EventNotSupportedByMessengerException : public std::exception
-		{
-			public:
-				const char* what( void ) const;
-		};
-
-		class NoSpaceLeftInMessengerException : public std::exception
-		{
-			public:
-				const char* what( void ) const;
-		};
-	}
-
 	class Messenger : public Component
 	{
 		public:
@@ -31,7 +19,7 @@ namespace Hikari
 			Messenger( const short int postedEvents[] );
 
 			void Notify( Message* msg );
-			unsigned int AddListener( short int eventType, std::function<void(Message*)> callback );
+			int AddListener( short int eventType, std::function<void(Message*)> callback );
 			void RemoveListener( unsigned int key );
 
 		private:

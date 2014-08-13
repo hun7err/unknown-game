@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Core\Components\Bool.hpp" />
+    <ClInclude Include="include\Graphics\DirectX\Direct3D11SubSystem.hpp" />
     <ClInclude Include="include\Helpers\ECS\Component.hpp" />
     <ClInclude Include="include\Core\Components\ComponentTypeWrapper.hpp" />
     <ClInclude Include="include\Core\Engine.hpp" />
@@ -95,6 +96,7 @@
   <ItemGroup>
     <ClCompile Include="example\src\example.cpp" />
     <ClCompile Include="src\Core\Components\Bool.cpp" />
+    <ClCompile Include="src\Graphics\DirectX\Direct3D11SubSystem.cpp" />
     <ClCompile Include="src\Helpers\ECS\Component.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />
     <ClCompile Include="src\Helpers\ECS\Entity.cpp" />
@@ -106,6 +108,7 @@
     <ClCompile Include="src\Core\Components\Position.cpp" />
     <ClCompile Include="src\Core\Components\Size.cpp" />
     <ClCompile Include="src\Core\Components\String.cpp" />
+    <ClCompile Include="src\Helpers\ECS\System.cpp" />
     <ClCompile Include="src\Helpers\Math\Vector2D.cpp" />
     <ClCompile Include="src\Helpers\Math\Vector3D.cpp" />
     <ClCompile Include="src\Helpers\Math\Vector4D.cpp" />
