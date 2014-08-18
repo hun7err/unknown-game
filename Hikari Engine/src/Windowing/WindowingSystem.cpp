@@ -24,12 +24,11 @@ Hikari::WindowingSystem::~WindowingSystem()
 void Hikari::WindowingSystem::Init( Hikari::Engine *pEngine )
 {
 	m_pEngine = pEngine;
-	m_pMainWindow = new Entities::Window("Hikari::Engine test application", 800, 600, 200, 200);
-	Components::WinAPIWindowParameters *pWindowParameters = (Components::WinAPIWindowParameters*)(m_pMainWindow->GetComponent("WinAPIWindowParameters"));
+	m_pMainWindow = new Window("Hikari::Engine test application", 800, 600, 200, 200);
 	
-	pWindowParameters->SetWndProcFunctionPtr( WndProc );
-	pWindowParameters->SetInstanceHandle( m_pEngine->GetInstanceHandle() );
-	pWindowParameters->SetVisibility( m_pEngine->GetVisibility() );
+	m_pMainWindow->GetWinAPIWindowParameters()->SetWndProcFunctionPtr( WndProc );
+	m_pMainWindow->GetWinAPIWindowParameters()->SetInstanceHandle( m_pEngine->GetInstanceHandle() );
+	m_pMainWindow->GetWinAPIWindowParameters()->SetVisibility( m_pEngine->GetVisibility() );
 
 	m_pMainWindow->Create();
 
@@ -50,16 +49,14 @@ Hikari::Messenger* Hikari::WindowingSystem::GetMessenger( void )
 	return m_pMessenger;
 }
 
-Hikari::Entities::Window *Hikari::WindowingSystem::GetMainWindow( void )
+Hikari::Window *Hikari::WindowingSystem::GetMainWindow( void )
 {
 	return m_pMainWindow;
 }
 
 HWND Hikari::WindowingSystem::GetMainWindowHandle( void ) const
 {
-	Components::WinAPIWindowParameters *pWindowParameters = (Components::WinAPIWindowParameters*)m_pMainWindow->GetComponent("WinAPIWindowParameters");
-
-	return pWindowParameters->GetWindowHandle();
+	return m_pMainWindow->GetWinAPIWindowParameters()->GetWindowHandle();
 }
 
 void Hikari::WindowingSystem::Update( float dt )

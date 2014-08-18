@@ -2,7 +2,8 @@
 #define __HIKARI_GRAPHICS_GRAPHICSSYSTEMHPP__
 
 #include "../Helpers/ECS/System.hpp"
-#include "../../include/Graphics/DirectX/Direct3D11SubSystem.hpp"
+#include "DirectX/Direct3D11SubSystem.hpp"
+#include "Renderer.hpp"
 #include <vector>
 
 namespace Hikari
@@ -19,6 +20,7 @@ namespace Hikari
 		private:
 			Engine *m_pEngine;
 			Direct3D11SubSystem *m_pD3D11SubSystem;
+			Renderer *m_pRenderer;
 	};
 }
 

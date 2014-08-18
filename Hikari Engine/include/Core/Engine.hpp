@@ -14,14 +14,15 @@
 	
 	- akcje + bindowanie dziêki akcjom przycisków do callbacków ( function<void(Message*)> ), wychodzenie na ESC i poruszanie mysz¹ (to do kamery w sumie, ale co tam)
 
-	- wybór systemu z silnika po nazwie
-	- inicjalizacja DX11, czyszczenie okna kolorem itp.
+	!!!!!!!!!
+	- renderer -> czyszczenie okna kolorem, render targets itp.
+	- kamera -> entity z ró¿nymi komponentami w tym z listenerem na akcje z WindowingSystem (mousemove), sprawdziæ czy mousemove w ogóle dzia³a
 	- modele (m.in. Sponza, s¹ w Downloads/ na PC)
-	- porz¹dna hierarchia katalogów - zacz¹tek jest, teraz rozbudowaæ i powrzucaæ pliki (+ w src zrobiæ)
+	!!!!!!!!!
 
 	- jakiœ ³adny system budowania shaderów
 	- informacje o GPU, monitorach, rozdzielczoœciach itp. -> jakieœ Entity zarz¹dzaj¹ce tym, pobieranie listy rozdzielczoœci nieposortowanej i posortowanej
-	- paper o voxel cone tracing
+	- paper o voxel cone tracing -> Jen96 o cone tracingu + doczytaæ od punktu 4. wzwy¿ [+ zrozumieæ to co rozpisane na kartce z 3.]
 	- deep g-buffer radiosity (PC pulpit)
 */
 

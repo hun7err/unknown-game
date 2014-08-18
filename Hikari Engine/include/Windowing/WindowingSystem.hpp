@@ -18,7 +18,7 @@ namespace Hikari
 			void Init( Engine *pEngine );
 			void Update( float dt );
 			
-			Entities::Window *GetMainWindow( void );
+			Window *GetMainWindow( void );
 			HWND GetMainWindowHandle( void ) const;
 
 			Messenger *GetMessenger( void );
@@ -31,7 +31,7 @@ namespace Hikari
 			void SystemKeyPressHandler(Message *pMessage);
 
 			static WindowingSystem *m_pInstance;
-			Entities::Window *m_pMainWindow;
+			Window *m_pMainWindow;
 			Messenger *m_pMessenger;
 			Listener *m_pListener;
 

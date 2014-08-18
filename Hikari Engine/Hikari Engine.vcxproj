@@ -68,7 +68,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Core\Components\Bool.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Asset.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Texture.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Textures\Texture2D.hpp" />
     <ClInclude Include="include\Graphics\DirectX\Direct3D11SubSystem.hpp" />
+    <ClInclude Include="include\Graphics\Renderer.hpp" />
     <ClInclude Include="include\Helpers\ECS\Component.hpp" />
     <ClInclude Include="include\Core\Components\ComponentTypeWrapper.hpp" />
     <ClInclude Include="include\Core\Engine.hpp" />
@@ -96,7 +100,11 @@
   <ItemGroup>
     <ClCompile Include="example\src\example.cpp" />
     <ClCompile Include="src\Core\Components\Bool.cpp" />
+    <ClCompile Include="src\Graphics\Assets\Asset.cpp" />
+    <ClCompile Include="src\Graphics\Assets\Texture.cpp" />
+    <ClCompile Include="src\Graphics\Assets\Textures\Texture2D.cpp" />
     <ClCompile Include="src\Graphics\DirectX\Direct3D11SubSystem.cpp" />
+    <ClCompile Include="src\Graphics\Renderer.cpp" />
     <ClCompile Include="src\Helpers\ECS\Component.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />
     <ClCompile Include="src\Helpers\ECS\Entity.cpp" />
