@@ -1,7 +1,7 @@
 #ifndef __HIKARI_SIZEHPP__
 #define __HIKARI_SIZEHPP__
 
-#include "../../Core/Components/ComponentTypeWrapper.hpp"
+#include "../../Helpers/ECS/ComponentTypeWrapper.hpp"
 
 #include "../../Helpers/ECS/Component.hpp"
 #include "../../Helpers/Math/Vector3D.hpp"

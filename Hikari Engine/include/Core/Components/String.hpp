@@ -1,7 +1,7 @@
 #ifndef __HIKARI_STRINGHPP__
 #define __HIKARI_STRINGHPP__
 
-#include "../../Core/Components/ComponentTypeWrapper.hpp"
+#include "../../Helpers/ECS/ComponentTypeWrapper.hpp"
 
 #include "../../Helpers/ECS/Component.hpp"
 #include <string>

@@ -1,7 +1,7 @@
-#ifndef __POSITIONHPP__
-#define __POSITIONHPP__
+#ifndef __HIKARI_CORE_COMPONENTS_POSITIONHPP__
+#define __HIKARI_CORE_COMPONENTS_POSITIONHPP__
 
-#include "../../Core/Components/ComponentTypeWrapper.hpp"
+#include "../../Helpers/ECS/ComponentTypeWrapper.hpp"
 
 #include "../../Helpers/ECS/Component.hpp"
 #include "../../Helpers/Math/Vector3D.hpp"

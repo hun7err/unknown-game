@@ -172,7 +172,7 @@ void Hikari::ShaderProgram::setInputElementDescription(void)
 	m_InputElementDescription[0].SemanticIndex = 0;
 	m_InputElementDescription[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	m_InputElementDescription[0].InputSlot = 0;
-	m_InputElementDescription[0].AlignedByteOffset = 0;
+	m_InputElementDescription[0].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	m_InputElementDescription[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	m_InputElementDescription[0].InstanceDataStepRate = 0;
 	// wspó³rzêdne teksturowania (uv)

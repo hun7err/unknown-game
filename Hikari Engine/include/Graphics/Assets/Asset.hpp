@@ -1,6 +1,7 @@
 #ifndef __HIKARI_GRAPHICS_ASSETS_ASSETHPP__
 #define __HIKARI_GRAPHICS_ASSETS_ASSETHPP__
 
+#include "../../Core/ErrorCode.hpp"
 #include <string>
 
 namespace Hikari
@@ -16,7 +17,7 @@ namespace Hikari
 			const std::string& GetID( void ) const;
 			void SetID( const std::string& newID );
 
-			virtual int Load( const std::string& filename ) = 0;
+			virtual ErrorCode Load( const std::string& filename ) = 0;
 
 		protected:
 			std::string m_ID;

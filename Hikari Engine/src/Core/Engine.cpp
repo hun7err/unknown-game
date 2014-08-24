@@ -3,6 +3,12 @@
 
 Hikari::Engine::Engine() : m_Running(true)
 {
+	m_pAssetManager = new AssetManager( );
+}
+
+Hikari::Engine::~Engine( )
+{
+	delete m_pAssetManager;
 }
 
 void Hikari::Engine::Update( float dt )
@@ -110,4 +116,9 @@ int Hikari::Engine::GetVisibility( void ) const
 LPSTR Hikari::Engine::GetCommandLineArguments( void ) const
 {
 	return m_lpCmdLine;
+}
+
+Hikari::AssetManager *Hikari::Engine::GetAssetManager( void )
+{
+	return m_pAssetManager;
 }

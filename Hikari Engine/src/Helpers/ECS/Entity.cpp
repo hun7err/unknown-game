@@ -58,3 +58,8 @@ bool Hikari::Entity::RemoveComponent( const std::string& componentID )	// sprawd
 
 	return false;
 }
+
+const std::vector<Hikari::Component*>& Hikari::Entity::GetComponentList( void ) const
+{
+	return m_Components;
+}

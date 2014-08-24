@@ -1,10 +1,10 @@
 #ifndef __HIKARI_GRAPHICS_ASSETS_TEXTURE_HPP__
 #define __HIKARI_GRAPHICS_ASSETS_TEXTURE_HPP__
 
-#include <string>
-#include <d3d11.h>
 #include "Asset.hpp"
 #include "../../Helpers/ECS/Component.hpp"
+#include <string>
+#include <d3d11.h>
 
 namespace Hikari
 {

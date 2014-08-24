@@ -30,7 +30,7 @@ Hikari::Assets::Textures::Texture2D::~Texture2D(void)
 	}
 }
 
-int Hikari::Assets::Textures::Texture2D::Create( ID3D11Device *pDevice, int width, int height, D3D11_SUBRESOURCE_DATA *pInitialData )
+Hikari::ErrorCode Hikari::Assets::Textures::Texture2D::Create( ID3D11Device *pDevice, int width, int height, D3D11_SUBRESOURCE_DATA *pInitialData )
 {
 	D3D11_TEXTURE2D_DESC description;
 	ZeroMemory(&description, sizeof(description));
@@ -49,7 +49,7 @@ int Hikari::Assets::Textures::Texture2D::Create( ID3D11Device *pDevice, int widt
 		m_pTexture->Release();
 		m_pTexture = nullptr;
 
-		return Errors::Texture2D::CREATE_TEXTURE2D_FAILED;
+		return ErrorCode::TEXTURE2D_CREATE_TEXTURE2D_FAILED;
 	}
 
 	D3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDescription;
@@ -64,7 +64,7 @@ int Hikari::Assets::Textures::Texture2D::Create( ID3D11Device *pDevice, int widt
 		m_pRenderTargetView->Release();
 		m_pRenderTargetView = nullptr;
 		
-		return Errors::Texture2D::CREATE_RENDER_TARGET_VIEW_FAILED;
+		return ErrorCode::TEXTURE2D_CREATE_RENDER_TARGET_VIEW_FAILED;
 	}
 
 	D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDescription;
@@ -83,17 +83,17 @@ int Hikari::Assets::Textures::Texture2D::Create( ID3D11Device *pDevice, int widt
 		m_pShaderResourceView->Release();
 		m_pShaderResourceView = nullptr;
 
-		return Errors::Texture2D::CREATE_SHADER_RESOURCE_VIEW_FAILED;
+		return ErrorCode::TEXTURE2D_CREATE_SHADER_RESOURCE_VIEW_FAILED;
 	}
 
-	return 0;
+	return ErrorCode::SUCCESS;
 }
 
-int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEXTURE2D_DESC *pDescription, D3D11_SUBRESOURCE_DATA *pInitialData, D3D11_RENDER_TARGET_VIEW_DESC *pRenderTargetViewDescription, D3D11_SHADER_RESOURCE_VIEW_DESC *pShaderResourceViewDescription)
+Hikari::ErrorCode Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEXTURE2D_DESC *pDescription, D3D11_SUBRESOURCE_DATA *pInitialData, D3D11_RENDER_TARGET_VIEW_DESC *pRenderTargetViewDescription, D3D11_SHADER_RESOURCE_VIEW_DESC *pShaderResourceViewDescription)
 {
 	if(pDescription == nullptr)
 	{
-		return Errors::Texture2D::PDESCRIPTION_IS_NULL;
+		return ErrorCode::TEXTURE2D_PDESCRIPTION_IS_NULL;
 	}
 
 	if(FAILED(pDevice->CreateTexture2D( pDescription, pInitialData, &m_pTexture)))
@@ -101,7 +101,7 @@ int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEX
 		m_pTexture->Release();
 		m_pTexture = nullptr;
 
-		return Errors::Texture2D::CREATE_TEXTURE2D_FAILED;
+		return ErrorCode::TEXTURE2D_CREATE_TEXTURE2D_FAILED;
 	}
 
 	if(pRenderTargetViewDescription != nullptr)
@@ -113,7 +113,7 @@ int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEX
 			m_pRenderTargetView->Release();
 			m_pRenderTargetView = nullptr;
 			
-			return Errors::Texture2D::CREATE_RENDER_TARGET_VIEW_FAILED;
+			return ErrorCode::TEXTURE2D_CREATE_RENDER_TARGET_VIEW_FAILED;
 		}
 	}
 	else
@@ -130,7 +130,7 @@ int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEX
 			m_pRenderTargetView->Release();
 			m_pRenderTargetView = nullptr;
 			
-			return Errors::Texture2D::CREATE_RENDER_TARGET_VIEW_FAILED;
+			return ErrorCode::TEXTURE2D_CREATE_RENDER_TARGET_VIEW_FAILED;
 		}
 	}
 
@@ -145,7 +145,7 @@ int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEX
 			m_pShaderResourceView->Release();
 			m_pShaderResourceView = nullptr;
 			
-			return Errors::Texture2D::CREATE_SHADER_RESOURCE_VIEW_FAILED;
+			return ErrorCode::TEXTURE2D_CREATE_SHADER_RESOURCE_VIEW_FAILED;
 		}
 	}
 	else
@@ -166,11 +166,11 @@ int Hikari::Assets::Textures::Texture2D::Create(ID3D11Device *pDevice, D3D11_TEX
 			m_pShaderResourceView->Release();
 			m_pShaderResourceView = nullptr;
 			
-			return Errors::Texture2D::CREATE_SHADER_RESOURCE_VIEW_FAILED;
+			return ErrorCode::TEXTURE2D_CREATE_SHADER_RESOURCE_VIEW_FAILED;
 		}
 	}
 
-	return 0;
+	return ErrorCode::SUCCESS;
 }
 
 ID3D11Texture2D *Hikari::Assets::Textures::Texture2D::GetTexturePointer(void)
@@ -183,7 +183,7 @@ ID3D11RenderTargetView *Hikari::Assets::Textures::Texture2D::GetRenderTargetView
 	return m_pRenderTargetView;
 }
 
-int Hikari::Assets::Textures::Texture2D::Load(const std::string& filename)
+Hikari::ErrorCode Hikari::Assets::Textures::Texture2D::Load(const std::string& filename)
 {
 	//iluInit();
 
@@ -197,7 +197,7 @@ int Hikari::Assets::Textures::Texture2D::Load(const std::string& filename)
 	{
 		ilDeleteImages(1, &m_ilImageName);	// sprz¹tamy po sobie
 
-		return Errors::Texture2D::IL_LOAD_IMAGE_FAILED;
+		return ErrorCode::TEXTURE2D_IL_LOAD_IMAGE_FAILED;
 	}
 
 	unsigned int width = ilGetInteger(IL_IMAGE_WIDTH),
@@ -225,7 +225,7 @@ int Hikari::Assets::Textures::Texture2D::Load(const std::string& filename)
 	ilDeleteImages(1, &m_ilImageName);	// sprz¹tamy po sobie
 	delete [] floatData;
 
-	return 0;
+	return ErrorCode::SUCCESS;
 }
 
 void Hikari::Assets::Textures::Texture2D::SetDevicePointer( ID3D11Device *pDevice )

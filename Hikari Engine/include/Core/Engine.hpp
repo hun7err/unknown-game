@@ -2,6 +2,7 @@
 #define __ENGINEHPP__
 
 #include "../Helpers/ECS/System.hpp"
+#include "../Core/Managers/AssetManager.hpp"
 #include <vector>
 #include <string>
 #include <Windows.h>
@@ -31,7 +32,8 @@ namespace Hikari
 	class Engine
 	{
 		public:
-			Engine();
+			Engine( void );
+			~Engine( void );
 
 			void Update( float dt );
 			void MainLoop( void );
@@ -50,7 +52,11 @@ namespace Hikari
 
 			System *GetSystem( const std::string& ID );
 
+			AssetManager *GetAssetManager( void );
+
 		private:
+			AssetManager *m_pAssetManager;
+
 			void InitializeSystems( void );
 
 			std::vector<System*> m_Systems;

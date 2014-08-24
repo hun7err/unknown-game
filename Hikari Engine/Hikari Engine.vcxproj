@@ -44,6 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -67,14 +68,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Core\Actor.hpp" />
     <ClInclude Include="include\Core\Components\Bool.hpp" />
+    <ClInclude Include="include\Core\Components\Color.hpp" />
+    <ClInclude Include="include\Core\Components\Float.hpp" />
+    <ClInclude Include="include\Core\Components\Vector4.hpp" />
+    <ClInclude Include="include\Core\ErrorCode.hpp" />
+    <ClInclude Include="include\Core\Managers\AssetManager.hpp" />
+    <ClInclude Include="include\Core\Managers\Manager.hpp" />
+    <ClInclude Include="include\Core\Scene\Scene.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Geometry\Geometry.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Geometry\Triangle.hpp" />
+    <ClInclude Include="include\Graphics\Assets\Material.hpp" />
+    <ClInclude Include="include\Core\Scene\Node.hpp" />
+    <ClInclude Include="include\Core\Scene\Object.hpp" />
     <ClInclude Include="include\Graphics\Assets\Asset.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\ComputeShader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\DomainShader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\GeometryShader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\HullShader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\InputElement.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\ModelViewProjection.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\Normal.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\Position.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\SamplerState.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\ShaderInput.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\Texture.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Input\UV.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\PixelShader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\Shader.hpp" />
+    <ClInclude Include="include\Graphics\Shaders\VertexShader.hpp" />
     <ClInclude Include="include\Graphics\Assets\Texture.hpp" />
     <ClInclude Include="include\Graphics\Assets\Textures\Texture2D.hpp" />
     <ClInclude Include="include\Graphics\DirectX\Direct3D11SubSystem.hpp" />
     <ClInclude Include="include\Graphics\Renderer.hpp" />
+    <ClInclude Include="include\Core\Components\Transformation.hpp" />
     <ClInclude Include="include\Helpers\ECS\Component.hpp" />
-    <ClInclude Include="include\Core\Components\ComponentTypeWrapper.hpp" />
+    <ClInclude Include="include\Helpers\ECS\ComponentTypeWrapper.hpp" />
     <ClInclude Include="include\Core\Engine.hpp" />
     <ClInclude Include="include\Helpers\ECS\Entity.hpp" />
     <ClInclude Include="include\Core\Messaging\Events\KeyEvent.hpp" />
@@ -96,15 +126,43 @@
     <ClInclude Include="include\Windowing\WinAPIWindowParameters.hpp" />
     <ClInclude Include="include\Windowing\Window.hpp" />
     <ClInclude Include="include\Windowing\WindowingSystem.hpp" />
+    <ClInclude Include="include\Graphics\Assets\ShaderProgram.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="example\src\example.cpp" />
+    <ClCompile Include="src\Core\Actor.cpp" />
     <ClCompile Include="src\Core\Components\Bool.cpp" />
+    <ClCompile Include="src\Core\Components\Color.cpp" />
+    <ClCompile Include="src\Core\Components\Float.cpp" />
+    <ClCompile Include="src\Core\Components\Vector4.cpp" />
+    <ClCompile Include="src\Core\Managers\AssetManager.cpp" />
+    <ClCompile Include="src\Core\Scene\Node.cpp" />
+    <ClCompile Include="src\Core\Scene\Object.cpp" />
+    <ClCompile Include="src\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Graphics\Assets\Asset.cpp" />
+    <ClCompile Include="src\Graphics\Assets\Geometry\Geometry.cpp" />
+    <ClCompile Include="src\Graphics\Assets\Geometry\Triangle.cpp" />
+    <ClCompile Include="src\Graphics\Assets\ShaderProgram.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\ComputeShader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\DomainShader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\GeometryShader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\HullShader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\InputElement.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\ModelViewProjection.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\Normal.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\Position.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\SamplerState.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\ShaderInput.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\Texture.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Input\UV.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\PixelShader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\Shader.cpp" />
+    <ClCompile Include="src\Graphics\Shaders\VertexShader.cpp" />
     <ClCompile Include="src\Graphics\Assets\Texture.cpp" />
     <ClCompile Include="src\Graphics\Assets\Textures\Texture2D.cpp" />
     <ClCompile Include="src\Graphics\DirectX\Direct3D11SubSystem.cpp" />
     <ClCompile Include="src\Graphics\Renderer.cpp" />
+    <ClCompile Include="src\Core\Components\Transformation.cpp" />
     <ClCompile Include="src\Helpers\ECS\Component.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />
     <ClCompile Include="src\Helpers\ECS\Entity.cpp" />

@@ -1,5 +1,5 @@
-#ifndef __ENTITYHPP__
-#define __ENTITYHPP__
+#ifndef __HIKARI_HELPERS_ECS_ENTITYHPP__
+#define __HIKARI_HELPERS_ECS_ENTITYHPP__
 
 #include "Component.hpp"
 #include <vector>
@@ -21,6 +21,7 @@ namespace Hikari
 			Component *GetComponent( const std::string& componentID );	// nullptr jak nie ma
 			void AddComponent( Component *pComponent );
 			bool RemoveComponent( const std::string& componentID );
+			const std::vector<Component*>& GetComponentList( void ) const;
 
 		protected:
 			std::vector<Component*> m_Components;
