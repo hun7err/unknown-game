@@ -77,6 +77,7 @@
     <ClInclude Include="include\Core\Managers\AssetManager.hpp" />
     <ClInclude Include="include\Core\Managers\Manager.hpp" />
     <ClInclude Include="include\Core\Scene\Scene.hpp" />
+    <ClInclude Include="include\Core\World.hpp" />
     <ClInclude Include="include\Graphics\Assets\Geometry\Geometry.hpp" />
     <ClInclude Include="include\Graphics\Assets\Geometry\Triangle.hpp" />
     <ClInclude Include="include\Graphics\Assets\Material.hpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="src\Core\Scene\Node.cpp" />
     <ClCompile Include="src\Core\Scene\Object.cpp" />
     <ClCompile Include="src\Core\Scene\Scene.cpp" />
+    <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Graphics\Assets\Asset.cpp" />
     <ClCompile Include="src\Graphics\Assets\Geometry\Geometry.cpp" />
     <ClCompile Include="src\Graphics\Assets\Geometry\Triangle.cpp" />

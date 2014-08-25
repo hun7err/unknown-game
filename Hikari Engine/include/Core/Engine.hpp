@@ -2,7 +2,7 @@
 #define __ENGINEHPP__
 
 #include "../Helpers/ECS/System.hpp"
-#include "../Core/Managers/AssetManager.hpp"
+#include "World.hpp"
 #include <vector>
 #include <string>
 #include <Windows.h>
@@ -52,10 +52,10 @@ namespace Hikari
 
 			System *GetSystem( const std::string& ID );
 
-			AssetManager *GetAssetManager( void );
+			World *GetWorld( void );
 
 		private:
-			AssetManager *m_pAssetManager;
+			World *m_pWorld;
 
 			void InitializeSystems( void );
 

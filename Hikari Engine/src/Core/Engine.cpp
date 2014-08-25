@@ -3,12 +3,12 @@
 
 Hikari::Engine::Engine() : m_Running(true)
 {
-	m_pAssetManager = new AssetManager( );
+	m_pWorld = new World( );
 }
 
 Hikari::Engine::~Engine( )
 {
-	delete m_pAssetManager;
+	delete m_pWorld;
 }
 
 void Hikari::Engine::Update( float dt )
@@ -118,7 +118,7 @@ LPSTR Hikari::Engine::GetCommandLineArguments( void ) const
 	return m_lpCmdLine;
 }
 
-Hikari::AssetManager *Hikari::Engine::GetAssetManager( void )
+Hikari::World *Hikari::Engine::GetWorld( void )
 {
-	return m_pAssetManager;
+	return m_pWorld;
 }

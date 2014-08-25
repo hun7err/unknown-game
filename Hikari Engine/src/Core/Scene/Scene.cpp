@@ -5,6 +5,11 @@ Hikari::Scene::Scene( void )
 	m_pRoot = new Node( "Root" );
 }
 
+Hikari::Scene::Scene( const std::string& sceneID ) : m_ID( sceneID )
+{
+	m_pRoot = new Node( "Root" );
+}
+
 Hikari::Scene::~Scene( void )
 {
 	delete m_pRoot;
@@ -43,4 +48,19 @@ int Hikari::Scene::RemoveNode( const std::string& NodeName )
 Hikari::Node *Hikari::Scene::GetRootNode( void )
 {
 	return m_pRoot;
+}
+
+Hikari::ErrorCode Hikari::Scene::Load( const std::wstring& filename )
+{
+	return ErrorCode::NOT_IMPLEMENTED_YET;
+}
+
+const std::string& Hikari::Scene::GetID( void ) const
+{
+	return m_ID;
+}
+
+void Hikari::Scene::SetID( const std::string& newID )
+{
+	m_ID = newID;
 }
