@@ -14,9 +14,9 @@ int WINAPI WinMain( HINSTANCE InstanceHandle, HINSTANCE PreviousInstanceHandle, 
 
 	Hikari::Geometry::Triangle *pTriangleGeometry = new Hikari::Geometry::Triangle(
 			"triangle",
-			DirectX::XMFLOAT3(0.0f, 0.5f, 1.0f),
-			DirectX::XMFLOAT3(0.55f, -0.5f, 1.0f),
-			DirectX::XMFLOAT3(-0.55f, -0.5f, 1.0f)
+			Hikari::Vector3( 0.0f, 0.5f, 1.0f ),
+			Hikari::Vector3( 0.55f, -0.5f, 1.0f ),
+			Hikari::Vector3( -0.55f, -0.5f, 1.0f )
 		);
 
 	Hikari::Object *pTriangle = new Hikari::Object( "triangle" );

@@ -43,7 +43,7 @@ void Hikari::Window::Create( void )
 
 	RegisterClassEx(&WindowClassEx);
 
-	RECT wr = {0, 0, (int)m_Size.GetX(), (int)m_Size.GetY()};
+	RECT wr = {0, 0, (int)m_Size.GetU(), (int)m_Size.GetV()};
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
 	HWND WindowHandle;
@@ -52,10 +52,10 @@ void Hikari::Window::Create( void )
 									"HikariWindowClass",					/** Nazwa klasy okna  */
 									m_Title.c_str(),						/** Nag³ówek okna  */
 									WS_OVERLAPPEDWINDOW,					/** Styl okna  */
-									(int)m_Position.GetX(),			/** Wspó³rzêdna X okna  */
-									(int)m_Position.GetY(),			/** Wspó³rzêdna Y okna  */
-									(int)m_Size.GetX(),				/** Szerokoœæ okna  */
-									(int)m_Size.GetY(),				/** Wysokoœæ okna  */
+									(int)m_Position.GetU(),			/** Wspó³rzêdna X okna  */
+									(int)m_Position.GetV(),			/** Wspó³rzêdna Y okna  */
+									(int)m_Size.GetU(),				/** Szerokoœæ okna  */
+									(int)m_Size.GetV(),				/** Wysokoœæ okna  */
 									NULL,									/** Uchwyt okna-rodzica (parent window)  */
 									NULL,									/** Uchwyt menu  */
 									m_pWindowParameters->GetInstanceHandle(),	/** Uchwyt aplikacji  */
@@ -65,7 +65,7 @@ void Hikari::Window::Create( void )
 	
 	if(m_Fullscreen == true)
 	{
-		SetFullscreenProper( m_pWindowParameters->GetWindowHandle(), m_Fullscreen, m_pWindowParameters->GetVisibility(), m_Size.GetX(), m_Size.GetY(), m_Position.GetX(), m_Position.GetY() );
+		SetFullscreenProper( m_pWindowParameters->GetWindowHandle(), m_Fullscreen, m_pWindowParameters->GetVisibility(), m_Size.GetU(), m_Size.GetV(), m_Position.GetU(), m_Position.GetV() );
 	}
 
 	SetForegroundWindow( WindowHandle );
@@ -77,7 +77,7 @@ void Hikari::Window::Create( void )
 
 void Hikari::Window::SetFullscreen( bool fullscreen )
 {
-	SetFullscreenProper( m_pWindowParameters->GetWindowHandle(), fullscreen, m_pWindowParameters->GetVisibility(), m_Size.GetX(), m_Size.GetY(), m_Position.GetX(), m_Position.GetY() );
+	SetFullscreenProper( m_pWindowParameters->GetWindowHandle(), fullscreen, m_pWindowParameters->GetVisibility(), m_Size.GetU(), m_Size.GetV(), m_Position.GetU(), m_Position.GetV() );
 }
 
 // daæ mo¿liwoœæ wyboru w SetFullscreenProper miêdzy natywn¹ rozdzielczoœci¹ (GetSystemMetrics() ) a podan¹ przez usera
@@ -130,22 +130,22 @@ bool Hikari::Window::IsFullscreen( void ) const
 	return m_Fullscreen;
 }
 
-const Hikari::Vector2D& Hikari::Window::GetPosition( void ) const
+const Hikari::Vector2& Hikari::Window::GetPosition( void ) const
 {
 	return m_Position;
 }
 
-void Hikari::Window::SetPosition( const Vector2D& newPosition )
+void Hikari::Window::SetPosition( const Vector2& newPosition )
 {
 	m_Position = newPosition;
 }
 
-const Hikari::Vector2D& Hikari::Window::GetSize( void ) const
+const Hikari::Vector2& Hikari::Window::GetSize( void ) const
 {
 	return m_Size;
 }
 
-void Hikari::Window::Resize( const Vector2D& newSize )
+void Hikari::Window::Resize( const Vector2& newSize )
 {
 	m_Size = newSize;
 	// coœ zrobiæ, ¿eby zmieni³o rozmiar

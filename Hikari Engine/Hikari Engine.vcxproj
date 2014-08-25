@@ -76,6 +76,7 @@
     <ClInclude Include="include\Core\ErrorCode.hpp" />
     <ClInclude Include="include\Core\Managers\AssetManager.hpp" />
     <ClInclude Include="include\Core\Managers\Manager.hpp" />
+    <ClInclude Include="include\Core\Math\Vector2.hpp" />
     <ClInclude Include="include\Core\Scene\Scene.hpp" />
     <ClInclude Include="include\Core\World.hpp" />
     <ClInclude Include="include\Graphics\Assets\Geometry\Geometry.hpp" />
@@ -121,9 +122,8 @@
     <ClInclude Include="include\Core\Components\Size.hpp" />
     <ClInclude Include="include\Core\Components\String.hpp" />
     <ClInclude Include="include\Helpers\ECS\System.hpp" />
-    <ClInclude Include="include\Helpers\Math\Vector2D.hpp" />
-    <ClInclude Include="include\Helpers\Math\Vector3D.hpp" />
-    <ClInclude Include="include\Helpers\Math\Vector4D.hpp" />
+    <ClInclude Include="include\Core\Math\Vector3.hpp" />
+    <ClInclude Include="include\Core\Math\Vector4.hpp" />
     <ClInclude Include="include\Windowing\WinAPIWindowParameters.hpp" />
     <ClInclude Include="include\Windowing\Window.hpp" />
     <ClInclude Include="include\Windowing\WindowingSystem.hpp" />
@@ -137,6 +137,9 @@
     <ClCompile Include="src\Core\Components\Float.cpp" />
     <ClCompile Include="src\Core\Components\Vector4.cpp" />
     <ClCompile Include="src\Core\Managers\AssetManager.cpp" />
+    <ClCompile Include="src\Core\Math\Vector2.cpp" />
+    <ClCompile Include="src\Core\Math\Vector3.cpp" />
+    <ClCompile Include="src\Core\Math\Vector4.cpp" />
     <ClCompile Include="src\Core\Scene\Node.cpp" />
     <ClCompile Include="src\Core\Scene\Object.cpp" />
     <ClCompile Include="src\Core\Scene\Scene.cpp" />
@@ -177,9 +180,6 @@
     <ClCompile Include="src\Core\Components\Size.cpp" />
     <ClCompile Include="src\Core\Components\String.cpp" />
     <ClCompile Include="src\Helpers\ECS\System.cpp" />
-    <ClCompile Include="src\Helpers\Math\Vector2D.cpp" />
-    <ClCompile Include="src\Helpers\Math\Vector3D.cpp" />
-    <ClCompile Include="src\Helpers\Math\Vector4D.cpp" />
     <ClCompile Include="src\Windowing\WinAPIWindowParameters.cpp" />
     <ClCompile Include="src\Windowing\Window.cpp" />
     <ClCompile Include="src\Windowing\WindowingSystem.cpp" />

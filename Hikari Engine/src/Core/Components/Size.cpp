@@ -7,10 +7,10 @@ Hikari::Components::Size::Size( float width, float height, float depth ) : Compo
 	 m_Value.SetZ( depth );
 }
 
-void Hikari::Components::Size::SetValue( const Hikari::Vector2D& newValue)
+void Hikari::Components::Size::SetValue( const Hikari::Vector2& newValue)
 {
-	m_Value.SetX( newValue.GetX() );
-	m_Value.SetY( newValue.GetY() );
+	m_Value.SetX( newValue.GetU() );
+	m_Value.SetY( newValue.GetV() );
 	m_Value.SetZ( 0.0f );
 }
 

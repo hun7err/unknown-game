@@ -84,15 +84,15 @@ void Hikari::Direct3D11SubSystem::SetResolution( int width, int height )
 	m_Height = height;
 }
 
-void Hikari::Direct3D11SubSystem::SetResolution( const Hikari::Vector2D& resolution)
+void Hikari::Direct3D11SubSystem::SetResolution( const Hikari::Vector2& resolution)
 {
-	m_Width = (int)resolution.GetX();
-	m_Height = (int)resolution.GetY();
+	m_Width = (int)resolution.GetU();
+	m_Height = (int)resolution.GetV();
 }
 
-Hikari::Vector2D Hikari::Direct3D11SubSystem::GetResolution( void )
+Hikari::Vector2 Hikari::Direct3D11SubSystem::GetResolution( void )
 {
-	return Vector2D((float)m_Width, (float)m_Height);
+	return Vector2((float)m_Width, (float)m_Height);
 }
 
 void Hikari::Direct3D11SubSystem::SetWindowHandle( HWND WindowHandle )

@@ -1,7 +1,7 @@
 #ifndef __WINDOWHPP__
 #define __WINDOWHPP__
 
-#include "../Helpers/Math/Vector2D.hpp"
+#include "../Core/Math/Vector2.hpp"
 #include "WinAPIWindowParameters.hpp"
 #include <Windows.h>
 
@@ -17,11 +17,11 @@ namespace Hikari
 			bool IsFullscreen( void ) const;
 			void SetFullscreen( bool fullscreen );
 
-			const Vector2D& GetPosition( void ) const;
-			void SetPosition( const Vector2D& newPosition );
+			const Vector2& GetPosition( void ) const;
+			void SetPosition( const Vector2& newPosition );
 
-			const Vector2D& GetSize( void ) const;
-			void Resize( const Vector2D& newSize );
+			const Vector2& GetSize( void ) const;
+			void Resize( const Vector2& newSize );
 
 			WinAPIWindowParameters* GetWinAPIWindowParameters( void );
 
@@ -31,7 +31,7 @@ namespace Hikari
 			void SetFullscreenProper( HWND WindowHandle, bool Fullscreen, int nCmdShow, float Width, float Height, float x, float y );
 			std::string m_Title;
 			bool m_Fullscreen;
-			Vector2D	m_Position,
+			Vector2	m_Position,
 						m_Size;
 			WinAPIWindowParameters *m_pWindowParameters;
 

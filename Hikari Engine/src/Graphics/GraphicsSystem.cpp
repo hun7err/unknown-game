@@ -31,7 +31,7 @@ void Hikari::GraphicsSystem::Init( Hikari::Engine *pEngine )
 	m_pD3D11SubSystem->Init();
 
 	m_pRenderer = new Renderer();
-	m_pRenderer->Init( m_pD3D11SubSystem->GetDevice(), (unsigned int)pWindow->GetSize().GetX(), (unsigned int)pWindow->GetSize().GetY() );
+	m_pRenderer->Init( m_pD3D11SubSystem->GetDevice(), (unsigned int)pWindow->GetSize().GetU(), (unsigned int)pWindow->GetSize().GetV() );
 }
 
 void Hikari::GraphicsSystem::Update( float dt )

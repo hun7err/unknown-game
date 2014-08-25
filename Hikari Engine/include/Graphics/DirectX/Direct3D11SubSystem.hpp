@@ -4,7 +4,7 @@
 #include <d3d11.h>
 #include <d3d10.h>
 #include <dxgi.h>
-#include "../../Helpers/Math/Vector2D.hpp"
+#include "../../Core/Math/Vector2.hpp"
 
 #define D3D11SUBSYSTEM_INITIALIZATION_FAILED	1
 
@@ -24,8 +24,8 @@ namespace Hikari
 			ID3D11DeviceContext *GetDeviceContext( void );
 
 			void SetResolution( int width, int height );
-			void SetResolution( const Vector2D& resolution);
-			Vector2D GetResolution( void );
+			void SetResolution( const Vector2& resolution);
+			Vector2 GetResolution( void );
 
 			void SetWindowHandle( HWND WindowHandle );
 			HWND GetWindowHandle( void ) const;

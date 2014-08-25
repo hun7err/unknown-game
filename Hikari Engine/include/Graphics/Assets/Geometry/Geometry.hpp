@@ -4,8 +4,9 @@
 #include "../../../Helpers/ECS/Component.hpp"
 #include "../../../Helpers/ECS/Entity.hpp"
 #include "../../../Core/ErrorCode.hpp"
+#include "../../../Core/Math/Vector4.hpp"
+#include "../../../Core/Math/Vector2.hpp"
 #include "../Asset.hpp"
-#include <DirectXMath.h>
 #include <string>
 #include <vector>
 
@@ -15,9 +16,9 @@ namespace Hikari
 {
 	struct Vertex
 	{
-		DirectX::XMFLOAT4 position_modelSpace;
-		DirectX::XMFLOAT2 uv;
-		DirectX::XMFLOAT4 normal_modelSpace;
+		Vector4 position_modelSpace;
+		Vector2 uv;
+		Vector4 normal_modelSpace;
 	};
 
 	namespace Assets
