@@ -28,11 +28,13 @@ namespace Hikari
 				Geometry( const std::string& AssetID );
 				virtual ~Geometry( void );
 
-				ErrorCode Init( ID3D11Device *pDevice );
+				ErrorCode CreateBuffers( ID3D11Device *pDevice );
 
 				void SetPrimitiveTopology( D3D11_PRIMITIVE_TOPOLOGY primitiveTopology );
 
 				const D3D11_PRIMITIVE_TOPOLOGY& GetPrimitiveTopology( void ) const;
+
+				ErrorCode Load( const std::string& filename );	// ³aduje tylko pierwsze aiMesh
 
 				ID3D11Buffer *GetVertexBuffer( void );
 				ID3D11Buffer *GetIndexBuffer( void );

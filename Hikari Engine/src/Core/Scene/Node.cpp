@@ -117,3 +117,13 @@ int Hikari::Node::RemoveNode( const std::string& nodeID )
 
 	return -1;
 }
+
+const std::list< Hikari::Object* >& Hikari::Node::GetChildrenObjects( void ) const
+{
+	return m_Objects;
+}
+
+const std::list< Hikari::Node* >& Hikari::Node::GetChildrenNodes( void ) const
+{
+	return m_Nodes;
+}

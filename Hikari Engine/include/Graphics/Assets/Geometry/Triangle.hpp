@@ -13,7 +13,7 @@ namespace Hikari
 		class Triangle : public Assets::Geometry
 		{
 			public:
-				Triangle( const std::string& AssetID, DirectX::XMFLOAT4 p1, DirectX::XMFLOAT4 p2, DirectX::XMFLOAT4 p3 );
+				Triangle( const std::string& AssetID, DirectX::XMFLOAT3 p1, DirectX::XMFLOAT3 p2, DirectX::XMFLOAT3 p3 );
 
 			private:
 		};

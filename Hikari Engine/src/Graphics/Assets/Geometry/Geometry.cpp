@@ -32,7 +32,7 @@ Hikari::Assets::Geometry::~Geometry( void )
 	m_pIndices = nullptr;
 }
 
-Hikari::ErrorCode Hikari::Assets::Geometry::Init( ID3D11Device *pDevice )
+Hikari::ErrorCode Hikari::Assets::Geometry::CreateBuffers( ID3D11Device *pDevice )
 {
 	if( m_pVertices == nullptr )
 	{
@@ -106,6 +106,11 @@ void Hikari::Assets::Geometry::SetPrimitiveTopology( D3D11_PRIMITIVE_TOPOLOGY pr
 const D3D11_PRIMITIVE_TOPOLOGY& Hikari::Assets::Geometry::GetPrimitiveTopology( void ) const
 {
 	return m_PrimitiveTopology;
+}
+
+Hikari::ErrorCode Hikari::Assets::Geometry::Load( const std::string& filename )
+{
+	return ErrorCode::NOT_IMPLEMENTED_YET;	// nickthecoder.wordpress.com/2013/01/20/mesh-loading-with-assimp/
 }
 
 ID3D11Buffer *Hikari::Assets::Geometry::GetVertexBuffer( void )

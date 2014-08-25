@@ -22,6 +22,9 @@ namespace Hikari
 			int RemoveObject( const std::string& objectID );
 			int RemoveNode( const std::string& nodeID );
 
+			const std::list< Object* >& GetChildrenObjects( void ) const;
+			const std::list< Node* >& GetChildrenNodes( void ) const;
+
 		private:
 			std::list<Object*> m_Objects;
 			std::list<Node*> m_Nodes;
