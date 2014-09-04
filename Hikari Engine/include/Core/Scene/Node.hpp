@@ -3,7 +3,7 @@
 
 #include "Object.hpp"
 #include "../../Helpers/ECS/Entity.hpp"
-#include <list>
+#include <vector>
 
 namespace Hikari
 {
@@ -13,21 +13,21 @@ namespace Hikari
 			Node( void );
 			Node( const std::string& nodeName );
 
-			void Add( Object *pObject );
-			int Add( Object *pObject, const std::string& nodeName );
+			void Add( const Object& objectToAdd );
+			int Add( const Object& objectToAdd, const std::string& nodeName );
 
-			void Add( Node *pNode );
-			int Add( Node *pNode, const std::string& nodeName );
+			void Add( const Node& nodeToAdd );
+			int Add( const Node& nodeToAdd, const std::string& nodeName );
 
 			int RemoveObject( const std::string& objectID );
 			int RemoveNode( const std::string& nodeID );
 
-			const std::list< Object* >& GetChildrenObjects( void ) const;
-			const std::list< Node* >& GetChildrenNodes( void ) const;
+			const std::vector< Object >& GetChildrenObjects( void ) const;
+			const std::vector< Node >& GetChildrenNodes( void ) const;
 
 		private:
-			std::list<Object*> m_Objects;
-			std::list<Node*> m_Nodes;
+			std::vector< Object > m_Objects;
+			std::vector< Node > m_Nodes;
 
 			void Init( void );
 	};

@@ -1,8 +1,8 @@
 #include "../../../../include/Graphics/Shaders/Input/ShaderInput.hpp"
 #include "../../../../include/Graphics/Shaders/Input/InputElement.hpp"
 #include "../../../../include/Graphics/Shaders/Input/Texture.hpp"
-#include "../../../../include/Graphics/Shaders/Input/ModelViewProjection.hpp"
 #include "../../../../include/Graphics/Shaders/Input/SamplerState.hpp"
+#include "../../../../include/Graphics/Shaders/Input/ModelViewProjection.hpp"
 
 Hikari::Shaders::ShaderInput::ShaderInput( void )
 {
@@ -59,7 +59,7 @@ Hikari::ErrorCode Hikari::Shaders::ShaderInput::CreateInputLayout( ID3D11Device 
 		}
 	}
 
-	if(!m_InputElementsDescriptions.empty())
+	if( !m_InputElementsDescriptions.empty() )
 	{
 		if(
 			FAILED(
@@ -78,6 +78,68 @@ Hikari::ErrorCode Hikari::Shaders::ShaderInput::CreateInputLayout( ID3D11Device 
 	}
 
 	return ErrorCode::SUCCESS;
+}
+
+void Hikari::Shaders::ShaderInput::AddComponent( Component *pComponent )
+{
+	m_Components.push_back( pComponent );
+
+	if( pComponent->GetID() == "Texture" )
+	{
+		Shaders::Input::Texture *pTexture = ( Shaders::Input::Texture* ) pComponent;
+		Shaders::Input::SamplerState *pSamplerState = ( Shaders::Input::SamplerState* ) pTexture->GetComponent( "SamplerState" );
+
+		unsigned int key = m_Samplers.size( );
+		m_Samplers.push_back( pSamplerState->GetSamplerStatePointer( ) );
+
+		m_ComponentPositions.insert( std::make_pair( pComponent->GetID( ), key ) );
+	}
+}
+
+bool Hikari::Shaders::ShaderInput::RemoveComponent( const std::string& componentID )
+{
+	auto element = m_ComponentPositions.find( componentID );
+	unsigned int key = element->second;
+
+	m_Samplers.erase( m_Samplers.begin( ) + key );	// naprawiæ to, bo jest Ÿle
+
+	for( element = m_ComponentPositions.begin(); element != m_ComponentPositions.end(); ++element )
+	{
+		if( element->second > key )
+		{
+			element->second--;
+		}
+	}
+
+	m_ComponentPositions.erase( element );
+
+	for( auto component = m_Components.begin(); component != m_Components.end(); ++component )
+	{
+		if( ( *component )->GetID( ) == componentID )
+		{
+			m_Components.erase( component );
+
+			return true;
+		}
+	}
+	return false;
+}
+
+ID3D11SamplerState** Hikari::Shaders::ShaderInput::GetSamplers( void )
+{
+	if( m_Samplers.empty() )
+	{
+		return nullptr;
+	}
+	else
+	{
+		return &(m_Samplers[0]);
+	}
+}
+
+unsigned int Hikari::Shaders::ShaderInput::GetSamplerCount( void ) const
+{
+	return m_Samplers.size();
 }
 
 ID3D11InputLayout *Hikari::Shaders::ShaderInput::GetInputLayout( void )

@@ -85,6 +85,7 @@
     <ClInclude Include="include\Core\Scene\Node.hpp" />
     <ClInclude Include="include\Core\Scene\Object.hpp" />
     <ClInclude Include="include\Graphics\Assets\Asset.hpp" />
+    <ClInclude Include="include\Graphics\Renderers\BasicRenderer.hpp" />
     <ClInclude Include="include\Graphics\Shaders\ComputeShader.hpp" />
     <ClInclude Include="include\Graphics\Shaders\DomainShader.hpp" />
     <ClInclude Include="include\Graphics\Shaders\GeometryShader.hpp" />
@@ -103,7 +104,7 @@
     <ClInclude Include="include\Graphics\Assets\Texture.hpp" />
     <ClInclude Include="include\Graphics\Assets\Textures\Texture2D.hpp" />
     <ClInclude Include="include\Graphics\DirectX\Direct3D11SubSystem.hpp" />
-    <ClInclude Include="include\Graphics\Renderer.hpp" />
+    <ClInclude Include="include\Graphics\Renderers\Renderer.hpp" />
     <ClInclude Include="include\Core\Components\Transformation.hpp" />
     <ClInclude Include="include\Helpers\ECS\Component.hpp" />
     <ClInclude Include="include\Helpers\ECS\ComponentTypeWrapper.hpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="src\Graphics\Assets\Geometry\Geometry.cpp" />
     <ClCompile Include="src\Graphics\Assets\Geometry\Triangle.cpp" />
     <ClCompile Include="src\Graphics\Assets\ShaderProgram.cpp" />
+    <ClCompile Include="src\Graphics\Renderers\BasicRenderer.cpp" />
     <ClCompile Include="src\Graphics\Shaders\ComputeShader.cpp" />
     <ClCompile Include="src\Graphics\Shaders\DomainShader.cpp" />
     <ClCompile Include="src\Graphics\Shaders\GeometryShader.cpp" />
@@ -166,7 +168,7 @@
     <ClCompile Include="src\Graphics\Assets\Texture.cpp" />
     <ClCompile Include="src\Graphics\Assets\Textures\Texture2D.cpp" />
     <ClCompile Include="src\Graphics\DirectX\Direct3D11SubSystem.cpp" />
-    <ClCompile Include="src\Graphics\Renderer.cpp" />
+    <ClCompile Include="src\Graphics\Renderers\Renderer.cpp" />
     <ClCompile Include="src\Core\Components\Transformation.cpp" />
     <ClCompile Include="src\Helpers\ECS\Component.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />

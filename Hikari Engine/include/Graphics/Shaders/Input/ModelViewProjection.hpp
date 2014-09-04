@@ -12,6 +12,13 @@ namespace Hikari
 	{
 		namespace Input
 		{
+			struct MVP_Type
+			{
+				DirectX::XMMATRIX ModelMatrix;
+				DirectX::XMMATRIX ViewMatrix;
+				DirectX::XMMATRIX ProjectionMatrix;
+			};
+
 			class ModelViewProjection : public Component
 			{
 				public:
@@ -24,13 +31,6 @@ namespace Hikari
 
 
 				private:
-					struct MVP_Type
-					{
-						DirectX::XMMATRIX ModelMatrix;
-						DirectX::XMMATRIX ViewMatrix;
-						DirectX::XMMATRIX ProjectionMatrix;
-					};
-
 					ID3D11Buffer *m_pMatrixBuffer;
 					D3D11_BUFFER_DESC m_BufferDescription;
 			};

@@ -3,6 +3,7 @@
 
 #include "Node.hpp"
 #include "../ErrorCode.hpp"
+#include "../Cameras/Camera.hpp"
 #include <string>
 
 namespace Hikari
@@ -14,16 +15,19 @@ namespace Hikari
 			Scene( const std::string& sceneID );
 			~Scene( void );
 
-			void Add( Object *pObject );
-			int Add( Object *pObject, const std::string& nodeName );
+			void SetActiveCamera( Camera *pCamera );
+			Camera* GetActiveCamera( void );
 
-			void Add( Node *pNode );
-			int Add( Node *pNode, const std::string& nodeName );
+			void Add( const Object& object );
+			int Add( const Object& object, const std::string& nodeName );
+
+			void Add( const Node& node );
+			int Add( const Node& node, const std::string& nodeName );
 
 			int RemoveObject( const std::string& ObjectName );
 			int RemoveNode( const std::string& NodeName );
 
-			Node *GetRootNode( void );
+			Node& GetRootNode( void );
 
 			ErrorCode Load( const std::wstring& filename );
 
@@ -31,7 +35,11 @@ namespace Hikari
 			void SetID( const std::string& newID );
 
 		private:
-			Node *m_pRoot;
+			Camera *m_pActiveCamera;
+
+			std::vector< Camera* > m_Cameras;
+
+			Node m_Root;
 
 			std::string m_ID;
 	};

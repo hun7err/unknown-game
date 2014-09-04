@@ -18,16 +18,16 @@ void Hikari::Node::Init( void )
 	AddComponent( pTransformation );
 }
 
-void Hikari::Node::Add( Object *pObject )
+void Hikari::Node::Add( const Object& objectToAdd )
 {
-	m_Objects.push_back( pObject );
+	m_Objects.push_back( objectToAdd );
 }
 
-int Hikari::Node::Add(Object *pObject, const std::string& nodeName)
+int Hikari::Node::Add( const Object& objectToAdd, const std::string& nodeName )
 {
 	if( GetID() == nodeName )
 	{
-		m_Objects.push_back( pObject );
+		m_Objects.push_back( objectToAdd );
 		return 0;
 	}
 
@@ -35,7 +35,7 @@ int Hikari::Node::Add(Object *pObject, const std::string& nodeName)
 	{
 		for( auto node = m_Nodes.begin(); node != m_Nodes.end(); ++node )
 		{
-			if( (*node)->Add( pObject, nodeName ) == 0 )	// +- DFS
+			if( node->Add( objectToAdd, nodeName ) == 0 )	// +- DFS
 			{
 				return 0;
 			}
@@ -45,16 +45,16 @@ int Hikari::Node::Add(Object *pObject, const std::string& nodeName)
 	return -1;
 }
 
-void Hikari::Node::Add( Node *pNode )
+void Hikari::Node::Add( const Node& nodeToAdd )
 {
-	m_Nodes.push_back( pNode );
+	m_Nodes.push_back( nodeToAdd );
 }
 
-int Hikari::Node::Add(Node *pNode, const std::string& nodeName)
+int Hikari::Node::Add( const Node& nodeToAdd, const std::string& nodeName )
 {
 	if( GetID() == nodeName )
 	{
-		m_Nodes.push_back( pNode );
+		m_Nodes.push_back( nodeToAdd );
 		return 0;
 	}
 
@@ -62,7 +62,7 @@ int Hikari::Node::Add(Node *pNode, const std::string& nodeName)
 	{
 		for( auto node = m_Nodes.begin(); node != m_Nodes.end(); ++node )
 		{
-			if( (*node)->Add( pNode, nodeName ) == 0 )	// +- DFS
+			if( node->Add( nodeToAdd, nodeName ) == 0 )	// +- DFS
 			{
 				return 0;
 			}
@@ -76,7 +76,7 @@ int Hikari::Node::RemoveObject( const std::string& objectID )
 {
 	for( auto object = m_Objects.begin(); object != m_Objects.end(); ++object )
 	{
-		if( (*object)->GetID() == objectID )
+		if( object->GetID() == objectID )
 		{
 			m_Objects.erase( object );
 
@@ -86,7 +86,7 @@ int Hikari::Node::RemoveObject( const std::string& objectID )
 
 	for( auto node = m_Nodes.begin(); node != m_Nodes.end(); ++node )
 	{
-		if( ( *node )->RemoveObject( objectID ) == 0 )
+		if( node->RemoveObject( objectID ) == 0 )
 		{
 			return 0;
 		}
@@ -99,7 +99,7 @@ int Hikari::Node::RemoveNode( const std::string& nodeID )
 {
 	for( auto node = m_Nodes.begin(); node != m_Nodes.end(); ++node )
 	{
-		if( ( *node )->GetID() == nodeID )
+		if( node->GetID() == nodeID )
 		{
 			m_Nodes.erase( node );
 
@@ -109,7 +109,7 @@ int Hikari::Node::RemoveNode( const std::string& nodeID )
 
 	for( auto node = m_Nodes.begin(); node != m_Nodes.end(); ++node )
 	{
-		if( ( *node )->RemoveNode( nodeID ) == 0 )
+		if( node->RemoveNode( nodeID ) == 0 )
 		{
 			return 0;
 		}
@@ -118,12 +118,12 @@ int Hikari::Node::RemoveNode( const std::string& nodeID )
 	return -1;
 }
 
-const std::list< Hikari::Object* >& Hikari::Node::GetChildrenObjects( void ) const
+const std::vector< Hikari::Object >& Hikari::Node::GetChildrenObjects( void ) const
 {
 	return m_Objects;
 }
 
-const std::list< Hikari::Node* >& Hikari::Node::GetChildrenNodes( void ) const
+const std::vector< Hikari::Node >& Hikari::Node::GetChildrenNodes( void ) const
 {
 	return m_Nodes;
 }

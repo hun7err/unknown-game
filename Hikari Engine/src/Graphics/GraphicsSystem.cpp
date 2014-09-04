@@ -1,6 +1,7 @@
 #include "../../include/Graphics/GraphicsSystem.hpp"
 #include "../../include/Windowing/WindowingSystem.hpp"
 #include "../../include/Core/Components/Size.hpp"
+#include "../../include/Graphics/Renderers/BasicRenderer.hpp"
 
 Hikari::GraphicsSystem::GraphicsSystem( void ) : System("Graphics")
 {
@@ -30,7 +31,7 @@ void Hikari::GraphicsSystem::Init( Hikari::Engine *pEngine )
 
 	m_pD3D11SubSystem->Init();
 
-	m_pRenderer = new Renderer();
+	m_pRenderer = new BasicRenderer();
 	m_pRenderer->Init( m_pD3D11SubSystem->GetDevice(), (unsigned int)pWindow->GetSize().GetU(), (unsigned int)pWindow->GetSize().GetV() );
 }
 

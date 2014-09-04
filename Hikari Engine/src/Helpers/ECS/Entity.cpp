@@ -27,7 +27,7 @@ void Hikari::Entity::SetID( const std::string& newID )
 	m_ID = newID;
 }
 
-Hikari::Component* Hikari::Entity::GetComponent( const std::string& componentID )
+Hikari::Component* Hikari::Entity::GetComponent( const std::string& componentID ) const
 {
 	for( auto currentComponent = m_Components.begin(); currentComponent != m_Components.end(); ++currentComponent )
 	{

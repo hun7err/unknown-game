@@ -35,10 +35,14 @@ namespace Hikari
 
 				const D3D11_PRIMITIVE_TOPOLOGY& GetPrimitiveTopology( void ) const;
 
-				ErrorCode Load( const std::string& filename );	// ³aduje tylko pierwsze aiMesh
+				ErrorCode Load( const std::string& filename );	// ³aduje tylko pierwsze aiMesh z pliku
 
 				ID3D11Buffer *GetVertexBuffer( void );
+				ID3D11Buffer **GetVertexBufferPointer( void );
 				ID3D11Buffer *GetIndexBuffer( void );
+
+				unsigned int GetVertexCount( void ) const;
+				unsigned int GetIndexCount( void ) const;
 
 			protected:
 				Vertex *m_pVertices;

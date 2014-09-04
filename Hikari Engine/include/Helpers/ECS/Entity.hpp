@@ -18,9 +18,9 @@ namespace Hikari
 			const std::string& GetID( void ) const;
 			void SetID( const std::string& newID );
 
-			Component *GetComponent( const std::string& componentID );	// nullptr jak nie ma
-			void AddComponent( Component *pComponent );
-			bool RemoveComponent( const std::string& componentID );
+			Component *GetComponent( const std::string& componentID ) const;	// nullptr jak nie ma
+			virtual void AddComponent( Component *pComponent );
+			virtual bool RemoveComponent( const std::string& componentID );
 			const std::vector<Component*>& GetComponentList( void ) const;
 
 		protected:

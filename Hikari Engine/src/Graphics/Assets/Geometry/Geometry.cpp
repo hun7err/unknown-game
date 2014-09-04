@@ -118,7 +118,22 @@ ID3D11Buffer *Hikari::Assets::Geometry::GetVertexBuffer( void )
 	return m_pVertexBuffer;
 }
 
+ID3D11Buffer **Hikari::Assets::Geometry::GetVertexBufferPointer( void )
+{
+	return &m_pVertexBuffer;
+}
+
 ID3D11Buffer *Hikari::Assets::Geometry::GetIndexBuffer( void )
 {
 	return m_pIndexBuffer;
+}
+
+unsigned int Hikari::Assets::Geometry::GetVertexCount( void ) const
+{
+	return m_VertexCount;
+}
+
+unsigned int Hikari::Assets::Geometry::GetIndexCount( void ) const
+{
+	return m_IndexCount;
 }
