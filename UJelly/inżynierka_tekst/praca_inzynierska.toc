@@ -1,0 +1,27 @@
+\select@language {polish}
+\contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{3}
+\contentsline {subsection}{\numberline {1.1}Cel i zakres pracy}{3}
+\contentsline {section}{\numberline {2}Przegl\IeC {\k a}d zagadnie\IeC {\'n} teoretycznych}{3}
+\contentsline {section}{\numberline {3}Przegl\IeC {\k a}d narz\IeC {\k e}dzi}{3}
+\contentsline {subsection}{\numberline {3.1}W\IeC {\l }asny silnik graficzny w j\IeC {\k e}zyku C++}{3}
+\contentsline {subsection}{\numberline {3.2}Unreal Engine 4}{3}
+\contentsline {subsection}{\numberline {3.3}Unity}{3}
+\contentsline {subsection}{\numberline {3.4}OGRE}{3}
+\contentsline {subsection}{\numberline {3.5}CryEngine 3}{3}
+\contentsline {subsection}{\numberline {3.6}Unreal Engine 3}{3}
+\contentsline {subsection}{\numberline {3.7}Unreal Development Kit (UDK)}{3}
+\contentsline {subsection}{\numberline {3.8}Maya}{3}
+\contentsline {subsection}{\numberline {3.9}3DS Max}{3}
+\contentsline {subsection}{\numberline {3.10}Blender}{3}
+\contentsline {subsection}{\numberline {3.11}Adobe Flash - Scaleform}{3}
+\contentsline {section}{\numberline {4}Praca w\IeC {\l }asna}{3}
+\contentsline {subsection}{\numberline {4.1}Projektowanie}{3}
+\contentsline {subsubsection}{\numberline {4.1.1}Projekt silnika graficznego}{3}
+\contentsline {subsubsection}{\numberline {4.1.2}Modele 3D}{3}
+\contentsline {subsubsection}{\numberline {4.1.3}Projekt poziomu}{3}
+\contentsline {subsection}{\numberline {4.2}Implementacja}{3}
+\contentsline {subsubsection}{\numberline {4.2.1}Wykorzystanie technologii DirectX11 w UDK}{3}
+\contentsline {subsubsection}{\numberline {4.2.2}Zarz\IeC {\k a}dzanie projektem}{3}
+\contentsline {section}{\numberline {5}Podsumowanie}{4}
+\contentsline {section}{\numberline {6}Literatura}{4}
+\contentsline {section}{\numberline {7}Dodatki}{4}

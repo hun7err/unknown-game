@@ -1,0 +1,60 @@
+
+\chapter{Przegląd narzędzi}
+Jedną z~najważniejszych kwestii podczas tworzenia gry komputerowej jest prawidłowy dobór narzędzi, ponieważ decyduje to nie tylko o~komforcie pracy, ale także o~jakości końcowego produktu. Podczas tego procesu szczególny nacisk powinien zostać położony na doborze silnika graficznego, między innymi ze względu na dużą dywersyfikację narzędzi należących do tej kategorii oraz mnogość funkcjonalności przez nie oferowanych.
+
+Ze względu na specyfikę tego rozdziału, w~kolejnych punktach opisane zostaną przetestowane rozwiązania wraz z~krótkim podsumowaniem w~formie listy jego zalet i wad. Warto w~tym miejscu również wspomnieć, iż wszystkie analizowane narzędzia oferują możliwość wykorzystania DirectX~11 API, choć niekoniecznie bezpośrednio.
+
+\section{Własny silnik graficzny w~języku C++}
+Proces doboru narzędzi rozpoczęto od zaprojektowania i~stworzenia własnego silnika graficznego w~języku C++ w~wersji 11 z wykorzystaniem środowiska Microsoft Visual Studio 2012 na platformę Windows. Pozwoliło to nie tylko na praktyczne wykorzystanie umiejętności nabytych podczas uczestnictwa w zajęciach z Inżynierii Oprogramowania, ale także poznać w praktyce wykorzystanie Microsoft DirectX API w~wersji 11 na najniższym dostępnym poziomie. Tworzenie tego rodzaju oprogramowania wymaga jednak nie tylko odpowiedniej ilości czasu, ale także dobrego zaprojektowania interakcji między klasami oraz zrozumienia wielu zagadnień z~zakresu grafiki komputerowej, w~większości takich, które wykraczają poza program przedmiotu Grafika Komputerowa i Wizualizacja.
+Z~ostatnich dwóch powodów (oraz faktu, iż tworzenie silnika nie było tematem pracy inżynierskiej), najpierw ograniczono rozwój oprogramowania do jednej osoby, a~następnie zrezygnowano z~wykorzystania go w~pracy, uzasadniając tę decyzję wysoką czasochłonnością wytwarzania owego narzędzia.
+
+Zalety:
+\begin{itemize}
+\item większe możliwości w~zakresie wykorzystania DirectX API
+\item lepsza znajomość możliwości oferowanych przez oprogramowanie
+\item brak kosztów
+\end{itemize}
+
+Wady
+\begin{itemize}
+\item czasochłonność
+\item wysoki próg wejścia (znajomość m.in. C++ oraz DirectX API)
+\item konieczność wytworzenia edytora poziomów i dodatnia odpowiednich funkcjonalności
+\end{itemize}
+
+\section{Unreal Engine 4}
+Unreal Engine 4 (UE4) jest jednym z~najpopularniejszych silników graficznych dostępnych na rynku, co jest złożeniem wielu czynników. Pierwszym z~nich jest z~pewnością niska cena płatnej licencji (subskrypcja miesięczna to koszt x\$) oraz darmowy dostęp dla studentów zarówno w~ramach licencji edukacyjnej (należy w~tym wypadku zgłosić chęć wydania licencji w~ramach przedmiotu prowadzonego na uczelni) jak i~w~ramach GitHub Developers Pack (należy jedynie potwierdzić studencki adres e-mail oraz wykorzystać [ang. \emph{redeem}] licencję dostępną na odpowiedniej podstronie serwisu GitHub w~formie kodu [ang. \emph{serial code}]). Drugim jest jakość generowanych (renderowanych) obrazów -- wykorzystanie algorytmu Voxel Cone Tracing [na pewno ten?] (algorytm rozwiązywania zagadnienia globalnego oświetlenia w czasie rzeczywistym) pozwala uzyskać niemal fotorealistyczną grafikę, jednak kosztem wysokich wymagań sprzętowych.
+Unreal Engine, zarówno w~wersji~3 jak i~4, oferuje dostęp do kodu źródłowego w~języku C++, co - po poznaniu API udostępnianego przez twórców - pozwala szybko i wygodnie rozwijać logikę gry. Umiejętność programowania nie jest jednak wymagana do tego ze względu na obecność mechanizmu blueprintów (znaleźć tłumaczenie), który pozwala tworzyć kod z wykorzystaniem bloków oferowanych bezpośrednio w~silniku graficznym (sprawdzić czy dokładnie tak jest).
+Ze względu na wysokie wymagania sprzętowe (brak możliwości uruchomienia na komputerach laboratoryjnych oraz komputerach 75\% zespołu) ostatecznie odrzucono to rozwiązanie.
+
+Zalety:
+\begin{itemize}
+\item tania (darmowa) licencja
+\item wygodny edytor i~dostęp do API w~języku C++
+\item niemal fotorealistyczna grafika
+\end{itemize}
+
+
+Wady:
+\begin{itemize}
+\item konieczność poznania API
+\item wysokie wymagania sprzętowe
+\end{itemize}
+
+\section{Unity}
+
+\section{OGRE}
+
+\section{CryEngine 3}
+
+\section{Unreal Engine 3}
+
+\section{Unreal Development Kit (UDK)}
+
+\section{Autodesk Maya}
+
+\section{Autodesk 3D Studio Max}
+
+\section{Blender}
+
+\section{Adobe Flash - Scaleform}
