@@ -1,4 +1,4 @@
-*.sdf
+﻿*.sdf
 *.opensdf
 *.read.1.tlog
 *.tlog
@@ -12,3 +12,8 @@
 *.ilk
 *.v11.suo
 *.vcxproj.filters
+*.aux
+*.out
+*.gz
+*.toc
+*.gz

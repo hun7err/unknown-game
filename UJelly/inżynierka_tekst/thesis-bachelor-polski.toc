@@ -3,27 +3,33 @@
 \contentsline {chapter}{\chapternumberline {1}Wst\k {e}p}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Cel i~zakres pracy}{1}{section.1.1}
 \contentsline {chapter}{\chapternumberline {2}Przegl\IeC {\k a}d zagadnie\IeC {\'n} teoretycznych}{2}{chapter.2}
-\contentsline {chapter}{\chapternumberline {3}Przegl\IeC {\k a}d narz\IeC {\k e}dzi}{3}{chapter.3}
-\contentsline {section}{\numberline {3.1}W\IeC {\l }asny silnik graficzny w~j\IeC {\k e}zyku C++}{3}{section.3.1}
-\contentsline {section}{\numberline {3.2}Unreal Engine 4}{3}{section.3.2}
-\contentsline {section}{\numberline {3.3}Unity}{4}{section.3.3}
-\contentsline {section}{\numberline {3.4}OGRE}{4}{section.3.4}
-\contentsline {section}{\numberline {3.5}CryEngine 3}{4}{section.3.5}
-\contentsline {section}{\numberline {3.6}Unreal Engine 3}{4}{section.3.6}
-\contentsline {section}{\numberline {3.7}Unreal Development Kit (UDK)}{4}{section.3.7}
-\contentsline {section}{\numberline {3.8}Autodesk Maya}{4}{section.3.8}
-\contentsline {section}{\numberline {3.9}Autodesk 3D Studio Max}{4}{section.3.9}
-\contentsline {section}{\numberline {3.10}Blender}{4}{section.3.10}
-\contentsline {section}{\numberline {3.11}Adobe Flash - Scaleform}{4}{section.3.11}
-\contentsline {chapter}{\chapternumberline {4}Praca w\IeC {\l }asna}{5}{chapter.4}
-\contentsline {section}{\numberline {4.1}Projektowanie}{5}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Projekt silnika graficznego}{5}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Modele 3D}{5}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Projekt poziomu}{5}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Implementacja}{5}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Wykorzystanie technologii DirectX 11 w~UDK}{5}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Zarz\IeC {\k a}dzanie projektem}{5}{subsection.4.2.2}
-\contentsline {chapter}{\chapternumberline {5}Podsumowanie}{7}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}Literatura}{8}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Dodatki}{9}{chapter.7}
-\contentsline {chapter}{Literatura}{10}{section*.2}
+\contentsline {section}{\numberline {2.1}Zarys dzia\IeC {\l }ania Microsoft DirectX API}{2}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Struktura i podstawowe poj\IeC {\k e}cia}{2}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Proces renderingu}{3}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Deferred Shading}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Podpowierzchniowe Rozproszenie \IeC {\'S}wiat\IeC {\l }a (Subsurface Scattering)}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}Depth of Field}{4}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}Przegl\IeC {\k a}d narz\IeC {\k e}dzi}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}W\IeC {\l }asny silnik graficzny w~j\IeC {\k e}zyku C++}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Unreal Engine 4}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Unity}{6}{section.3.3}
+\contentsline {section}{\numberline {3.4}OGRE}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}CryEngine 3}{6}{section.3.5}
+\contentsline {section}{\numberline {3.6}Unreal Engine 3}{6}{section.3.6}
+\contentsline {section}{\numberline {3.7}Unreal Development Kit (UDK)}{6}{section.3.7}
+\contentsline {section}{\numberline {3.8}Autodesk Maya}{6}{section.3.8}
+\contentsline {section}{\numberline {3.9}Autodesk 3D Studio Max}{6}{section.3.9}
+\contentsline {section}{\numberline {3.10}Blender}{6}{section.3.10}
+\contentsline {section}{\numberline {3.11}Adobe Flash - Scaleform}{6}{section.3.11}
+\contentsline {chapter}{\chapternumberline {4}Praca w\IeC {\l }asna}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Projektowanie}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Projekt silnika graficznego}{7}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Modele 3D}{7}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Projekt poziomu}{7}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Implementacja}{7}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Wykorzystanie technologii DirectX 11 w~UDK}{7}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Zarz\IeC {\k a}dzanie projektem}{7}{subsection.4.2.2}
+\contentsline {chapter}{\chapternumberline {5}Podsumowanie}{9}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Literatura}{10}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Dodatki}{11}{chapter.7}
+\contentsline {chapter}{Literatura}{12}{section*.2}
