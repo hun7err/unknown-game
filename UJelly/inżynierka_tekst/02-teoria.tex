@@ -22,9 +22,13 @@ Jak widać na rysunku \ref{directx_infrastructure}, struktura DirectX jest wielo
 \label{directx_infrastructure}
 \end{center}
 \end{figure}
+
 Podstawowymi i koniecznymi do zrozumienia działania DirectX są koncepcje urządzenia (ang. \emph{device}) oraz jego kontekstu (ang. \emph{device context}).\\
-Urządzenie, reprezentowane w~wersji 11. przez interfejs ID3D11Device, reprezentuje kartę graficzną i może służyć do tworzenia zasobów oraz pobierania informacji o~jej możliwościach (ang. \emph{capabilities}), tj. oferowanych przez nią funkcjonalnościach takich jak np. obsługa podwójnej precyzji w~programach cieniujących.\\
-Kontekst urządzenia z kolei, jak wskazuje nazwa, określa kontekst użycia urządzenia, co jednoznacznie pokazuje, iż do prawidłowej pracy z~urządzeniem powiązany powinien być co najmniej jeden kontekst. Pozwala on głównie na ustawienie stanu w~procesie renderingu oraz prawidłowych komend wykorzystujących zasoby karty graficznej do wygenerowania obrazu (bezpośrednio na ekran lub do pośredniczącej tekstury, która może zostać wykorzystana później). Wyróżniamy dwa rodzaje kontekstów: bezpośredni/zwykły (\emph{forward}) oraz opóźniony (\emph{deferred}). Bezpośredni wykonuje komendy od razu gdy zostają wywołane, podczas gdy opóźniony pozwala na zapisanie ich na odpowiedniej liście, dzięki czemu mogą zostać wykonane później (jest to przydatne zwłaszcza w przypadku aplikacji wielowątkowych).\\
+Urządzenie, reprezentowane w~wersji 11. przez interfejs ID3D11Device, reprezentuje kartę graficzną i może służyć do tworzenia zasobów oraz pobierania informacji o~jej możliwościach (ang. \emph{capabilities}), tj. oferowanych przez nią funkcjonalnościach takich jak np. obsługa podwójnej precyzji w~programach cieniujących.
+
+Kontekst urządzenia z kolei, jak wskazuje nazwa, określa kontekst użycia urządzenia, co jednoznacznie pokazuje, iż do prawidłowej pracy z~urządzeniem powiązany powinien być co najmniej jeden kontekst. Pozwala on głównie na ustawienie stanu w~procesie renderingu oraz prawidłowych komend wykorzystujących zasoby karty graficznej do wygenerowania obrazu (bezpośrednio na ekran lub do pośredniczącej tekstury, która może zostać wykorzystana później). Wyróżniamy dwa rodzaje kontekstów: bezpośredni/zwykły (\emph{forward}) oraz opóźniony (\emph{deferred}). Bezpośredni wykonuje komendy od razu gdy zostają wywołane, podczas gdy opóźniony pozwala na zapisanie ich na odpowiedniej liście, dzięki czemu mogą zostać wykonane później (jest to przydatne zwłaszcza w przypadku aplikacji wielowątkowych).
+
+Programy cieniujące (ang. \emph{shader}) to aplikacje działające na karcie graficznej, współcześnie pisane w językach wysokiego poziomu jak HLSL (dla DirectX) czy GLSL (dla OpenGL). Dwa najważniejsze to Vertex Shader (odpowiada on za obliczenie oświetlenia dla pojedynczych wierzchołków modelu) oraz Pixel Shader (w OpenGL nazywany Fragment Shader, interpoluje wartości wyjściowe z etapu pośredniego [Geometry Shader] i oblicza ostateczny kolor piksela).
 
 \subsection{Proces renderingu}
 
@@ -37,7 +41,7 @@ W pipeline DirectX 11 wyróżnia się następujące etapy:
 \item Tessellator - zagęszcza siatkę wprowadzając dodatkowe prymitywy zastępujące podstawowy i zwraca nowe współrzędne teksturowania,
 \item Domain Shader - generuje nowe pozycje wierzchołków na podstawie dwóch poprzednich etapów,
 \item Geometry Shader - pozwala zastąpić prymityw wejściowy innym prymitywem,
-\item Rasterizer - odpowiada za "spłaszczenie" obrazu tak, aby mógł zostać wyświetlony na ekranie,
+\item Rasterizer - odpowiada za konwersję wektorowej postaci model na postać rastrową, czyli zbiór pikseli na ekranie,
 \item Pixel Shader - pozwala zmieniać kolor piksela w~wynikowym obrazie,
 \item Output Merger - generuje końcowy obraz łącząc w~odpowiedni sposób (opisany przez komendy takie jak np. OMSetRenderTargets) informacje z~poprzedniego etapu.
 \end{itemize}
@@ -56,7 +60,7 @@ Ostatnim zasługującym na uwagę jest fakt, iż w~większości aplikacji wraz z
 
 \section{Deferred Shading}
 
-Podstawowym sposobem obliczania oświetlenia, uwzględniając opisany wcześniej proces generacji obrazu, jest wyliczenie oświetlenia bezpośrednio dla każdego obiektu. Wartości takie jak wektory normalne, współrzędne teksturowania i inne używane we~wspomnianym procesie są wczytywane w shaderze wierzchołków, a następnie interpolowane we~fragment/pixel shaderze. W~przypadku wielu źródeł oświetlenia (na przykład 2000 lub więcej), dla każdego obiektu (niezależnie od tego, czy jest widoczny) należy sprawdzić wszystkie źródła światła, co oznacza złożoność
+Podstawowym sposobem obliczania oświetlenia, uwzględniając opisany wcześniej proces generacji obrazu, jest wyliczenie oświetlenia bezpośrednio dla każdego obiektu. Wartości takie jak wektory normalne, współrzędne teksturowania i inne używane we~wspomnianym procesie są wczytywane w shaderze wierzchołków, a następnie interpolowane w~pixel shaderze. W~przypadku wielu źródeł oświetlenia (na przykład 2000 lub więcej), dla każdego obiektu (niezależnie od tego, czy jest widoczny) należy sprawdzić wszystkie źródła światła, co oznacza złożoność
 \begin{equation}
 \label{forward_shading_complexity}
 O(~liczba\_pikseli\_per\_obiekt~*~liczba\_zrodel\_swiatla~)

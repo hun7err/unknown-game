@@ -10,38 +10,54 @@ Z~ostatnich dwóch powodów (oraz faktu, iż tworzenie silnika nie było tematem
 
 Zalety:
 \begin{itemize}
-\item większe możliwości w~zakresie wykorzystania DirectX API
-\item lepsza znajomość możliwości oferowanych przez oprogramowanie
-\item brak kosztów
+\item większe możliwości w~zakresie wykorzystania DirectX API,
+\item lepsza znajomość możliwości oferowanych przez oprogramowanie,
+\item brak kosztów.
 \end{itemize}
 
 Wady
 \begin{itemize}
-\item czasochłonność
-\item wysoki próg wejścia (znajomość m.in. C++ oraz DirectX API)
-\item konieczność wytworzenia edytora poziomów i dodatnia odpowiednich funkcjonalności
+\item czasochłonność,
+\item wysoki próg wejścia (znajomość m.in. C++ oraz DirectX API),
+\item konieczność wytworzenia edytora poziomów i dodatnia odpowiednich funkcjonalności.
 \end{itemize}
 
 \section{Unreal Engine 4}
-Unreal Engine 4 (UE4) jest jednym z~najpopularniejszych silników graficznych dostępnych na rynku, co jest złożeniem wielu czynników. Pierwszym z~nich jest z~pewnością niska cena płatnej licencji (subskrypcja miesięczna to koszt x\$) oraz darmowy dostęp dla studentów zarówno w~ramach licencji edukacyjnej (należy w~tym wypadku zgłosić chęć wydania licencji w~ramach przedmiotu prowadzonego na uczelni) jak i~w~ramach GitHub Developers Pack (należy jedynie potwierdzić studencki adres e-mail oraz wykorzystać [ang. \emph{redeem}] licencję dostępną na odpowiedniej podstronie serwisu GitHub w~formie kodu [ang. \emph{serial code}]). Drugim jest jakość generowanych (renderowanych) obrazów -- wykorzystanie algorytmu Voxel Cone Tracing [na pewno ten?] (algorytm rozwiązywania zagadnienia globalnego oświetlenia w czasie rzeczywistym) pozwala uzyskać niemal fotorealistyczną grafikę, jednak kosztem wysokich wymagań sprzętowych.
-Unreal Engine, zarówno w~wersji~3 jak i~4, oferuje dostęp do kodu źródłowego w~języku C++, co - po poznaniu API udostępnianego przez twórców - pozwala szybko i wygodnie rozwijać logikę gry. Umiejętność programowania nie jest jednak wymagana do tego ze względu na obecność mechanizmu blueprintów (znaleźć tłumaczenie), który pozwala tworzyć kod z wykorzystaniem bloków oferowanych bezpośrednio w~silniku graficznym (sprawdzić czy dokładnie tak jest).
+Unreal Engine 4 (UE4) jest jednym z~najpopularniejszych silników graficznych dostępnych na rynku, co jest złożeniem wielu czynników. Pierwszym z~nich jest z~pewnością niska cena płatnej licencji (subskrypcja miesięczna to koszt 19\$) oraz darmowy dostęp dla studentów zarówno w~ramach licencji edukacyjnej (należy w~tym wypadku zgłosić chęć wydania licencji w~ramach przedmiotu prowadzonego na uczelni) jak i~w~ramach GitHub Developers Pack (należy jedynie potwierdzić studencki adres e-mail oraz wykorzystać [ang. \emph{redeem}] licencję dostępną na odpowiedniej podstronie serwisu GitHub w~formie kodu [ang. \emph{serial code}]). Drugim jest jakość generowanych (renderowanych) obrazów -- wykorzystanie algorytmu Light Propagation Volumes (algorytm rozwiązywania zagadnienia globalnego oświetlenia w czasie rzeczywistym) pozwala uzyskać niemal fotorealistyczną grafikę, jednak kosztem wysokich wymagań sprzętowych.
+Unreal Engine, zarówno w~wersji~3 jak i~4, oferuje dostęp do kodu źródłowego w~języku C++, co - po poznaniu API udostępnianego przez twórców - pozwala szybko i wygodnie rozwijać logikę gry. Umiejętność programowania nie jest jednak wymagana do tego ze względu na obecność mechanizmu blueprintów, który pozwala tworzyć kod z wykorzystaniem bloków oferowanych bezpośrednio w~silniku graficznym.
 Ze względu na wysokie wymagania sprzętowe (brak możliwości uruchomienia na komputerach laboratoryjnych oraz komputerach 75\% zespołu) ostatecznie odrzucono to rozwiązanie.
 
 Zalety:
 \begin{itemize}
-\item tania (darmowa) licencja
-\item wygodny edytor i~dostęp do API w~języku C++
-\item niemal fotorealistyczna grafika
+\item tania (darmowa) licencja,
+\item wygodny edytor i~dostęp do API w~języku C++,
+\item niemal fotorealistyczna grafika.
 \end{itemize}
 
 
 Wady:
 \begin{itemize}
-\item konieczność poznania API
-\item wysokie wymagania sprzętowe
+\item konieczność poznania API,
+\item wysokie wymagania sprzętowe.
 \end{itemize}
 
 \section{Unity}
+
+Unity Engine to obecnie najpopularniejszy silnik graficzny wśród twórców gier niezależnych. Poza płatną licencją oferuje także licencję darmową z okrojoną listą funkcjonalności, które jednak nadal pozwalają na tworzenie dość zaawansowanych gier (wycięte funkcjonalności związane są głównie z jakością grafiki). Ma on także niski próg wejścia ze względu na zastosowanie w skryptach języka C\# lub JavaScript oraz oferuje 30-dniową wersję próbną. Odrzucono go głównie ze względu na wysoką cenę wersji Pro oraz brak pewnych istotnych funkcjonalności (brak miękkich cieni, brak cieni dla źródeł światła innych niż punktowe itp.)
+
+Zalety:
+\begin{itemize}
+\item darmowa (choć okrojona) wersja,
+\item niski próg wejścia,
+\item 30-dniowa wersja próbna.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item gorsza wydajność w stosunku do innych silników (języki C\# i JavaScript oraz wykorzystanie dynamicznych komponentów w trakcie działania powodują powstanie dodatkowego narzutu czasowego),
+\item wysoka cena licencji Pro (1500\$),
+\item brak pewnych istotnych dla jakości funkcjonalności.
+\end{itemize}
 
 \section{OGRE}
 
@@ -58,3 +74,36 @@ Wady:
 \section{Blender}
 
 \section{Adobe Flash - Scaleform}
+
+\section{Git}
+
+W projektach nad którymi pracuje kilka osób niemożliwa jest praca bez systemu kontroli wersji. Początkowo, ze względu na pracę z kodem źródłowym, skorzystano z systemu Git ze względu na łatwość użycia oraz możliwość utworzenia prywatnego repozytorium na koncie studenckim w serwisie GitHub. Niestety ze względu na przejście na Unreal Development Kit konieczne było skorzystanie z narzędzia Perforce.
+
+Zalety:
+\begin{itemize}
+\item łatwość obsługi,
+\item dobra obsługa plików tekstowych,
+\item prywatne repozytorium w serwisie GitHub dla studentów.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item problemy z obsługą dużych plików binarnych,
+\item brak integracji z Unreal Development Kit.
+\end{itemize}
+
+\section{Perforce}
+
+Ostatnim opisywanym narzędziem jest system kontroli wersji Perforce, który dobrze obsługuje duże pliki binarne, dzięki czemu jest popularny w firmach zajmujących się wytwarzaniem oprogramowania (w tym gier). Pozwala on również -- w przeciwieństwie do gita -- na integrację z edytorem Unreal Development Kit, co znacząco przyspiesza i ułatwia pracę. Niestety ma on również swoje wady, które ujawniają się dopiero z upływem czasu, na przykład problemy z obsługą usuniętych plików (nadal uwzględniane są w listach zmian) czy nie zapisywanie zmian wprowadzonych w plikach na wspomniane listy.
+
+Zalety:
+\begin{itemize}
+\item dobra obsługa plików binarnych,
+\item integracja z Unreal Development Kit.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item niespodziewane problemy wynikające z niewłaściwej obsługi zmian,
+\item konieczność zainstalowania dedykowanego oprogramowania serwerowego i utrzymania serwera.
+\end{itemize}
