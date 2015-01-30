@@ -1,3 +1,9 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{JD07}
+
+\bibitem[JD07]{gpugems_23}
+NVIDIA Joe~Demers.
+\newblock Depth of field: A survey of techniques.
+\newblock [on-line]
+  \url{http://http.developer.nvidia.com/GPUGems/gpugems_ch23.html}, 2007.
 
 \end{thebibliography}
