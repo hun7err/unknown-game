@@ -16,7 +16,26 @@ Jednak projektowanie to nie tylko uspójnienie rozgrywki, ale również specyfik
 
 \subsection{Projekt silnika graficznego}
 
+W ramach pracy jako pierwsze przetestowano podejście z~tworzeniem własnego silnika graficznego w~języku C++. Jak zostało wspomniane w~poprzednim rozdziale, tworzenie tego rodzaju oprogramowania wymaga pewnej określonej wiedzy dotyczącej zarówno architektury silników~graficznych i~inżynierii oprogramowania, jak i~grafiki komputerowej oraz Microsoft DirectX API. Jako że wiedza teoretyczna wraz z podstawowymi pojęciami zostały zarysowane w rozdziale 2., tutaj opisane zostaną kwestie dotyczące architektury silnika oraz usprawnień, które mogłyby zostać wprowadzone w~przyszłości.\\
+
+W silniku graficznym można zasadniczo wydzielić 3 podstawowe składowe:
+\begin{itemize}
+\item renderer - przeprowadza proces renderingu, tj. generowania grafiki,
+\item menedżer obiektów - zawiera listę obiektów i/lub listę ich grup,
+\item menedżer zasobów - odpowiada za alokację i zwalnianie zasobów takich jak tekstury, dźwięki itp.
+\end{itemize}
+
+W ramach menedżera obiektów zastosowano wzorzec kompozyt ze względu na jego idealne dopasowanie do problemu.
+Jak widać każda z~tych składowych może stanowić pewną jednostkę (ang. \emph{entity}) budującą system - w~tym wypadku system graficzny (wyróżnia się również na przykład systemy fizyki). Jednostki można również podzielić na mniejsze komponenty, które można dynamicznie dodawać i~usuwać w trakcie działania - podejście takie zgodne jest wzorcem \emph{Entity-Component-System}. Jak zauważono podczas testowania opisywanego oprogramowania, poza wygodą oraz nowymi możliwościami rozwoju wykorzystanie dynamicznych komponentów wprowadza także narzut czasowy ze względu na wykorzystanie metod wirtualnych oraz nieoptymalne wykorzystanie pamięci podręcznej procesora. W~tym wypadku możliwym usprawnieniem mogłoby być budowanie aplikacji z~komponentów w~edytorze, a~następnie generowanie "stałych" klas i~kompilowanie zmodyfikowanego w~ten sposób kodu do pliku wykonywalnego, który mógłby być dystrybuowany jako gotowa aplikacja.\\
+Nieoptymalne wykorzystanie pamięci podręcznej procesora dotyczy nie tylko wykorzystania komponentów, gdyż jest wąskim gardłem większości zarówno amatorskich jak i~profesjonalnych silników graficznych. W~celu zniwelowania tego problemu można utworzyć pewien stały obszar pamięci (w~języku C++ w~wersji 11. w tym celu wykorzystać można operator \emph{placement new}) i~utworzyć pulę obiektów, w~ramach której mogłyby one być używane ponownie bez konieczności zwalniania zajmowanej przez nie pamięci.\\
+Ostatnim usprawnieniem, które można byłoby wprowadzić celem zwiększenia efektywności procesu renderingu jest wielowątkowość, która jednak wymagałaby wprowadzenia synchronizacji między wątkami aplikacji (np. zamki) oraz użycia metod DirectX obsługujących wielowątkowość (np. operować na opóźnionym kontekście urządzenia). Jej użycie utrudniałoby też skuteczną naprawę błędów ze względu na brak możliwości odpluskwiania kodu w środowisku Microsoft Visual Studio, w którym tworzone było to oprogramowanie.\\
+Dla silnika została napisana i wygenerowana z wykorzystaniem aplikacji Doxygen dokumentacja, jednak ze względu na swoją objętość (150 stron) nie została tutaj załączona.
+% dodawać wykaz klas, przestrzeni nazw i kod źródłowy + dokumentację w pdf?
+% dodać do literatury tekst o EntityComponentSystem + o deferred shading i tutoriale z animacji
+
 \subsection{Modele 3D}
+
+
 
 \subsection{Projekt poziomu}
 
