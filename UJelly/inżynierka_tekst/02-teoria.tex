@@ -76,8 +76,12 @@ Uzyskanie tego efektu wymaga utworzenia kilku tekstur pośredniczących, które 
 \end{itemize}
 Pomimo wielu zalet, deferred shading ma jednak swoje wady. Obliczanie oświetlenia z gotowego obrazu uniemożliwia łatwe obliczenie kolorów w przypadku przezroczystych obiektów, zaś wyświetlanie obrazu końcowego w postaci tekstury wymaga wykorzystania bardziej skomplikowanych algorytmów obliczania antyaliasingu, co z~kolei obciąża kartę graficzną. Mimo to deferred shading, w zmodyfikowanych odmianach, jest powszechnie wykorzystywany w~wielu popularnych grach komputerowych oraz innych aplikacjach renderujących obraz w~czasie rzeczywistym.
 
-\section{Podpowierzchniowe Rozproszenie Światła (Subsurface Scattering)}
+\section{Podpowierzchniowe Rozproszenie Światła/Rozpraszanie Podpowierzchniowe (SubSurface Scattering)}
 
+Kolory obserwowane na co dzień są efektem odbicia fotonów od powierzchni obserwowanego obiektu (oraz innych obiektów, co skutkuje efektem tak zwanego "krwawienia kolorów" (ang. \emph{color bleeding}, czyli zabarwienia obiektu kolorem światła odbitego). Jeśli jednak światło zamiast odbić się bezpośrednio dostanie się pod powierzchnię obiektu, odbije kilka razy wewnątrz i wyjdzie w innym punkcie, to zobaczymy, iż obiekt ten jest półprzezroczysty - światło dociera jedynie na pewną głębokość określaną mianem promienia rozproszenia światła (ang. \emph{scattering radius}), gdzie zostaje zabarwione na nowy kolor. Przykładem materiałów zachowujących się w ten sposób mogą być wosk, mleko, marmur czy skóra.\\
+Efekt ten jest trudny do obliczenia w czasie rzeczywistym, w związku z czym w większości przypadków stosuje się jedynie pewne przybliżenia. Przykładem algorytmu dającego przybliżone lecz skuteczne rozwiązanie jest wykorzystanie map głębokości. Opiera się on na zasadzie podobnej do obliczania map cieni (ang. \emph{shadow maps}), jednak w tym wypadku z punktu widzenia źródła światła zapisuje się bardziej skomplikowaną informację - drogę, jaką musi pokonać światło przechodząc przez obiekt, a więc odległość pomiędzy dwoma punktami leżącymi na jego powierzchni z obu stron obiektu. Podczas kolejnego przejścia procesu renderingu można wykorzystać tę informację do oszacowania koloru wynikowego.
 
+\section{Głębia Ostrości (Depth of Field)}
 
-\section{Depth of Field}
+Ostatnim teoretycznym zagadnieniem objaśnianym w tym rozdziale jest zjawisko głębi ostrości, znane powszechnie między innymi z fotografii. Jak opisano w \cite{gpugems_23}, polega ono na skupieniu ostrości na pewnym obiekcie lub grupie obiektów w zależności od ogniskowej soczewki, przesłony oraz tak zwanego "krążka rozmycia" (ang. \emph{circle of confusion}; jest to parametr wpływający na ogólną ostrość/rozmycie obrazu).\\
+Ponieważ istnieje wiele algorytmów obliczania głębi ostrości, a sam proces wyznaczania potrzebnych wartości jest skomplikowany, nie będzie on opisywany w niniejszej pracy.
