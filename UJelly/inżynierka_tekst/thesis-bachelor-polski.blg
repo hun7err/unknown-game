@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis-bachelor-polski.aux
 The style file: plalpha.bst
 Database file #1: bibliography.bib
-You've used 1 entry,
+You've used 2 entries,
             2554 wiz_defined-function locations,
-            584 strings with 4833 characters,
-and the built_in function-call counts, 291 in all, are:
-= -- 26
-> -- 8
-< -- 1
-+ -- 2
-- -- 2
-* -- 13
-:= -- 54
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 5
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 11
-empty$ -- 26
-format.name$ -- 3
-if$ -- 59
+            594 strings with 4991 characters,
+and the built_in function-call counts, 563 in all, are:
+= -- 50
+> -- 16
+< -- 2
++ -- 4
+- -- 4
+* -- 27
+:= -- 100
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 9
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 27
+empty$ -- 51
+format.name$ -- 7
+if$ -- 115
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 3
-pop$ -- 8
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 6
+pop$ -- 16
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 12
 quote$ -- 0
-skip$ -- 13
+skip$ -- 23
 stack$ -- 0
-substring$ -- 7
-swap$ -- 1
-text.length$ -- 1
-text.prefix$ -- 0
+substring$ -- 14
+swap$ -- 2
+text.length$ -- 2
+text.prefix$ -- 1
 top$ -- 0
-type$ -- 8
+type$ -- 12
 warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 14
+while$ -- 4
+width$ -- 3
+write$ -- 27

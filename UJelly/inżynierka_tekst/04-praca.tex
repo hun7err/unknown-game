@@ -46,8 +46,15 @@ Dla silnika została napisana i wygenerowana z wykorzystaniem aplikacji Doxygen 
 \subsection{Zarządzanie projektem}
 W~celu sprawnej organizacji pracy w~zespole wykorzystano metody zarządzania projektami. Uspójnienie projektu gry podczas fazy projektowania pozwoliło na zdefiniowanie i~wyspecyfikowanie zadań, realizowanych podczas implementacji. Znając liczbę zadań, można było podzielić projekt na kolejne przyrosty. Projekt miał być realizowany z~wykorzystaniem metod zwinnych. Trudnością w~wykorzystaniu typowej zwinnej metody, takiej jak programowanie ekstremalne czy Scrum okazał się charakter projektu, będącego pracą dyplomową. Z~tego względu narzucony został ostateczny termin ukończenia produktu. Jest to sprzeczne z manifestem zwinności, dlatego zdecydowano się na inne rozwiązanie.
 
-Początkowo użyto modelu kaskadowego. Jego zaletą jest sekwencyjność, pozwalająca oddzielić procesy analizy problemu, projektowania, implementacji oraz testowania i~późniejszego utrzymania projektu. Metoda Waterfall, wykorzystująca ten model, nie jest jednak pozbawiona wad. 
-Dotyczą one głównie dużych projektów, a~więc nie miały miejsca w~przypadku oprogramowania tworzonego w~czteroosobowym zespole programistów. Korzystając z~tej metody oszczędza się czas na planowaniu, faza ta zajmuje zaledwie 25\% czasu pracy nad projektem. Rezultat końcowy zostaje ustalony jeszcze przed rozpoczęciem implementacji, podobnie jak poszczególne przyrosty implementacji. Każdy przyrost miał trwać 2 tygodnie i~zawierał określone zadania. Rezultatem końcowym był produkt posiadający wartość biznesową, w~tym przypadku - w~pełni działająca gra. Co istotne, wartość biznesową produkt miał zyskać dopiero w~przedostatnim przyroście. 
+Początkowo użyto modelu kaskadowego. Jego zaletą jest sekwencyjność, pozwalająca oddzielić procesy analizy problemu, projektowania, implementacji oraz testowania i~późniejszego utrzymania projektu, co przedstawiono na Rys. \ref{waterfall}. Metoda Waterfall, wykorzystująca ten model, nie jest jednak pozbawiona wad. Dotyczą one głównie dużych projektów, a~więc nie miały miejsca w~przypadku oprogramowania tworzonego w~czteroosobowym zespole programistów. Korzystając z~tej metody oszczędza się czas na planowaniu. Jak opisano w \cite{Kaczor:Scrum}, faza ta zajmuje zaledwie 25\% czasu pracy nad projektem. Rezultat końcowy zostaje ustalony jeszcze przed rozpoczęciem implementacji, podobnie jak poszczególne przyrosty implementacji. Każdy przyrost miał trwać 2 tygodnie i~zawierał określone zadania. Rezultatem końcowym był produkt posiadający wartość biznesową, w~tym przypadku - w~pełni działająca gra. Co istotne, wartość biznesową produkt miał zyskać dopiero w~przedostatnim przyroście. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{figures/waterfall.png}
+\caption{Model kaskadowy}
+\label{waterfall}
+\end{center}
+\end{figure}
 
 Problemem w wykorzystaniu modelu kaskadowego są błędy, wykryte podczas fazy testowania. Ponieważ w momencie rozpoczęcia testów cały produkt jest już zaimplementowany, poprawka może spowodować powstanie kolejnych błędów. Może jednak się zdarzyć, że błąd powstał na etapie projektowania, w takim przypadku należy powtórzyć tę fazę, jak również całą fazę implementacji. Powoduje to wydłużanie czasu realizacji oraz wzrost kosztów wytworzenia produktu.
 
@@ -60,5 +67,13 @@ W części dotyczącej rozpoznania zastosowano cykl PDCA (\emph{Plan -- Do -- Ch
 Realizowane były tygodniowe sprinty (przyrosty). Każdy sprint rozpoczynał się spotkaniem zespołu, na którym omówiono pozostałe zadania oraz zaplanowano jakie funkcjonalności będą implementowane w~kolejnym przyroście. W~efekcie udało się zachować jakość wykonania oraz zakończyć prace przed upływem niezmiennego terminu ukończenia, modyfikując nieznacznie zakres dostępnych funkcjonalności. Zespół tworzący grę był wskroś-funkcjonalny, co oznacza, że członkowie zespołu wykonywali zadania dotyczące różnych zagadnień. Począwszy od tworzenia prostych modeli 3D po skryptowanie. Jest to cecha charakterystyczna metody Scrum. Z kolei sposób planowania kolejnych przyrostów, a więc planowanie ze względu na funkcjonalność, zaczerpnięto z metody Feature-Driven Develppment. 
 
 Na koniec każdego przyostu otrzymywano prototyp posiadający pewną funkcjonalność. Jeśli funkcjonalność działała prawidłowo podczas testów, dołączano ją do głównego prototypu, który z każdym przyrostem stawał się bardziej funkcjonalny, aż w końcu stał się wersją produkcyjną. Ze względu na wcześniejszy nieudany eksperyment z~metodą Waterfall wartość biznesową projekt zyskał dopiero po kliku przyrostach. Oznacza to, że pierwsze efekty nie były satysfakcjonujące, jednak prezentowały postęp prac. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{figures/ujelly_phases.png}
+\caption{Etapy procesu wytwórczego gry przy wykorzystaniu metody Feature-Driven Development i cyklu PDCA}
+\label{ujelly_phases}
+\end{center}
+\end{figure}
 
 Trzy główne fazy procesu wytwarzania gry, występujące w modelu kaskadowym, a więc: projektowanie, implementacja i testowanie, w metodach zwinnych są wykonywane w każdym sprincie, co znacznie zmniejsza ryzyko powstania krytycznych błędów po zaimplementowaniu całego produktu. W przypadku wykorzystania Feature-Driven Development proces naprawy błędów również obarczony jest mniejszym ryzykiem czasowym. Zwłaszcza, gdy błąd powstał na etapie projektowania danej funkcjonalności. W skrajnym przypadku, wadliwa funkcjonalność nie trafi do głównego produktu.

@@ -31,6 +31,6 @@
 \contentsline {section}{\numberline {4.2}Implementacja}{11}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Wykorzystanie technologii DirectX 11 w~UDK}{11}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Zarz\IeC {\k a}dzanie projektem}{11}{subsection.4.2.2}
-\contentsline {chapter}{\chapternumberline {5}Podsumowanie}{13}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}Literatura}{14}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Dodatki}{15}{chapter.7}
+\contentsline {chapter}{\chapternumberline {5}Podsumowanie}{14}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Literatura}{15}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Dodatki}{16}{chapter.7}
