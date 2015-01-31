@@ -6,9 +6,9 @@ Ze względu na specyfikę tego rozdziału, w~kolejnych punktach opisane zostaną
 
 \section{Własny silnik graficzny w~języku C++}
 Proces doboru narzędzi rozpoczęto od zaprojektowania i~stworzenia własnego silnika graficznego w~języku C++ w~wersji 11 z wykorzystaniem środowiska Microsoft Visual Studio 2012 na platformę Windows. Pozwoliło to nie tylko na praktyczne wykorzystanie umiejętności nabytych podczas uczestnictwa w zajęciach z Inżynierii Oprogramowania, ale także poznać w praktyce wykorzystanie Microsoft DirectX API w~wersji 11 na najniższym dostępnym poziomie. Tworzenie tego rodzaju oprogramowania wymaga jednak nie tylko odpowiedniej ilości czasu, ale także dobrego zaprojektowania interakcji między klasami oraz zrozumienia wielu zagadnień z~zakresu grafiki komputerowej, w~większości takich, które wykraczają poza program przedmiotu Grafika Komputerowa i Wizualizacja.
-Pomimo iż stworzenie własnego silnika oferuje największą swobodę w tworzeniu gry, to podejście okazało się zbyt pracochłonne, aby można je było wykorzystać do realizacji zadanego tematu pracy inżynierskiej w~dostępnym czasie. Na czasochłonność miała wpływ m.in. złożoność tworzonego oprogramowania oraz konieczność wdrażania się członków zespołu w~stworzony przez siebie kod.\\
+Pomimo iż stworzenie własnego silnika oferuje największą swobodę w tworzeniu gry, to podejście okazało się zbyt pracochłonne, aby można je było wykorzystać do realizacji zadanego tematu pracy inżynierskiej w~dostępnym czasie. Na czasochłonność miała wpływ m.in. złożoność tworzonego oprogramowania oraz konieczność wdrażania się członków zespołu w~stworzony przez siebie nawzajem kod.\\
 
-Zalety:
+{\raggedright Zalety:
 \begin{itemize}
 \item większe możliwości w~zakresie wykorzystania DirectX API,
 \item lepsza znajomość możliwości oferowanych przez oprogramowanie,
@@ -21,13 +21,13 @@ Wady:
 \item wysoki próg wejścia (znajomość m.in. C++ oraz DirectX API),
 \item konieczność wytworzenia edytora poziomów i dodatnia odpowiednich funkcjonalności.
 \end{itemize}
-
+}
 \section{Unreal Engine 4}
 Unreal Engine 4 (UE4) jest jednym z~najpopularniejszych silników graficznych dostępnych na rynku, co jest złożeniem wielu czynników. Pierwszym z~nich jest z~pewnością niska cena płatnej licencji (subskrypcja miesięczna to koszt 19\$) oraz darmowy dostęp dla studentów zarówno w~ramach licencji edukacyjnej (należy w~tym wypadku zgłosić chęć wydania licencji w~ramach przedmiotu prowadzonego na uczelni) jak i~w~ramach GitHub Developers Pack (należy jedynie potwierdzić studencki adres e-mail oraz wykorzystać [ang. \emph{redeem}] licencję dostępną na odpowiedniej podstronie serwisu GitHub w~formie kodu [ang. \emph{serial code}]). Drugim jest jakość generowanych (renderowanych) obrazów -- wykorzystanie algorytmu Light Propagation Volumes (algorytm rozwiązywania zagadnienia globalnego oświetlenia w czasie rzeczywistym) pozwala uzyskać niemal fotorealistyczną grafikę, jednak kosztem wysokich wymagań sprzętowych.
 Unreal Engine, zarówno w~wersji~3 jak i~4, oferuje dostęp do kodu źródłowego w~języku C++, co - po poznaniu API udostępnianego przez twórców - pozwala szybko i wygodnie rozwijać logikę gry. Umiejętność programowania nie jest jednak wymagana do tego ze względu na obecność mechanizmu blueprintów, który pozwala tworzyć kod z wykorzystaniem bloków oferowanych bezpośrednio w~silniku graficznym.
 Ze względu na wysokie wymagania sprzętowe (brak możliwości uruchomienia na komputerach laboratoryjnych oraz komputerach 75\% zespołu) ostatecznie odrzucono to rozwiązanie.\\
 
-Zalety:
+{\raggedright Zalety:
 \begin{itemize}
 \item tania (darmowa) licencja,
 \item wygodny edytor i~dostęp do API w~języku C++,
@@ -39,12 +39,12 @@ Wady:
 \item konieczność poznania API,
 \item wysokie wymagania sprzętowe.
 \end{itemize}
-
+}
 \section{Unity}
 
 Unity Engine to obecnie najpopularniejszy silnik graficzny wśród twórców gier niezależnych. Poza płatną licencją oferuje także licencję darmową z okrojoną listą funkcjonalności, które jednak nadal pozwalają na tworzenie dość zaawansowanych gier (wycięte funkcjonalności związane są głównie z jakością grafiki). Ma on także niski próg wejścia ze względu na zastosowanie w skryptach języka C\# lub JavaScript oraz oferuje 30-dniową wersję próbną. Odrzucono go głównie ze względu na wysoką cenę wersji Pro oraz brak pewnych istotnych funkcjonalności (brak miękkich cieni, brak cieni dla źródeł światła innych niż punktowe itp.)\\
 
-Zalety:
+{\raggedright Zalety:
 \begin{itemize}
 \item darmowa (choć okrojona) wersja,
 \item niski próg wejścia,
@@ -57,12 +57,12 @@ Wady:
 \item wysoka cena licencji Pro (1500\$),
 \item brak pewnych istotnych dla jakości funkcjonalności.
 \end{itemize}
-
+}
 \section{OGRE}
 
 Object-Oriented Graphics Rendering Engine to elastyczny silnik graficzny o~otwartym kodzie źródłowym napisany w~języku C++. Pozwala na korzystanie z~dwóch API: OpenGL oraz Microsoft DirectX, w tym DirectX 11, przez co został wybrany jako alternatywa dla DirectX 11. Niestety nie jest on rozwijany na bieżąco, przez co wsparcie dla DirectX 11 jest jedynie częściowe i~w~większości wypadków iluzoryczne, ponieważ próba stworzenia urządzenia kończy się rzuceniem wyjątku wewnątrz biblioteki. Nie posiada on także edytora, co znacząco utrudnia tworzenie gier i~ogranicza jego zastosowania do tworzenia dem technologicznych i~testowania nowych technik usprawniających rendering. Ze względu na wspomniane problemy z~obsługą DirectX 11 został on odrzucony po~licznych próbach uruchomienia własnej aplikacji.\\
 
-Zalety:
+{\raggedright Zalety:
 \begin{itemize}
 \item bezpośredni dostęp do DirectX API (otwarty kod źródłowy silnika),
 \item (teoretyczne) wsparcie dla DirectX 11.
@@ -74,8 +74,25 @@ Wady:
 \item problemy ze wsparciem dla DirectX 11,
 \item kolejne wersje dystrybuowane są wyjątkowo rzadko (ostatnia wersja sprzed dwóch lat).
 \end{itemize}
-
+}
 \section{CryEngine 3 SDK}
+
+CryEngine 3 Software Development Kit to środowisko stworzone przez firmę Crytek na potrzeby gry \emph{Crysis 3}, a~następnie udostępnione na darmowej licencji. Składa się ono z~edytora oraz kodu źródłowego w~języku C++ wraz z~projektem środowiska Microsoft Visual Studio. Dostęp do kodu źródłowego pozwala na lepszą kontrolę nad tworzoną aplikacją, jednak ogranicza się to głównie do mechaniki rozgrywki, ponieważ system renderujący został udostępniony jako biblioteka dołączana do~projektu. Kolejnym mankamentem tego rozwiązania jest brak dokumentacji dla wielu funkcji, metod oraz opcji edytora, w~tym dla rozproszenia podpowierzchniowego, które jest jedyną oferowaną funkcjonalnością DirectX 11. Edytor nie pozwala też na tworzenie programów cieniujących, co mogłoby pozwolić na stworzenie własnych rozwiązań problemów (na przykład wspomniane przybliżone rozwiązanie z~mapą głębokości). Ze względu na wymienione trudności z~rozwojem projektu w~tym środowisku ostatecznie zostało ono odrzucone.\\
+
+{\raggedright Zalety:
+\begin{itemize}
+\item dostęp do kodu źródłowego silnika,
+\item wsparcie dla DirectX 11,
+\item łatwy w obsłudze edytor.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item ograniczone możliwości,
+\item brak możliwości tworzenia własnych programów cieniujących,
+\item niekompletna dokumentacja.
+\end{itemize}
+}
 
 \section{Unreal Engine 3}
 
@@ -95,14 +112,14 @@ Wady:
 
 W projektach nad którymi pracuje kilka osób niemożliwa jest praca bez systemu kontroli wersji. Początkowo, ze względu na pracę z kodem źródłowym, skorzystano z systemu Git ze względu na łatwość użycia oraz możliwość utworzenia prywatnego repozytorium na koncie studenckim w serwisie GitHub. Niestety ze względu na przejście na Unreal Development Kit konieczne było skorzystanie z narzędzia Perforce.\\
 
-Zalety:
+\raggedright Zalety:
 \begin{itemize}
 \item łatwość obsługi,
 \item dobra obsługa plików tekstowych,
 \item prywatne repozytorium w serwisie GitHub dla studentów.
 \end{itemize}
 
-Wady:
+\raggedright Wady:
 \begin{itemize}
 \item problemy z obsługą dużych plików binarnych,
 \item brak integracji z Unreal Development Kit.
@@ -112,13 +129,13 @@ Wady:
 
 Ostatnim opisywanym narzędziem jest system kontroli wersji Perforce, który dobrze obsługuje duże pliki binarne, dzięki czemu jest popularny w firmach zajmujących się wytwarzaniem oprogramowania (w tym gier). Pozwala on również -- w przeciwieństwie do gita -- na integrację z edytorem Unreal Development Kit, co znacząco przyspiesza i ułatwia pracę. Niestety ma on również swoje wady, które ujawniają się dopiero z upływem czasu, na przykład problemy z obsługą usuniętych plików (nadal uwzględniane są w listach zmian) czy nie zapisywanie zmian wprowadzonych w plikach na wspomniane listy.
 
-Zalety:
+\raggedright Zalety:
 \begin{itemize}
 \item dobra obsługa plików binarnych,
 \item integracja z Unreal Development Kit.
 \end{itemize}
 
-Wady:
+\raggedright Wady:
 \begin{itemize}
 \item niespodziewane problemy wynikające z niewłaściwej obsługi zmian,
 \item konieczność zainstalowania dedykowanego oprogramowania serwerowego i utrzymania serwera.
