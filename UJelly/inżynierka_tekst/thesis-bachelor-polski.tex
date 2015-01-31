@@ -34,6 +34,14 @@
 \pagenumbering{Roman}\pagestyle{ppfcmthesis}%
 \tableofcontents* \cleardoublepage%
 
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    \textsc{Źródło:} #2%
+  }%
+}
+
 % Main content of your thesis starts here.
 \mainmatter%
 \input{01-wstep.tex}

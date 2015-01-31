@@ -60,7 +60,7 @@ Ostatnim zasługującym na uwagę jest fakt, iż w~większości aplikacji wraz z
 
 \section{Deferred Shading}
 
-Podstawowym sposobem obliczania oświetlenia, uwzględniając opisany wcześniej proces generacji obrazu, jest wyliczenie oświetlenia bezpośrednio dla każdego obiektu. Wartości takie jak wektory normalne, współrzędne teksturowania i inne używane we~wspomnianym procesie są wczytywane w shaderze wierzchołków, a następnie interpolowane w~pixel shaderze. W~przypadku wielu źródeł oświetlenia (na przykład 2000 lub więcej), dla każdego obiektu (niezależnie od tego, czy jest widoczny) należy sprawdzić wszystkie źródła światła, co oznacza złożoność
+Nawiązując do \cite{forward_deferred}, podstawowym sposobem obliczania oświetlenia, uwzględniając opisany wcześniej proces generacji obrazu, jest wyliczenie oświetlenia bezpośrednio dla każdego obiektu. Wartości takie jak wektory normalne, współrzędne teksturowania i inne używane we~wspomnianym procesie są wczytywane w shaderze wierzchołków, a następnie interpolowane w~pixel shaderze. W~przypadku wielu źródeł oświetlenia (na przykład 2000 lub więcej), dla każdego obiektu (niezależnie od tego, czy jest widoczny) należy sprawdzić wszystkie źródła światła, co oznacza złożoność
 \begin{equation}
 \label{forward_shading_complexity}
 O(~liczba\_pikseli\_per\_obiekt~*~liczba\_zrodel\_swiatla~)

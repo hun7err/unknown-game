@@ -1,19 +1,33 @@
-\begin{thebibliography}{Ada11}
+\begin{thebibliography}{Dem07}
 
 \bibitem[Ada11]{Adams:pgp}
 Ernest Adams.
 \newblock {\em Projektowanie gier. Podstawy. Wydanie II}.
 \newblock Wydawnictwo HELION, ul. Kościuszki 1c, 44-100 Gliwice, 2011.
 
-\bibitem[JD07]{gpugems_23}
-NVIDIA Joe~Demers.
+\bibitem[Dem07]{gpugems_23}
+Joe Demers.
 \newblock Depth of field: A survey of techniques.
 \newblock [on-line]
   \url{http://http.developer.nvidia.com/GPUGems/gpugems_ch23.html}, 2007.
+
+\bibitem[Epi12]{udk_sss}
+Epic.
+\newblock Screen space subsurface scattering.
+\newblock [on-line]
+  \url{https://udn.epicgames.com/Three/ScreenSpaceSubsurfaceScattering.html},
+  2012.
 
 \bibitem[Kac14]{Kaczor:Scrum}
 Krystian Kaczor.
 \newblock {\em Scrum i nie tylko. Teoria i praktyka w metodach Agile}.
 \newblock Wydawnictwo Naukowe PWN SA, Warszawa, 2014.
+
+\bibitem[Owe13]{forward_deferred}
+Brent Owens.
+\newblock Forward rendering vs. deferred rendering.
+\newblock [on-line]
+  \url{http://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342},
+  2013.
 
 \end{thebibliography}

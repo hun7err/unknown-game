@@ -51,7 +51,38 @@ Poziom został stworzony z myślą o grze wieloosobowej w trybie każdy na każd
 \section{Implementacja}
 
 \subsection{Wykorzystanie technologii DirectX 11 w~UDK}
-% opisać czym jest bokeh i bokeh depth of field, sss i deferred rendering (wszystko z punktu widzenia UDK)
+
+W ramach wsparcia DirectX 11, Unreal Development Kit obsługuje trzy opisane w~rozdziale teoretycznym techniki: rozproszenie podpowierzchniowe (subsurface scattering), deferred shading (znany także jako \emph{deferred rendering}) oraz rozszerzenie techniki głębi ostrości o~nazwie \emph{bokeh depth of field} (bokeh [od jap. \emph{boke} w romaji - rozmycie] to efekt rozmycia obrazu z pewnym zniekształceniem, którego kształt zależy od kształtu soczewki - Rys. \ref{bokeh_example}).\\
+
+Technikę rozproszenia podpowierzchniowego wykorzystano w~celu stworzenia materiału, z~którego wykonany jest gracz. Zgodnie z~\cite{udk_sss}, aby tego dokonać, należy najpierw aktywować opcję ''Enable Subsurface Scattering'' w~zakładce ''D3D11'', a~następnie ustawić wymagane parametry, czyli kolor światła rozproszonego (SubsurfaceInscatteringColor), kolor światła pochłoniętego (SubsurfaceAbsorptionColor) oraz promień rozproszenia (SubsurfaceScatteringRadius). W celu uzyskania realistycznego wyglądu materiału, zmieniono także metodę mieszania na ''BLEND\_Translucent'' (pozwala to uzyskać materiał półprzezroczysty, w przeciwieństwie do domyślnej wartości BLEND\_Opaque). Na Rys. \ref{sss_material} przedstawiony został widok materiału w edytorze, zaś na Rys. \ref{sss_material_example} - przykłady jego użycia.\\
+
+Z~\cite{udk_bokeh_dof} wynika, iż użycie techniki Bokeh Depth of Field wymaga jedynie utworzenie odpowiedniej tekstury (w~niniejszej pracy użyto tekstury pięciokąta foremnego pokazanej na~Rys. \ref{bokeh_texture}) oraz ustawienia wartości ''DepthOfFieldType'' na ''BokehDOF'' w efekcie końcowym procesu renderingu (etap ten nie ma swojej nazwy w języku polskim, natomiast oryginalnie nosi nazwę \emph{post-processing}).\\
+
+Ostatnia funkcjonalność DirectX 11, czyli Deferred Shading jest włączona domyślnie gdy używany jest renderer DX11, dzięki czemu nie było koniecznym włączenie tej opcji ręcznie.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{figures/bokeh.jpg}
+\captionsource{Rodzaje bokeh}{http:\/\/www.dofpro.com\/gallery\/dofpro\_spherical\_aberrations.jpg}
+\label{bokeh_example}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{figures/jelly_material.png}
+\caption{Przykłady użycia materiału wykorzystującego rozproszenie podpowierzchniowe}
+\label{sss_material_example}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{figures/T_Bokeh_Pentagon.png}
+\caption{Tekstura bokeh użyta w tworzonej grze}
+\label{bokeh_texture}
+\end{center}
+\end{figure}
 
 \subsection{Zarządzanie projektem}
 W~celu sprawnej organizacji pracy w~zespole wykorzystano metody zarządzania projektami. Uspójnienie projektu gry podczas fazy projektowania pozwoliło na zdefiniowanie i~wyspecyfikowanie zadań, realizowanych podczas implementacji. Znając liczbę zadań, można było podzielić projekt na kolejne przyrosty. Projekt miał być realizowany z~wykorzystaniem metod zwinnych. Trudnością w~wykorzystaniu typowej zwinnej metody, takiej jak programowanie ekstremalne czy Scrum okazał się charakter projektu, będącego pracą dyplomową. Z~tego względu narzucony został ostateczny termin ukończenia produktu. Jest to sprzeczne z manifestem zwinności, dlatego zdecydowano się na inne rozwiązanie.
@@ -74,7 +105,7 @@ Ostatecznie zastosowano metodykę zwinną zbliżoną do metody Feature-Driven De
 
 W~części dotyczącej rozpoznania zastosowano cykl PDCA (\emph{Plan -- Do -- Check -- Act}), stworzony przez Williama Edwardsa Deminga. Pierwszy etap cyklu -- planowanie -- polegało na zapoznaniu się z~opisem wybranej funkcjonalności, zawartym w~Game Design Document. Następnie, w~fazie wykonania, zbierano informacje na temat możliwości implementacji funkcjonalności wykorzystując UDK oraz próbowano stworzyć wybraną funkcję. W~trzeciej fazie sprawdzano czy zaimplementowana wersja funkcji odpowiada założeniom projektu. Jeśli wynik był pozytywny, funkcjonalność została wybierana do wykonania w~kolejnym przyroście.
 
-Realizowane były tygodniowe sprinty (przyrosty). Każdy sprint rozpoczynał się spotkaniem zespołu, na którym omówiono pozostałe zadania oraz zaplanowano jakie funkcjonalności będą implementowane w~kolejnym przyroście. W~efekcie udało się zachować jakość wykonania oraz zakończyć prace przed upływem niezmiennego terminu ukończenia, modyfikując nieznacznie zakres dostępnych funkcjonalności. Zespół tworzący grę był wskroś-funkcjonalny, co oznacza, że członkowie zespołu wykonywali zadania dotyczące różnych zagadnień. Począwszy od tworzenia prostych modeli 3D po skryptowanie. Jest to cecha charakterystyczna metody Scrum. Z~kolei sposób planowania kolejnych przyrostów, a~więc planowanie ze względu na funkcjonalność, zaczerpnięto z~metody Feature-Driven Develppment. 
+Realizowane były tygodniowe sprinty (przyrosty). Każdy sprint rozpoczynał się spotkaniem zespołu, na którym omówiono pozostałe zadania oraz zaplanowano jakie funkcjonalności będą implementowane w~kolejnym przyroście. W~efekcie udało się zachować jakość wykonania oraz zakończyć prace przed upływem niezmiennego terminu ukończenia, modyfikując nieznacznie zakres dostępnych funkcjonalności. Zespół tworzący grę był wskroś-funkcjonalny, co oznacza, że członkowie zespołu wykonywali zadania dotyczące różnych zagadnień. Począwszy od tworzenia prostych modeli 3D po skryptowanie. Jest to cecha charakterystyczna metody Scrum. Z~kolei sposób planowania kolejnych przyrostów, a~więc planowanie ze względu na funkcjonalność, zaczerpnięto z~metody Feature-Driven Development. 
 
 Na koniec każdego przyostu otrzymywano prototyp posiadający pewną funkcjonalność. Jeśli funkcjonalność działała prawidłowo podczas testów, dołączano ją do głównego prototypu, który z~każdym przyrostem stawał się bardziej funkcjonalny, aż w~końcu stał się wersją produkcyjną. Ze względu na wcześniejszy nieudany eksperyment z~metodą Waterfall wartość biznesową projekt zyskał dopiero po kliku przyrostach. Oznacza to, że pierwsze efekty nie były satysfakcjonujące, jednak prezentowały postęp prac. 
 
