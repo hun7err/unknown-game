@@ -3,13 +3,9 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis-bachelor-polski.aux
 The style file: plalpha.bst
 Database file #1: bibliography.bib
-Unbalanced braces---line 3 of file bibliography.bib
- : @string{pub-helion:addr = "ul. Kościuszki 1c, 44-100 Gliwice''
- :                                                                }
-I'm skipping whatever remains of this command
 You've used 1 entry,
             2554 wiz_defined-function locations,
-            583 strings with 4799 characters,
+            584 strings with 4833 characters,
 and the built_in function-call counts, 291 in all, are:
 = -- 26
 > -- 8
@@ -48,4 +44,3 @@ warning$ -- 0
 while$ -- 2
 width$ -- 2
 write$ -- 14
-(There was 1 error message)
