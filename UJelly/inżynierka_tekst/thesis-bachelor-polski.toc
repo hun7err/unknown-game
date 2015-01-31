@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {3.1}W\IeC {\l }asny silnik graficzny w~j\IeC {\k e}zyku C++}{6}{section.3.1}
 \contentsline {section}{\numberline {3.2}Unreal Engine 4}{6}{section.3.2}
 \contentsline {section}{\numberline {3.3}Unity}{7}{section.3.3}
-\contentsline {section}{\numberline {3.4}OGRE}{8}{section.3.4}
+\contentsline {section}{\numberline {3.4}OGRE}{7}{section.3.4}
 \contentsline {section}{\numberline {3.5}CryEngine 3 SDK}{8}{section.3.5}
 \contentsline {section}{\numberline {3.6}Unreal Engine 3}{8}{section.3.6}
 \contentsline {section}{\numberline {3.7}Unreal Development Kit (UDK)}{8}{section.3.7}
