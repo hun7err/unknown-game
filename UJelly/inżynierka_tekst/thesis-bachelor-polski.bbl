@@ -1,4 +1,9 @@
-\begin{thebibliography}{Kac14}
+\begin{thebibliography}{Ada11}
+
+\bibitem[Ada11]{Adams:pgp}
+Ernest Adams.
+\newblock {\em Projektowanie gier. Podstawy. Wydanie II}.
+\newblock Wydawnictwo HELION, ul. Kościuszki 1c, 44-100 Gliwice, 2011.
 
 \bibitem[JD07]{gpugems_23}
 NVIDIA Joe~Demers.
