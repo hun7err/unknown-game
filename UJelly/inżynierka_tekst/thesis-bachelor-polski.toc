@@ -23,17 +23,17 @@
 \contentsline {section}{\numberline {3.11}Gimp}{11}{section.3.11}
 \contentsline {section}{\numberline {3.12}Adobe Flash - Scaleform}{11}{section.3.12}
 \contentsline {section}{\numberline {3.13}Git}{11}{section.3.13}
-\contentsline {section}{\numberline {3.14}Perforce}{11}{section.3.14}
+\contentsline {section}{\numberline {3.14}Perforce}{12}{section.3.14}
 \contentsline {section}{\numberline {3.15}Jira}{12}{section.3.15}
 \contentsline {chapter}{\chapternumberline {4}Praca w\IeC {\l }asna}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}Projektowanie}{13}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Projekt silnika graficznego}{14}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Modele 3D i animacje}{14}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Projekt poziomu}{14}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}Projekt poziomu}{15}{subsection.4.1.3}
 \contentsline {section}{\numberline {4.2}Implementacja}{15}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Wykorzystanie technologii DirectX 11 w~UDK}{15}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Skryptowanie}{17}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Zarz\IeC {\k a}dzanie projektem}{17}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.2}Skryptowanie}{16}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Zarz\IeC {\k a}dzanie projektem}{16}{subsection.4.2.3}
 \contentsline {chapter}{\chapternumberline {5}Podsumowanie}{20}{chapter.5}
 \contentsline {chapter}{\chapternumberline {6}Literatura}{21}{chapter.6}
 \contentsline {chapter}{\chapternumberline {7}Dodatki}{22}{chapter.7}
