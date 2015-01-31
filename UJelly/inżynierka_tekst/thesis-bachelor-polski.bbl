@@ -1,4 +1,4 @@
-\begin{thebibliography}{Dem07}
+\begin{thebibliography}{Gam12b}
 
 \bibitem[Ada11]{Adams:pgp}
 Ernest Adams.
@@ -11,8 +11,20 @@ Joe Demers.
 \newblock [on-line]
   \url{http://http.developer.nvidia.com/GPUGems/gpugems_ch23.html}, 2007.
 
-\bibitem[Epi12]{udk_sss}
-Epic.
+\bibitem[Gam12a]{udk_bokeh_dof}
+Epic Games.
+\newblock Bokeh depth of field.
+\newblock [on-line]
+  \url{https://udn.epicgames.com/Three/BokehDepthOfField.html}, 2012.
+
+\bibitem[Gam12b]{udk_deferred_shading}
+Epic Games.
+\newblock Deferred shading in directx 11.
+\newblock [on-line] \url{
+  https://udn.epicgames.com/Three/DeferredShadingDX11.html}, 2012.
+
+\bibitem[Gam12c]{udk_sss}
+Epic Games.
 \newblock Screen space subsurface scattering.
 \newblock [on-line]
   \url{https://udn.epicgames.com/Three/ScreenSpaceSubsurfaceScattering.html},

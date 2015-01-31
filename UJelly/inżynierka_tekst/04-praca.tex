@@ -28,7 +28,7 @@ W silniku graficznym można zasadniczo wydzielić 3 podstawowe składowe:
 \end{itemize}
 
 W ramach menedżera obiektów zastosowano wzorzec kompozyt ze względu na jego idealne dopasowanie do problemu.
-Jak widać każda z~tych składowych może stanowić pewną jednostkę (ang. \emph{entity}) budującą system - w~tym wypadku system graficzny (wyróżnia się również na przykład systemy fizyki). Jednostki można również podzielić na mniejsze komponenty, które można dynamicznie dodawać i~usuwać w trakcie działania - podejście takie zgodne jest wzorcem \emph{Entity-Component-System}. Jak zauważono podczas testowania opisywanego oprogramowania, poza wygodą oraz nowymi możliwościami rozwoju wykorzystanie dynamicznych komponentów wprowadza także narzut czasowy ze względu na wykorzystanie metod wirtualnych oraz nieoptymalne wykorzystanie pamięci podręcznej procesora. W~tym wypadku możliwym usprawnieniem mogłoby być budowanie aplikacji z~komponentów w~edytorze, a~następnie generowanie "stałych" klas i~kompilowanie zmodyfikowanego w~ten sposób kodu do pliku wykonywalnego, który mógłby być dystrybuowany jako gotowa aplikacja.\\
+Jak widać każda z~tych składowych może stanowić pewną jednostkę (ang. \emph{entity}) budującą system - w~tym wypadku system graficzny (wyróżnia się również na przykład systemy fizyki). Jednostki można również podzielić na mniejsze komponenty, które można dynamicznie dodawać i~usuwać w trakcie działania - podejście takie zgodne jest wzorcem \emph{Entity-Component-System}. Jak zauważono podczas testowania opisywanego oprogramowania, poza wygodą oraz nowymi możliwościami rozwoju wykorzystanie dynamicznych komponentów wprowadza także narzut czasowy ze względu na wykorzystanie metod wirtualnych oraz nieoptymalne wykorzystanie pamięci podręcznej procesora. W~tym wypadku możliwym usprawnieniem mogłoby być budowanie aplikacji z~komponentów w~edytorze, a~następnie generowanie ''stałych'' klas i~kompilowanie zmodyfikowanego w~ten sposób kodu do pliku wykonywalnego, który mógłby być dystrybuowany jako gotowa aplikacja.\\
 Nieoptymalne wykorzystanie pamięci podręcznej procesora dotyczy nie tylko wykorzystania komponentów, gdyż jest wąskim gardłem większości zarówno amatorskich jak i~profesjonalnych silników graficznych. W~celu zniwelowania tego problemu można utworzyć pewien stały obszar pamięci (w~języku C++ w~wersji 11. w tym celu wykorzystać można operator \emph{placement new}) i~utworzyć pulę obiektów, w~ramach której mogłyby one być używane ponownie bez konieczności zwalniania zajmowanej przez nie pamięci.\\
 Ostatnim usprawnieniem, które można byłoby wprowadzić celem zwiększenia efektywności procesu renderingu jest wielowątkowość, która jednak wymagałaby wprowadzenia synchronizacji między wątkami aplikacji (np. zamki) oraz użycia metod DirectX obsługujących wielowątkowość (np. operować na opóźnionym kontekście urządzenia). Jej użycie utrudniałoby też skuteczną naprawę błędów ze względu na brak możliwości odpluskwiania kodu w środowisku Microsoft Visual Studio, w którym tworzone było to oprogramowanie.\\
 Dla silnika została napisana i wygenerowana z wykorzystaniem aplikacji Doxygen dokumentacja, jednak ze względu na swoją objętość (150 stron) nie została tutaj załączona.
@@ -54,17 +54,25 @@ Poziom został stworzony z myślą o grze wieloosobowej w trybie każdy na każd
 
 W ramach wsparcia DirectX 11, Unreal Development Kit obsługuje trzy opisane w~rozdziale teoretycznym techniki: rozproszenie podpowierzchniowe (subsurface scattering), deferred shading (znany także jako \emph{deferred rendering}) oraz rozszerzenie techniki głębi ostrości o~nazwie \emph{bokeh depth of field} (bokeh [od jap. \emph{boke} w romaji - rozmycie] to efekt rozmycia obrazu z pewnym zniekształceniem, którego kształt zależy od kształtu soczewki - Rys. \ref{bokeh_example}).\\
 
-Technikę rozproszenia podpowierzchniowego wykorzystano w~celu stworzenia materiału, z~którego wykonany jest gracz. Zgodnie z~\cite{udk_sss}, aby tego dokonać, należy najpierw aktywować opcję ''Enable Subsurface Scattering'' w~zakładce ''D3D11'', a~następnie ustawić wymagane parametry, czyli kolor światła rozproszonego (SubsurfaceInscatteringColor), kolor światła pochłoniętego (SubsurfaceAbsorptionColor) oraz promień rozproszenia (SubsurfaceScatteringRadius). W celu uzyskania realistycznego wyglądu materiału, zmieniono także metodę mieszania na ''BLEND\_Translucent'' (pozwala to uzyskać materiał półprzezroczysty, w przeciwieństwie do domyślnej wartości BLEND\_Opaque). Na Rys. \ref{sss_material} przedstawiony został widok materiału w edytorze, zaś na Rys. \ref{sss_material_example} - przykłady jego użycia.\\
+Technikę rozproszenia podpowierzchniowego wykorzystano w~celu stworzenia materiału, z~którego wykonany jest gracz. Zgodnie z~\cite{udk_sss}, aby tego dokonać, należy najpierw aktywować opcję ''Enable Subsurface Scattering'' w~zakładce ''D3D11'', a~następnie ustawić wymagane parametry, czyli kolor światła rozproszonego (SubsurfaceInscatteringColor), kolor światła pochłoniętego (SubsurfaceAbsorptionColor) oraz promień rozproszenia (SubsurfaceScatteringRadius). W celu uzyskania realistycznego wyglądu materiału, zmieniono także metodę mieszania na ''BLEND\_Translucent'' (pozwala to uzyskać materiał półprzezroczysty, w przeciwieństwie do domyślnej wartości BLEND\_Opaque). Na Rys. \ref{sss_material_editor} przedstawiony został widok materiału w edytorze, zaś na Rys. \ref{sss_material_example} - przykłady jego użycia.\\
 
 Z~\cite{udk_bokeh_dof} wynika, iż użycie techniki Bokeh Depth of Field wymaga jedynie utworzenie odpowiedniej tekstury (w~niniejszej pracy użyto tekstury pięciokąta foremnego pokazanej na~Rys. \ref{bokeh_texture}) oraz ustawienia wartości ''DepthOfFieldType'' na ''BokehDOF'' w efekcie końcowym procesu renderingu (etap ten nie ma swojej nazwy w języku polskim, natomiast oryginalnie nosi nazwę \emph{post-processing}).\\
 
-Ostatnia funkcjonalność DirectX 11, czyli Deferred Shading jest włączona domyślnie gdy używany jest renderer DX11, dzięki czemu nie było koniecznym włączenie tej opcji ręcznie.
+Ostatnia funkcjonalność DirectX 11, czyli Deferred Shading jest włączona domyślnie gdy używany jest renderer DX11 \cite{udk_deferred_shading}, dzięki czemu nie było koniecznym włączenie tej opcji ręcznie.
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.4]{figures/bokeh.jpg}
 \captionsource{Rodzaje bokeh}{http:\/\/www.dofpro.com\/gallery\/dofpro\_spherical\_aberrations.jpg}
 \label{bokeh_example}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{figures/sss_material_editor.jpg}
+\caption{Materiał wykorzystujący rozproszenie podpowierzchniowe w edytorze}
+\label{sss_material_editor}
 \end{center}
 \end{figure}
 
@@ -83,6 +91,10 @@ Ostatnia funkcjonalność DirectX 11, czyli Deferred Shading jest włączona dom
 \label{bokeh_texture}
 \end{center}
 \end{figure}
+
+\subsection{Skryptowanie}
+
+Jednym z elementów pracy własnej jest oskryptowanie działań, obiektów, mechanizmów rządzących rozgrywką. Sama implementacja skryptów odbywała się w języku UnrealScript, który jest językiem skryptowym, stworzonym na potrzeby Unreal Engine. Język ten jest zorientowany obiektowo i niewrażliwy na wielkość liter. Użyto tego języka do stworzenia kodu odpowiedzialnego za wykorzystanie kamery trzecioosobowej, kontrolę gracza oraz stworzenie nowych rodzajów broni, które zostały wykorzystane w rozgrywce wieloosobowej.
 
 \subsection{Zarządzanie projektem}
 W~celu sprawnej organizacji pracy w~zespole wykorzystano metody zarządzania projektami. Uspójnienie projektu gry podczas fazy projektowania pozwoliło na zdefiniowanie i~wyspecyfikowanie zadań, realizowanych podczas implementacji. Znając liczbę zadań, można było podzielić projekt na kolejne przyrosty. Projekt miał być realizowany z~wykorzystaniem metod zwinnych. Trudnością w~wykorzystaniu typowej zwinnej metody, takiej jak programowanie ekstremalne czy Scrum okazał się charakter projektu, będącego pracą dyplomową. Z~tego względu narzucony został ostateczny termin ukończenia produktu. Jest to sprzeczne z manifestem zwinności, dlatego zdecydowano się na inne rozwiązanie.
