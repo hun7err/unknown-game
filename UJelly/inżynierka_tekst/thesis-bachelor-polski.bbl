@@ -1,9 +1,19 @@
-\begin{thebibliography}{JD07}
+\begin{thebibliography}{Ada11}
+
+\bibitem[Ada11]{Adams:pgp}
+Ernest Adams.
+\newblock {\em Projektowanie gier. Podstawy. Wydanie II}.
+\newblock Wydawnictwo HELION, ul. Kościuszki 1c, 44-100 Gliwice, 2011.
 
 \bibitem[JD07]{gpugems_23}
 NVIDIA Joe~Demers.
 \newblock Depth of field: A survey of techniques.
 \newblock [on-line]
   \url{http://http.developer.nvidia.com/GPUGems/gpugems_ch23.html}, 2007.
+
+\bibitem[Kac14]{Kaczor:Scrum}
+Krystian Kaczor.
+\newblock {\em Scrum i nie tylko. Teoria i praktyka w metodach Agile}.
+\newblock Wydawnictwo Naukowe PWN SA, Warszawa, 2014.
 
 \end{thebibliography}
