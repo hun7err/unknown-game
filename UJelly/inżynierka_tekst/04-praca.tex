@@ -69,6 +69,15 @@ Następnym krokiem było stworzenie poziomu w~edytorze. W~tym celu wykorzystano 
 Poziom został stworzony z~myślą o~grze wieloosobowej w~trybie każdy na każdego, w~związku z~tym nie było potrzeby tworzenia specjalnych sektorów dla każdej drużyny, a~co za tym idzie jest więcej punktów startowych i~w kolejnych rozgrywkach możliwe jest wylosowanie innego, więc konieczne są modyfikacje taktyki i~sposobu gry, wynikające z~innego otoczenia startowego.
 
 \section{Implementacja}
+Jednym z~elementów pracy własnej jest oskryptowanie działań, obiektów, mechanizmów rządzących rozgrywką. Sama implementacja skryptów odbywała się w~języku UnrealScript, który jest językiem skryptowym, stworzonym na potrzeby Unreal Engine. Język ten jest zorientowany obiektowo i~niewrażliwy na wielkość liter. Użyto tego języka do stworzenia kodu odpowiedzialnego za wykorzystanie kamery trzecioosobowej, kontrolę gracza oraz stworzenie nowych rodzajów broni, które zostały wykorzystane w~rozgrywce wieloosobowej.
+
+Skrypt kontrolujący gracza pozwolił zaimplementować życie jako aminucję. W~momencie użycia broni palnej, gracz pozbawiany jest części życia. Ważne okazało się odpowiednie umieszczenie skrytpu w~strukturze katalogowej silnika. Początkowa błędna lokalizacja powodowała zmniejszenie liczby punktów życia wszystkim graczom na planszy, nie tylko strzelającemu.
+
+Tworzenie broni dostępnej w~rozgrywce wieloosobowej polegało na opisaniu zachowania broni w momencie wykonywania nią ataku. Skrypty te uruchamiają również odpowiednią animację, przedstawiającą ruch broni. Określone jest również zachowanie broni i przeciwnika podczas wykrytej kolizji z nim. 
+
+W~UDK istenieje kilka sposobów stworzenia kamery z~widokiem z~perspektywy trzeciej osoby. Najprostszym sposobem jest wykorzystanie technologii UnrealKismet, która pozwala połączyć odpowiednie akcje kilkoma kliknięciami. Efekt nie okazał się jednak satysfakcjonujący, dlatego zdecydowano się na użycie skryptów. %można by tu coś o tym skrypcie napisać?%
+Przewagą skrytpowania jest trwałość działania. Przy użyciu skryptu kamera cały czas pozostaje trzecioosobowa. Przy wykorzystaniu prostszego rozwiązania, opisanego wcześniej, po śmierci gracza widok zmieniał się na pierwszoosobowy. 
+%czy dodać coś, że źle umiejscowione skrypty nie działają w multi?
 
 \subsection{Wykorzystanie technologii DirectX 11 w~UDK}
 
@@ -111,10 +120,6 @@ Ostatnia funkcjonalność DirectX 11, czyli Deferred Shading jest włączona dom
 \label{bokeh_texture}
 \end{center}
 \end{figure}
-
-\subsection{Skryptowanie}
-
-Jednym z~elementów pracy własnej jest oskryptowanie działań, obiektów, mechanizmów rządzących rozgrywką. Sama implementacja skryptów odbywała się w~języku UnrealScript, który jest językiem skryptowym, stworzonym na potrzeby Unreal Engine. Język ten jest zorientowany obiektowo i~niewrażliwy na wielkość liter. Użyto tego języka do stworzenia kodu odpowiedzialnego za wykorzystanie kamery trzecioosobowej, kontrolę gracza oraz stworzenie nowych rodzajów broni, które zostały wykorzystane w~rozgrywce wieloosobowej.
 
 \subsection{Zarządzanie projektem}
 W~celu sprawnej organizacji pracy w~zespole wykorzystano metody zarządzania projektami. Uspójnienie projektu gry podczas fazy projektowania pozwoliło na zdefiniowanie i~wyspecyfikowanie zadań, realizowanych podczas implementacji. Znając liczbę zadań, można było podzielić projekt na kolejne przyrosty. Projekt miał być realizowany z~wykorzystaniem metod zwinnych. Trudnością w~wykorzystaniu typowej zwinnej metody, takiej jak programowanie ekstremalne czy Scrum okazał się charakter projektu, będącego pracą dyplomową. Z~tego względu narzucony został ostateczny termin ukończenia produktu. Jest to sprzeczne z~manifestem zwinności, dlatego zdecydowano się na inne rozwiązanie.
