@@ -96,47 +96,6 @@ Wady:
 \end{itemize}
 }
 
-\section{Unreal Engine 3}
-
-Unreal Engine 3 to silnik graficzny, który był wykorzystany w~takich produkcjach jak Bioshock Infinite, Bulletstorm czy Gears of War (wszystkie wymienione tytuły to wysokobudżetowe i~popularne gry komputerowe). Oferuje bardzo dobrą jakość przy stosunkowo niskich wymaganiach sprzętowych, a~rozszerzenie platform docelowych do między innymi urządzeń mobilnych uczyniło to narzędzie wyjątkowo popularnym wśród twórców gier AAA. Niestety licencja jest droga (jej cena nie jest stała i~zależy od ustaleń z~firmą Epic Games, która jest producentem tego oprogramowania), a~dostęp do kodu źródłowego i~plików binarnych możliwy jest jedynie przez repozytorium Perforce. W~związku z~zaporową ceną licencji narzędzie to zostało odrzucone.\\
-
-{\raggedright Zalety:
-\begin{itemize}
-\item dostęp do kodu źródłowego silnika,
-\item wsparcie dla DirectX 11,
-\item wiele platform docelowych.
-\end{itemize}
-
-Wady:
-\begin{itemize}
-\item wysoka cena licencji,
-\item tylko dla produktów komercyjnych (stąd wysoka cena),
-\item dostęp do kodu tylko przez repozytorium Perforce firmy Epic Games.
-\end{itemize}
-}
-
-\section{Unreal Development Kit (UDK)}
-
-Unreal Development Kit to darmowa wersja Unreal Engine 3, która -- ze względu na mnogość funkcjonalności i~wspomnianą darmową licencję -- stała się wyjątkowo popularna wśród aspirujących oraz niezależnych twórców gier. Jako że jest to nadal Unreal Engine 3, oferuje te same funkcjonalności pod warunkiem, iż~stworzona gra komputerowa nie jest produktem komercyjnym. Narzędzie to udostępniane jest w~postaci instalatora, który tworzy jeden projekt dla tego środowiska - jest to jedno z~nielicznych ograniczeń. Wraz z~utworzonym projektem przechowywane są pliki edytora w~tym narzędzie UnrealFrontend, które pozwala zarówno uruchomić wspomniany edytor jak i~zbudować plik wykonywalny z~grą.\\
-UDK obsługuje również DirectX 11 oferując szereg funkcjonalności z~tym związanych, co~jednak zostało opisane w~sekcji ''Implementacja'' rozdziału 4. ''Praca własna''. Istnieje także możliwość powiązania edytora z~repozytorium systemu Perforce, dzięki czemu opcje takie jak otwarcie pliku do~edycji czy przesłanie zmian na serwer dostępne są bezpośrednio w~menedżerze zawartości, a~nie -- jak jest to domyślnie -- dedykowanym oprogramowaniu klienckim P4 wspomnianego systemu kontroli wersji. Ostatnią opisywaną tutaj zaletą jest mnogość źródeł wiedzy, począwszy od obszernej dokumentacji po fora dyskusyjne użytkowników tego oprogramowania.\\
-Kolejną z~wad jest brak możliwości ingerencji w~kod źródłowy silnika, ponieważ jest on udostępniany w~postaci edytora i~odpowiednich bibliotek. W~związku z~tym konieczne jest poznanie dedykowanego do tworzenia skryptów mechaniki gry języka UnrealScript.
-Ze względu na dokumentację, darmową licencję, wygodne środowisko oraz obsługę DX11 narzędzie to zostało ostatecznie wybrane do realizacji niniejszej pracy.\\
-
-{\raggedright Zalety:
-\begin{itemize}
-\item wsparcie dla DirectX 11,
-\item darmowa licencja,
-\item wygodne środowisko,
-\item wiele źródeł wiedzy.
-\end{itemize}
-
-Wady:
-\begin{itemize}
-\item brak dostępu do kodu silnika,
-\item tylko jeden projekt w~ramach edytora.
-\end{itemize}
-}
-
 \section{Autodesk Maya}
 
 Maya to jedno z~licznych narzędzi firmy Autodesk służących do tworzenia modeli 3D. Pozwala ono na wykonywanie rozbudowanych modeli 3D oraz tak zwany ''rig'', czyli połączenie siatki modelu z~kośćmi i~ich animację. Niestety ze względu na brak doświadczenia w~zakresie modelowania w~tym oprogramowaniu konieczne było odrzucenie tego rozwiązania w~ramach pracy.
@@ -212,8 +171,8 @@ Wady:
 \section{Adobe Flash - Scaleform}
 
 Każda gra powinna mieć menu główne. W~celu jego stworzenia wykorzystano wtyczkę do Adobe Flash Professional o~nazwie Scaleform. Wtyczka ta służy do tworzenia interfejsów graficznych występujących na przykład w~grach. Wykorzystano to, że darmowa jej wersja jest zawarta w~UDK. Do jej zainstalowania potrzeba było pobrać Adobe Flash Professional a`także Adobe Extension Manager. Problemem było rozszerzenie wtyczki. Było ono kompatybilne tylko ze starymi wersjami Adobe Flash Professional, a~te niestety nie działały na Windowsie 8.1. W~związku z~tym konieczne stało się dodatkowe pobranie 
-Adobe Extension Manager CS6 i~przekonwertowanie wtyczki ze Scaleformem z~rozszerzenia mxp na zxp.
-Po przekonwertowaniu nowa wersja działała z~Adobe Flash Professional CC, który wykorzystano w~projekcie. Sam Scaleform jest prosty w~obsłudze i~intuicyjny, wykorzystuje flasha, a~dodatkowo jest kompatybilny z~UDK i~łatwo można za jego pomocą połączyć menu z~grą.
+Adobe Extension Manager CS6 i~konwersja wtyczki ze Scaleformem z~rozszerzenia mxp na zxp.
+Po konwersji nowa wersja działała z~Adobe Flash Professional CC, który wykorzystano w~projekcie. Sam Scaleform jest prosty w~obsłudze i~intuicyjny, wykorzystuje flasha, a~dodatkowo jest kompatybilny z~UDK i~łatwo można za jego pomocą połączyć menu z~grą.
 
 {\raggedright Zalety:
 \begin{itemize}
@@ -267,7 +226,7 @@ Wady:
 
 \section{Jira}
 
-Przy pracy w~kilkuosobowych zespołach przydaje się również oprogramowanie do zarządzania projektem. Skorzystano tu z~platformy Jira. Umożliwia ona przydział zadań do poszczególnych członków zespołu. Ułatwia to pracę w~wiele osób, poniewż zabezpiecza przed sytuacją, w~której kilka osób będzie wykonywało to samo zadanie. Wbudowany system szacowania czasu realizacji zadania pomaga oszacować czas potrzebny na stworzenie danej funkcjonalności i~zakończenie projektu. Jira posiada również możliwość zintegrowania z~systemem kontroli wersji, co pozwala śledzić postęp prac, na podstawie komentarzy przy tworzeniu kolejnych rewizji.
+Przy pracy w~kilkuosobowych zespołach przydaje się również oprogramowanie do zarządzania projektem. Skorzystano tu z~platformy Jira. Umożliwia ona przydział zadań do poszczególnych członków zespołu. Ułatwia to pracę w~wiele osób, ponieważ zabezpiecza przed sytuacją, w~której kilka osób będzie wykonywało to samo zadanie. Wbudowany system szacowania czasu realizacji zadania pomaga oszacować czas potrzebny na stworzenie danej funkcjonalności i~zakończenie projektu. Jira posiada również możliwość zintegrowania z~systemem kontroli wersji, co pozwala śledzić postęp prac, na podstawie komentarzy przy tworzeniu kolejnych rewizji.
 
 {\raggedright Zalety:
 \begin{itemize}
@@ -281,5 +240,46 @@ Wady:
 \begin{itemize}
 \item tylko płatna licencja
 \item nie do końca czytelny interfejs
+\end{itemize}
+}
+
+\section{Unreal Engine 3}
+
+Unreal Engine 3 to silnik graficzny, który był wykorzystany w~takich produkcjach jak Bioshock Infinite, Bulletstorm czy Gears of War (wszystkie wymienione tytuły to wysokobudżetowe i~popularne gry komputerowe). Oferuje bardzo dobrą jakość przy stosunkowo niskich wymaganiach sprzętowych, a~rozszerzenie platform docelowych do między innymi urządzeń mobilnych uczyniło to narzędzie wyjątkowo popularnym wśród twórców gier AAA. Niestety licencja jest droga (jej cena nie jest stała i~zależy od ustaleń z~firmą Epic Games, która jest producentem tego oprogramowania), a~dostęp do kodu źródłowego i~plików binarnych możliwy jest jedynie przez repozytorium Perforce. W~związku z~zaporową ceną licencji narzędzie to zostało odrzucone.\\
+
+{\raggedright Zalety:
+\begin{itemize}
+\item dostęp do kodu źródłowego silnika,
+\item wsparcie dla DirectX 11,
+\item wiele platform docelowych.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item wysoka cena licencji,
+\item tylko dla produktów komercyjnych (stąd wysoka cena),
+\item dostęp do kodu tylko przez repozytorium Perforce firmy Epic Games.
+\end{itemize}
+}
+
+\section{Unreal Development Kit (UDK)}
+
+Unreal Development Kit to darmowa wersja Unreal Engine 3, która -- ze względu na mnogość funkcjonalności i~wspomnianą darmową licencję -- stała się wyjątkowo popularna wśród aspirujących oraz niezależnych twórców gier. Jako że jest to nadal Unreal Engine 3, oferuje te same funkcjonalności pod warunkiem, iż~stworzona gra komputerowa nie jest produktem komercyjnym. Narzędzie to udostępniane jest w~postaci instalatora, który tworzy jeden projekt dla tego środowiska - jest to jedno z~nielicznych ograniczeń. Wraz z~utworzonym projektem przechowywane są pliki edytora w~tym narzędzie UnrealFrontend, które pozwala zarówno uruchomić wspomniany edytor jak i~zbudować plik wykonywalny z~grą.\\
+UDK obsługuje również DirectX 11 oferując szereg funkcjonalności z~tym związanych, co~jednak zostało opisane w~sekcji ''Implementacja'' rozdziału 4. ''Praca własna''. Istnieje także możliwość powiązania edytora z~repozytorium systemu Perforce, dzięki czemu opcje takie jak otwarcie pliku do~edycji czy przesłanie zmian na serwer dostępne są bezpośrednio w~menedżerze zawartości, a~nie -- jak jest to domyślnie -- dedykowanym oprogramowaniu klienckim P4 wspomnianego systemu kontroli wersji. Ostatnią opisywaną tutaj zaletą jest mnogość źródeł wiedzy, począwszy od obszernej dokumentacji po fora dyskusyjne użytkowników tego oprogramowania.\\
+Kolejnym z~ograniczeń jest brak możliwości ingerencji w~kod źródłowy silnika, ponieważ jest on udostępniany w~postaci edytora i~odpowiednich bibliotek. W~związku z~tym konieczne jest poznanie dedykowanego do tworzenia skryptów mechaniki gry języka UnrealScript.
+Ze względu na dokumentację, darmową licencję, wygodne środowisko oraz obsługę DX11 narzędzie to zostało ostatecznie wybrane do realizacji niniejszej pracy.\\
+
+{\raggedright Zalety:
+\begin{itemize}
+\item wsparcie dla DirectX 11,
+\item darmowa licencja,
+\item wygodne środowisko,
+\item wiele źródeł wiedzy.
+\end{itemize}
+
+Wady:
+\begin{itemize}
+\item brak dostępu do kodu silnika,
+\item tylko jeden projekt w~ramach edytora.
 \end{itemize}
 }
